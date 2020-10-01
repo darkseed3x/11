@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testSuite name="Регрессионное-модульное" id="835fdc3f-ce1d-4146-87fd-5083f40cf161" disabled="true" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="835fdc3f-ce1d-4146-87fd-5083f40cf161fileName">Регрессионное-модульное</con:setting></con:settings><con:runType>SEQUENTIAL</con:runType><con:properties><con:property><con:name>Path</con:name><con:value>C:\!B2BTXT\</con:value></con:property></con:properties><con:reportParameters/></con:testSuite>

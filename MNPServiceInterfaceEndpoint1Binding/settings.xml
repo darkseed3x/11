@@ -1,0 +1,3541 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:interface xsi:type="con:WsdlInterface" wsaVersion="NONE" name="MNPServiceInterfaceEndpoint1Binding" type="wsdl" bindingName="{http://xmlns.example.com/1403683531321}MNPServiceInterfaceEndpoint1Binding" soapVersion="1_1" anonymous="optional" definition="http://meteor-esb.g4lab.com:8080/Processes/MNPService/MNPService.serviceagent?wsdl" id="a49576a3-536e-4360-9fee-616133bc0fb8" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="a49576a3-536e-4360-9fee-616133bc0fb8fileName">MNPServiceInterfaceEndpoint1Binding</con:setting></con:settings><con:definitionCache type="TEXT" rootPart="http://meteor-esb.g4lab.com:8080/Processes/MNPService/MNPService.serviceagent?wsdl"><con:part><con:url>http://meteor-esb.g4lab.com:8080/Processes/MNPService/MNPService.serviceagent?wsdl</con:url><con:content><![CDATA[<!--Created by TIBCO WSDL-->
+<wsdl:definitions name="Untitled" targetNamespace="http://xmlns.example.com/1403683531321" xmlns:ns0="http://www.yota.ru/vox/services/mnpService" xmlns:ns2="http://www.yota.ru/vox/domains/common/com" xmlns:ns1="http://www.roox.ru/products/common/rr" xmlns:ns4="http://www.roox.ru/products/common/core" xmlns:ns3="http://www.roox.ru/products/common/va" xmlns:ns6="http://www.roox.ru/products/common/dictionaries" xmlns:ns5="http://www.yota.ru/vox/domains/customer" xmlns:ns8="http://www.yota.ru/vox/domains/common/dictionaries_1.1" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns7="http://www.roox.ru/products/common/com" xmlns:ns9="http://www.yota.ru/vox/domains/common/core" xmlns:ns10="http://www.yota.ru/vox/domains/order" xmlns:tns="http://xmlns.example.com/1403683531321" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:types>
+    <xs:schema targetNamespace="http://www.yota.ru/vox/domains/common/com" elementFormDefault="unqualified" attributeFormDefault="unqualified" xmlns="http://www.yota.ru/vox/domains/common/com" xmlns:com="http://www.yota.ru/vox/domains/common/com" xmlns:cor="http://www.yota.ru/vox/domains/common/core" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:dic="http://www.yota.ru/vox/domains/common/dictionaries_1.1">
+      <xs:import namespace="http://www.yota.ru/vox/domains/common/core"/>
+      <xs:import namespace="http://www.yota.ru/vox/domains/common/dictionaries_1.1"/>
+      <xs:complexType name="BusinessEntity">
+        <xs:annotation>
+          <xs:documentation>Бизнес-значимая сущность. С поддержкой историчности.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element name="livingPeriod" type="com:LivingPeriod"/>
+          <xs:element name="created" type="xs:dateTime" minOccurs="0"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="CodedObject">
+        <xs:annotation>
+          <xs:documentation>Идентифицируемый текстовым кодом объект</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element name="code" type="cor:ReferenceItemCodeType">
+            <xs:annotation>
+              <xs:documentation>Текстовый идентификатор сущности</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="description" type="xs:string" minOccurs="0"/>
+          <xs:element name="name" type="cor:NameType"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ExtendCodedObject">
+        <xs:sequence>
+          <xs:element name="name" type="cor:LocaleValue" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="description" type="cor:LocaleValue" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="primaryObject" type="com:CodedObject"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ExtendNamedObject">
+        <xs:annotation>
+          <xs:documentation>Локализованная информация именованного объекта</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element name="description" type="cor:LocaleValue" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+              <xs:documentation>Список локализованных описаний объекта</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="name" type="cor:LocaleValue" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+              <xs:documentation>Список локализованных названий объекта</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="primaryObject" type="com:NamedObject"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GPSCoordinates">
+        <xs:sequence>
+          <xs:element name="latitude" type="xs:string"/>
+          <xs:element name="longitude" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="IdentifiedObject">
+        <xs:annotation>
+          <xs:documentation>Идентифицируемый объект</xs:documentation>
+        </xs:annotation>
+        <xs:attribute name="id" type="xs:long">
+          <xs:annotation>
+            <xs:documentation>Идентификатор объекта</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:complexType>
+      <xs:complexType name="LivingPeriod">
+        <xs:annotation>
+          <xs:documentation>Временной интервал жизни объекта</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element name="fromDate" type="xs:dateTime"/>
+          <xs:element name="untilTo" type="xs:dateTime" minOccurs="0"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="LivingTime">
+        <xs:annotation>
+          <xs:documentation>Время жизни экземпляра может задаваться одним из следующих вариантов:
+1) Длительность. Количество дней действия
+2) Дата начала и дата окончания жизни</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element name="dayCount" type="xs:int" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Количество дней действия</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="beginDate" type="xs:dateTime" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Дата начала действия</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="endDate" type="xs:dateTime" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Дата окончания действия</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="NamedCodedObject">
+        <xs:annotation>
+          <xs:documentation>Базовый тип именованного объекта с кодом</xs:documentation>
+        </xs:annotation>
+        <xs:complexContent>
+          <xs:extension base="com:NamedObject">
+            <xs:sequence>
+              <xs:element name="code" type="cor:ReferenceItemCodeType">
+                <xs:annotation>
+                  <xs:documentation>Строковый код объекта.</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="NamedObject">
+        <xs:annotation>
+          <xs:documentation>Именованный объект</xs:documentation>
+        </xs:annotation>
+        <xs:complexContent>
+          <xs:extension base="com:IdentifiedObject">
+            <xs:sequence>
+              <xs:element name="name" type="cor:NameType">
+                <xs:annotation>
+                  <xs:documentation>Имя объекта</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element name="description" type="xs:string" minOccurs="0">
+                <xs:annotation>
+                  <xs:documentation>Описание объекта</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="PersonalDataID">
+        <xs:annotation>
+          <xs:documentation>Первичный ключ объекта клиента</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element name="key" type="dic:PersonalDataIDTypeEnum"/>
+          <xs:element name="value" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="PersonalDataIdentifiedObject">
+        <xs:attribute name="customerId" type="xs:string"/>
+        <xs:attribute name="hid" type="xs:long"/>
+      </xs:complexType>
+      <xs:complexType name="PhysicalResourceSpecAttribute">
+        <xs:annotation>
+          <xs:documentation>Пары атрибут-значение для поиска спецификаций устройств</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element name="value" type="xs:string">
+            <xs:annotation>
+              <xs:documentation>Значение атрибута</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="name" type="dic:PhysicalDeviceSpecAttributeEnum">
+            <xs:annotation>
+              <xs:documentation>Имя параметра спецификации физического устройства по которому нужно осуществлять поиск</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="PushToken">
+        <xs:sequence>
+          <xs:element name="token" type="xs:string"/>
+          <xs:element name="OS" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ReferenceItem">
+        <xs:annotation>
+          <xs:documentation>Элемент справочника</xs:documentation>
+        </xs:annotation>
+        <xs:complexContent>
+          <xs:extension base="com:NamedCodedObject"/>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="ResourceID">
+        <xs:annotation>
+          <xs:documentation>Структура, описывающая идентификатор ресурса (не применяется для логических ресурсов, кроме пин-кода)</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element name="key" type="xs:string">
+            <xs:annotation>
+              <xs:documentation>Значение</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="type" type="dic:ResourceIdentificationEnum">
+            <xs:annotation>
+              <xs:documentation>Тип идентификатора</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+    <xs:schema targetNamespace="http://www.roox.ru/products/common/va" elementFormDefault="unqualified" attributeFormDefault="unqualified" xmlns:com="http://www.roox.ru/products/common/com" xmlns:cor="http://www.roox.ru/products/common/core" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:va="http://www.roox.ru/products/common/va" xmlns:dic="http://www.roox.ru/products/common/dictionaries">
+      <xs:import namespace="http://www.roox.ru/products/common/com"/>
+      <xs:import namespace="http://www.roox.ru/products/common/core"/>
+      <xs:import namespace="http://www.roox.ru/products/common/dictionaries"/>
+      <xs:complexType name="AttributeValue">
+        <xs:annotation>
+          <xs:documentation>Значение атрибута</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element name="value" type="xs:string" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>{PROPERTY:field.useInEquals}Значение атрибута</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="refitemId" type="cor:ReferenceItemCodeType" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>{PROPERTY:field.useInEquals}Поле для поддержки справочников - передается для атрибутов типа справочник . Сюда
+                        сохраняется Reference.code, а в value сохраняется Reference.name</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="attributeId" type="xs:long">
+            <xs:annotation>
+              <xs:documentation>{PROPERTY:field.useInEquals}Идентификатор атрибута, который описывает значение</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ValidationRule">
+        <xs:annotation>
+          <xs:documentation>Правило валидации</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element name="errorMessage" type="xs:string">
+            <xs:annotation>
+              <xs:documentation>Сообщение, которое отображается пользователю при нарушении правила</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="errorCode" type="xs:integer">
+            <xs:annotation>
+              <xs:documentation>Код сообщения об ошибке</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="attributeId" type="xs:long">
+            <xs:annotation>
+              <xs:documentation>Идентикиатор соответствующего атрибута</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="sortOrder" type="xs:long">
+            <xs:annotation>
+              <xs:documentation>Порядок применения валидационного правила</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="validationElements" type="va:ValidationRuleElement" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ValidationRuleElement">
+        <xs:annotation>
+          <xs:documentation>Элемент правила, критерий проверки</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element name="ruleType" type="dic:ValidationRuleTypeEnum">
+            <xs:annotation>
+              <xs:documentation>Тип проверки</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="value" type="xs:string">
+            <xs:annotation>
+              <xs:documentation>Значение для проверки</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+    <xs:schema targetNamespace="http://www.roox.ru/products/common/core" version="1.0" elementFormDefault="qualified" attributeFormDefault="unqualified" xmlns:cor="http://www.roox.ru/products/common/core" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:dic="http://www.roox.ru/products/common/dictionaries">
+      <xs:import namespace="http://www.roox.ru/products/common/dictionaries"/>
+      <xs:complexType name="AmountType">
+        <xs:annotation>
+          <xs:documentation>Тип, содержащий денежное значение</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element name="amount" type="cor:MoneyType">
+            <xs:annotation>
+              <xs:documentation>Сумма в указанной валюте</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="currencyCode" type="dic:CurrencyCodeEnum">
+          <xs:annotation>
+            <xs:documentation>Код валюты</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:complexType>
+      <xs:complexType name="CharValue">
+        <xs:sequence>
+          <xs:element name="value" type="xs:string" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>{PROPERTY:field.useInEquals}Единичное значение характеристики</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="intervalValue" type="cor:CharValueInterval" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>{PROPERTY:field.useInEquals}Интервальное значение характеристики</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="CharValueInterval">
+        <xs:sequence>
+          <xs:element name="valueFrom" type="xs:string" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>{PROPERTY:field.useInEquals}Начальное значение интервала</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="valueTo" type="xs:string" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>{PROPERTY:field.useInEquals}Значение окончания интервала</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="rangeType" type="dic:RangeTypeEnum" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>{PROPERTY:field.useInEquals}Тип вхождения граничных значений в интервал.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:simpleType name="CodeType">
+        <xs:annotation>
+          <xs:documentation>Тип для представления кодов</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:token">
+          <xs:pattern value="\d{12}"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="CustomerNameType">
+        <xs:annotation>
+          <xs:documentation>Представление для имен пользователя ФЛ</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+          <xs:minLength value="2"/>
+          <xs:maxLength value="64"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="EMailType">
+        <xs:annotation>
+          <xs:documentation>Представление для адреса электронной почты</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="100"/>
+          <xs:pattern value="([a-zA-Z0-9\.\-_]+)@(([a-zA-Z0-9\-_]+\.)+[a-zA-Z]{2,})"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:complexType name="EmptyType">
+        <xs:annotation>
+          <xs:documentation>Совсем пустой тип</xs:documentation>
+        </xs:annotation>
+      </xs:complexType>
+      <xs:complexType name="ExtendableType">
+        <xs:sequence>
+          <xs:element name="extension" type="cor:ExtensionType" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>{PROPERTY:field.notUseInEquals}</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ExtensionType">
+        <xs:sequence>
+          <xs:element name="item" type="xs:anyType" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:simpleType name="ExternalIdentificatorType">
+        <xs:annotation>
+          <xs:documentation>Тип внешнего идентификатора.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:long"/>
+      </xs:simpleType>
+      <xs:simpleType name="IDType">
+        <xs:annotation>
+          <xs:documentation>Представление для целочисленных идентификаторов</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:long">
+          <xs:fractionDigits value="0"/>
+          <xs:totalDigits value="19"/>
+          <xs:pattern value="\d{19}"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="IPType">
+        <xs:annotation>
+          <xs:documentation>Представление IP адреса</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+          <xs:pattern value="(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:complexType name="KeyValue">
+        <xs:annotation>
+          <xs:documentation>Для пар: ключ-значение</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element name="value" type="xs:string">
+            <xs:annotation>
+              <xs:documentation>{PROPERTY:field.useInEquals}имя</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="key" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>{PROPERTY:field.useInEquals}имя</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:complexType>
+      <xs:complexType name="LocaleValue">
+        <xs:sequence>
+          <xs:element name="value" type="xs:string">
+            <xs:annotation>
+              <xs:documentation>{PROPERTY:field.useInEquals}</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="locale" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>{PROPERTY:field.useInEquals}имя</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:complexType>
+      <xs:simpleType name="LoginType">
+        <xs:annotation>
+          <xs:documentation>Представление для логина пользователя</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string"/>
+      </xs:simpleType>
+      <xs:simpleType name="LongNameType">
+        <xs:annotation>
+          <xs:documentation>Представление для названий</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+          <xs:minLength value="2"/>
+          <xs:maxLength value="255"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="MACType">
+        <xs:annotation>
+          <xs:documentation>Представление для MAC адреса устройства</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+          <xs:pattern value="[0-9A-F]{12}"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="MoneyType">
+        <xs:annotation>
+          <xs:documentation>Представление для денежных сумм</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:decimal">
+          <xs:fractionDigits value="2"/>
+          <xs:totalDigits value="20"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="NameType">
+        <xs:annotation>
+          <xs:documentation>Представление для названий</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="64"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="OperatorLoginType">
+        <xs:annotation>
+          <xs:documentation>Представление для логина оператор системы</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:token">
+          <xs:maxLength value="32"/>
+          <xs:pattern value="[a-zA-Z][a-zA-Z0-9]+"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="PasswordType">
+        <xs:annotation>
+          <xs:documentation>Представление для пароля</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+          <xs:minLength value="6"/>
+          <xs:maxLength value="24"/>
+          <xs:pattern value="[A-Za-z0-9 (!#$%()*+,-./\\:;?@`\[\]^_'{|}~)]+"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="PhResourceNameType">
+        <xs:annotation>
+          <xs:documentation>Тип для представления пользовательского имени устройства</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+          <xs:minLength value="1"/>
+          <xs:maxLength value="64"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="PhoneType">
+        <xs:annotation>
+          <xs:documentation>Представление для номера телефона</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+          <xs:pattern value="[1-79][0-9]{10}|[1-9][0-9]{11,14}"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:complexType name="PropertyType">
+        <xs:annotation>
+          <xs:documentation>Пара имя:значение</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element name="value" type="xs:string">
+            <xs:annotation>
+              <xs:documentation>{PROPERTY:field.useInEquals}значение</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="name" use="required" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>{PROPERTY:field.useInEquals}имя</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:complexType>
+      <xs:complexType name="PropertyValue">
+        <xs:annotation>
+          <xs:documentation>Тип, содержащий значение(я) атрибута для фильтрации объектов</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element name="operation" type="dic:CompareOperationEnum">
+            <xs:annotation>
+              <xs:documentation>{PROPERTY:field.useInEquals}Тип операции сравнения</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="values" type="xs:string" maxOccurs="unbounded">
+            <xs:annotation>
+              <xs:documentation>{PROPERTY:field.useInEquals}Значения для сравнения</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="filterOperation" type="xs:boolean">
+            <xs:annotation>
+              <xs:documentation>{PROPERTY:field.useInEquals}Фильтрующий (обязательный) критерий  - все результаты поиска должны удовлетворять заданному условию</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:simpleType name="ReferenceItemCodeType">
+        <xs:annotation>
+          <xs:documentation>Представление для кода элемента справочника</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+          <xs:minLength value="1"/>
+          <xs:maxLength value="32"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="RegionFormatType">
+        <xs:annotation>
+          <xs:documentation>Представление для региона</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+          <xs:pattern value="\d{13}"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:complexType name="RequestContextType">
+        <xs:sequence>
+          <xs:element name="sender" type="xs:string" minOccurs="0"/>
+          <xs:element name="actorId" type="xs:string" minOccurs="0"/>
+          <xs:element name="targetId" type="xs:string" minOccurs="0"/>
+          <xs:element name="actionId" type="xs:int" minOccurs="0"/>
+          <xs:element name="correlationId" type="xs:string" minOccurs="0"/>
+          <xs:element name="dataAfter" type="xs:anyType" minOccurs="0"/>
+          <xs:element name="dataBefore" type="xs:anyType" minOccurs="0"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="UIDElementType">
+        <xs:annotation>
+          <xs:documentation>OBSOLETED: Обёртка для идентификатора пользователя</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element name="uid" type="cor:UIDType">
+            <xs:annotation>
+              <xs:documentation>{PROPERTY:field.useInEquals}Уникальный идентификатор пользователя</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:simpleType name="UIDType">
+        <xs:annotation>
+          <xs:documentation>Представление для идентификатора пользователя</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:long">
+          <xs:fractionDigits value="0"/>
+          <xs:totalDigits value="10"/>
+          <xs:pattern value="\d{10}"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:element name="extension" type="cor:ExtensionType"/>
+    </xs:schema>
+    <xs:schema targetNamespace="http://www.roox.ru/products/common/rr" version="1.0" elementFormDefault="qualified" attributeFormDefault="unqualified" xmlns:rr="http://www.roox.ru/products/common/rr" xmlns:com="http://www.roox.ru/products/common/com" xmlns:cor="http://www.roox.ru/products/common/core" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:va="http://www.roox.ru/products/common/va">
+      <xs:import namespace="http://www.roox.ru/products/common/com"/>
+      <xs:import namespace="http://www.roox.ru/products/common/core"/>
+      <xs:import namespace="http://www.roox.ru/products/common/va"/>
+      <xs:complexType name="BaseRRType">
+        <xs:annotation>
+          <xs:documentation>{PROPERTY:class.allFieldsUseInEquals}Ð¢Ð¸Ð¿ Ð¸ÑÐºÐ»ÑŽÑ‡ÐµÐ½Ð¸Ñ.</xs:documentation>
+        </xs:annotation>
+        <xs:complexContent>
+          <xs:extension base="cor:ExtendableType"/>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="BooleanRRType">
+        <xs:complexContent>
+          <xs:extension base="rr:BaseRRType">
+            <xs:sequence>
+              <xs:element name="param" type="xs:boolean"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="CommonExceptionType">
+        <xs:annotation>
+          <xs:documentation>Тип общего исключения.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element name="message" type="xs:string" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Необязательное текстовое сообщение об ошибке.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="property" type="cor:PropertyType" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Необязательный безразмерный массив
+                        дополнительных пар имя-значение для облегчения
+                        обработки ошибок на стороне клиента</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="cause" type="rr:CommonExceptionType" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Необязательная ссылка на такую же структуру
+                        CommonExceptionType, определяющую первопричину
+                        возникшей исключительной ситуации</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="validationRules" type="va:ValidationRule" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+        <xs:attribute name="code" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>Обязательный уникальный числовой код ошибки. Может
+                    использоваться клиентом в качестве идентификатора
+                    ошибки, а так же в качестве идентификатора
+                    текстового ресурса для интернационализации
+                    приложения</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="correlationId" type="xs:string"/>
+        <xs:attribute name="type" type="rr:ExceptionTypeEnum">
+          <xs:annotation>
+            <xs:documentation>Тип исключительной ситуации.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:complexType>
+      <xs:complexType name="DateTimeRRType">
+        <xs:complexContent>
+          <xs:restriction base="rr:OptionalDateTimeRRType">
+            <xs:sequence>
+              <xs:element ref="cor:extension" minOccurs="0"/>
+              <xs:element name="value" type="xs:dateTime"/>
+            </xs:sequence>
+          </xs:restriction>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:simpleType name="ExceptionTypeEnum">
+        <xs:annotation>
+          <xs:documentation>Ð¢Ð¸Ð¿ Ð¸ÑÐºÐ»ÑŽÑ‡ÐµÐ½Ð¸Ñ.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="external"/>
+          <xs:enumeration value="incorrectStatusState"/>
+          <xs:enumeration value="objectNotFound"/>
+          <xs:enumeration value="processing"/>
+          <xs:enumeration value="system"/>
+          <xs:enumeration value="validation"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:complexType name="IntegerRRType">
+        <xs:complexContent>
+          <xs:extension base="rr:BaseRRType">
+            <xs:sequence>
+              <xs:element name="param" type="xs:int"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="LongArrayRRType">
+        <xs:complexContent>
+          <xs:extension base="rr:BaseRRType">
+            <xs:sequence>
+              <xs:element name="param" type="xs:long" minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="LongRRType">
+        <xs:complexContent>
+          <xs:extension base="rr:BaseRRType">
+            <xs:sequence>
+              <xs:element name="param" type="xs:long"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="OptionalDateTimeRRType">
+        <xs:complexContent>
+          <xs:extension base="rr:BaseRRType">
+            <xs:sequence>
+              <xs:element name="value" type="xs:dateTime" minOccurs="0"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="OptionalStringRRType">
+        <xs:complexContent>
+          <xs:extension base="rr:BaseRRType">
+            <xs:sequence>
+              <xs:element name="param" type="xs:string" minOccurs="0"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="ReferenceItemArrayRRType">
+        <xs:complexContent>
+          <xs:extension base="rr:BaseRRType">
+            <xs:sequence>
+              <xs:element name="references" type="com:ReferenceItem" minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="ReferenceItemCodeArrayRRType">
+        <xs:complexContent>
+          <xs:extension base="rr:BaseRRType">
+            <xs:sequence>
+              <xs:element name="param" type="cor:ReferenceItemCodeType" minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="ReferenceItemCodeRRType">
+        <xs:complexContent>
+          <xs:extension base="rr:BaseRRType">
+            <xs:sequence>
+              <xs:element name="param" type="cor:ReferenceItemCodeType"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="ReferenceItemRRType">
+        <xs:complexContent>
+          <xs:extension base="rr:BaseRRType">
+            <xs:sequence>
+              <xs:element name="param" type="com:ReferenceItem"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="StringArrayRRType">
+        <xs:complexContent>
+          <xs:extension base="rr:BaseRRType">
+            <xs:sequence>
+              <xs:element name="param" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="StringRRType">
+        <xs:complexContent>
+          <xs:restriction base="rr:OptionalStringRRType">
+            <xs:sequence>
+              <xs:element ref="cor:extension" minOccurs="0"/>
+              <xs:element name="param" type="xs:string"/>
+            </xs:sequence>
+          </xs:restriction>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:element name="CommonException" type="rr:CommonExceptionType">
+        <xs:annotation>
+          <xs:documentation>Общее исключение.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:schema>
+    <xs:schema targetNamespace="http://www.yota.ru/vox/domains/customer" elementFormDefault="unqualified" attributeFormDefault="unqualified" xmlns="http://www.yota.ru/vox/domains/customer" xmlns:cus="http://www.yota.ru/vox/domains/customer" xmlns:com="http://www.yota.ru/vox/domains/common/com" xmlns:cor="http://www.yota.ru/vox/domains/common/core" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:dic="http://www.yota.ru/vox/domains/common/dictionaries_1.1">
+      <xs:import namespace="http://www.yota.ru/vox/domains/common/com"/>
+      <xs:import namespace="http://www.yota.ru/vox/domains/common/core"/>
+      <xs:import namespace="http://www.yota.ru/vox/domains/common/dictionaries_1.1"/>
+      <xs:complexType name="AccountAttribute">
+        <xs:complexContent>
+          <xs:extension base="cus:PersonalDataAttribute">
+            <xs:sequence>
+              <xs:element name="account" type="xs:string"/>
+              <xs:element name="accountType" type="cus:AccountTypeEnum"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:simpleType name="AccountStatusEnum">
+        <xs:annotation>
+          <xs:documentation>Возможные состояния клиента.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="active"/>
+          <xs:enumeration value="blocked"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="AccountTypeEnum">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="Other"/>
+          <xs:enumeration value="Skype"/>
+          <xs:enumeration value="VK"/>
+          <xs:enumeration value="Facebook"/>
+          <xs:enumeration value="ICQ"/>
+          <xs:enumeration value="Twitter"/>
+          <xs:enumeration value="OK"/>
+          <xs:enumeration value="Google"/>
+          <xs:enumeration value="Linkedin"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:complexType name="AddressAttribute">
+        <xs:annotation>
+          <xs:documentation>Географический адрес</xs:documentation>
+        </xs:annotation>
+        <xs:complexContent>
+          <xs:extension base="cus:PersonalDataAttribute">
+            <xs:sequence>
+              <xs:element name="addressText" type="xs:string" minOccurs="0">
+                <xs:annotation>
+                  <xs:documentation>Строка, описывающая адрес или местонахождение</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element name="country" type="xs:string" minOccurs="0"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="Agreement">
+        <xs:annotation>
+          <xs:documentation>Соглашение. Исторический объект.</xs:documentation>
+        </xs:annotation>
+        <xs:complexContent>
+          <xs:extension base="com:PersonalDataIdentifiedObject">
+            <xs:sequence>
+              <xs:element name="refId" type="xs:string"/>
+              <xs:element name="agreementType" type="cus:AgreementTypeEnum"/>
+              <xs:element name="agreementStatus" type="cus:AgreementStatusEnum">
+                <xs:annotation>
+                  <xs:documentation>Статус соглашения</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element name="iccid" type="xs:string" minOccurs="0"/>
+              <xs:element name="msisdn" type="cor:PhoneType" minOccurs="0"/>
+              <xs:element name="serviceNumberDetails" type="cus:ServiceNumberDetails" minOccurs="0" maxOccurs="unbounded"/>
+              <xs:element name="region" type="cor:ReferenceItemCodeType" minOccurs="0"/>
+              <xs:element name="timezone" type="cus:TimeZoneTypeEnum" minOccurs="0"/>
+              <xs:element name="created" type="xs:dateTime">
+                <xs:annotation>
+                  <xs:documentation>Дата создания записи</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element name="signed" type="xs:dateTime" minOccurs="0">
+                <xs:annotation>
+                  <xs:documentation>Дата подписания договора (с которым клиент передал нам ПД)  в точке продажи</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element name="serviceStartDate" type="xs:dateTime" minOccurs="0"/>
+              <xs:element name="livingPeriod" type="com:LivingPeriod" minOccurs="0">
+                <xs:annotation>
+                  <xs:documentation>Период действия договора</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element name="subscriberData" type="cus:SubscriberData" minOccurs="0" maxOccurs="unbounded"/>
+              <xs:element name="agreementProperties" type="cor:PropertyType" minOccurs="0" maxOccurs="unbounded"/>
+              <xs:element name="agreementScanRef" type="cus:ScanRef" minOccurs="0" maxOccurs="unbounded"/>
+              <xs:element name="branch" type="xs:string" minOccurs="0"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="AgreementAuthorizationAttribute">
+        <xs:annotation>
+          <xs:documentation>Авторизация соглашения (факт заключения соглашения, проверки данных соглашения)</xs:documentation>
+        </xs:annotation>
+        <xs:complexContent>
+          <xs:extension base="cus:PersonalDataAttribute">
+            <xs:sequence>
+              <xs:element name="agreement" type="cus:Agreement">
+                <xs:annotation>
+                  <xs:documentation>Идентификатор авторизуемого соглашения</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element name="authorizationType" type="xs:string">
+                <xs:annotation>
+                  <xs:documentation>Тип авторизации</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element name="authorizationResult" type="xs:string">
+                <xs:annotation>
+                  <xs:documentation>Результат авторизации</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element name="authorized" type="xs:dateTime">
+                <xs:annotation>
+                  <xs:documentation>Дата авторизации</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element name="authorizedBy" type="xs:string" minOccurs="0">
+                <xs:annotation>
+                  <xs:documentation>Кем авторизовано</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element name="sourceOfAuthorization" type="xs:string">
+                <xs:annotation>
+                  <xs:documentation>Выполнившая сторона</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element name="placeOfAuthorization" type="xs:string" minOccurs="0">
+                <xs:annotation>
+                  <xs:documentation>Место</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element name="comment" type="xs:string" minOccurs="0">
+                <xs:annotation>
+                  <xs:documentation>Комментарий</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:simpleType name="AgreementStatusEnum">
+        <xs:annotation>
+          <xs:documentation>Статусы соглашения</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="new">
+            <xs:annotation>
+              <xs:documentation>Не активировано</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="activated">
+            <xs:annotation>
+              <xs:documentation>Активировано</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="used"/>
+          <xs:enumeration value="closed">
+            <xs:annotation>
+              <xs:documentation>Закрыто</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="reassigned"/>
+          <xs:enumeration value="potential"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="AgreementTypeEnum">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="CA"/>
+          <xs:enumeration value="VoiceServices"/>
+          <xs:enumeration value="MNP"/>
+          <xs:enumeration value="RefuseMNP"/>
+          <xs:enumeration value="ChangeSim"/>
+          <xs:enumeration value="SIMAssigtOut"/>
+          <xs:enumeration value="SIMAssigtIn"/>
+          <xs:enumeration value="MoneyAssigtOut"/>
+          <xs:enumeration value="MoneyAssigtIn"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="CardTypeEnum">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="Other"/>
+          <xs:enumeration value="Visa"/>
+          <xs:enumeration value="Mastercard"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:complexType name="ConsentDataProperty">
+        <xs:complexContent>
+          <xs:extension base="cus:PersonalDataAttribute">
+            <xs:sequence>
+              <xs:element name="key" type="cus:ConsentTypeEnum"/>
+              <xs:element name="value" type="cus:ConsentValueEnum"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:simpleType name="ConsentTypeEnum">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="PERSONAL_DATA_PROCESSING"/>
+          <xs:enumeration value="GOODS_SERVICES_ADVERTISING"/>
+          <xs:enumeration value="PERSONAL_DATA_TRANSFER"/>
+          <xs:enumeration value="PHONE_CONTACT"/>
+          <xs:enumeration value="SMS_CONTACT"/>
+          <xs:enumeration value="EMAIL_CONTACT"/>
+          <xs:enumeration value="MAIL_CONTACT"/>
+          <xs:enumeration value="PUSH_CONTACT"/>
+          <xs:enumeration value="DND_WORK"/>
+          <xs:enumeration value="DND_MOBILE"/>
+          <xs:enumeration value="DND_HOME"/>
+          <xs:enumeration value="CARD"/>
+          <xs:enumeration value="YOTAPAY_ROUND_OFFER"/>
+          <xs:enumeration value="YOTAPAY_YOTA_OFFER"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="ConsentValueEnum">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="COMMON_CANCELED"/>
+          <xs:enumeration value="COMMON_DENIED"/>
+          <xs:enumeration value="COMMON_GRANTED"/>
+          <xs:enumeration value="COMMON_NOT_REQUIRED_TO_OBTAIN"/>
+          <xs:enumeration value="COMMON_REQUIRED_TO_OBTAIN"/>
+          <xs:enumeration value="COMMON_UNKNOWN"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:complexType name="CorporateCustomer">
+        <xs:annotation>
+          <xs:documentation>Корпоративный клиент</xs:documentation>
+        </xs:annotation>
+        <xs:complexContent>
+          <xs:extension base="cus:Customer">
+            <xs:sequence>
+              <xs:element name="companyName" type="cor:CorporateNameType" minOccurs="0">
+                <xs:annotation>
+                  <xs:documentation>Название КК</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="Customer">
+        <xs:annotation>
+          <xs:documentation>Клиент</xs:documentation>
+        </xs:annotation>
+        <xs:complexContent>
+          <xs:extension base="com:PersonalDataIdentifiedObject">
+            <xs:sequence>
+              <xs:element name="customerType" type="cus:CustomerTypeEnum" minOccurs="0"/>
+              <xs:element name="status" type="cus:AccountStatusEnum" minOccurs="0">
+                <xs:annotation>
+                  <xs:documentation>Статус клиента в системе</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element name="created" type="xs:dateTime" minOccurs="0">
+                <xs:annotation>
+                  <xs:documentation>Дата регистрации аккаунта в CDI. Заполняется при создании аккаунта</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element name="lac_tac_code" type="cor:ReferenceItemCodeType" minOccurs="0"/>
+              <xs:element name="location_region" type="cor:ReferenceItemCodeType" minOccurs="0"/>
+              <xs:element name="customerPurpose" type="cor:ReferenceItemCodeType" minOccurs="0">
+                <xs:annotation>
+                  <xs:documentation>Назначение клиента</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element name="language" type="cus:LanguageTypeEnum" minOccurs="0">
+                <xs:annotation>
+                  <xs:documentation>Объект содержащий язык пользователя
+								В БД необходимо сохранять только идентификатор языка из справочника возможных языков.</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element name="marketingSegment" type="cor:ReferenceItemCodeType" minOccurs="0">
+                <xs:annotation>
+                  <xs:documentation>Маркетинговый сегмент</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element name="emails" type="cus:EmailAttribute" minOccurs="0" maxOccurs="unbounded">
+                <xs:annotation>
+                  <xs:documentation>E-mail</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element name="phones" type="cus:PhoneAttribute" minOccurs="0" maxOccurs="unbounded">
+                <xs:annotation>
+                  <xs:documentation>Телефонный номер клиента</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element name="paymentCards" type="cus:PaymentCardAttribute" minOccurs="0" maxOccurs="unbounded"/>
+              <xs:element name="account" type="cus:AccountAttribute" minOccurs="0" maxOccurs="unbounded"/>
+              <xs:element name="agreements" type="cus:Agreement" minOccurs="0" maxOccurs="unbounded"/>
+              <xs:element name="consentProperties" type="cus:ConsentDataProperty" minOccurs="0" maxOccurs="unbounded"/>
+              <xs:element name="additionalProperties" type="cor:PropertyType" minOccurs="0" maxOccurs="unbounded"/>
+              <xs:element name="mobileApplications" type="cus:MobileApplicationAttribute" minOccurs="0" maxOccurs="unbounded"/>
+              <xs:element name="gt_vlr" type="cor:ReferenceItemCodeType" minOccurs="0"/>
+              <xs:element name="identififcation" type="cus:IdentificationAttribute" minOccurs="0"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:simpleType name="CustomerAttributesEnum">
+        <xs:annotation>
+          <xs:documentation>Возможные атрибуты клиента (список является открытым).</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="companyName"/>
+          <xs:enumeration value="email"/>
+          <xs:enumeration value="fname"/>
+          <xs:enumeration value="lname"/>
+          <xs:enumeration value="login"/>
+          <xs:enumeration value="phone"/>
+          <xs:enumeration value="registredFrom"/>
+          <xs:enumeration value="mname">
+            <xs:annotation>
+              <xs:documentation>отчество</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="imsi"/>
+          <xs:enumeration value="iccid"/>
+          <xs:enumeration value="mac"/>
+          <xs:enumeration value="cardNo"/>
+          <xs:enumeration value="userId"/>
+          <xs:enumeration value="marketingSegment"/>
+          <xs:enumeration value="customerPurpose"/>
+          <xs:enumeration value="accountType"/>
+          <xs:enumeration value="regInfoVerificationState"/>
+          <xs:enumeration value="documentType"/>
+          <xs:enumeration value="isAutoVerifiedDocumentType">
+            <xs:annotation>
+              <xs:documentation>Тип документа с признаком автоматической проверки</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="CustomerTypeEnum">
+        <xs:annotation>
+          <xs:documentation>expected - потенциальный пользователь, regular - настоящий пользователь</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="slider"/>
+          <xs:enumeration value="potentialVoice"/>
+          <xs:enumeration value="voice"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:complexType name="DocumentAttribute">
+        <xs:complexContent>
+          <xs:extension base="cus:PersonalDataAttribute">
+            <xs:sequence>
+              <xs:element name="documentType" type="cus:DocumentTypeEnum" minOccurs="0"/>
+              <xs:element name="documentSeries" type="xs:string" minOccurs="0"/>
+              <xs:element name="documentNumber" type="xs:string" minOccurs="0"/>
+              <xs:element name="issueDate" type="xs:dateTime" minOccurs="0"/>
+              <xs:element name="issueAuthority" type="xs:string" minOccurs="0"/>
+              <xs:element name="departmentCode" type="xs:string" minOccurs="0"/>
+              <xs:element name="expiryDate" type="xs:dateTime" minOccurs="0"/>
+              <xs:element name="author" type="xs:string" minOccurs="0"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:simpleType name="DocumentTypeEnum">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="PassportRU"/>
+          <xs:enumeration value="PassportUSSR"/>
+          <xs:enumeration value="Other"/>
+          <xs:enumeration value="PassportForeigner"/>
+          <xs:enumeration value="OverseasPassportRU"/>
+          <xs:enumeration value="OverseasPassportUSSR"/>
+          <xs:enumeration value="DiplomaticPassportRU"/>
+          <xs:enumeration value="TemporaryCertificate"/>
+          <xs:enumeration value="BirthCertificate"/>
+          <xs:enumeration value="OfficerCertificate"/>
+          <xs:enumeration value="MilitaryTicket"/>
+          <xs:enumeration value="PassportSailor"/>
+          <xs:enumeration value="PassportMinmorflota"/>
+          <xs:enumeration value="PrisonCertificate"/>
+          <xs:enumeration value="Residency"/>
+          <xs:enumeration value="MigrationCard"/>
+          <xs:enumeration value="TemporaryResidence"/>
+          <xs:enumeration value="RefugeeCertificate"/>
+          <xs:enumeration value="IDPCertificate"/>
+          <xs:enumeration value="RefugeeImmigrantsCertificate"/>
+          <xs:enumeration value="PensionCertificate"/>
+          <xs:enumeration value="DrivingLicense"/>
+          <xs:enumeration value="OfficePassportRU"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:complexType name="EmailAttribute">
+        <xs:complexContent>
+          <xs:extension base="cus:PersonalDataAttribute">
+            <xs:sequence>
+              <xs:element name="email" type="cor:EMailType"/>
+              <xs:element name="emailType" type="cus:EmailTypeEnum"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:simpleType name="EmailTypeEnum">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="Home"/>
+          <xs:enumeration value="Other"/>
+          <xs:enumeration value="Work"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="GenderTypeEnum">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="Female"/>
+          <xs:enumeration value="Male"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:complexType name="IdentificationAttribute">
+        <xs:complexContent>
+          <xs:extension base="cus:PersonalDataAttribute">
+            <xs:sequence>
+              <xs:element name="attempt" type="xs:int" minOccurs="0">
+                <xs:annotation>
+                  <xs:documentation>Количество попыток идентификации</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element name="comment" type="xs:string" minOccurs="0"/>
+              <xs:element name="identificationStatus" type="dic:IdentityVerificationStatus"/>
+              <xs:element name="identificationType" type="dic:IdentityVerificationType" minOccurs="0"/>
+              <xs:element name="invalidDocumentDate" type="xs:dateTime" minOccurs="0">
+                <xs:annotation>
+                  <xs:documentation>Документ не действителен с</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element name="invalidReason" type="xs:string" minOccurs="0">
+                <xs:annotation>
+                  <xs:documentation>Причина неудачной проверки</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element name="nextDate" type="xs:dateTime" minOccurs="0">
+                <xs:annotation>
+                  <xs:documentation>Дата следующей проверки</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element name="taskId" type="xs:string" minOccurs="0">
+                <xs:annotation>
+                  <xs:documentation>Номер задачи проверки в СМЭВ</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:simpleType name="LanguageTypeEnum">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="RU"/>
+          <xs:enumeration value="EN"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:complexType name="MobileApplicationAttribute">
+        <xs:complexContent>
+          <xs:extension base="cus:PersonalDataAttribute">
+            <xs:sequence>
+              <xs:element name="IDApp" type="xs:string"/>
+              <xs:element name="iccid" type="xs:string" minOccurs="0"/>
+              <xs:element name="AppVersion" type="xs:string" minOccurs="0"/>
+              <xs:element name="OS" type="xs:string"/>
+              <xs:element name="OSVersion" type="xs:string" minOccurs="0"/>
+              <xs:element name="IMEI" type="xs:string" minOccurs="0"/>
+              <xs:element name="ModelName" type="xs:string" minOccurs="0"/>
+              <xs:element name="PushToken" type="xs:string" minOccurs="0"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="PaymentCardAttribute">
+        <xs:annotation>
+          <xs:documentation>Информация о привязке пластиковой карты к абоненту через банк-партнёр</xs:documentation>
+        </xs:annotation>
+        <xs:complexContent>
+          <xs:extension base="cus:PersonalDataAttribute">
+            <xs:sequence>
+              <xs:element name="partnerId" type="xs:long">
+                <xs:annotation>
+                  <xs:documentation>Идентификатор банка-партнера</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element name="cardAlias" type="xs:string" minOccurs="0"/>
+              <xs:element name="channelService" type="xs:string">
+                <xs:annotation>
+                  <xs:documentation>Канал обслуживания: идентификатор магазина в системе банка-партнера (product_id Хронопея для Yota или YPlay)</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element name="serviceStatus" type="xs:boolean"/>
+              <xs:element name="cardId" type="xs:string">
+                <xs:annotation>
+                  <xs:documentation>Идентификатор привязки</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element name="created" type="xs:dateTime" minOccurs="0">
+                <xs:annotation>
+                  <xs:documentation>Дата создания привязки</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element name="cardNumber" type="xs:string" minOccurs="0">
+                <xs:annotation>
+                  <xs:documentation>Обрезанный номер карты</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element name="cardType" type="cus:CardTypeEnum" minOccurs="0"/>
+              <xs:element name="owner" type="xs:string" minOccurs="0">
+                <xs:annotation>
+                  <xs:documentation>Идентификатор пользователя</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element name="expirationDate" type="xs:dateTime" minOccurs="0"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="PersonalCustomer">
+        <xs:annotation>
+          <xs:documentation>Клиент - физическое лицо</xs:documentation>
+        </xs:annotation>
+        <xs:complexContent>
+          <xs:extension base="cus:Customer">
+            <xs:sequence>
+              <xs:element name="name" type="cor:PersonalNameType" minOccurs="0">
+                <xs:annotation>
+                  <xs:documentation>Имя клиента</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element name="personalDetails" type="cus:PersonalDetailsType" minOccurs="0"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="PersonalDataAttribute">
+        <xs:complexContent>
+          <xs:extension base="com:PersonalDataIdentifiedObject">
+            <xs:sequence>
+              <xs:element name="livingPeriod" type="com:LivingPeriod"/>
+              <xs:element name="rawSource" type="xs:string" minOccurs="0"/>
+              <xs:element name="primary" type="xs:boolean" minOccurs="0"/>
+              <xs:element name="additionalInfo" type="xs:string" minOccurs="0"/>
+              <xs:element name="additionalProperties" type="cor:PropertyType" minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="PersonalDetailsType">
+        <xs:sequence>
+          <xs:element name="gender" type="cus:GenderTypeEnum" minOccurs="0"/>
+          <xs:element name="birthDate" type="xs:dateTime" minOccurs="0"/>
+          <xs:element name="birthPlace" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="PersonalSubscriberData">
+        <xs:complexContent>
+          <xs:extension base="cus:SubscriberData">
+            <xs:sequence>
+              <xs:element name="name" type="cor:PersonalNameType">
+                <xs:annotation>
+                  <xs:documentation>ФИО</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element name="accountId" type="cor:ExternalIDType" minOccurs="0">
+                <xs:annotation>
+                  <xs:documentation>Номер ЛС - Биллинговый идентификатор клиента</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element name="personalDetails" type="cus:PersonalDetailsType" minOccurs="0"/>
+              <xs:element name="document" type="cus:DocumentAttribute" minOccurs="0"/>
+              <xs:element name="address" type="cus:AddressAttribute" minOccurs="0">
+                <xs:annotation>
+                  <xs:documentation>Адрес</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="PhoneAttribute">
+        <xs:complexContent>
+          <xs:extension base="cus:PersonalDataAttribute">
+            <xs:sequence>
+              <xs:element name="phoneNumber" type="cor:PhoneType" minOccurs="0"/>
+              <xs:element name="phoneType" type="cus:PhoneTypeEnum" minOccurs="0"/>
+              <xs:element name="operator" type="xs:string" minOccurs="0"/>
+              <xs:element name="countryCode" type="xs:string" minOccurs="0"/>
+              <xs:element name="cityCode" type="xs:string" minOccurs="0"/>
+              <xs:element name="telephone" type="xs:string" minOccurs="0"/>
+              <xs:element name="extension" type="xs:string" minOccurs="0"/>
+              <xs:element name="timezone" type="cus:TimeZoneTypeEnum" minOccurs="0"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:simpleType name="PhoneTypeEnum">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="Work"/>
+          <xs:enumeration value="Home"/>
+          <xs:enumeration value="Mobile"/>
+          <xs:enumeration value="Fax"/>
+          <xs:enumeration value="Spouse"/>
+          <xs:enumeration value="Relative"/>
+          <xs:enumeration value="Other"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:complexType name="ScanRef">
+        <xs:sequence>
+          <xs:element name="scanRefValue" type="xs:string"/>
+          <xs:element name="scanRefType" type="cus:ScanRefTypeEnum"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:simpleType name="ScanRefTypeEnum">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="agreement"/>
+          <xs:enumeration value="autorization"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:complexType name="ServiceNumberDetails">
+        <xs:sequence>
+          <xs:element name="iccid" type="xs:string" minOccurs="0"/>
+          <xs:element name="msisdn" type="cor:PhoneType" minOccurs="0"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:simpleType name="SourceSystemEnum">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="PartnerFacade"/>
+          <xs:enumeration value="SelfCare"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:complexType name="SubscriberData">
+        <xs:annotation>
+          <xs:documentation>Персональные данные абонента заключившего соглашение</xs:documentation>
+        </xs:annotation>
+        <xs:complexContent>
+          <xs:extension base="com:PersonalDataIdentifiedObject">
+            <xs:sequence>
+              <xs:element name="created" type="xs:dateTime">
+                <xs:annotation>
+                  <xs:documentation>Дата создания ConsumerData.
+                                Проставляется при первом получении ПД клиента</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element name="livingPeriod" type="com:LivingPeriod" minOccurs="0">
+                <xs:annotation>
+                  <xs:documentation>Дата/ время начала и окончания периода действия персональных данных. Используется для поддержки историчности.</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element name="subscriberProperties" type="cor:PropertyType" minOccurs="0" maxOccurs="unbounded">
+                <xs:annotation>
+                  <xs:documentation>Идентификация ФЛ\ЮЛ (основана на динамических атрибутах)</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:simpleType name="TimeZoneTypeEnum">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="MISSED"/>
+          <xs:enumeration value="UTC+1"/>
+          <xs:enumeration value="UTC+2"/>
+          <xs:enumeration value="UTC+3"/>
+          <xs:enumeration value="UTC+4"/>
+          <xs:enumeration value="UTC+5"/>
+          <xs:enumeration value="UTC+6"/>
+          <xs:enumeration value="UTC+7"/>
+          <xs:enumeration value="UTC+8"/>
+          <xs:enumeration value="UTC+9"/>
+          <xs:enumeration value="UTC+10"/>
+          <xs:enumeration value="UTC+11"/>
+          <xs:enumeration value="UTC+12"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:schema>
+    <xs:schema targetNamespace="http://www.roox.ru/products/common/dictionaries" version="1.0" elementFormDefault="qualified" attributeFormDefault="unqualified" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:dic="http://www.roox.ru/products/common/dictionaries">
+      <xs:annotation>
+        <xs:documentation>Системные справочники (enumerations)</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType name="AccountStatusEnum">
+        <xs:annotation>
+          <xs:documentation>Возможные состояния клиента.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="active"/>
+          <xs:enumeration value="blocked"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="AccountTypeEnum">
+        <xs:annotation>
+          <xs:documentation>Типы пользователей в BIS 2.0</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="personal">
+            <xs:annotation>
+              <xs:documentation>физическое лицо</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="corporate">
+            <xs:annotation>
+              <xs:documentation>корпоративный клиент</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="ActionTypeEnum">
+        <xs:annotation>
+          <xs:documentation>Типы операций для системы логгирования</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="session">
+            <xs:annotation>
+              <xs:documentation>Операции над сессией</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="account">
+            <xs:annotation>
+              <xs:documentation>Операции с учётной записью</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="report">
+            <xs:annotation>
+              <xs:documentation>Операции с отчётами</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="device">
+            <xs:annotation>
+              <xs:documentation>Операции с устройствами пользователей</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="card">
+            <xs:annotation>
+              <xs:documentation>Операции над скрэтч картами</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="cardPool">
+            <xs:annotation>
+              <xs:documentation>Операции с пулом скрэтч карт</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="AttributeValidationRuleType">
+        <xs:annotation>
+          <xs:documentation>Определяет тип сообщения, показываемового пользователю, если валидация по правилу не
+                прошла.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="error"/>
+          <xs:enumeration value="suggestion"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="BlockTypeEnum">
+        <xs:annotation>
+          <xs:documentation>Тип блокировки абонента</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="blockCorp">
+            <xs:annotation>
+              <xs:documentation>Блокировка ЮЛ</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="blockOnRegInfoState">
+            <xs:annotation>
+              <xs:documentation>Блокировка по статусу проверки регистрационной информации</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="totalBlockCorp">
+            <xs:annotation>
+              <xs:documentation>Полная блокировка ЮЛ</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="CardStatusEnum">
+        <xs:annotation>
+          <xs:documentation>Статусы скрэтч карты</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="active">
+            <xs:annotation>
+              <xs:documentation>Еще не использована - может быть использована</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="invalid">
+            <xs:annotation>
+              <xs:documentation>Забракованная</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="usedForDevice">
+            <xs:annotation>
+              <xs:documentation>Использована для подключения устройства (начиная с 1.5)</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="usedForService">
+            <xs:annotation>
+              <xs:documentation>Использована (используется) для аутентификации ФЛ (до 1.5)</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="usedForAccount">
+            <xs:annotation>
+              <xs:documentation>Использована (используется) для аутентификации ЮЛ/КК (начиная с 1.6)</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="usedForCalls">
+            <xs:annotation>
+              <xs:documentation>Специальное использование в сервисах</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="usedForPP">
+            <xs:annotation>
+              <xs:documentation>Использована для предварительного платежа</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="CharacteristicTypeEnum">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="int"/>
+          <xs:enumeration value="decimal"/>
+          <xs:enumeration value="boolean"/>
+          <xs:enumeration value="string"/>
+          <xs:enumeration value="interval"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="CharacteristicUsedForEnum">
+        <xs:annotation>
+          <xs:documentation>Список областей применения характеристик</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="agreement"/>
+          <xs:enumeration value="logicalResource"/>
+          <xs:enumeration value="marketingCampaign"/>
+          <xs:enumeration value="product"/>
+          <xs:enumeration value="service"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="CheckCardStatusEnum">
+        <xs:annotation>
+          <xs:documentation>Статус проверки карты</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="valid">
+            <xs:annotation>
+              <xs:documentation>Проверка успешна</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="cardNumAbsent">
+            <xs:annotation>
+              <xs:documentation>Не введён номер карты</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="cardPasswordAbsent">
+            <xs:annotation>
+              <xs:documentation>Не введён пароль карты</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="invalidCardNumOrPassword">
+            <xs:annotation>
+              <xs:documentation>Номер карты или пароль введены неверно.</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="used">
+            <xs:annotation>
+              <xs:documentation>Карта подключения уже использовалась</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="CompareOperationEnum">
+        <xs:annotation>
+          <xs:documentation>Типы сравнений
+                Все значения, кроме equal и notEqual - можно на future</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="equal"/>
+          <xs:enumeration value="in"/>
+          <xs:enumeration value="between"/>
+          <xs:enumeration value="less"/>
+          <xs:enumeration value="more"/>
+          <xs:enumeration value="lessOrEqual"/>
+          <xs:enumeration value="moreOrEqual"/>
+          <xs:enumeration value="notEqual"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="CountryEnum">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="Russia"/>
+          <xs:enumeration value="Belarus"/>
+          <xs:enumeration value="Nicaragua"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="CurrencyCodeEnum">
+        <xs:annotation>
+          <xs:documentation>Доступные валюты</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="RUR">
+            <xs:annotation>
+              <xs:documentation>Российский рубль</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="NIO">
+            <xs:annotation>
+              <xs:documentation>Никарагуанская кордоба</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="BYR">
+            <xs:annotation>
+              <xs:documentation>Белорусский рубль</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="CustomerAttributesEnum">
+        <xs:annotation>
+          <xs:documentation>Возможные атрибуты клиента (список является открытым).</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="companyName"/>
+          <xs:enumeration value="email"/>
+          <xs:enumeration value="fname"/>
+          <xs:enumeration value="lname"/>
+          <xs:enumeration value="login"/>
+          <xs:enumeration value="phone"/>
+          <xs:enumeration value="registredFrom"/>
+          <xs:enumeration value="mname">
+            <xs:annotation>
+              <xs:documentation>отчество</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="imsi"/>
+          <xs:enumeration value="iccid"/>
+          <xs:enumeration value="mac"/>
+          <xs:enumeration value="cardNo"/>
+          <xs:enumeration value="userId"/>
+          <xs:enumeration value="marketingSegment"/>
+          <xs:enumeration value="customerPurpose"/>
+          <xs:enumeration value="accountType"/>
+          <xs:enumeration value="regInfoVerificationState"/>
+          <xs:enumeration value="documentType"/>
+          <xs:enumeration value="isAutoVerifiedDocumentType">
+            <xs:annotation>
+              <xs:documentation>Тип документа с признаком автоматической проверки</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="DataVerifyEnum">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="unverified"/>
+          <xs:enumeration value="valid"/>
+          <xs:enumeration value="invalid"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="DeviceAccessEnum">
+        <xs:annotation>
+          <xs:documentation>Уровень доступа устройства в транспортной сети.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="full"/>
+          <xs:enumeration value="guest"/>
+          <xs:enumeration value="service"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="MarketingCampaignClassEnum">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="OneDayFree"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="MarketingCampaignStatusEnum">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="active"/>
+          <xs:enumeration value="used"/>
+          <xs:enumeration value="overdue"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="MarketingCampaignTypeEnum">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="ForNewClient"/>
+          <xs:enumeration value="ForExistingClient"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="ModificationTypeEnum">
+        <xs:annotation>
+          <xs:documentation>Подтипы операций для системы логгирования</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="create">
+            <xs:annotation>
+              <xs:documentation>Создание сущности</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="read">
+            <xs:annotation>
+              <xs:documentation>Чтение информации</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="modify">
+            <xs:annotation>
+              <xs:documentation>Изменение атрибутов</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="remove">
+            <xs:annotation>
+              <xs:documentation>Удаление сущности</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="OperationEnum">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="create"/>
+          <xs:enumeration value="update"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="OperationResultEnum">
+        <xs:annotation>
+          <xs:documentation>Результат выполнения операции для подсистемы логгирования</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="Success"/>
+          <xs:enumeration value="Failure"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="PasswordRecoveryStatusEnum">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="needSecretAnswer"/>
+          <xs:enumeration value="passwordSent"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="PaySchemaEnum">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="postpaid">
+            <xs:annotation>
+              <xs:documentation>Схема оплаты</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="prepaid"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="PaymentEnum">
+        <xs:annotation>
+          <xs:documentation>Периодичность платежей</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="once">
+            <xs:annotation>
+              <xs:documentation>единовременно</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="daily">
+            <xs:annotation>
+              <xs:documentation>по дням</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="monthly">
+            <xs:annotation>
+              <xs:documentation>ежемесячно</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="PhysicalDeviceSpecAttributeEnum">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="chipName"/>
+          <xs:enumeration value="deviceCategory"/>
+          <xs:enumeration value="modelName"/>
+          <xs:enumeration value="networkTechnology"/>
+          <xs:enumeration value="vendorChipId"/>
+          <xs:enumeration value="vendorModelId"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="ProductStatusEnum">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="active"/>
+          <xs:enumeration value="blocked"/>
+          <xs:enumeration value="finished"/>
+          <xs:enumeration value="frozen"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="RFSSpecTypeEnum">
+        <xs:annotation>
+          <xs:documentation>Типы RFS Spec</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="AAA">
+            <xs:annotation>
+              <xs:documentation>Используется для WiMax</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="ACL">
+            <xs:annotation>
+              <xs:documentation>Правила транспортного доступа</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="QoS">
+            <xs:annotation>
+              <xs:documentation>Качество предоставления сервиса</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="PCRF"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="RangeTypeEnum">
+        <xs:annotation>
+          <xs:documentation>Тип интервала по включению-исключению граничных значений</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="include-include"/>
+          <xs:enumeration value="include-exclude"/>
+          <xs:enumeration value="exclude-include"/>
+          <xs:enumeration value="exclude-exclude"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="RefTypeEnum">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="bankInfo"/>
+          <xs:enumeration value="characteristicValueType"/>
+          <xs:enumeration value="chip"/>
+          <xs:enumeration value="formFactor"/>
+          <xs:enumeration value="model"/>
+          <xs:enumeration value="vendor"/>
+          <xs:enumeration value="offerTypes"/>
+          <xs:enumeration value="productCharacteristicType"/>
+          <xs:enumeration value="cashRegisterInfo"/>
+          <xs:enumeration value="expenseType"/>
+          <xs:enumeration value="paymentMethod"/>
+          <xs:enumeration value="accountInfo"/>
+          <xs:enumeration value="adminRegions"/>
+          <xs:enumeration value="documentType"/>
+          <xs:enumeration value="cashMethod"/>
+          <xs:enumeration value="secretQuestion"/>
+          <xs:enumeration value="country"/>
+          <xs:enumeration value="commercialRegions"/>
+          <xs:enumeration value="customerLanguage"/>
+          <xs:enumeration value="sourceOfChanges"/>
+          <xs:enumeration value="marketingSegments"/>
+          <xs:enumeration value="customerAttributesGroups">
+            <xs:annotation>
+              <xs:documentation>Группы атрибутов, определенные для клиента</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="scenarioOfChanges"/>
+          <xs:enumeration value="agreementTypes"/>
+          <xs:enumeration value="customerPurpose"/>
+          <xs:enumeration value="paymentCardType"/>
+          <xs:enumeration value="paymentCardPermit">
+            <xs:annotation>
+              <xs:documentation>Типы разрешений средств оплаты</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="agreementActivationMethods">
+            <xs:annotation>
+              <xs:documentation>Способы активации соглашения</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="agreementRegistrationMethods">
+            <xs:annotation>
+              <xs:documentation>Способы заключения соглашения</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="salesChannel">
+            <xs:annotation>
+              <xs:documentation>Каналы продаж</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="ResourceEventEnum">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="removeService"/>
+          <xs:enumeration value="addService"/>
+          <xs:enumeration value="unblock"/>
+          <xs:enumeration value="block"/>
+          <xs:enumeration value="removeDevice"/>
+          <xs:enumeration value="addDevice"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="ResourceIdentificationEnum">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="extIccid">
+            <xs:annotation>
+              <xs:documentation>Расширенный ICCID - 18-20 символов</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="iccid">
+            <xs:annotation>
+              <xs:documentation>Короткий ICCID (10 символов)</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="imsi"/>
+          <xs:enumeration value="mac"/>
+          <xs:enumeration value="sn"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="SMSmessageStatusEnum">
+        <xs:annotation>
+          <xs:documentation>Статусы состояния сообщений в SMSGatе</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="failed">
+            <xs:annotation>
+              <xs:documentation>сообщение не удалось доставить провайдеру</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="inprocess">
+            <xs:annotation>
+              <xs:documentation>сообщение в процессе доставки</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="success">
+            <xs:annotation>
+              <xs:documentation>сообщение доставлено провайдеру</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="SortOrderEnum">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="asc"/>
+          <xs:enumeration value="desc"/>
+          <xs:enumeration value="none"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="TarifficationTypeEnum">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="OneTime"/>
+          <xs:enumeration value="Monthly"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="TermUsedForEnum">
+        <xs:annotation>
+          <xs:documentation>Список областей применения условий</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="offering"/>
+          <xs:enumeration value="offeringLink"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="TransportActionEnum">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="removeAll"/>
+          <xs:enumeration value="add"/>
+          <xs:enumeration value="change"/>
+          <xs:enumeration value="serviceAccess"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="UnitOfMeasureEnum">
+        <xs:annotation>
+          <xs:documentation>Тип измеряемого значения</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="day"/>
+          <xs:enumeration value="hour"/>
+          <xs:enumeration value="kbps"/>
+          <xs:enumeration value="mbps"/>
+          <xs:enumeration value="month"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="ValidationRuleTypeEnum">
+        <xs:annotation>
+          <xs:documentation>Типы валидационных проверок</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="unchangeable"/>
+          <xs:enumeration value="uniqueAttr"/>
+          <xs:enumeration value="mandatory"/>
+          <xs:enumeration value="undefined"/>
+          <xs:enumeration value="regExp"/>
+          <xs:enumeration value="maxLength"/>
+          <xs:enumeration value="minValue"/>
+          <xs:enumeration value="maxValue"/>
+          <xs:enumeration value="precision"/>
+          <xs:enumeration value="dateFormat"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:schema>
+    <xs:schema targetNamespace="http://www.roox.ru/products/common/com" elementFormDefault="unqualified" attributeFormDefault="unqualified" xmlns:com="http://www.roox.ru/products/common/com" xmlns:cor="http://www.roox.ru/products/common/core" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:va="http://www.roox.ru/products/common/va" xmlns:dic="http://www.roox.ru/products/common/dictionaries">
+      <xs:import namespace="http://www.roox.ru/products/common/core"/>
+      <xs:import namespace="http://www.roox.ru/products/common/dictionaries"/>
+      <xs:import namespace="http://www.roox.ru/products/common/va"/>
+      <xs:complexType name="BusinessEntity">
+        <xs:annotation>
+          <xs:documentation>Бизнес-значимая сущность. С поддержкой историчности.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element name="livingPeriod" type="com:LivingPeriod"/>
+          <xs:element name="created" type="xs:dateTime" minOccurs="0"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ExtendNamedObject">
+        <xs:annotation>
+          <xs:documentation>Локализованная информация именованного объекта</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element name="description" type="cor:LocaleValue" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+              <xs:documentation>Список локализованных описаний объекта</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="name" type="cor:LocaleValue" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+              <xs:documentation>Список локализованных названий объекта</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="primaryObject" type="com:NamedObject"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="IdentifiedObject">
+        <xs:annotation>
+          <xs:documentation>Идентифицируемый объект</xs:documentation>
+        </xs:annotation>
+        <xs:attribute name="id" type="xs:long">
+          <xs:annotation>
+            <xs:documentation>{PROPERTY:field.useInEquals}Идентификатор объекта</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:complexType>
+      <xs:complexType name="LivingPeriod">
+        <xs:annotation>
+          <xs:documentation>Временной интервал жизни объекта</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element name="fromDate" type="xs:dateTime" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>{PROPERTY:field.useInEquals}</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="untilTo" type="xs:dateTime" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>{PROPERTY:field.useInEquals}</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="LivingTime">
+        <xs:annotation>
+          <xs:documentation>Время жизни экземпляра может задаваться одним из следующих вариантов:
+1) Длительность. Количество дней действия
+2) Дата начала и дата окончания жизни</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element name="dayCount" type="xs:int" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Количество дней действия</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="beginDate" type="xs:dateTime" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>{PROPERTY:field.useInEquals}Дата начала действия</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="endDate" type="xs:dateTime" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>{PROPERTY:field.useInEquals}Дата окончания действия</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="NamedCodedObject">
+        <xs:annotation>
+          <xs:documentation>Базовый тип именованного объекта с кодом</xs:documentation>
+        </xs:annotation>
+        <xs:complexContent>
+          <xs:extension base="com:NamedObject">
+            <xs:sequence>
+              <xs:element name="code" type="cor:ReferenceItemCodeType">
+                <xs:annotation>
+                  <xs:documentation>{PROPERTY:field.useInEquals}Строковый код объекта.</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="NamedObject">
+        <xs:annotation>
+          <xs:documentation>Именованный объект</xs:documentation>
+        </xs:annotation>
+        <xs:complexContent>
+          <xs:extension base="com:IdentifiedObject">
+            <xs:sequence>
+              <xs:element name="name" type="cor:NameType" minOccurs="0">
+                <xs:annotation>
+                  <xs:documentation>{PROPERTY:field.useInEquals}Имя объекта</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element name="description" type="xs:string" minOccurs="0">
+                <xs:annotation>
+                  <xs:documentation>Описание объекта</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="PhysicalResourceSpecAttribute">
+        <xs:annotation>
+          <xs:documentation>Пары атрибут-значение для поиска спецификаций устройств</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element name="value" type="xs:string">
+            <xs:annotation>
+              <xs:documentation>{PROPERTY:field.useInEquals}Значение атрибута</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="name" type="dic:PhysicalDeviceSpecAttributeEnum">
+            <xs:annotation>
+              <xs:documentation>{PROPERTY:field.useInEquals}Имя параметра спецификации физического устройства по которому нужно осуществлять поиск</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ReferenceItem">
+        <xs:annotation>
+          <xs:documentation>Элемент справочника</xs:documentation>
+        </xs:annotation>
+        <xs:complexContent>
+          <xs:extension base="com:NamedCodedObject"/>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="ResourceID">
+        <xs:annotation>
+          <xs:documentation>Структура, описывающая идентификатор устройства
+Не применяется для логических ресурсов</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element name="key" type="xs:string">
+            <xs:annotation>
+              <xs:documentation>{PROPERTY:field.useInEquals}Значение</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="type" type="dic:ResourceIdentificationEnum">
+            <xs:annotation>
+              <xs:documentation>{PROPERTY:field.useInEquals}Тип идентификатора</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+    <xs:schema targetNamespace="http://www.yota.ru/vox/domains/common/dictionaries_1.1" version="1.0" elementFormDefault="qualified" attributeFormDefault="unqualified" xmlns="http://www.yota.ru/vox/domains/common/dictionaries_1.1" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:dic="http://www.yota.ru/vox/domains/common/dictionaries_1.1">
+      <xs:annotation>
+        <xs:documentation>Системные справочники (enumerations)</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType name="ActionTypeEnum">
+        <xs:annotation>
+          <xs:documentation>Типы операций для системы логгирования</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="session">
+            <xs:annotation>
+              <xs:documentation>Операции над сессией</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="account">
+            <xs:annotation>
+              <xs:documentation>Операции с учётной записью</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="report">
+            <xs:annotation>
+              <xs:documentation>Операции с отчётами</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="device">
+            <xs:annotation>
+              <xs:documentation>Операции с устройствами пользователей</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="card">
+            <xs:annotation>
+              <xs:documentation>Операции над скрэтч картами</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="cardPool">
+            <xs:annotation>
+              <xs:documentation>Операции с пулом скрэтч карт</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="AliasTypeEnum">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="iccid"/>
+          <xs:enumeration value="msisdn"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="CompareOperationEnum">
+        <xs:annotation>
+          <xs:documentation>Типы сравнений
+Все значения, кроме equal и notEqual - можно на future</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="equal"/>
+          <xs:enumeration value="in"/>
+          <xs:enumeration value="between"/>
+          <xs:enumeration value="less"/>
+          <xs:enumeration value="more"/>
+          <xs:enumeration value="lessOrEqual"/>
+          <xs:enumeration value="moreOrEqual"/>
+          <xs:enumeration value="notEqual"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="CountryEnum">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="Russia"/>
+          <xs:enumeration value="Belarus"/>
+          <xs:enumeration value="Nicaragua"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="CurrencyCodeEnum">
+        <xs:annotation>
+          <xs:documentation>Доступные валюты</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="RUR">
+            <xs:annotation>
+              <xs:documentation>Российский рубль</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="NIO">
+            <xs:annotation>
+              <xs:documentation>Никарагуанская кордоба</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="BYR">
+            <xs:annotation>
+              <xs:documentation>Белорусский рубль</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="IdentityVerificationStatus">
+        <xs:annotation>
+          <xs:documentation>Статус идентификации ФЛ по базам даных гос.органов</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="NOT_POSSIBLE">
+            <xs:annotation>
+              <xs:documentation>Невозможно провести</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="NOT_VERIFY">
+            <xs:annotation>
+              <xs:documentation>Не проводилась</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="SUCCESS">
+            <xs:annotation>
+              <xs:documentation>Успешная</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="UNSUCCESS">
+            <xs:annotation>
+              <xs:documentation>Неуспешная</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="VERIFYING">
+            <xs:annotation>
+              <xs:documentation>Проводится</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="SUCCESS_EDITED"/>
+          <xs:enumeration value="WAITING"/>
+          <xs:enumeration value="REQUIRED"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="IdentityVerificationType">
+        <xs:annotation>
+          <xs:documentation>Тип идентификации - проверки по БД гос. структур</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="FTS_CHECK">
+            <xs:annotation>
+              <xs:documentation>Статус проверки по БД ФНС</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="GHI_CHECK">
+            <xs:annotation>
+              <xs:documentation>Статус проверки по БД ОМС</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="MIA_CHECK">
+            <xs:annotation>
+              <xs:documentation>Статус проверки по БД МВД</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="PF_CHECK">
+            <xs:annotation>
+              <xs:documentation>Статус проверки по БД ПФР</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="OAO_CHECK"/>
+          <xs:enumeration value="TPOP_CHECK"/>
+          <xs:enumeration value="UNKNOWN"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="MarketingCampaignClassEnum">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="OneDayFree"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="MarketingCampaignStatusEnum">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="active"/>
+          <xs:enumeration value="used"/>
+          <xs:enumeration value="overdue"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="MarketingCampaignTypeEnum">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="ForNewClient"/>
+          <xs:enumeration value="ForExistingClient"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="ModificationTypeEnum">
+        <xs:annotation>
+          <xs:documentation>Подтипы операций для системы логгирования</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="create">
+            <xs:annotation>
+              <xs:documentation>Создание сущности</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="read">
+            <xs:annotation>
+              <xs:documentation>Чтение информации</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="modify">
+            <xs:annotation>
+              <xs:documentation>Изменение атрибутов</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="remove">
+            <xs:annotation>
+              <xs:documentation>Удаление сущности</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="OperationEnum">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="create"/>
+          <xs:enumeration value="update"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="OperationResultEnum">
+        <xs:annotation>
+          <xs:documentation>Результат выполнения операции для подсистемы логгирования</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="Success"/>
+          <xs:enumeration value="Failure"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="PersonTypeEnum">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="corporate"/>
+          <xs:enumeration value="personal"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="PersonalDataIDTypeEnum">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="HID"/>
+          <xs:enumeration value="CustomerID"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="PhysicalDeviceSpecAttributeEnum">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="chipName"/>
+          <xs:enumeration value="deviceCategory"/>
+          <xs:enumeration value="modelName"/>
+          <xs:enumeration value="networkTechnology"/>
+          <xs:enumeration value="vendorChipId"/>
+          <xs:enumeration value="vendorModelId"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="ProductStatusEnum">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="active">
+            <xs:annotation>
+              <xs:documentation>Активен</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="blocked">
+            <xs:annotation>
+              <xs:documentation>Финансово заблокирован</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="finished">
+            <xs:annotation>
+              <xs:documentation>Завершен</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="planned">
+            <xs:annotation>
+              <xs:documentation>Продукт запланирован</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="suspended">
+            <xs:annotation>
+              <xs:documentation>Приостановлен (для управляемых услуг)</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="RFSSpecTypeEnum">
+        <xs:annotation>
+          <xs:documentation>Типы RFS Spec</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="AAA">
+            <xs:annotation>
+              <xs:documentation>Используется для WiMax</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="ACL">
+            <xs:annotation>
+              <xs:documentation>Правила транспортного доступа</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="QoS">
+            <xs:annotation>
+              <xs:documentation>Качество предоставления сервиса</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="PCRF"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="ResourceIdentificationEnum">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="extIccid">
+            <xs:annotation>
+              <xs:documentation>[не используется] Расширенный ICCID - 18-20 символов</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="imsi">
+            <xs:annotation>
+              <xs:documentation>IMSI - 15 цифр
+Общий формат поля: [код страны 3 разряда][код оператора 2 разряда][код HSS 2 разряда][порядковый номер карты 8 разрядов]
+Формат поля для Yota (модемы): [250][11][01][YYYYYYYY]
+Формат поля для Yota (сим карты): [250][11][02][YYYYYYYY]</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="iccid">
+            <xs:annotation>
+              <xs:documentation>Короткий ICCID (10 символов)</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="SMSmessageStatusEnum">
+        <xs:annotation>
+          <xs:documentation>Статусы состояния сообщений в SMSGatе</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="failed">
+            <xs:annotation>
+              <xs:documentation>сообщение не удалось доставить провайдеру</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="inprocess">
+            <xs:annotation>
+              <xs:documentation>сообщение в процессе доставки</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="success">
+            <xs:annotation>
+              <xs:documentation>сообщение доставлено провайдеру</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="ServiceChannelEnum">
+        <xs:annotation>
+          <xs:documentation>Канал обслуживания/привлечения</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="msc">
+            <xs:annotation>
+              <xs:documentation>Mobile Selfcare</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="wsc">
+            <xs:annotation>
+              <xs:documentation>Web Selfcare</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="eshop">
+            <xs:annotation>
+              <xs:documentation>Интернет-магазин</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="ussd">
+            <xs:annotation>
+              <xs:documentation>USSD</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="crm">
+            <xs:annotation>
+              <xs:documentation>CRM</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="other"/>
+          <xs:enumeration value="cpa"/>
+          <xs:enumeration value="sms"/>
+          <xs:enumeration value="vk">
+            <xs:annotation>
+              <xs:documentation>вконтакте</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="tw">
+            <xs:annotation>
+              <xs:documentation>твиттер</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="partner"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="SortOrderEnum">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="asc"/>
+          <xs:enumeration value="desc"/>
+          <xs:enumeration value="none"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="UnitOfMeasureEnum">
+        <xs:annotation>
+          <xs:documentation>Тип измеряемого значения</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="byte"/>
+          <xs:enumeration value="day"/>
+          <xs:enumeration value="hour"/>
+          <xs:enumeration value="gb"/>
+          <xs:enumeration value="kb"/>
+          <xs:enumeration value="kbps"/>
+          <xs:enumeration value="mb"/>
+          <xs:enumeration value="mbps"/>
+          <xs:enumeration value="month"/>
+          <xs:enumeration value="minute"/>
+          <xs:enumeration value="item"/>
+          <xs:enumeration value="rub"/>
+          <xs:enumeration value="second"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="ValidationRuleTypeEnum">
+        <xs:annotation>
+          <xs:documentation>Типы валидационных проверок</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="unchangeable"/>
+          <xs:enumeration value="uniqueAttr"/>
+          <xs:enumeration value="mandatory"/>
+          <xs:enumeration value="undefined"/>
+          <xs:enumeration value="regExp"/>
+          <xs:enumeration value="maxLength"/>
+          <xs:enumeration value="minValue"/>
+          <xs:enumeration value="maxValue"/>
+          <xs:enumeration value="precision"/>
+          <xs:enumeration value="dateFormat"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:schema>
+    <xs:schema targetNamespace="http://www.yota.ru/vox/domains/common/core" version="1.0" elementFormDefault="qualified" attributeFormDefault="unqualified" xmlns:cor="http://www.yota.ru/vox/domains/common/core" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:dic="http://www.yota.ru/vox/domains/common/dictionaries_1.1">
+      <xs:import namespace="http://www.yota.ru/vox/domains/common/dictionaries_1.1"/>
+      <xs:complexType name="AmountType">
+        <xs:annotation>
+          <xs:documentation>Тип, содержащий денежное значение</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element name="amount" type="cor:MoneyType">
+            <xs:annotation>
+              <xs:documentation>Сумма в указанной валюте</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="currencyCode" type="dic:CurrencyCodeEnum">
+          <xs:annotation>
+            <xs:documentation>Код валюты</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:complexType>
+      <xs:complexType name="CharValue">
+        <xs:annotation>
+          <xs:documentation>Значение характеристики</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element name="value" type="xs:string">
+            <xs:annotation>
+              <xs:documentation>Единичное значение характеристики</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:simpleType name="CodeType">
+        <xs:annotation>
+          <xs:documentation>Тип для представления кодов</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:token">
+          <xs:pattern value="\d{12}"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:complexType name="CorporateNameType">
+        <xs:annotation>
+          <xs:documentation>Имя ЮЛ</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element name="title" type="cor:LongNameType" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Название организации</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:simpleType name="CustomerNameType">
+        <xs:annotation>
+          <xs:documentation>Представление для имен пользователя ФЛ</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+          <xs:minLength value="1"/>
+          <xs:maxLength value="64"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="EMailType">
+        <xs:annotation>
+          <xs:documentation>Представление для адреса электронной почты</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="100"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:complexType name="EmptyType">
+        <xs:annotation>
+          <xs:documentation>Совсем пустой тип</xs:documentation>
+        </xs:annotation>
+      </xs:complexType>
+      <xs:simpleType name="ExternalIDType">
+        <xs:annotation>
+          <xs:documentation>Тип внешнего идентификатора.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:long"/>
+      </xs:simpleType>
+      <xs:simpleType name="GUIDType">
+        <xs:annotation>
+          <xs:documentation>Представление для глобального ID</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+          <xs:pattern value="[0-9a-fA-F]{8}[0-9a-fA-F]{4}[0-9a-fA-F]{4}[0-9a-fA-F]{4}[0-9a-fA-F]{12}"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="IDType">
+        <xs:annotation>
+          <xs:documentation>Представление для целочисленных идентификаторов</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:long">
+          <xs:pattern value="\d{19}"/>
+          <xs:fractionDigits value="0"/>
+          <xs:totalDigits value="19"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="IPType">
+        <xs:annotation>
+          <xs:documentation>Представление IP адреса</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+          <xs:pattern value="(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:complexType name="KeyValue">
+        <xs:annotation>
+          <xs:documentation>Для пар: ключ-значение</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element name="value" type="xs:string"/>
+        </xs:sequence>
+        <xs:attribute name="key" type="xs:string"/>
+      </xs:complexType>
+      <xs:complexType name="KeyValueEncoded">
+        <xs:complexContent>
+          <xs:extension base="cor:KeyValue">
+            <xs:attribute name="encoding" type="xs:string"/>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="LocaleValue">
+        <xs:sequence>
+          <xs:element name="value" type="xs:string"/>
+        </xs:sequence>
+        <xs:attribute name="locale" type="xs:string"/>
+      </xs:complexType>
+      <xs:simpleType name="LoginType">
+        <xs:annotation>
+          <xs:documentation>Представление для логина пользователя</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string"/>
+      </xs:simpleType>
+      <xs:simpleType name="LongNameType">
+        <xs:annotation>
+          <xs:documentation>Представление для названий</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+          <xs:minLength value="1"/>
+          <xs:maxLength value="255"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="MACType">
+        <xs:annotation>
+          <xs:documentation>Представление для MAC адреса устройства</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+          <xs:pattern value="[0-9A-F]{12}"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="MoneyType">
+        <xs:annotation>
+          <xs:documentation>Представление для денежных сумм</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:decimal">
+          <xs:fractionDigits value="8"/>
+          <xs:totalDigits value="26"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="NameType">
+        <xs:annotation>
+          <xs:documentation>Представление для названий</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="4000"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="OperatorLoginType">
+        <xs:annotation>
+          <xs:documentation>Представление для логина оператор системы</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:token">
+          <xs:pattern value="[a-zA-Z][a-zA-Z0-9]+"/>
+          <xs:maxLength value="32"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="PasswordType">
+        <xs:annotation>
+          <xs:documentation>Представление для пароля</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+          <xs:pattern value="[A-Za-z0-9 (!#$%()*+,-./\\:;?@`\[\]^_'{|}~)]+"/>
+          <xs:minLength value="6"/>
+          <xs:maxLength value="24"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:complexType name="PersonalNameType">
+        <xs:annotation>
+          <xs:documentation>Имя ФЛ</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element name="firstName" type="cor:CustomerNameType" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Имя</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="lastName" type="cor:CustomerNameType" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Фамилия</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="middleName" type="cor:CustomerNameType" minOccurs="0"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:simpleType name="PhResourceNameType">
+        <xs:annotation>
+          <xs:documentation>Тип для представления пользовательского имени устройства</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+          <xs:minLength value="1"/>
+          <xs:maxLength value="64"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="PhoneType">
+        <xs:annotation>
+          <xs:documentation>Представление для номера телефона</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string"/>
+      </xs:simpleType>
+      <xs:complexType name="PropertyType">
+        <xs:annotation>
+          <xs:documentation>Пара имя:значение</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element name="value" type="xs:string">
+            <xs:annotation>
+              <xs:documentation>значение</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="name" use="required" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>имя</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:complexType>
+      <xs:complexType name="PropertyValue">
+        <xs:annotation>
+          <xs:documentation>Тип, содержащий значение(я) атрибута для фильтрации объектов</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element name="operation" type="dic:CompareOperationEnum">
+            <xs:annotation>
+              <xs:documentation>Тип операции сравнения</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="values" type="xs:string" maxOccurs="unbounded">
+            <xs:annotation>
+              <xs:documentation>Значения для сравнения</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="filterOperation" type="xs:boolean">
+            <xs:annotation>
+              <xs:documentation>Фильтрующий (обязательный) критерий  - все результаты поиска должны удовлетворять заданному условию</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:simpleType name="ReferenceItemCodeType">
+        <xs:annotation>
+          <xs:documentation>Представление для кода элемента справочника</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+          <xs:minLength value="1"/>
+          <xs:maxLength value="32"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="RegionFormatType">
+        <xs:annotation>
+          <xs:documentation>Представление для региона</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+          <xs:pattern value="\d{13}"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="UIDType">
+        <xs:annotation>
+          <xs:documentation>Представление для идентификатора пользователя</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:long">
+          <xs:pattern value="\d{10}"/>
+          <xs:fractionDigits value="0"/>
+          <xs:totalDigits value="10"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="URLType">
+        <xs:annotation>
+          <xs:documentation>Представление для адреса ресурса в интернете</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string"/>
+      </xs:simpleType>
+    </xs:schema>
+    <xs:schema targetNamespace="http://www.yota.ru/vox/services/mnpService" elementFormDefault="unqualified" attributeFormDefault="unqualified" xmlns="http://www.yota.ru/vox/services/mnpService" xmlns:rr="http://www.roox.ru/products/common/rr" xmlns:cus="http://www.yota.ru/vox/domains/customer" xmlns:cor="http://www.yota.ru/vox/domains/common/core" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:mnp="http://www.yota.ru/vox/services/mnpService" xmlns:order="http://www.yota.ru/vox/domains/order">
+      <xs:import namespace="http://www.roox.ru/products/common/rr"/>
+      <xs:import namespace="http://www.yota.ru/vox/domains/common/core"/>
+      <xs:import namespace="http://www.yota.ru/vox/domains/customer"/>
+      <xs:import namespace="http://www.yota.ru/vox/domains/order"/>
+      <xs:complexType name="CancelMNPPortinRequest">
+        <xs:complexContent>
+          <xs:extension base="rr:BaseRRType">
+            <xs:sequence>
+              <xs:element name="portableNumber" type="cor:PhoneType"/>
+              <xs:element name="subscriberData" type="cus:PersonalSubscriberData"/>
+              <xs:element name="signedDate" type="xs:dateTime"/>
+              <xs:element name="agreementScanRef" type="cus:ScanRef"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="CancelMNPPortinResponse">
+        <xs:complexContent>
+          <xs:extension base="rr:BaseRRType"/>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="CheckMNPAvailabilityRequest">
+        <xs:complexContent>
+          <xs:extension base="rr:BaseRRType">
+            <xs:sequence>
+              <xs:element name="portableNumber" type="cor:PhoneType"/>
+              <xs:element name="iccid" type="xs:string"/>
+              <xs:element name="startServiceDate" type="xs:dateTime"/>
+              <xs:element name="rsRegion" type="cor:ReferenceItemCodeType" minOccurs="0"/>
+              <xs:element name="mnpType" type="order:MNPTypeEnum" minOccurs="0">
+                <xs:annotation>
+                  <xs:documentation>Если не передано, то считается короткая процедура</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="CheckMNPAvailabilityResponse">
+        <xs:complexContent>
+          <xs:extension base="rr:BaseRRType">
+            <xs:sequence>
+              <xs:element name="startServiceDate" type="xs:dateTime"/>
+              <xs:element name="operatorCode" type="xs:string" minOccurs="0"/>
+              <xs:element name="rsRegion" type="cor:ReferenceItemCodeType" minOccurs="0"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="CheckMNPPortinCancellationPossibleRequest">
+        <xs:complexContent>
+          <xs:extension base="rr:BaseRRType">
+            <xs:sequence>
+              <xs:element name="portableNumber" type="cor:PhoneType"/>
+              <xs:element name="signedDate" type="xs:dateTime"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="CheckMNPPortinCancellationPossibleResponse">
+        <xs:complexContent>
+          <xs:extension base="rr:BaseRRType"/>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="CreatePortinRequest">
+        <xs:complexContent>
+          <xs:extension base="rr:BaseRRType">
+            <xs:sequence>
+              <xs:element name="mnpOrder" type="order:MNPOrder"/>
+              <xs:element name="signedDate" type="xs:dateTime"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="CreatePortinResponse">
+        <xs:complexContent>
+          <xs:extension base="rr:BaseRRType"/>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="GetMNPOrderByIccidRequest">
+        <xs:sequence>
+          <xs:element name="iccid" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetMNPOrderByIccidResponse">
+        <xs:sequence>
+          <xs:element name="order" type="order:MNPOrder"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetMNPOrderByMsisdnRequest">
+        <xs:sequence>
+          <xs:element name="phone" type="cor:PhoneType"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetMNPOrderByMsisdnResponse">
+        <xs:sequence>
+          <xs:element name="order" type="order:MNPOrder"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetPortinRegionRequest">
+        <xs:sequence>
+          <xs:element name="mnpType" type="order:MNPTypeEnum"/>
+          <xs:element name="portableNumber" type="cor:PhoneType"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetPortinRegionResponse">
+        <xs:sequence>
+          <xs:element name="operatorCode" type="xs:string"/>
+          <xs:element name="rsRegion" type="cor:ReferenceItemCodeType"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="StartMNPOrderPortinRequest">
+        <xs:sequence>
+          <xs:element name="mnpOrder" type="order:MNPOrder"/>
+          <xs:element name="signedDate" type="xs:dateTime"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="StartMNPOrderPortinResponse"/>
+      <xs:complexType name="StartMNPPortinRequest">
+        <xs:complexContent>
+          <xs:extension base="rr:BaseRRType">
+            <xs:sequence>
+              <xs:element name="startServiceDate" type="xs:dateTime"/>
+              <xs:element name="signedDate" type="xs:dateTime"/>
+              <xs:element name="portableNumber" type="cor:PhoneType"/>
+              <xs:element name="subscriberData" type="cus:PersonalSubscriberData" minOccurs="0"/>
+              <xs:element name="rsRegion" type="cor:ReferenceItemCodeType"/>
+              <xs:element name="iccid" type="xs:string"/>
+              <xs:element name="agreementRef" type="xs:string"/>
+              <xs:element name="authorizationRef" type="xs:string" minOccurs="0"/>
+              <xs:element name="contactPhone" type="cor:PhoneType" minOccurs="0"/>
+              <xs:element name="contactEmail" type="cor:EMailType" minOccurs="0"/>
+              <xs:element name="mnpPortType" type="order:MNPTypeEnum" minOccurs="0"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="StartMNPPortinResponse">
+        <xs:complexContent>
+          <xs:extension base="rr:BaseRRType"/>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="UpdateMNPOrderRequest">
+        <xs:sequence>
+          <xs:element name="mnpOrder" type="order:MNPOrder"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="UpdateMNPOrderResponse"/>
+      <xs:element name="CancelMNPPortinRequest" type="mnp:CancelMNPPortinRequest"/>
+      <xs:element name="CancelMNPPortinResponse" type="mnp:CancelMNPPortinResponse"/>
+      <xs:element name="CheckMNPAvailabilityRequest" type="mnp:CheckMNPAvailabilityRequest"/>
+      <xs:element name="CheckMNPAvailabilityResponse" type="mnp:CheckMNPAvailabilityResponse"/>
+      <xs:element name="CheckMNPPortinCancellationPossibleRequest" type="mnp:CheckMNPPortinCancellationPossibleRequest"/>
+      <xs:element name="CheckMNPPortinCancellationPossibleResponse" type="mnp:CheckMNPPortinCancellationPossibleResponse"/>
+      <xs:element name="CreatePortinRequest" type="mnp:CreatePortinRequest"/>
+      <xs:element name="CreatePortinResponse" type="mnp:CreatePortinResponse"/>
+      <xs:element name="GetMNPOrderByIccidRequest" type="mnp:GetMNPOrderByIccidRequest"/>
+      <xs:element name="GetMNPOrderByIccidResponse" type="mnp:GetMNPOrderByIccidResponse"/>
+      <xs:element name="GetMNPOrderByMsisdnRequest" type="mnp:GetMNPOrderByMsisdnRequest"/>
+      <xs:element name="GetMNPOrderByMsisdnResponse" type="mnp:GetMNPOrderByMsisdnResponse"/>
+      <xs:element name="GetPortinRegionRequest" type="mnp:GetPortinRegionRequest"/>
+      <xs:element name="GetPortinRegionResponse" type="mnp:GetPortinRegionResponse"/>
+      <xs:element name="StartMNPOrderPortinRequest" type="mnp:StartMNPOrderPortinRequest"/>
+      <xs:element name="StartMNPOrderPortinResponse" type="mnp:StartMNPOrderPortinResponse"/>
+      <xs:element name="StartMNPPortinRequest" type="mnp:StartMNPPortinRequest"/>
+      <xs:element name="StartMNPPortinResponse" type="mnp:StartMNPPortinResponse"/>
+      <xs:element name="UpdateMNPOrderRequest" type="mnp:UpdateMNPOrderRequest"/>
+      <xs:element name="UpdateMNPOrderResponse" type="mnp:UpdateMNPOrderResponse"/>
+    </xs:schema>
+    <xs:schema targetNamespace="http://www.yota.ru/vox/domains/order" elementFormDefault="unqualified" attributeFormDefault="unqualified" xmlns="http://www.yota.ru/vox/domains/order" xmlns:com="http://www.yota.ru/vox/domains/common/com" xmlns:cus="http://www.yota.ru/vox/domains/customer" xmlns:cor="http://www.yota.ru/vox/domains/common/core" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:order="http://www.yota.ru/vox/domains/order" xmlns:dic="http://www.yota.ru/vox/domains/common/dictionaries_1.1">
+      <xs:import namespace="http://www.yota.ru/vox/domains/common/com"/>
+      <xs:import namespace="http://www.yota.ru/vox/domains/common/core"/>
+      <xs:import namespace="http://www.yota.ru/vox/domains/common/dictionaries_1.1"/>
+      <xs:import namespace="http://www.yota.ru/vox/domains/customer"/>
+      <xs:complexType name="CorporateMnpData">
+        <xs:sequence>
+          <xs:element name="administratorPhone" type="cor:PhoneType">
+            <xs:annotation>
+              <xs:documentation>телефонный номер администратора для нотификаций.
+для информирования абонента используется переносимый номер из MNPOrder</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="corporateName" type="xs:string">
+            <xs:annotation>
+              <xs:documentation>Название организации или ФИО для ИП</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="inn" type="xs:string">
+            <xs:annotation>
+              <xs:documentation>ИНН</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="MNPConfidant">
+        <xs:sequence>
+          <xs:element name="confidantName" type="xs:string"/>
+          <xs:element name="confidantPatronymic" type="xs:string" minOccurs="0"/>
+          <xs:element name="confidantPosition" type="xs:string"/>
+          <xs:element name="confidantSurname" type="xs:string"/>
+          <xs:element name="document" type="cus:DocumentAttribute"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:simpleType name="MNPDirection">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="portIn"/>
+          <xs:enumeration value="portOut"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:complexType name="MNPOrder">
+        <xs:sequence>
+          <xs:element name="orderId" type="xs:string" minOccurs="0"/>
+          <xs:element name="customerId" type="com:PersonalDataID" minOccurs="0"/>
+          <xs:element name="iccid" type="xs:string" minOccurs="0"/>
+          <xs:element name="mnpDirection" type="order:MNPDirection"/>
+          <xs:element name="mnpCancelationCode" type="cor:ReferenceItemCodeType" minOccurs="0"/>
+          <xs:element name="portableNumber" type="cor:PhoneType" minOccurs="0"/>
+          <xs:element name="region" type="cor:ReferenceItemCodeType" minOccurs="0"/>
+          <xs:element name="serviceStartDate" type="xs:string" minOccurs="0"/>
+          <xs:element name="mnpState" type="order:MNPStateEnum" minOccurs="0"/>
+          <xs:element name="serviceProvider" type="cor:ReferenceItemCodeType" minOccurs="0"/>
+          <xs:element name="agreements" type="cus:Agreement" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="scanRef" type="xs:string"/>
+          <xs:element name="timezone" type="cus:TimeZoneTypeEnum" minOccurs="0"/>
+          <xs:element name="externalOrderId" type="xs:string" minOccurs="0"/>
+          <xs:element name="manualMode" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="mnpPrevState" type="order:MNPStateEnum" minOccurs="0"/>
+          <xs:element name="comment" type="xs:string" minOccurs="0"/>
+          <xs:element name="mnpType" type="order:MNPTypeEnum" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Если значение данного поля не установлено, то принимается значение physicalShort</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="b2bPersonalData" type="order:CorporateMnpData" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>данные необходимые дял формирования запроса в ЦБДПН и информирования клиента</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="destOfferCode" type="cor:ReferenceItemCodeType" minOccurs="0"/>
+          <xs:element name="destOfferOptions" type="cor:ReferenceItemCodeType" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="hideOrderInSC" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="ownerName" type="xs:string" minOccurs="0"/>
+          <xs:element name="branch" type="cor:ReferenceItemCodeType" minOccurs="0"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:simpleType name="MNPStateEnum">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="new"/>
+          <xs:enumeration value="approving"/>
+          <xs:enumeration value="approved"/>
+          <xs:enumeration value="waitingForMNP"/>
+          <xs:enumeration value="indebtedness"/>
+          <xs:enumeration value="waitingForCancellation"/>
+          <xs:enumeration value="canceled"/>
+          <xs:enumeration value="waitingForExecution"/>
+          <xs:enumeration value="executed"/>
+          <xs:enumeration value="waitingForMNPCancellationNotPossible"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="MNPTypeEnum">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="legalLong"/>
+          <xs:enumeration value="legalShort"/>
+          <xs:enumeration value="physicalShort"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:complexType name="Order">
+        <xs:sequence>
+          <xs:element name="preorder" type="order:Preorder" minOccurs="0"/>
+          <xs:element name="orderId" type="xs:string" minOccurs="0"/>
+          <xs:element name="orderNumber" type="xs:string" minOccurs="0"/>
+          <xs:element name="externalOrderId" type="xs:string" minOccurs="0"/>
+          <xs:element name="customerId" type="com:PersonalDataID" minOccurs="0"/>
+          <xs:element name="createdDate" type="xs:dateTime" minOccurs="0"/>
+          <xs:element name="status" type="order:OrderStatusEnum" minOccurs="0"/>
+          <xs:element name="serviceChannel" type="dic:ServiceChannelEnum" minOccurs="0"/>
+          <xs:element name="deliveryDetails" type="order:OrderDeliveryDetails" minOccurs="0"/>
+          <xs:element name="orderItems" type="order:OrderItem" maxOccurs="unbounded"/>
+          <xs:element name="deliveryServiceProvider" type="xs:string" minOccurs="0"/>
+          <xs:element name="additionalOrderAttributes" type="cor:PropertyType" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="OrderDeliveryDetails">
+        <xs:sequence>
+          <xs:element name="name" type="cor:PersonalNameType"/>
+          <xs:element name="contactPhone" type="cor:PhoneType"/>
+          <xs:element name="regionId" type="cor:ReferenceItemCodeType"/>
+          <xs:element name="addressText" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="OrderItem">
+        <xs:sequence>
+          <xs:element name="offerId" type="xs:string"/>
+          <xs:element name="type" type="xs:string"/>
+          <xs:element name="textDescription" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:simpleType name="OrderStatusEnum">
+        <xs:annotation>
+          <xs:documentation>Состояние доставки заказа</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="unknown"/>
+          <xs:enumeration value="new"/>
+          <xs:enumeration value="indelivery"/>
+          <xs:enumeration value="rejected"/>
+          <xs:enumeration value="cancelling"/>
+          <xs:enumeration value="cancelled"/>
+          <xs:enumeration value="delivered"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:complexType name="Preorder">
+        <xs:sequence>
+          <xs:element name="preorderId" type="xs:string" minOccurs="0"/>
+          <xs:element name="customerId" type="com:PersonalDataID" minOccurs="0"/>
+          <xs:element name="appId" type="xs:string" minOccurs="0"/>
+          <xs:element name="os" type="xs:string" minOccurs="0"/>
+          <xs:element name="osVersion" type="xs:string" minOccurs="0"/>
+          <xs:element name="applicationVersion" type="xs:string" minOccurs="0"/>
+          <xs:element name="imei" type="xs:string" minOccurs="0"/>
+          <xs:element name="model" type="xs:string" minOccurs="0"/>
+          <xs:element name="region" type="cor:ReferenceItemCodeType" minOccurs="0"/>
+          <xs:element name="approvedDate" type="xs:dateTime" minOccurs="0"/>
+          <xs:element name="createdDate" type="xs:dateTime" minOccurs="0"/>
+          <xs:element name="usedDate" type="xs:dateTime" minOccurs="0"/>
+          <xs:element name="status" type="order:PreorderStatusEnum" minOccurs="0"/>
+          <xs:element name="userToken" type="xs:string" minOccurs="0"/>
+          <xs:element name="confirmationHash" type="xs:string" minOccurs="0"/>
+          <xs:element name="gpsCoordinates" type="com:GPSCoordinates" minOccurs="0"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:simpleType name="PreorderStatusEnum">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="cancelled"/>
+          <xs:enumeration value="created"/>
+          <xs:enumeration value="approved"/>
+          <xs:enumeration value="usedToCreateOrder"/>
+          <xs:enumeration value="usedToGetSIM"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="PreorderTypeEnum">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="corporate"/>
+          <xs:enumeration value="tablet"/>
+          <xs:enumeration value="voice"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:service name="MNPService.serviceagent">
+    <wsdl:port name="MNPServiceInterfaceEndpoint1" binding="tns:MNPServiceInterfaceEndpoint1Binding">
+      <soap:address location="http://localhost:8319/MNPService"/>
+    </wsdl:port>
+  </wsdl:service>
+  <wsdl:portType name="MNPServiceInterface">
+    <wsdl:documentation/>
+    <wsdl:operation name="CreatePortin">
+      <wsdl:input message="tns:CreatePortinRequest"/>
+      <wsdl:output message="tns:CreatePortinResponse"/>
+      <wsdl:fault name="commonFault" message="tns:commonFault"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetPortinRegion">
+      <wsdl:input message="tns:GetPortinRegionRequest"/>
+      <wsdl:output message="tns:GetPortinRegionResponse"/>
+      <wsdl:fault name="commonFault" message="tns:commonFault"/>
+    </wsdl:operation>
+    <wsdl:operation name="CheckMNPPortinCancellationPossible">
+      <wsdl:input message="tns:CheckMNPPortinCancellationPossibleRequest"/>
+      <wsdl:output message="tns:CheckMNPPortinCancellationPossibleResponse"/>
+      <wsdl:fault name="commonFault" message="tns:commonFault"/>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMNPOrder">
+      <wsdl:input message="tns:UpdateMNPOrderRequest"/>
+      <wsdl:output message="tns:UpdateMNPOrderResponse"/>
+      <wsdl:fault name="commonFault" message="tns:commonFault"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetMNPOrderByIccid">
+      <wsdl:input message="tns:GetMNPOrderByIccidRequest"/>
+      <wsdl:output message="tns:GetMNPOrderByIccidResponse"/>
+      <wsdl:fault name="commonFault" message="tns:commonFault"/>
+    </wsdl:operation>
+    <wsdl:operation name="StartMNPOrderPortin">
+      <wsdl:input message="tns:StartMNPOrderPortinRequest"/>
+      <wsdl:output message="tns:StartMNPOrderPortinResponse"/>
+      <wsdl:fault name="commonFault" message="tns:commonFault"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetMNPOrderByMsisdn">
+      <wsdl:input message="tns:GetMNPOrderByMsisdnRequest"/>
+      <wsdl:output message="tns:GetMNPOrderByMsisdnResponse"/>
+      <wsdl:fault name="commonFault" message="tns:commonFault"/>
+    </wsdl:operation>
+    <wsdl:operation name="CheckMNPAvailability">
+      <wsdl:input message="tns:CheckMNPAvailabilityRequest"/>
+      <wsdl:output message="tns:CheckMNPAvailabilityResponse"/>
+      <wsdl:fault name="commonFault" message="tns:commonFault"/>
+    </wsdl:operation>
+    <wsdl:operation name="StartMNPPortin">
+      <wsdl:input message="tns:StartMNPPortinRequest"/>
+      <wsdl:output message="tns:StartMNPPortinResponse"/>
+      <wsdl:fault name="commonFault" message="tns:commonFault"/>
+    </wsdl:operation>
+    <wsdl:operation name="CancelMNPPortin">
+      <wsdl:input message="tns:CancelMNPPortinRequest"/>
+      <wsdl:output message="tns:CancelMNPPortinResponse"/>
+      <wsdl:fault name="commonFault" message="tns:commonFault"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="MNPServiceInterfaceEndpoint1Binding" type="tns:MNPServiceInterface">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="CreatePortin">
+      <soap:operation style="document" soapAction="http://www.yota.ru/vox/services/wsdl/MNPService/CreatePortin"/>
+      <wsdl:input>
+        <soap:body use="literal" parts="request"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" parts="response"/>
+      </wsdl:output>
+      <wsdl:fault name="commonFault">
+        <soap:fault use="literal" name="commonFault"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetPortinRegion">
+      <soap:operation style="document" soapAction="http://www.yota.ru/vox/services/wsdl/MNPService/GetPortinRegion"/>
+      <wsdl:input>
+        <soap:body use="literal" parts="request"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" parts="response"/>
+      </wsdl:output>
+      <wsdl:fault name="commonFault">
+        <soap:fault use="literal" name="commonFault"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="CheckMNPPortinCancellationPossible">
+      <soap:operation style="document" soapAction="http://www.yota.ru/vox/services/wsdl/MNPService/CheckMNPPortinCancellationPossible"/>
+      <wsdl:input>
+        <soap:body use="literal" parts="request"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" parts="response"/>
+      </wsdl:output>
+      <wsdl:fault name="commonFault">
+        <soap:fault use="literal" name="commonFault"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMNPOrder">
+      <soap:operation style="document" soapAction="http://www.yota.ru/vox/services/wsdl/MNPService/UpdateMNPOrder"/>
+      <wsdl:input>
+        <soap:body use="literal" parts="request"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" parts="response"/>
+      </wsdl:output>
+      <wsdl:fault name="commonFault">
+        <soap:fault use="literal" name="commonFault"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetMNPOrderByIccid">
+      <soap:operation style="document" soapAction="http://www.yota.ru/vox/services/wsdl/MNPService/GetMNPOrderByIccid"/>
+      <wsdl:input>
+        <soap:body use="literal" parts="request"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" parts="response"/>
+      </wsdl:output>
+      <wsdl:fault name="commonFault">
+        <soap:fault use="literal" name="commonFault"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="StartMNPOrderPortin">
+      <soap:operation style="document" soapAction="http://www.yota.ru/vox/services/wsdl/MNPService/StartMNPOrderPortin"/>
+      <wsdl:input>
+        <soap:body use="literal" parts="request"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" parts="response"/>
+      </wsdl:output>
+      <wsdl:fault name="commonFault">
+        <soap:fault use="literal" name="commonFault"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetMNPOrderByMsisdn">
+      <soap:operation style="document" soapAction="http://www.yota.ru/vox/services/wsdl/MNPService/GetMNPOrderByMsisdn"/>
+      <wsdl:input>
+        <soap:body use="literal" parts="request"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" parts="response"/>
+      </wsdl:output>
+      <wsdl:fault name="commonFault">
+        <soap:fault use="literal" name="commonFault"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="CheckMNPAvailability">
+      <soap:operation style="document" soapAction="http://www.yota.ru/vox/services/wsdl/MNPService/CheckMNPAvailability"/>
+      <wsdl:input>
+        <soap:body use="literal" parts="request"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" parts="response"/>
+      </wsdl:output>
+      <wsdl:fault name="commonFault">
+        <soap:fault use="literal" name="commonFault"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="StartMNPPortin">
+      <soap:operation style="document" soapAction="http://www.yota.ru/vox/services/wsdl/MNPService/StartMNPPortin"/>
+      <wsdl:input>
+        <soap:body use="literal" parts="request"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" parts="response"/>
+      </wsdl:output>
+      <wsdl:fault name="commonFault">
+        <soap:fault use="literal" name="commonFault"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="CancelMNPPortin">
+      <soap:operation style="document" soapAction="http://www.yota.ru/vox/services/wsdl/MNPService/CancelMNPPortin"/>
+      <wsdl:input>
+        <soap:body use="literal" parts="request"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" parts="response"/>
+      </wsdl:output>
+      <wsdl:fault name="commonFault">
+        <soap:fault use="literal" name="commonFault"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:message name="CreatePortinRequest">
+    <wsdl:part name="request" element="ns0:CreatePortinRequest"/>
+  </wsdl:message>
+  <wsdl:message name="CreatePortinResponse">
+    <wsdl:part name="response" element="ns0:CreatePortinResponse"/>
+  </wsdl:message>
+  <wsdl:message name="commonFault">
+    <wsdl:part name="fault" element="ns1:CommonException"/>
+  </wsdl:message>
+  <wsdl:message name="GetPortinRegionRequest">
+    <wsdl:part name="request" element="ns0:GetPortinRegionRequest"/>
+  </wsdl:message>
+  <wsdl:message name="GetPortinRegionResponse">
+    <wsdl:part name="response" element="ns0:GetPortinRegionResponse"/>
+  </wsdl:message>
+  <wsdl:message name="CheckMNPPortinCancellationPossibleRequest">
+    <wsdl:part name="request" element="ns0:CheckMNPPortinCancellationPossibleRequest"/>
+  </wsdl:message>
+  <wsdl:message name="CheckMNPPortinCancellationPossibleResponse">
+    <wsdl:part name="response" element="ns0:CheckMNPPortinCancellationPossibleResponse"/>
+  </wsdl:message>
+  <wsdl:message name="UpdateMNPOrderRequest">
+    <wsdl:part name="request" element="ns0:UpdateMNPOrderRequest"/>
+  </wsdl:message>
+  <wsdl:message name="UpdateMNPOrderResponse">
+    <wsdl:part name="response" element="ns0:UpdateMNPOrderResponse"/>
+  </wsdl:message>
+  <wsdl:message name="GetMNPOrderByIccidRequest">
+    <wsdl:part name="request" element="ns0:GetMNPOrderByIccidRequest"/>
+  </wsdl:message>
+  <wsdl:message name="GetMNPOrderByIccidResponse">
+    <wsdl:part name="response" element="ns0:GetMNPOrderByIccidResponse"/>
+  </wsdl:message>
+  <wsdl:message name="StartMNPOrderPortinRequest">
+    <wsdl:part name="request" element="ns0:StartMNPOrderPortinRequest"/>
+  </wsdl:message>
+  <wsdl:message name="StartMNPOrderPortinResponse">
+    <wsdl:part name="response" element="ns0:StartMNPOrderPortinResponse"/>
+  </wsdl:message>
+  <wsdl:message name="GetMNPOrderByMsisdnRequest">
+    <wsdl:part name="request" element="ns0:GetMNPOrderByMsisdnRequest"/>
+  </wsdl:message>
+  <wsdl:message name="GetMNPOrderByMsisdnResponse">
+    <wsdl:part name="response" element="ns0:GetMNPOrderByMsisdnResponse"/>
+  </wsdl:message>
+  <wsdl:message name="CheckMNPAvailabilityRequest">
+    <wsdl:part name="request" element="ns0:CheckMNPAvailabilityRequest"/>
+  </wsdl:message>
+  <wsdl:message name="CheckMNPAvailabilityResponse">
+    <wsdl:part name="response" element="ns0:CheckMNPAvailabilityResponse"/>
+  </wsdl:message>
+  <wsdl:message name="StartMNPPortinRequest">
+    <wsdl:part name="request" element="ns0:StartMNPPortinRequest"/>
+  </wsdl:message>
+  <wsdl:message name="StartMNPPortinResponse">
+    <wsdl:part name="response" element="ns0:StartMNPPortinResponse"/>
+  </wsdl:message>
+  <wsdl:message name="CancelMNPPortinRequest">
+    <wsdl:part name="request" element="ns0:CancelMNPPortinRequest"/>
+  </wsdl:message>
+  <wsdl:message name="CancelMNPPortinResponse">
+    <wsdl:part name="response" element="ns0:CancelMNPPortinResponse"/>
+  </wsdl:message>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8319/MNPService</con:endpoint></con:endpoints></con:interface>

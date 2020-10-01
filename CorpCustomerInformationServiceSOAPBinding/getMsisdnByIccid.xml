@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation isOneWay="false" action="http://www.yota.ru/vox/services/b2b/wsdl/CorpCustomerInformation/GetMsisdnByIccid" name="getMsisdnByIccid" bindingOperationName="getMsisdnByIccid" type="Request-Response" outputName="GetMsisdnByIccidOut" inputName="GetMsisdnByIccidIn" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="34b5af52-d97b-4130-ba8f-f888fed41e4c" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="34b5af52-d97b-4130-ba8f-f888fed41e4cfileName">getMsisdnByIccid</con:setting></con:settings><con:call name="Request 1" id="986c9dbe-b05e-4e2b-a9c9-a8a68bc05e72"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://b2btst-corpjs-cis.g4lab.com:8080/cis-web/CorpCustomerInformationServiceImpl</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cus="http://www.yota.ru/vox/b2b/services/customerInformation">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <cus:GetMsisdnByIccidRequest>
+         <iccid>?</iccid>
+      </cus:GetMsisdnByIccidRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.yota.ru/vox/services/b2b/wsdl/CorpCustomerInformation/GetMsisdnByIccid"/></con:call></con:operation>

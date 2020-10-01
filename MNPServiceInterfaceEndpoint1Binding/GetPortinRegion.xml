@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation isOneWay="false" action="http://www.yota.ru/vox/services/wsdl/MNPService/GetPortinRegion" name="GetPortinRegion" bindingOperationName="GetPortinRegion" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="8834bb29-955a-48cb-8a79-f1fb18c53c92" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="8834bb29-955a-48cb-8a79-f1fb18c53c92fileName">GetPortinRegion</con:setting></con:settings><con:call name="Request 1" id="127c8dc2-a694-4ab8-b608-8f9036321411"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8319/MNPService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:mnp="http://www.yota.ru/vox/services/mnpService">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <mnp:GetPortinRegionRequest>
+         <mnpType>?</mnpType>
+         <portableNumber>?</portableNumber>
+      </mnp:GetPortinRegionRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.yota.ru/vox/services/wsdl/MNPService/GetPortinRegion"/></con:call></con:operation>

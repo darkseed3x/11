@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation isOneWay="false" action="http://www.yota.ru/vox/services/b2b/wsdl/CorporateOrderManagement/GetOrderByLinkRef" name="getOrderByLinkRef" bindingOperationName="getOrderByLinkRef" type="Request-Response" outputName="GetOrderByLinkRefOut" inputName="GetOrderByLinkRefIn" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="0b8d76ea-9dbe-467c-897b-aa0953341545" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="0b8d76ea-9dbe-467c-897b-aa0953341545fileName">getOrderByLinkRef</con:setting></con:settings><con:call name="Request 1" id="de730b97-9831-4bbd-aeee-498ac475f462"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://ft1-b2b-ainst1.scartel.dc:8082/oms-web/OrderEndpoint</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ord="http://www.yota.ru/vox/b2b/services/order">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ord:GetOrderByLinkRefRequest>
+         <linkRef>?</linkRef>
+      </ord:GetOrderByLinkRefRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.yota.ru/vox/services/b2b/wsdl/CorporateOrderManagement/GetOrderByLinkRef"/></con:call></con:operation>

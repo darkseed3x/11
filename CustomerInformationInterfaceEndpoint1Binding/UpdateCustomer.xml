@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation id="d8a38877-f277-46dd-a26d-378033ef7672" isOneWay="false" action="http://www.yota.ru/vox/services/wsdl/CustomerInformation/UpdateCustomer" name="UpdateCustomer" bindingOperationName="UpdateCustomer" type="Request-Response" outputName="UpdateCustomerOut" inputName="UpdateCustomerIn" receivesAttachments="false" sendsAttachments="false" anonymous="optional" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="d8a38877-f277-46dd-a26d-378033ef7672fileName">UpdateCustomer</con:setting></con:settings><con:call id="5d6146eb-4ae0-4054-ab7f-1d94fa8b081c" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://oxford-esb.g4lab.com:8080/CustomerInformationService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cus="http://www.yota.ru/vox/services/customerInformation" xmlns:core="http://www.roox.ru/products/common/core" xmlns:core1="http://www.yota.ru/vox/domains/common/core">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <cus:UpdateCustomerRequest>\r
+         <!--Optional:-->\r
+         <core:extension>\r
+            <!--Zero or more repetitions:-->\r
+            <core:item>?</core:item>\r
+         </core:extension>\r
+         <customer hid="?" customerId="?">\r
+            <!--Optional:-->\r
+            <customerType>?</customerType>\r
+            <!--Optional:-->\r
+            <status>?</status>\r
+            <!--Optional:-->\r
+            <created>?</created>\r
+            <!--Optional:-->\r
+            <lac_tac_code>?</lac_tac_code>\r
+            <!--Optional:-->\r
+            <location_region>?</location_region>\r
+            <!--Optional:-->\r
+            <customerPurpose>?</customerPurpose>\r
+            <!--Optional:-->\r
+            <language>?</language>\r
+            <!--Optional:-->\r
+            <marketingSegment>?</marketingSegment>\r
+            <!--Zero or more repetitions:-->\r
+            <emails hid="?" customerId="?">\r
+               <livingPeriod>\r
+                  <fromDate>?</fromDate>\r
+                  <!--Optional:-->\r
+                  <untilTo>?</untilTo>\r
+               </livingPeriod>\r
+               <!--Optional:-->\r
+               <rawSource>?</rawSource>\r
+               <!--Optional:-->\r
+               <primary>?</primary>\r
+               <!--Optional:-->\r
+               <additionalInfo>?</additionalInfo>\r
+               <!--Zero or more repetitions:-->\r
+               <additionalProperties name="?">\r
+                  <core1:value>?</core1:value>\r
+               </additionalProperties>\r
+               <email>?</email>\r
+               <emailType>?</emailType>\r
+            </emails>\r
+            <!--Zero or more repetitions:-->\r
+            <phones hid="?" customerId="?">\r
+               <livingPeriod>\r
+                  <fromDate>?</fromDate>\r
+                  <!--Optional:-->\r
+                  <untilTo>?</untilTo>\r
+               </livingPeriod>\r
+               <!--Optional:-->\r
+               <rawSource>?</rawSource>\r
+               <!--Optional:-->\r
+               <primary>?</primary>\r
+               <!--Optional:-->\r
+               <additionalInfo>?</additionalInfo>\r
+               <!--Zero or more repetitions:-->\r
+               <additionalProperties name="?">\r
+                  <core1:value>?</core1:value>\r
+               </additionalProperties>\r
+               <!--Optional:-->\r
+               <phoneNumber>?</phoneNumber>\r
+               <!--Optional:-->\r
+               <phoneType>?</phoneType>\r
+               <!--Optional:-->\r
+               <operator>?</operator>\r
+               <!--Optional:-->\r
+               <countryCode>?</countryCode>\r
+               <!--Optional:-->\r
+               <cityCode>?</cityCode>\r
+               <!--Optional:-->\r
+               <telephone>?</telephone>\r
+               <!--Optional:-->\r
+               <extension>?</extension>\r
+               <!--Optional:-->\r
+               <timezone>?</timezone>\r
+            </phones>\r
+            <!--Zero or more repetitions:-->\r
+            <paymentCards hid="?" customerId="?">\r
+               <livingPeriod>\r
+                  <fromDate>?</fromDate>\r
+                  <!--Optional:-->\r
+                  <untilTo>?</untilTo>\r
+               </livingPeriod>\r
+               <!--Optional:-->\r
+               <rawSource>?</rawSource>\r
+               <!--Optional:-->\r
+               <primary>?</primary>\r
+               <!--Optional:-->\r
+               <additionalInfo>?</additionalInfo>\r
+               <!--Zero or more repetitions:-->\r
+               <additionalProperties name="?">\r
+                  <core1:value>?</core1:value>\r
+               </additionalProperties>\r
+               <partnerId>?</partnerId>\r
+               <!--Optional:-->\r
+               <cardAlias>?</cardAlias>\r
+               <channelService>?</channelService>\r
+               <serviceStatus>?</serviceStatus>\r
+               <cardId>?</cardId>\r
+               <!--Optional:-->\r
+               <created>?</created>\r
+               <!--Optional:-->\r
+               <cardNumber>?</cardNumber>\r
+               <!--Optional:-->\r
+               <cardType>?</cardType>\r
+               <!--Optional:-->\r
+               <owner>?</owner>\r
+               <!--Optional:-->\r
+               <expirationDate>?</expirationDate>\r
+            </paymentCards>\r
+            <!--Zero or more repetitions:-->\r
+            <account hid="?" customerId="?">\r
+               <livingPeriod>\r
+                  <fromDate>?</fromDate>\r
+                  <!--Optional:-->\r
+                  <untilTo>?</untilTo>\r
+               </livingPeriod>\r
+               <!--Optional:-->\r
+               <rawSource>?</rawSource>\r
+               <!--Optional:-->\r
+               <primary>?</primary>\r
+               <!--Optional:-->\r
+               <additionalInfo>?</additionalInfo>\r
+               <!--Zero or more repetitions:-->\r
+               <additionalProperties name="?">\r
+                  <core1:value>?</core1:value>\r
+               </additionalProperties>\r
+               <account>?</account>\r
+               <accountType>?</accountType>\r
+            </account>\r
+            <!--Zero or more repetitions:-->\r
+            <agreements hid="?" customerId="?">\r
+               <refId>?</refId>\r
+               <agreementType>?</agreementType>\r
+               <agreementStatus>?</agreementStatus>\r
+               <!--Optional:-->\r
+               <iccid>?</iccid>\r
+               <!--Optional:-->\r
+               <msisdn>?</msisdn>\r
+               <!--Zero or more repetitions:-->\r
+               <serviceNumberDetails>\r
+                  <!--Optional:-->\r
+                  <iccid>?</iccid>\r
+                  <!--Optional:-->\r
+                  <msisdn>?</msisdn>\r
+               </serviceNumberDetails>\r
+               <!--Optional:-->\r
+               <region>?</region>\r
+               <!--Optional:-->\r
+               <timezone>?</timezone>\r
+               <created>?</created>\r
+               <!--Optional:-->\r
+               <signed>?</signed>\r
+               <!--Optional:-->\r
+               <serviceStartDate>?</serviceStartDate>\r
+               <!--Optional:-->\r
+               <livingPeriod>\r
+                  <fromDate>?</fromDate>\r
+                  <!--Optional:-->\r
+                  <untilTo>?</untilTo>\r
+               </livingPeriod>\r
+               <!--Zero or more repetitions:-->\r
+               <subscriberData hid="?" customerId="?">\r
+                  <created>?</created>\r
+                  <!--Optional:-->\r
+                  <livingPeriod>\r
+                     <fromDate>?</fromDate>\r
+                     <!--Optional:-->\r
+                     <untilTo>?</untilTo>\r
+                  </livingPeriod>\r
+                  <!--Zero or more repetitions:-->\r
+                  <subscriberProperties name="?">\r
+                     <core1:value>?</core1:value>\r
+                  </subscriberProperties>\r
+               </subscriberData>\r
+               <!--Zero or more repetitions:-->\r
+               <agreementProperties name="?">\r
+                  <core1:value>?</core1:value>\r
+               </agreementProperties>\r
+               <!--Zero or more repetitions:-->\r
+               <agreementScanRef>\r
+                  <scanRefValue>?</scanRefValue>\r
+                  <scanRefType>?</scanRefType>\r
+               </agreementScanRef>\r
+               <!--Optional:-->\r
+               <branch>?</branch>\r
+            </agreements>\r
+            <!--Zero or more repetitions:-->\r
+            <consentProperties hid="?" customerId="?">\r
+               <livingPeriod>\r
+                  <fromDate>?</fromDate>\r
+                  <!--Optional:-->\r
+                  <untilTo>?</untilTo>\r
+               </livingPeriod>\r
+               <!--Optional:-->\r
+               <rawSource>?</rawSource>\r
+               <!--Optional:-->\r
+               <primary>?</primary>\r
+               <!--Optional:-->\r
+               <additionalInfo>?</additionalInfo>\r
+               <!--Zero or more repetitions:-->\r
+               <additionalProperties name="?">\r
+                  <core1:value>?</core1:value>\r
+               </additionalProperties>\r
+               <key>?</key>\r
+               <value>?</value>\r
+            </consentProperties>\r
+            <!--Zero or more repetitions:-->\r
+            <additionalProperties name="?">\r
+               <core1:value>?</core1:value>\r
+            </additionalProperties>\r
+            <!--Zero or more repetitions:-->\r
+            <mobileApplications hid="?" customerId="?">\r
+               <livingPeriod>\r
+                  <fromDate>?</fromDate>\r
+                  <!--Optional:-->\r
+                  <untilTo>?</untilTo>\r
+               </livingPeriod>\r
+               <!--Optional:-->\r
+               <rawSource>?</rawSource>\r
+               <!--Optional:-->\r
+               <primary>?</primary>\r
+               <!--Optional:-->\r
+               <additionalInfo>?</additionalInfo>\r
+               <!--Zero or more repetitions:-->\r
+               <additionalProperties name="?">\r
+                  <core1:value>?</core1:value>\r
+               </additionalProperties>\r
+               <IDApp>?</IDApp>\r
+               <!--Optional:-->\r
+               <iccid>?</iccid>\r
+               <!--Optional:-->\r
+               <AppVersion>?</AppVersion>\r
+               <OS>?</OS>\r
+               <!--Optional:-->\r
+               <OSVersion>?</OSVersion>\r
+               <!--Optional:-->\r
+               <IMEI>?</IMEI>\r
+               <!--Optional:-->\r
+               <ModelName>?</ModelName>\r
+               <!--Optional:-->\r
+               <PushToken>?</PushToken>\r
+            </mobileApplications>\r
+            <!--Optional:-->\r
+            <gt_vlr>?</gt_vlr>\r
+            <!--Zero or more repetitions:-->\r
+            <identififcation hid="?" customerId="?">\r
+               <livingPeriod>\r
+                  <fromDate>?</fromDate>\r
+                  <!--Optional:-->\r
+                  <untilTo>?</untilTo>\r
+               </livingPeriod>\r
+               <!--Optional:-->\r
+               <rawSource>?</rawSource>\r
+               <!--Optional:-->\r
+               <primary>?</primary>\r
+               <!--Optional:-->\r
+               <additionalInfo>?</additionalInfo>\r
+               <!--Zero or more repetitions:-->\r
+               <additionalProperties name="?">\r
+                  <core1:value>?</core1:value>\r
+               </additionalProperties>\r
+               <!--Optional:-->\r
+               <attempt>?</attempt>\r
+               <!--Optional:-->\r
+               <comment>?</comment>\r
+               <identificationStatus>?</identificationStatus>\r
+               <!--Optional:-->\r
+               <identificationType>?</identificationType>\r
+               <!--Optional:-->\r
+               <invalidDocumentDate>?</invalidDocumentDate>\r
+               <!--Optional:-->\r
+               <invalidReason>?</invalidReason>\r
+               <!--Optional:-->\r
+               <nextDate>?</nextDate>\r
+               <!--Optional:-->\r
+               <taskId>?</taskId>\r
+            </identififcation>\r
+         </customer>\r
+      </cus:UpdateCustomerRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.yota.ru/vox/services/wsdl/CustomerInformation/UpdateCustomer"/></con:call></con:operation>

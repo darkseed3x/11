@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation isOneWay="false" action="http://www.yota.ru/vox/services/b2b/wsdl/DocumentGeneration/GeneratePrepayBill" name="generatePrepayBill" bindingOperationName="generatePrepayBill" type="Request-Response" outputName="GeneratePrepayBillOut" inputName="GeneratePrepayBillIn" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="cf5cc973-8983-41a0-ae78-cf59c6928aa8" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="cf5cc973-8983-41a0-ae78-cf59c6928aa8fileName">generatePrepayBill</con:setting></con:settings><con:call name="Request 1" id="5ef5ff64-811f-42b4-9337-88e9e3ffe6cc"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.90.253.219:8084/dgs-web/DocumentGenerationEndpoint</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:dgs="http://www.yota.ru/vox/b2b/domains/dgs" xmlns:core="http://www.yota.ru/vox/domains/common/core">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <dgs:GeneratePrepayBillRequest>
+         <amount currencyCode="?">
+            <core:amount>?</core:amount>
+         </amount>
+         <customerId>?</customerId>
+      </dgs:GeneratePrepayBillRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.yota.ru/vox/services/b2b/wsdl/DocumentGeneration/GeneratePrepayBill"/></con:call></con:operation>

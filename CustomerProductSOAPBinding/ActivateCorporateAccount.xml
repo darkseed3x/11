@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation isOneWay="false" action="http://www.yota.ru/vox/services/wsdl/CustomerProduct/ActivateCorporateAccount" name="ActivateCorporateAccount" bindingOperationName="ActivateCorporateAccount" type="Request-Response" outputName="ActivateCorporateAccountOut" inputName="ActivateCorporateAccountIn" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="9045cfbf-4d28-44fc-a7c8-805d80738f00" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="9045cfbf-4d28-44fc-a7c8-805d80738f00fileName">ActivateCorporateAccount</con:setting></con:settings><con:call name="Request 1" id="ad1d919d-0a9f-4e57-8d05-6f5163ee6e2d"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.78.209.200:8382/customer-product-ejb/CustomerProduct/CustomerProductServiceBean</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cus="http://www.yota.ru/vox/services/customerProduct" xmlns:core="http://www.roox.ru/products/common/core">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <cus:ActivateCorporateAccountRequest>
+         <!--Optional:-->
+         <core:extension>
+            <!--Zero or more repetitions:-->
+            <core:item>?</core:item>
+         </core:extension>
+         <accountID>?</accountID>
+         <activationDate>?</activationDate>
+      </cus:ActivateCorporateAccountRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.yota.ru/vox/services/wsdl/CustomerProduct/ActivateCorporateAccount"/></con:call></con:operation>

@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="2c6c51a7-79e2-4ccc-818a-41889bc9a441" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="13. Version_Check" searchProperties="true" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="2c6c51a7-79e2-4ccc-818a-41889bc9a441fileName">13.-Version_Check</con:setting></con:settings><con:testStep type="groovy" name="setprop" id="61aeb10f-d2dd-4bc5-9a40-74fce369ad04"><con:settings/><con:config><script>def hostb2b = context.expand( '${#Project#host-b2b}' )
+
+if (hostb2b == 'b2btst') {
+	testRunner.testCase.setPropertyValue("TEST_ENV_1", 'js2')
+} else {
+		testRunner.testCase.setPropertyValue("TEST_ENV_1", '')
+	}
+</script></con:config></con:testStep><con:testStep type="groovy" name="Name_of_node" id="9fb7913f-e5d1-4789-8605-cdb13524b7e3"><con:settings/><con:config><script>def get_revision = context.expand( '${#TestSuite#Revision}' ); //получить данные ревизии 
+def path = context.expand( '${#TestSuite#Path}' )
+def hostb2b = context.expand( '${#Project#host-b2b}' )
+def startDate = new Date() 
+
+//------------------логирование----
+testRunner.testCase.setPropertyValue( "Log_file",(path+'Отчет по окружению - '+hostb2b+' - '+startDate.format("yyyy-MM-dd")+'.txt'))
+
+
+def node_1 = context.expand( '${#TestCase#TEST_ENV}' );
+
+testRunner.testCase.setPropertyValue( "Node", hostb2b +'-'+ node_1);
+
+def node_name = testRunner.testCase.getPropertyValue( "Node");
+com.eviware.soapui.SoapUI.logMonitor.getLogArea("script log").clear()//чистка логов
+def get_version = context.expand( '${#Project#Expected_Version}' ); //получить данные версии
+
+//-------------------------------логирование в файл-----------------------------------------------------------------------
+def Log_file_1 =  context.expand( '${#TestCase#Log_file}' )
+def Conv_Log_file_2 =  Log_file_1.replace("\\", "/");
+
+
+
+
+
+File log_file_2 = new File(Conv_Log_file_2);
+
+	  log_file_2.append("\r\n");
+	  log_file_2.append("\r\n");
+	  log_file_2.append("\r\n");
+	  log_file_2.append("\r\n");
+  log_file_2.append("-------------Проверка версий на 1 -й ноде------------" );
+log_file_2.append("\r\n");
+log_file_2.append("Node: = " + node_name + ".g4lab.com:8080");
+log_file_2.append("\r\n");</script></con:config></con:testStep><con:testStep type="request" name="Version_CDM" id="f74b5c07-e7a9-4bbc-8a51-119d112bcdf3"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ClientDocumentManagementServiceSOAPBinding</con:interface><con:operation>getVersion</con:operation><con:request name="Version_CDM" id="d642bd39-c7d1-4509-aab2-c85b7313b7e3"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://${#TestCase#Node}.g4lab.com:8080/cdm-web/ClientDocumentManagementEndpoint</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:doc="http://www.yota.ru/vox/b2b/services/document">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <doc:GetVersionRequest/>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="Version_OMS" id="69ea7dbd-ab09-42d6-96a3-19605ab7cc22"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>CorporateOrderManagementServiceSOAPBinding</con:interface><con:operation>getVersion</con:operation><con:request name="Version_OMS" id="a71d6ac2-e108-42f3-9b70-194afb49ad95"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://${#Project#host-b2b}:8082/oms-web/OrderEndpoint</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ord="http://www.yota.ru/vox/b2b/services/order">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ord:GetVersionRequest/>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="Version_DGS" id="425ec867-46a6-4155-a1a8-bddf9b7104f8"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>DocumentGenerationServiceSOAPBinding</con:interface><con:operation>getVersion</con:operation><con:request name="Version_DGS" id="ec8b1dfa-29c8-475a-a545-f868598b19ed"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://${#TestCase#Node}.g4lab.com:8080/dgs-web/DocumentGenerationEndpoint</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:dgs="http://www.yota.ru/vox/b2b/domains/dgs">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <dgs:GetVersionRequest/>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="Version_CorpCIS" id="59b1dddc-ea76-46a3-8d1f-c0357e51c314"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>CorpCustomerInformationServiceSOAPBinding</con:interface><con:operation>getVersion</con:operation><con:request name="Version_CorpCIS" id="f24cb897-9e70-4d6c-a291-23c48b8daeb4"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://${#Project#host-b2b}:8086/cis-web/CorpCustomerInformationServiceImpl</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cus="http://www.yota.ru/vox/b2b/services/customerInformation">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <cus:GetVersionRequest/>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="Version_SOFS" id="35346a15-e074-4d54-b1ea-f16cfe716179"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>SimOrderFacadeEndpointImplServiceSoapBinding</con:interface><con:operation>getVersion</con:operation><con:request name="Version_SOFS" id="d4016cf6-4684-400d-be92-fd2dc653d06e"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://${#TestCase#Node}.g4lab.com:8080/sofs-web/SimOrderFacadeEndpoint</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sim="http://www.yota.ru/vox/b2b/services/simOrderFacadeService">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <sim:GetVersionRequest/>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="groovy" name="Check_component_versions" id="0cd8662d-38b8-4753-8c1d-8118e5550208"><con:settings/><con:config><script>def path = context.expand( '${#TestSuite#Path}' )
+def hostb2b = context.expand( '${#Project#host-b2b}' )
+def startDate = new Date() 
+
+//------------------логирование----
+testRunner.testCase.setPropertyValue( "Log_file",(path+'Отчет по окружению - '+hostb2b+' - '+startDate.format("yyyy-MM-dd")+'.txt'))
+def Log_file_1 = context.expand( '${#TestCase#Log_file}' )
+def Conv_Log_file_2 =  Log_file_1.replace("\\", "/");
+File log_file_2 = new File(Conv_Log_file_2);
+
+//----------------------------CDM-----------------------
+def  ver_1 = context.expand( '${Version_CDM#Response#declare namespace ns8=\'http://www.yota.ru/vox/b2b/services/document\'; //ns8:GetVersionResponse[1]/version[1]/buildVersion[1]}' )
+def  rev_1 = context.expand( '${Version_CDM#Response#declare namespace ns8=\'http://www.yota.ru/vox/b2b/services/document\'; //ns8:GetVersionResponse[1]/version[1]/commitId[1]}' )
+//----------------------------CorpOMS-----------------------
+def  ver_2 = context.expand( '${Version_OMS#Response#declare namespace ns2=\'http://www.yota.ru/vox/b2b/services/order\'; //ns2:GetVersionResponse[1]/version[1]/buildVersion[1]}' )
+def  rev_2 = context.expand( '${Version_OMS#Response#declare namespace ns2=\'http://www.yota.ru/vox/b2b/services/order\'; //ns2:GetVersionResponse[1]/version[1]/commitId[1]}' )
+//----------------------------CorpCIS-----------------------
+def  ver_3 = context.expand( '${Version_CorpCIS#Response#declare namespace ns13=\'http://www.yota.ru/vox/b2b/services/customerInformation\'; //ns13:GetVersionResponse[1]/version[1]/buildVersion[1]}' )
+def  rev_3 = context.expand( '${Version_CorpCIS#Response#declare namespace ns13=\'http://www.yota.ru/vox/b2b/services/customerInformation\'; //ns13:GetVersionResponse[1]/version[1]/commitId[1]}' )
+//----------------------------DGS---------------------------
+def  ver_4 = context.expand( '${Version_DGS#Response#declare namespace ns11=\'http://www.yota.ru/vox/b2b/domains/dgs\'; //ns11:GetVersionResponse[1]/version[1]/buildVersion[1]}' )
+def  rev_4 = context.expand( '${Version_DGS#Response#declare namespace ns11=\'http://www.yota.ru/vox/b2b/domains/dgs\'; //ns11:GetVersionResponse[1]/version[1]/commitId[1]}' )
+//----------------------------CorpIS--------------------------
+def  ver_5 = context.expand( '${Version_CorpIS#Response#declare namespace ns8=\'http://www.yota.ru/vox/b2b/services/corpInventory\'; //ns8:GetVersionResponse[1]/version[1]/buildVersion[1]}' )
+def  rev_5 = context.expand( '${Version_CorpIS#Response#declare namespace ns8=\'http://www.yota.ru/vox/b2b/services/corpInventory\'; //ns8:GetVersionResponse[1]/version[1]/commitId[1]}' )
+//----------------------------Sofs-----------------------------
+def  ver_6 = context.expand( '${Version_SOFS#Response#declare namespace ns11=\'http://www.yota.ru/vox/b2b/services/simOrderFacadeService\'; //ns11:GetVersionResponse[1]/version[1]/buildVersion[1]}' )
+def  rev_6 = context.expand( '${Version_SOFS#Response#declare namespace ns11=\'http://www.yota.ru/vox/b2b/services/simOrderFacadeService\'; //ns11:GetVersionResponse[1]/version[1]/commitId[1]}' )
+
+log_file_2.append("-------------------------CDM-------------------------"+ "\r\n");
+log_file_2.append("Current CDM version: " + ver_1.toString() + "\r\n");
+log_file_2.append("Current CDM revision: " + rev_1.toString() + "\r\n");
+
+log_file_2.append("-----------------------CorpOMS-----------------------"+ "\r\n");
+log_file_2.append("Current CorpOMS version: " + ver_2.toString() + "\r\n");
+log_file_2.append("Current CorpOMS revision: " + rev_2.toString() + "\r\n");
+
+log_file_2.append("-----------------------CorpCIS-----------------------"+ "\r\n");
+log_file_2.append("Current CorpCIS version: " + ver_3.toString() + "\r\n");
+log_file_2.append("Current CorpCIS revision: " + rev_3.toString() + "\r\n");
+
+log_file_2.append("-------------------------DGS-------------------------"+ "\r\n");
+log_file_2.append("Current DGS version: " + ver_4.toString() + "\r\n");
+log_file_2.append("Current DGS revision: " + rev_4.toString() + "\r\n");
+  
+log_file_2.append("-----------------------CorpIS------------------------"+ "\r\n");
+log_file_2.append("Current CorpIS version: " + ver_5.toString() + "\r\n");
+log_file_2.append("Current CorpIS revision: " + rev_5.toString() + "\r\n");
+   
+log_file_2.append("------------------------SOFS-------------------------"+ "\r\n");
+log_file_2.append("Current Sofs version: " + ver_6.toString() + "\r\n");
+log_file_2.append("Current Sofs revision: " + rev_6.toString() + "\r\n");
+
+
+
+</script></con:config></con:testStep><con:testStep type="groovy" name="Check_nodes" id="0baa4fab-d502-4914-95b4-1c13931beea2"><con:settings/><con:config><script>def Q1 = testRunner.testCase.getPropertyValue( "Num_Nodes");
+def TEST_2 = context.expand( '${#TestCase#TEST_ENV_1}' );
+def TEST_1 = context.expand( '${#TestCase#TEST_ENV}' );
+def hostb2b = context.expand( '${#Project#host-b2b}' )
+
+//-------------------------------------------------------логирование-----------------------------------------
+def Log_file_1 = context.expand( '${#TestCase#Log_file}' )
+def Conv_Log_file_2 =  Log_file_1.replace("\\", "/");
+
+File log_file_2 = new File(Conv_Log_file_2);
+//----------------------------------------------------------------------------------------------------------------
+
+if (TEST_2 == "")
+{
+testRunner.cancel( "DONE!!!!!" );
+return null
+}
+
+testRunner.testCase.setPropertyValue( "Node",  hostb2b +'-'+TEST_2);
+
+def node_name = testRunner.testCase.getPropertyValue( "Node");
+   log_file_2.append("\r\n");
+   log_file_2.append("-------------Проверка версий на 2 -й ноде------------" );
+   log_file_2.append("\r\n");
+   log_file_2.append("Node: = " + node_name + ".g4lab.com:8080" );
+   log_file_2.append("\r\n");
+   
+
+</script></con:config></con:testStep><con:testStep type="request" name="Version_CDM_1" id="6904a5c6-138a-4eed-a077-d3d09ba36d6f"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ClientDocumentManagementServiceSOAPBinding</con:interface><con:operation>getVersion</con:operation><con:request name="Version_CDM_1" id="5117d7db-31cd-4d4c-a7d2-368eecf7cf32"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://${#TestCase#Node}.g4lab.com:8080/cdm-web/ClientDocumentManagementEndpoint</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:doc="http://www.yota.ru/vox/b2b/services/document">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <doc:GetVersionRequest/>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="Version_OMS_1" id="b799b05f-d0a9-480e-9272-3cdf9bcc413c"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>CorporateOrderManagementServiceSOAPBinding</con:interface><con:operation>getVersion</con:operation><con:request name="Version_OMS_1" id="2daaa0b0-35b1-4632-8106-54bbc20af59e"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://${#Project#host-b2b}:8082/oms-web/OrderEndpoint</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ord="http://www.yota.ru/vox/b2b/services/order">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ord:GetVersionRequest/>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="Version_DGS_1" id="d9df1d63-0754-4f4a-af16-6150c5e739b5"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>DocumentGenerationServiceSOAPBinding</con:interface><con:operation>getVersion</con:operation><con:request name="Version_DGS_1" id="67b71a0c-cdec-48a7-ad0a-00e1eeaccfe4"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://${#TestCase#Node}.g4lab.com:8080/dgs-web/DocumentGenerationEndpoint</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:dgs="http://www.yota.ru/vox/b2b/domains/dgs">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <dgs:GetVersionRequest/>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="Version_CorpCIS_1" id="7aae2d93-4ac9-41cc-8c03-b4a4bd977d08"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>CorpCustomerInformationServiceSOAPBinding</con:interface><con:operation>getVersion</con:operation><con:request name="Version_CorpCIS_1" id="46c968dc-df4e-4225-9030-91c36ddbc743"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://${#Project#host-b2b}:8086/cis-web/CorpCustomerInformationServiceImpl</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cus="http://www.yota.ru/vox/b2b/services/customerInformation">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <cus:GetVersionRequest/>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="Version_SOFS_1" id="4dea8bd8-3976-4ec6-ab65-472704f10e21"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>SimOrderFacadeEndpointImplServiceSoapBinding</con:interface><con:operation>getVersion</con:operation><con:request name="Version_SOFS_1" id="2e626712-d70e-49bd-ad99-95a8523cabe6"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://${#TestCase#Node}.g4lab.com:8080/sofs-web/SimOrderFacadeEndpoint</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sim="http://www.yota.ru/vox/b2b/services/simOrderFacadeService">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <sim:GetVersionRequest/>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="groovy" name="Check_component_versions_1" id="94dea66d-93fc-41a1-943f-b50925820f9d"><con:settings/><con:config><script>def path = context.expand( '${#TestSuite#Path}' )
+def hostb2b = context.expand( '${#Project#host-b2b}' )
+def startDate = new Date() 
+
+//------------------логирование----
+testRunner.testCase.setPropertyValue( "Log_file",(path+'Отчет по окружению - '+hostb2b+' - '+startDate.format("yyyy-MM-dd")+'.txt'))
+def Log_file_1 = context.expand( '${#TestCase#Log_file}' )
+def Conv_Log_file_2 =  Log_file_1.replace("\\", "/");
+File log_file_2 = new File(Conv_Log_file_2);
+
+//-----------------------------------------------------------------CDM------------------------------------------------------------
+def  ver_1 = context.expand( '${Version_CDM_1#Response#declare namespace ns8=\'http://www.yota.ru/vox/b2b/services/document\'; //ns8:GetVersionResponse[1]/version[1]/buildVersion[1]}' )
+def  rev_1 = context.expand( '${Version_CDM_1#Response#declare namespace ns8=\'http://www.yota.ru/vox/b2b/services/document\'; //ns8:GetVersionResponse[1]/version[1]/commitId[1]}' )
+//-----------------------------------------------------------------CorpOMS------------------------------------------------------------
+def  ver_2 = context.expand( '${Version_OMS_1#Response#declare namespace ns2=\'http://www.yota.ru/vox/b2b/services/order\'; //ns2:GetVersionResponse[1]/version[1]/buildVersion[1]}' )
+def  rev_2 = context.expand( '${Version_OMS_1#Response#declare namespace ns2=\'http://www.yota.ru/vox/b2b/services/order\'; //ns2:GetVersionResponse[1]/version[1]/commitId[1]}' )
+//-----------------------------------------------------------------CorpCIS------------------------------------------------------------
+def  ver_3 = context.expand( '${Version_CorpCIS_1#Response#declare namespace ns13=\'http://www.yota.ru/vox/b2b/services/customerInformation\'; //ns13:GetVersionResponse[1]/version[1]/buildVersion[1]}' )
+def  rev_3 = context.expand( '${Version_CorpCIS_1#Response#declare namespace ns13=\'http://www.yota.ru/vox/b2b/services/customerInformation\'; //ns13:GetVersionResponse[1]/version[1]/commitId[1]}' )
+//-----------------------------------------------------------------DGS----------------------------------------------------------------
+def  ver_4 = context.expand( '${Version_DGS_1#Response#declare namespace ns11=\'http://www.yota.ru/vox/b2b/domains/dgs\'; //ns11:GetVersionResponse[1]/version[1]/buildVersion[1]}' )
+def  rev_4 = context.expand( '${Version_DGS_1#Response#declare namespace ns11=\'http://www.yota.ru/vox/b2b/domains/dgs\'; //ns11:GetVersionResponse[1]/version[1]/commitId[1]}' )
+//-----------------------------------------------------------------CorpIS---------------------------------------------------------------
+def  ver_5 = context.expand( '${Version_CorpIS_1#Response#declare namespace ns8=\'http://www.yota.ru/vox/b2b/services/corpInventory\'; //ns8:GetVersionResponse[1]/version[1]/buildVersion[1]}' )
+def  rev_5 = context.expand( '${Version_CorpIS_1#Response#declare namespace ns8=\'http://www.yota.ru/vox/b2b/services/corpInventory\'; //ns8:GetVersionResponse[1]/version[1]/commitId[1]}' )
+//-----------------------------------------------------------------Sofs------------------------------------------------------------------
+def  ver_6 = context.expand( '${Version_SOFS_1#Response#declare namespace ns11=\'http://www.yota.ru/vox/b2b/services/simOrderFacadeService\'; //ns11:GetVersionResponse[1]/version[1]/buildVersion[1]}' )
+def  rev_6 = context.expand( '${Version_SOFS_1#Response#declare namespace ns11=\'http://www.yota.ru/vox/b2b/services/simOrderFacadeService\'; //ns11:GetVersionResponse[1]/version[1]/commitId[1]}' )
+
+log_file_2.append("-------------------------CDM-------------------------"+ "\r\n");
+log_file_2.append("Current CDM version: " + ver_1.toString() + "\r\n");
+log_file_2.append("Current CDM revision: " + rev_1.toString() + "\r\n");
+
+log_file_2.append("-----------------------CorpOMS-----------------------"+ "\r\n");
+log_file_2.append("Current CorpOMS version: " + ver_2.toString() + "\r\n");
+log_file_2.append("Current CorpOMS revision: " + rev_2.toString() + "\r\n");
+
+log_file_2.append("-----------------------CorpCIS-----------------------"+ "\r\n");
+log_file_2.append("Current CorpCIS version: " + ver_3.toString() + "\r\n");
+log_file_2.append("Current CorpCIS revision: " + rev_3.toString() + "\r\n");
+
+log_file_2.append("-------------------------DGS-------------------------"+ "\r\n");
+log_file_2.append("Current DGS version: " + ver_4.toString() + "\r\n");
+log_file_2.append("Current DGS revision: " + rev_4.toString() + "\r\n");
+  
+log_file_2.append("-----------------------CorpIS------------------------"+ "\r\n");
+log_file_2.append("Current CorpIS version: " + ver_5.toString() + "\r\n");
+log_file_2.append("Current CorpIS revision: " + rev_5.toString() + "\r\n");
+   
+log_file_2.append("------------------------SOFS-------------------------"+ "\r\n");
+log_file_2.append("Current Sofs version: " + ver_6.toString() + "\r\n");
+log_file_2.append("Current Sofs revision: " + rev_6.toString() + "\r\n");
+</script></con:config></con:testStep><con:testStep type="groovy" name="Check_nodes_1" id="b0768460-cb45-43a9-bc1c-805da830cb44"><con:settings/><con:config><script>def TEST_1 = context.expand( '${#TestCase#TEST_ENV}' );
+def hostb2b = context.expand( '${#Project#host-b2b}' )
+
+testRunner.testCase.setPropertyValue( "Node", hostb2b +'-'+  TEST_1);</script></con:config></con:testStep><con:properties><con:property><con:name>Num_Nodes</con:name><con:value>1</con:value></con:property><con:property><con:name>Node</con:name><con:value>b2btst2-js1</con:value></con:property><con:property><con:name>TEST_ENV_1</con:name><con:value/></con:property><con:property><con:name>TEST_ENV</con:name><con:value>js1</con:value></con:property><con:property><con:name>Log_file</con:name><con:value>C:\!B2BTXT\Отчет по окружению - b2btst2 - 2017-03-17.txt</con:value></con:property></con:properties><con:reportParameters/><con:breakPoints><con:testStepId>61aeb10f-d2dd-4bc5-9a40-74fce369ad04</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>35346a15-e074-4d54-b1ea-f16cfe716179</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>6904a5c6-138a-4eed-a077-d3d09ba36d6f</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>b799b05f-d0a9-480e-9272-3cdf9bcc413c</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>d9df1d63-0754-4f4a-af16-6150c5e739b5</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>7aae2d93-4ac9-41cc-8c03-b4a4bd977d08</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>4dea8bd8-3976-4ec6-ab65-472704f10e21</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>b93f6811-026a-4387-8d99-e54050e07f57</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>a228d4c1-773a-4523-a984-6d3dea8fc4c3</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>648ae4aa-05da-4bc4-b65d-9d82592fc155</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>bd42779a-2089-4653-a1b3-5b8343978fb6</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>4e369ba6-83b9-4db5-8a5d-e0e0c5a89951</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>1a77e3a9-b15a-4fb3-ad40-0b08be4da15a</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints></con:testCase>

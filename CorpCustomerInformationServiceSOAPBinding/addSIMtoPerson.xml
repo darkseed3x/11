@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation isOneWay="false" action="http://www.yota.ru/vox/services/b2b/wsdl/CorpCustomerInformation/AddSIMtoPerson" name="addSIMtoPerson" bindingOperationName="addSIMtoPerson" type="Request-Response" outputName="AddSIMtoPersonOut" inputName="AddSIMtoPersonIn" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="f66fe898-8de7-48a9-ae7b-ce058da057e2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="f66fe898-8de7-48a9-ae7b-ce058da057e2fileName">addSIMtoPerson</con:setting></con:settings><con:call name="Request 1" id="55f4e10f-9fe7-4f32-8df8-9f5ed2159e7a"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://b2btst-corpjs-cis.g4lab.com:8080/cis-web/CorpCustomerInformationServiceImpl</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cus="http://www.yota.ru/vox/b2b/services/customerInformation">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <cus:AddSIMtoPersonRequest>
+         <iccid>?</iccid>
+         <personId>?</personId>
+      </cus:AddSIMtoPersonRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.yota.ru/vox/services/b2b/wsdl/CorpCustomerInformation/AddSIMtoPerson"/></con:call></con:operation>

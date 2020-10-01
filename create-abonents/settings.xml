@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testSuite name="create abonents" id="ab919032-2f2a-4f48-811f-abd5f1732f83" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="ab919032-2f2a-4f48-811f-abd5f1732f83fileName">create-abonents</con:setting></con:settings><con:runType>SEQUENTIAL</con:runType><con:properties/><con:reportParameters/></con:testSuite>

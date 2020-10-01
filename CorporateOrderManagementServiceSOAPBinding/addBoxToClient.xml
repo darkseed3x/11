@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation id="62d881cf-2cc9-469c-a9dd-ff9a2bbd0f7b" isOneWay="false" action="http://www.yota.ru/vox/services/b2b/wsdl/CorporateOrderManagement/AddBoxToClient" name="addBoxToClient" bindingOperationName="addBoxToClient" type="Request-Response" outputName="AddBoxToClientOut" inputName="AddBoxToClientIn" receivesAttachments="false" sendsAttachments="false" anonymous="optional" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="62d881cf-2cc9-469c-a9dd-ff9a2bbd0f7bfileName">addBoxToClient</con:setting></con:settings><con:call id="c8a3344a-182a-4c1d-bd8f-7a422eb1b15e" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://ft1-b2b-ainst1.scartel.dc:8082/oms-web/OrderEndpoint</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ord="http://www.yota.ru/vox/b2b/services/order">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ord:AddBoxToClientRequest>\r
+         <billingId>?</billingId>\r
+         <customerId>?</customerId>\r
+         <iccid>?</iccid>\r
+      </ord:AddBoxToClientRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.yota.ru/vox/services/b2b/wsdl/CorporateOrderManagement/AddBoxToClient"/></con:call></con:operation>

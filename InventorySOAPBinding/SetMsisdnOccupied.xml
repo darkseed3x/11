@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation isOneWay="false" action="http://www.yota.ru/vox/services/wsdl/Inventory/SetMsisdnOccupied" name="SetMsisdnOccupied" bindingOperationName="SetMsisdnOccupied" type="Request-Response" outputName="SetMsisdnOccupiedOut" inputName="SetMsisdnOccupiedIn" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="aa74d755-2d2b-4b66-8756-c15d37dc92be" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="aa74d755-2d2b-4b66-8756-c15d37dc92befileName">SetMsisdnOccupied</con:setting></con:settings><con:call name="Request 1" id="7a42d971-551b-4b8e-a057-c8514aab9633"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.78.209.114:8383/inventory-ejb/Inventory/InventoryServiceBean</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:inv="http://www.yota.ru/vox/services/inventory" xmlns:core="http://www.roox.ru/products/common/core">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <inv:SetMsisdnOccupiedRequest>
+         <!--Optional:-->
+         <core:extension>
+            <!--Zero or more repetitions:-->
+            <core:item>?</core:item>
+         </core:extension>
+         <msisdn>?</msisdn>
+      </inv:SetMsisdnOccupiedRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.yota.ru/vox/services/wsdl/Inventory/SetMsisdnOccupied"/></con:call></con:operation>

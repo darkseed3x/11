@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation isOneWay="false" action="http://www.yota.ru/vox/services/b2b/wsdl/SimOrderFacade/GetPrepayBillInfo" name="getPrepayBillInfo" bindingOperationName="getPrepayBillInfo" type="Request-Response" outputName="getPrepayBillInfoResponse" inputName="getPrepayBillInfo" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="a765340a-c087-4076-bdb0-6b3dbd3eb6e5" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="a765340a-c087-4076-bdb0-6b3dbd3eb6e5fileName">getPrepayBillInfo</con:setting></con:settings><con:call name="Request 1" id="ba47a009-2593-4741-ab97-ebd225c620d1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.90.253.243:8080/sofs-web/SimOrderFacadeEndpoint</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sim="http://www.yota.ru/vox/b2b/services/simOrderFacadeService">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <sim:GetPrepayBillInfoRequest>
+         <!--Optional:-->
+         <!--Optional:-->
+         <billingAccount>11220010512400</billingAccount>
+      </sim:GetPrepayBillInfoRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.yota.ru/vox/services/b2b/wsdl/SimOrderFacade/GetPrepayBillInfo"/><con:wsrmConfig version="1.2"/></con:call><con:call name="Request 2" id="564215e0-f552-4d4e-8990-12921f70bf97"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.90.253.243:8080/sofs-web/SimOrderFacadeEndpoint</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sim="http://www.yota.ru/vox/b2b/services/simOrderFacadeService">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <sim:GetPrepayBillInfoRequest>
+         <!--Optional:-->
+         <billingAccount>?</billingAccount>
+         <!--Optional:-->
+         <customerId>?</customerId>
+      </sim:GetPrepayBillInfoRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.yota.ru/vox/services/b2b/wsdl/SimOrderFacade/GetPrepayBillInfo"/><con:wsrmConfig version="1.2"/></con:call></con:operation>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation isOneWay="false" action="http://www.yota.ru/vox/services/b2b/wsdl/ClientDocumentManagement/searchDocumentList" name="searchDocumentList" bindingOperationName="searchDocumentList" type="Request-Response" outputName="searchDocumentListOut" inputName="searchDocumentListIn" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="b4332d29-563b-4964-9514-e654b4e6b169" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="b4332d29-563b-4964-9514-e654b4e6b169fileName">searchDocumentList</con:setting></con:settings><con:call name="Request 1" id="0798a127-71a7-4b65-b606-9568e29f77bf"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://b2btst-corpjs-cdm.g4lab.com:8080/cdm-web/ClientDocumentManagementEndpoint</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:doc="http://www.yota.ru/vox/b2b/services/document">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <doc:searchDocumentListRequest docStatus="?" docType="?">\r
+         <!--Optional:-->\r
+         <beginDate>?</beginDate>\r
+         <!--Optional:-->\r
+         <billingAccount>?</billingAccount>\r
+         <!--Optional:-->\r
+         <customerId>?</customerId>\r
+         <!--Optional:-->\r
+         <endDate>?</endDate>\r
+         <!--Optional:-->\r
+         <reportPeriod>?</reportPeriod>\r
+         <!--Optional:-->\r
+         <sourceReference>?</sourceReference>\r
+      </doc:searchDocumentListRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.yota.ru/vox/services/b2b/wsdl/ClientDocumentManagement/searchDocumentList"/><con:wsrmConfig version="1.2"/></con:call></con:operation>

@@ -1,0 +1,3064 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:interface xsi:type="con:WsdlInterface" wsaVersion="NONE" name="SimOrderFacadeEndpointImplServiceSoapBinding" type="wsdl" bindingName="{http://www.yota.ru/vox/b2b/services/wsdl/SimOrderFacade}SimOrderFacadeEndpointImplServiceSoapBinding" soapVersion="1_1" anonymous="optional" definition="http://b2btst2-jservice.g4lab.com:8080/sofs-web/SimOrderFacadeEndpoint?wsdl" id="bf205b72-436c-4a61-8f51-e9e42f79f410" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="bf205b72-436c-4a61-8f51-e9e42f79f410fileName">SimOrderFacadeEndpointImplServiceSoapBinding</con:setting></con:settings><con:definitionCache type="TEXT" rootPart="http://b2btst2-jservice.g4lab.com:8080/sofs-web/SimOrderFacadeEndpoint?wsdl"><con:part><con:url>http://b2btst2-jservice.g4lab.com:8080/sofs-web/SimOrderFacadeEndpoint?wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="SimOrderFacadeEndpointImplService" targetNamespace="http://www.yota.ru/vox/b2b/services/wsdl/SimOrderFacade" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://www.yota.ru/vox/b2b/services/wsdl/SimOrderFacade" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns3="http://schemas.xmlsoap.org/soap/http" xmlns:ns2="http://www.roox.ru/products/common/rr" xmlns:ns1="http://www.yota.ru/vox/b2b/services/simOrderFacadeService">
+  <wsdl:types>
+    <xs:schema targetNamespace="http://www.yota.ru/vox/services/mnpFulfillment" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.yota.ru/vox/services/mnpFulfillment" xmlns:ns4="http://www.yota.ru/vox/domains/inventory" xmlns:ns3="http://www.yota.ru/vox/domains/common/com" xmlns:ns1="http://www.yota.ru/vox/domains/custproduct_1.1">
+      <xs:import namespace="http://www.yota.ru/vox/domains/custproduct_1.1"/>
+      <xs:import namespace="http://www.roox.ru/products/common/rr"/>
+      <xs:import namespace="http://www.yota.ru/vox/domains/common/com"/>
+      <xs:import namespace="http://www.yota.ru/vox/domains/inventory"/>
+      <xs:element name="DummyType" type="tns:DummyType"/>
+      <xs:element name="PortCorpMsisdnInRequest" type="tns:PortCorpMsisdnInRequest"/>
+      <xs:element name="PortCorpMsisdnInResponse" type="tns:PortCorpMsisdnInResponse"/>
+      <xs:element name="PortMsisdnInRequest" type="tns:PortMsisdnInRequest"/>
+      <xs:element name="PortMsisdnInResponse" type="tns:PortMsisdnInResponse"/>
+      <xs:element name="PortMsisdnOutRequest" type="tns:PortMsisdnOutRequest"/>
+      <xs:element name="PortMsisdnOutResponse" type="tns:PortMsisdnOutResponse"/>
+      <xs:complexType name="DummyType">
+        <xs:complexContent>
+          <xs:extension base="ns1:UsedSimCard">
+            <xs:sequence/>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="PortCorpMsisdnInRequest">
+        <xs:complexContent>
+          <xs:extension base="ns2:BaseRRType">
+            <xs:sequence>
+              <xs:element name="branch" type="xs:string"/>
+              <xs:element name="msisdn" type="xs:string"/>
+              <xs:element name="oldServProvider" type="xs:string"/>
+              <xs:element name="region" type="xs:string"/>
+              <xs:element name="rsRegion" type="xs:string"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="PortCorpMsisdnInResponse">
+        <xs:complexContent>
+          <xs:extension base="ns2:BaseRRType">
+            <xs:sequence/>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="PortMsisdnInRequest">
+        <xs:complexContent>
+          <xs:extension base="ns2:BaseRRType">
+            <xs:sequence>
+              <xs:element name="msisdn" type="xs:string"/>
+              <xs:element minOccurs="0" name="oldServProvider" type="xs:string"/>
+              <xs:element name="region" type="xs:string"/>
+              <xs:element name="rsRegion" type="xs:string"/>
+              <xs:element name="sim" type="ns4:SimCard"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="PortMsisdnInResponse">
+        <xs:complexContent>
+          <xs:extension base="ns2:BaseRRType">
+            <xs:sequence>
+              <xs:element name="accountId" type="xs:long"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="PortMsisdnOutRequest">
+        <xs:complexContent>
+          <xs:extension base="ns2:BaseRRType">
+            <xs:sequence>
+              <xs:element name="branch" type="xs:string"/>
+              <xs:element name="msisdn" type="xs:string"/>
+              <xs:element name="newProvider" type="xs:string"/>
+              <xs:element name="rsRegion" type="xs:string"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="PortMsisdnOutResponse">
+        <xs:complexContent>
+          <xs:extension base="ns2:BaseRRType">
+            <xs:sequence/>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+    </xs:schema>
+    <xs:schema targetNamespace="http://www.yota.ru/vox/domains/order" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.yota.ru/vox/domains/order" xmlns:ns4="http://www.yota.ru/vox/domains/customer" xmlns:ns3="http://www.yota.ru/vox/domains/common/core" xmlns:ns2="http://www.yota.ru/vox/domains/common/dictionaries_1.1" xmlns:ns1="http://www.yota.ru/vox/domains/common/com">
+      <xs:import namespace="http://www.yota.ru/vox/domains/common/com"/>
+      <xs:import namespace="http://www.yota.ru/vox/domains/common/dictionaries_1.1"/>
+      <xs:import namespace="http://www.yota.ru/vox/domains/common/core"/>
+      <xs:import namespace="http://www.yota.ru/vox/domains/customer"/>
+      <xs:complexType name="Order">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="preorder" type="tns:Preorder"/>
+          <xs:element minOccurs="0" name="orderId" type="xs:string"/>
+          <xs:element minOccurs="0" name="orderNumber" type="xs:string"/>
+          <xs:element minOccurs="0" name="externalOrderId" type="xs:string"/>
+          <xs:element minOccurs="0" name="customerId" type="ns1:PersonalDataID"/>
+          <xs:element minOccurs="0" name="createdDate" type="xs:dateTime"/>
+          <xs:element minOccurs="0" name="status" type="tns:OrderStatusEnum"/>
+          <xs:element minOccurs="0" name="serviceChannel" type="ns2:ServiceChannelEnum"/>
+          <xs:element minOccurs="0" name="deliveryDetails" type="tns:OrderDeliveryDetails"/>
+          <xs:element maxOccurs="unbounded" name="orderItems" type="tns:OrderItem"/>
+          <xs:element minOccurs="0" name="deliveryServiceProvider" type="xs:string"/>
+          <xs:element name="deliveryType" type="tns:DeliveryTypeEnum"/>
+          <xs:element minOccurs="0" name="orderDescription" type="xs:string"/>
+          <xs:element minOccurs="0" name="partnerCode" type="xs:string"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="additionalOrderAttributes" nillable="true" type="ns3:PropertyType"/>
+          <xs:element minOccurs="0" name="branch" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="Preorder">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="preorderId" type="xs:string"/>
+          <xs:element minOccurs="0" name="customerId" type="ns1:PersonalDataID"/>
+          <xs:element minOccurs="0" name="appId" type="xs:string"/>
+          <xs:element minOccurs="0" name="os" type="xs:string"/>
+          <xs:element minOccurs="0" name="osVersion" type="xs:string"/>
+          <xs:element minOccurs="0" name="applicationVersion" type="xs:string"/>
+          <xs:element minOccurs="0" name="imei" type="xs:string"/>
+          <xs:element minOccurs="0" name="model" type="xs:string"/>
+          <xs:element minOccurs="0" name="region" type="xs:string"/>
+          <xs:element minOccurs="0" name="approvedDate" type="xs:dateTime"/>
+          <xs:element minOccurs="0" name="createdDate" type="xs:dateTime"/>
+          <xs:element minOccurs="0" name="usedDate" type="xs:dateTime"/>
+          <xs:element minOccurs="0" name="status" type="tns:PreorderStatusEnum"/>
+          <xs:element minOccurs="0" name="userToken" type="xs:string"/>
+          <xs:element minOccurs="0" name="confirmationHash" type="xs:string"/>
+          <xs:element minOccurs="0" name="gpsCoordinates" type="ns1:GPSCoordinates"/>
+          <xs:element minOccurs="0" name="contactPhone" type="xs:string"/>
+          <xs:element minOccurs="0" name="preorderType" type="tns:PreorderTypeEnum"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="OrderDeliveryDetails">
+        <xs:sequence>
+          <xs:element name="name" type="ns3:PersonalNameType"/>
+          <xs:element name="contactPhone" type="xs:string"/>
+          <xs:element name="regionId" type="xs:string"/>
+          <xs:element name="addressText" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="OrderItem">
+        <xs:sequence>
+          <xs:element name="offerId" type="xs:string"/>
+          <xs:element name="type" type="xs:string"/>
+          <xs:element name="textDescription" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="CorporateMnpData">
+        <xs:sequence>
+          <xs:element name="administratorPhone" type="xs:string"/>
+          <xs:element name="corporateName" type="xs:string"/>
+          <xs:element name="inn" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="MNPConfidant">
+        <xs:sequence>
+          <xs:element name="confidantName" type="xs:string"/>
+          <xs:element minOccurs="0" name="confidantPatronymic" type="xs:string"/>
+          <xs:element name="confidantPosition" type="xs:string"/>
+          <xs:element name="confidantSurname" type="xs:string"/>
+          <xs:element name="document" type="ns4:DocumentAttribute"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="MNPOrder">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="orderId" type="xs:string"/>
+          <xs:element minOccurs="0" name="customerId" type="ns1:PersonalDataID"/>
+          <xs:element minOccurs="0" name="iccid" type="xs:string"/>
+          <xs:element name="mnpDirection" type="tns:MNPDirection"/>
+          <xs:element minOccurs="0" name="mnpCancelationCode" type="xs:string"/>
+          <xs:element minOccurs="0" name="portableNumber" type="xs:string"/>
+          <xs:element minOccurs="0" name="region" type="xs:string"/>
+          <xs:element minOccurs="0" name="serviceStartDate" type="xs:string"/>
+          <xs:element minOccurs="0" name="mnpState" type="tns:MNPStateEnum"/>
+          <xs:element minOccurs="0" name="serviceProvider" type="xs:string"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="agreements" nillable="true" type="ns4:Agreement"/>
+          <xs:element name="scanRef" type="xs:string"/>
+          <xs:element minOccurs="0" name="timezone" type="ns4:TimeZoneTypeEnum"/>
+          <xs:element minOccurs="0" name="externalOrderId" type="xs:string"/>
+          <xs:element minOccurs="0" name="manualMode" type="xs:boolean"/>
+          <xs:element minOccurs="0" name="mnpPrevState" type="tns:MNPStateEnum"/>
+          <xs:element minOccurs="0" name="comment" type="xs:string"/>
+          <xs:element minOccurs="0" name="mnpType" type="tns:MNPTypeEnum"/>
+          <xs:element minOccurs="0" name="b2bPersonalData" type="tns:CorporateMnpData"/>
+          <xs:element minOccurs="0" name="destOfferCode" type="xs:string"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="destOfferOptions" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="hideOrderInSC" type="xs:boolean"/>
+          <xs:element minOccurs="0" name="ownerName" type="xs:string"/>
+          <xs:element minOccurs="0" name="branch" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:simpleType name="MNPTypeEnum">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="legalLong"/>
+          <xs:enumeration value="legalShort"/>
+          <xs:enumeration value="physicalShort"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="PreorderStatusEnum">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="cancelled"/>
+          <xs:enumeration value="created"/>
+          <xs:enumeration value="approved"/>
+          <xs:enumeration value="usedToCreateOrder"/>
+          <xs:enumeration value="usedToGetSIM"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="PreorderTypeEnum">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="corporate"/>
+          <xs:enumeration value="tablet"/>
+          <xs:enumeration value="voice"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="OrderStatusEnum">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="unknown"/>
+          <xs:enumeration value="new"/>
+          <xs:enumeration value="indelivery"/>
+          <xs:enumeration value="rejected"/>
+          <xs:enumeration value="cancelling"/>
+          <xs:enumeration value="cancelled"/>
+          <xs:enumeration value="delivered"/>
+          <xs:enumeration value="callback"/>
+          <xs:enumeration value="noanswer"/>
+          <xs:enumeration value="inwork"/>
+          <xs:enumeration value="not_phoned_delivered"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="DeliveryTypeEnum">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="courier"/>
+          <xs:enumeration value="express"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="MNPDirection">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="portIn"/>
+          <xs:enumeration value="portOut"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="MNPStateEnum">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="new"/>
+          <xs:enumeration value="approving"/>
+          <xs:enumeration value="approved"/>
+          <xs:enumeration value="waitingForMNP"/>
+          <xs:enumeration value="indebtedness"/>
+          <xs:enumeration value="waitingForCancellation"/>
+          <xs:enumeration value="canceled"/>
+          <xs:enumeration value="waitingForExecution"/>
+          <xs:enumeration value="executed"/>
+          <xs:enumeration value="waitingForMNPCancellationNotPossible"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:schema>
+    <xs:schema targetNamespace="http://www.yota.ru/vox/domains/inventory" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.yota.ru/vox/domains/inventory" xmlns:ns2="http://www.yota.ru/vox/domains/common/com" xmlns:ns1="http://www.yota.ru/vox/domains/common/dictionaries_1.1">
+      <xs:import namespace="http://www.yota.ru/vox/domains/common/dictionaries_1.1"/>
+      <xs:import namespace="http://www.yota.ru/vox/domains/common/com"/>
+      <xs:complexType name="SimCard">
+        <xs:sequence>
+          <xs:element name="branch" type="xs:string"/>
+          <xs:element maxOccurs="unbounded" name="simCodes" type="ns2:ResourceID"/>
+          <xs:element name="simSpec" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="UnregisteredSimCard">
+        <xs:complexContent>
+          <xs:extension base="tns:SimCard">
+            <xs:sequence>
+              <xs:element name="unregistered" type="xs:dateTime"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="VacantSim">
+        <xs:complexContent>
+          <xs:extension base="tns:SimCard">
+            <xs:sequence/>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="InvalidSim">
+        <xs:complexContent>
+          <xs:extension base="tns:SimCard">
+            <xs:sequence/>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="UsedSimCardBase">
+        <xs:complexContent>
+          <xs:extension base="tns:SimCard">
+            <xs:sequence>
+              <xs:element name="activated" type="xs:dateTime"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="AttrItem">
+        <xs:sequence>
+          <xs:element name="attrValue" type="xs:string"/>
+          <xs:element name="startDate" type="xs:date"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="MSISDNItem">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="category" type="xs:string"/>
+          <xs:element name="homeRegion" type="xs:string"/>
+          <xs:element minOccurs="0" name="linkedSIM" type="tns:UsedSimCardBase"/>
+          <xs:element name="msisdn" type="xs:string"/>
+          <xs:element name="status" type="tns:MsisdnStatusEnum"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="MsisdnIsFree">
+        <xs:sequence>
+          <xs:element name="isFree" type="xs:boolean"/>
+          <xs:element name="msisdn" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="PhoneCategoryInfo">
+        <xs:sequence>
+          <xs:element name="phoneCategoryId" type="xs:string"/>
+          <xs:element name="pageSize" type="xs:int"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="CategoryMsisdn">
+        <xs:sequence>
+          <xs:element name="phoneCatgoryId" type="xs:string"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="msisdns" nillable="true" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:simpleType name="SIMBlockTypeEnum">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="Lost"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="MsisdnStatusEnum">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="busy"/>
+          <xs:enumeration value="reserved"/>
+          <xs:enumeration value="vacant"/>
+          <xs:enumeration value="reserved_new"/>
+          <xs:enumeration value="portedOut"/>
+          <xs:enumeration value="standBy"/>
+          <xs:enumeration value="reserved_spec"/>
+          <xs:enumeration value="unknown"/>
+          <xs:enumeration value="reserved4dealer"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:schema>
+    <xs:schema targetNamespace="http://www.yota.ru/vox/domains/custproduct_1.1" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.yota.ru/vox/domains/custproduct_1.1" xmlns:ns4="http://www.yota.ru/vox/domains/common/com" xmlns:ns3="http://www.yota.ru/vox/domains/inventory" xmlns:ns2="http://www.yota.ru/vox/domains/common/dictionaries_1.1" xmlns:ns1="http://www.yota.ru/vox/domains/common/core">
+      <xs:import namespace="http://www.yota.ru/vox/domains/common/core"/>
+      <xs:import namespace="http://www.yota.ru/vox/domains/common/dictionaries_1.1"/>
+      <xs:import namespace="http://www.yota.ru/vox/domains/inventory"/>
+      <xs:import namespace="http://www.yota.ru/vox/domains/common/com"/>
+      <xs:complexType name="UsedSimCard">
+        <xs:complexContent>
+          <xs:extension base="ns3:UsedSimCardBase">
+            <xs:sequence>
+              <xs:element name="accountId" type="xs:long"/>
+              <xs:element minOccurs="0" name="baseProductRegion" type="xs:string"/>
+              <xs:element minOccurs="0" name="customerId" type="xs:string"/>
+              <xs:element name="externalId" type="xs:long"/>
+              <xs:element name="msisdn" type="xs:string"/>
+              <xs:element maxOccurs="unbounded" minOccurs="0" name="products" nillable="true" type="tns:ProductBase"/>
+              <xs:element name="status" type="tns:UsedSimStatus"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="ProductBase">
+        <xs:complexContent>
+          <xs:extension base="ns4:IdentifiedObject">
+            <xs:sequence>
+              <xs:element name="accountId" type="xs:long"/>
+              <xs:element minOccurs="0" name="accumLeft" type="xs:decimal"/>
+              <xs:element minOccurs="0" name="allowAutoProlong" type="xs:boolean"/>
+              <xs:element minOccurs="0" name="allowProductChange" type="xs:boolean"/>
+              <xs:element name="beginDate" type="xs:dateTime"/>
+              <xs:element minOccurs="0" name="bundledProductId" type="xs:long"/>
+              <xs:element name="correlationProductId" type="xs:long"/>
+              <xs:element minOccurs="0" name="cost" type="ns1:AmountType"/>
+              <xs:element minOccurs="0" name="customerId" type="xs:string"/>
+              <xs:element maxOccurs="unbounded" minOccurs="0" name="dependentProducts" type="xs:long"/>
+              <xs:element name="endDate" type="xs:dateTime"/>
+              <xs:element minOccurs="0" name="masterProductId" type="xs:long"/>
+              <xs:element minOccurs="0" name="offeringIdToChange" type="xs:long"/>
+              <xs:element minOccurs="0" name="priceCode" type="xs:string"/>
+              <xs:element name="productOfferingId" type="xs:long"/>
+              <xs:element minOccurs="0" name="regionOfBuying" type="xs:string"/>
+              <xs:element maxOccurs="unbounded" minOccurs="0" name="services" nillable="true" type="tns:Service"/>
+              <xs:element name="status" type="ns2:ProductStatusEnum"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="Service">
+        <xs:sequence>
+          <xs:element name="serviceId" type="xs:long"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="BundledProduct">
+        <xs:complexContent>
+          <xs:extension base="tns:ProductBase">
+            <xs:sequence>
+              <xs:element maxOccurs="unbounded" minOccurs="0" name="childProducts" nillable="true" type="tns:ProductBase"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="UsedSimStatus">
+        <xs:sequence>
+          <xs:element name="changed" type="xs:dateTime"/>
+          <xs:element minOccurs="0" name="reason" type="xs:string"/>
+          <xs:element name="status" type="tns:UsedSimStatusEnum"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ProductNotificationInfo">
+        <xs:sequence>
+          <xs:element name="id" type="xs:long"/>
+          <xs:element name="phone" type="xs:string"/>
+          <xs:element name="type" type="xs:long"/>
+          <xs:element name="accountId" type="xs:long"/>
+          <xs:element name="dsc" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="OptionOffersWithMasterOffers">
+        <xs:sequence>
+          <xs:element name="masterOfferExternalId" type="xs:long"/>
+          <xs:element name="optionOfferExternalId" type="xs:long"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:simpleType name="UsedSimStatusEnum">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="blocked"/>
+          <xs:enumeration value="active"/>
+          <xs:enumeration value="finished"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:schema>
+    <xs:schema targetNamespace="http://www.yota.ru/vox/domains/customer" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.yota.ru/vox/domains/customer" xmlns:ns2="http://www.yota.ru/vox/domains/common/com" xmlns:ns1="http://www.yota.ru/vox/domains/common/core">
+      <xs:import namespace="http://www.yota.ru/vox/domains/common/core"/>
+      <xs:import namespace="http://www.yota.ru/vox/domains/common/com"/>
+      <xs:complexType name="PersonalCustomer">
+        <xs:complexContent>
+          <xs:extension base="tns:Customer">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="name" type="ns1:PersonalNameType"/>
+              <xs:element minOccurs="0" name="personalDetails" type="tns:PersonalDetailsType"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="Customer">
+        <xs:complexContent>
+          <xs:extension base="ns2:PersonalDataIdentifiedObject">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="customerType" type="tns:CustomerTypeEnum"/>
+              <xs:element minOccurs="0" name="status" type="tns:AccountStatusEnum"/>
+              <xs:element minOccurs="0" name="created" type="xs:dateTime"/>
+              <xs:element minOccurs="0" name="lac_tac_code" type="xs:string"/>
+              <xs:element minOccurs="0" name="location_region" type="xs:string"/>
+              <xs:element minOccurs="0" name="customerPurpose" type="xs:string"/>
+              <xs:element minOccurs="0" name="language" type="tns:LanguageTypeEnum"/>
+              <xs:element minOccurs="0" name="marketingSegment" type="xs:string"/>
+              <xs:element maxOccurs="unbounded" minOccurs="0" name="emails" nillable="true" type="tns:EmailAttribute"/>
+              <xs:element maxOccurs="unbounded" minOccurs="0" name="phones" nillable="true" type="tns:PhoneAttribute"/>
+              <xs:element maxOccurs="unbounded" minOccurs="0" name="paymentCards" nillable="true" type="tns:PaymentCardAttribute"/>
+              <xs:element maxOccurs="unbounded" minOccurs="0" name="account" nillable="true" type="tns:AccountAttribute"/>
+              <xs:element maxOccurs="unbounded" minOccurs="0" name="agreements" nillable="true" type="tns:Agreement"/>
+              <xs:element maxOccurs="unbounded" minOccurs="0" name="consentProperties" nillable="true" type="tns:ConsentDataProperty"/>
+              <xs:element maxOccurs="unbounded" minOccurs="0" name="additionalProperties" nillable="true" type="ns1:PropertyType"/>
+              <xs:element maxOccurs="unbounded" minOccurs="0" name="mobileApplications" nillable="true" type="tns:MobileApplicationAttribute"/>
+              <xs:element minOccurs="0" name="gt_vlr" type="xs:string"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="PersonalDetailsType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="gender" type="tns:GenderTypeEnum"/>
+          <xs:element minOccurs="0" name="birthDate" type="xs:dateTime"/>
+          <xs:element minOccurs="0" name="birthPlace" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="EmailAttribute">
+        <xs:complexContent>
+          <xs:extension base="tns:PersonalDataAttribute">
+            <xs:sequence>
+              <xs:element name="email" type="xs:string"/>
+              <xs:element name="emailType" type="tns:EmailTypeEnum"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="PersonalDataAttribute">
+        <xs:complexContent>
+          <xs:extension base="ns2:PersonalDataIdentifiedObject">
+            <xs:sequence>
+              <xs:element name="livingPeriod" type="ns2:LivingPeriod"/>
+              <xs:element minOccurs="0" name="rawSource" type="xs:string"/>
+              <xs:element minOccurs="0" name="primary" type="xs:boolean"/>
+              <xs:element minOccurs="0" name="additionalInfo" type="xs:string"/>
+              <xs:element maxOccurs="unbounded" minOccurs="0" name="additionalProperties" nillable="true" type="ns1:PropertyType"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="AccountAttribute">
+        <xs:complexContent>
+          <xs:extension base="tns:PersonalDataAttribute">
+            <xs:sequence>
+              <xs:element name="account" type="xs:string"/>
+              <xs:element name="accountType" type="tns:AccountTypeEnum"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="AddressAttribute">
+        <xs:complexContent>
+          <xs:extension base="tns:PersonalDataAttribute">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="addressText" type="xs:string"/>
+              <xs:element minOccurs="0" name="country" type="xs:string"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="AgreementAuthorizationAttribute">
+        <xs:complexContent>
+          <xs:extension base="tns:PersonalDataAttribute">
+            <xs:sequence>
+              <xs:element name="agreement" type="tns:Agreement"/>
+              <xs:element name="authorizationType" type="xs:string"/>
+              <xs:element name="authorizationResult" type="xs:string"/>
+              <xs:element name="authorized" type="xs:dateTime"/>
+              <xs:element minOccurs="0" name="authorizedBy" type="xs:string"/>
+              <xs:element name="sourceOfAuthorization" type="xs:string"/>
+              <xs:element minOccurs="0" name="placeOfAuthorization" type="xs:string"/>
+              <xs:element minOccurs="0" name="comment" type="xs:string"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="Agreement">
+        <xs:complexContent>
+          <xs:extension base="ns2:PersonalDataIdentifiedObject">
+            <xs:sequence>
+              <xs:element name="refId" type="xs:string"/>
+              <xs:element name="agreementType" type="tns:AgreementTypeEnum"/>
+              <xs:element name="agreementStatus" type="tns:AgreementStatusEnum"/>
+              <xs:element minOccurs="0" name="iccid" type="xs:string"/>
+              <xs:element minOccurs="0" name="msisdn" type="xs:string"/>
+              <xs:element maxOccurs="unbounded" minOccurs="0" name="serviceNumberDetails" nillable="true" type="tns:ServiceNumberDetails"/>
+              <xs:element minOccurs="0" name="region" type="xs:string"/>
+              <xs:element minOccurs="0" name="timezone" type="tns:TimeZoneTypeEnum"/>
+              <xs:element name="created" type="xs:dateTime"/>
+              <xs:element minOccurs="0" name="signed" type="xs:dateTime"/>
+              <xs:element minOccurs="0" name="serviceStartDate" type="xs:dateTime"/>
+              <xs:element minOccurs="0" name="livingPeriod" type="ns2:LivingPeriod"/>
+              <xs:element maxOccurs="unbounded" minOccurs="0" name="subscriberData" nillable="true" type="tns:SubscriberData"/>
+              <xs:element maxOccurs="unbounded" minOccurs="0" name="agreementProperties" nillable="true" type="ns1:PropertyType"/>
+              <xs:element maxOccurs="unbounded" minOccurs="0" name="agreementScanRef" nillable="true" type="tns:ScanRef"/>
+              <xs:element minOccurs="0" name="branch" type="xs:string"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="ServiceNumberDetails">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="iccid" type="xs:string"/>
+          <xs:element minOccurs="0" name="msisdn" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="SubscriberData">
+        <xs:complexContent>
+          <xs:extension base="ns2:PersonalDataIdentifiedObject">
+            <xs:sequence>
+              <xs:element name="created" type="xs:dateTime"/>
+              <xs:element minOccurs="0" name="livingPeriod" type="ns2:LivingPeriod"/>
+              <xs:element maxOccurs="unbounded" minOccurs="0" name="subscriberProperties" nillable="true" type="ns1:PropertyType"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="PersonalSubscriberData">
+        <xs:complexContent>
+          <xs:extension base="tns:SubscriberData">
+            <xs:sequence>
+              <xs:element name="name" type="ns1:PersonalNameType"/>
+              <xs:element minOccurs="0" name="accountId" type="xs:long"/>
+              <xs:element minOccurs="0" name="personalDetails" type="tns:PersonalDetailsType"/>
+              <xs:element minOccurs="0" name="document" type="tns:DocumentAttribute"/>
+              <xs:element minOccurs="0" name="address" type="tns:AddressAttribute"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="DocumentAttribute">
+        <xs:complexContent>
+          <xs:extension base="tns:PersonalDataAttribute">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="documentType" type="tns:DocumentTypeEnum"/>
+              <xs:element minOccurs="0" name="documentSeries" type="xs:string"/>
+              <xs:element minOccurs="0" name="documentNumber" type="xs:string"/>
+              <xs:element minOccurs="0" name="issueDate" type="xs:dateTime"/>
+              <xs:element minOccurs="0" name="issueAuthority" type="xs:string"/>
+              <xs:element minOccurs="0" name="departmentCode" type="xs:string"/>
+              <xs:element minOccurs="0" name="expiryDate" type="xs:dateTime"/>
+              <xs:element minOccurs="0" name="author" type="xs:string"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="ScanRef">
+        <xs:sequence>
+          <xs:element name="scanRefValue" type="xs:string"/>
+          <xs:element name="scanRefType" type="tns:ScanRefTypeEnum"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ConsentDataProperty">
+        <xs:complexContent>
+          <xs:extension base="tns:PersonalDataAttribute">
+            <xs:sequence>
+              <xs:element name="key" type="tns:ConsentTypeEnum"/>
+              <xs:element name="value" type="xs:boolean"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="MobileApplicationAttribute">
+        <xs:complexContent>
+          <xs:extension base="tns:PersonalDataAttribute">
+            <xs:sequence>
+              <xs:element name="IDApp" type="xs:string"/>
+              <xs:element minOccurs="0" name="iccid" type="xs:string"/>
+              <xs:element minOccurs="0" name="AppVersion" type="xs:string"/>
+              <xs:element name="OS" type="xs:string"/>
+              <xs:element minOccurs="0" name="OSVersion" type="xs:string"/>
+              <xs:element minOccurs="0" name="IMEI" type="xs:string"/>
+              <xs:element minOccurs="0" name="ModelName" type="xs:string"/>
+              <xs:element minOccurs="0" name="PushToken" type="xs:string"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="PaymentCardAttribute">
+        <xs:complexContent>
+          <xs:extension base="tns:PersonalDataAttribute">
+            <xs:sequence>
+              <xs:element name="partnerId" type="xs:long"/>
+              <xs:element minOccurs="0" name="cardAlias" type="xs:string"/>
+              <xs:element name="channelService" type="xs:string"/>
+              <xs:element name="serviceStatus" type="xs:boolean"/>
+              <xs:element name="cardId" type="xs:string"/>
+              <xs:element minOccurs="0" name="created" type="xs:dateTime"/>
+              <xs:element minOccurs="0" name="cardNumber" type="xs:string"/>
+              <xs:element minOccurs="0" name="cardType" type="tns:CardTypeEnum"/>
+              <xs:element minOccurs="0" name="owner" type="xs:string"/>
+              <xs:element minOccurs="0" name="expirationDate" type="xs:dateTime"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="PhoneAttribute">
+        <xs:complexContent>
+          <xs:extension base="tns:PersonalDataAttribute">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="phoneNumber" type="xs:string"/>
+              <xs:element minOccurs="0" name="phoneType" type="tns:PhoneTypeEnum"/>
+              <xs:element minOccurs="0" name="operator" type="xs:string"/>
+              <xs:element minOccurs="0" name="countryCode" type="xs:string"/>
+              <xs:element minOccurs="0" name="cityCode" type="xs:string"/>
+              <xs:element minOccurs="0" name="telephone" type="xs:string"/>
+              <xs:element minOccurs="0" name="extension" type="xs:string"/>
+              <xs:element minOccurs="0" name="timezone" type="tns:TimeZoneTypeEnum"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="CorporateCustomer">
+        <xs:complexContent>
+          <xs:extension base="tns:Customer">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="companyName" type="ns1:CorporateNameType"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:simpleType name="GenderTypeEnum">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="Female"/>
+          <xs:enumeration value="Male"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="CustomerTypeEnum">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="slider"/>
+          <xs:enumeration value="potentialVoice"/>
+          <xs:enumeration value="voice"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="AccountStatusEnum">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="active"/>
+          <xs:enumeration value="blocked"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="LanguageTypeEnum">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="RU"/>
+          <xs:enumeration value="EN"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="EmailTypeEnum">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="Home"/>
+          <xs:enumeration value="Other"/>
+          <xs:enumeration value="Work"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="AccountTypeEnum">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="Other"/>
+          <xs:enumeration value="Skype"/>
+          <xs:enumeration value="VK"/>
+          <xs:enumeration value="Facebook"/>
+          <xs:enumeration value="ICQ"/>
+          <xs:enumeration value="Twitter"/>
+          <xs:enumeration value="OK"/>
+          <xs:enumeration value="Google"/>
+          <xs:enumeration value="Linkedin"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="AgreementTypeEnum">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="CA"/>
+          <xs:enumeration value="VoiceServices"/>
+          <xs:enumeration value="MNP"/>
+          <xs:enumeration value="RefuseMNP"/>
+          <xs:enumeration value="ChangeSim"/>
+          <xs:enumeration value="SIMAssigtOut"/>
+          <xs:enumeration value="SIMAssigtIn"/>
+          <xs:enumeration value="MoneyAssigtOut"/>
+          <xs:enumeration value="MoneyAssigtIn"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="AgreementStatusEnum">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="new"/>
+          <xs:enumeration value="activated"/>
+          <xs:enumeration value="used"/>
+          <xs:enumeration value="closed"/>
+          <xs:enumeration value="reassigned"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="TimeZoneTypeEnum">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="MISSED"/>
+          <xs:enumeration value="UTC+1"/>
+          <xs:enumeration value="UTC+2"/>
+          <xs:enumeration value="UTC+3"/>
+          <xs:enumeration value="UTC+4"/>
+          <xs:enumeration value="UTC+5"/>
+          <xs:enumeration value="UTC+6"/>
+          <xs:enumeration value="UTC+7"/>
+          <xs:enumeration value="UTC+8"/>
+          <xs:enumeration value="UTC+9"/>
+          <xs:enumeration value="UTC+10"/>
+          <xs:enumeration value="UTC+11"/>
+          <xs:enumeration value="UTC+12"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="DocumentTypeEnum">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="PassportRU"/>
+          <xs:enumeration value="PassportUSSR"/>
+          <xs:enumeration value="Other"/>
+          <xs:enumeration value="PassportForeigner"/>
+          <xs:enumeration value="OverseasPassportRU"/>
+          <xs:enumeration value="OverseasPassportUSSR"/>
+          <xs:enumeration value="DiplomaticPassportRU"/>
+          <xs:enumeration value="TemporaryCertificate"/>
+          <xs:enumeration value="BirthCertificate"/>
+          <xs:enumeration value="OfficerCertificate"/>
+          <xs:enumeration value="MilitaryTicket"/>
+          <xs:enumeration value="PassportSailor"/>
+          <xs:enumeration value="PassportMinmorflota"/>
+          <xs:enumeration value="PrisonCertificate"/>
+          <xs:enumeration value="Residency"/>
+          <xs:enumeration value="MigrationCard"/>
+          <xs:enumeration value="TemporaryResidence"/>
+          <xs:enumeration value="RefugeeCertificate"/>
+          <xs:enumeration value="IDPCertificate"/>
+          <xs:enumeration value="RefugeeImmigrantsCertificate"/>
+          <xs:enumeration value="PensionCertificate"/>
+          <xs:enumeration value="DrivingLicense"/>
+          <xs:enumeration value="OfficePassportRU"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="ScanRefTypeEnum">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="agreement"/>
+          <xs:enumeration value="autorization"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="ConsentTypeEnum">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="PERSONAL_DATA_PROCESSING"/>
+          <xs:enumeration value="GOODS_SERVICES_ADVERTISING"/>
+          <xs:enumeration value="PERSONAL_DATA_TRANSFER"/>
+          <xs:enumeration value="PHONE_CONTACT"/>
+          <xs:enumeration value="SMS_CONTACT"/>
+          <xs:enumeration value="EMAIL_CONTACT"/>
+          <xs:enumeration value="MAIL_CONTACT"/>
+          <xs:enumeration value="DND_WORK"/>
+          <xs:enumeration value="DND_MOBILE"/>
+          <xs:enumeration value="DND_HOME"/>
+          <xs:enumeration value="CARD"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="CardTypeEnum">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="Other"/>
+          <xs:enumeration value="Visa"/>
+          <xs:enumeration value="Mastercard"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="PhoneTypeEnum">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="Work"/>
+          <xs:enumeration value="Home"/>
+          <xs:enumeration value="Mobile"/>
+          <xs:enumeration value="Fax"/>
+          <xs:enumeration value="Spouse"/>
+          <xs:enumeration value="Relative"/>
+          <xs:enumeration value="Other"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:schema>
+    <xs:schema targetNamespace="http://www.yota.ru/vox/domains/common/dictionaries_1.1" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:simpleType name="CurrencyCodeEnum">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="RUR"/>
+          <xs:enumeration value="NIO"/>
+          <xs:enumeration value="BYR"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="ResourceIdentificationEnum">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="extIccid"/>
+          <xs:enumeration value="imsi"/>
+          <xs:enumeration value="iccid"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="ProductStatusEnum">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="active"/>
+          <xs:enumeration value="blocked"/>
+          <xs:enumeration value="finished"/>
+          <xs:enumeration value="planned"/>
+          <xs:enumeration value="suspended"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="CompareOperationEnum">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="equal"/>
+          <xs:enumeration value="in"/>
+          <xs:enumeration value="between"/>
+          <xs:enumeration value="less"/>
+          <xs:enumeration value="more"/>
+          <xs:enumeration value="lessOrEqual"/>
+          <xs:enumeration value="moreOrEqual"/>
+          <xs:enumeration value="notEqual"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="PersonalDataIDTypeEnum">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="HID"/>
+          <xs:enumeration value="CustomerID"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="PhysicalDeviceSpecAttributeEnum">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="chipName"/>
+          <xs:enumeration value="deviceCategory"/>
+          <xs:enumeration value="modelName"/>
+          <xs:enumeration value="networkTechnology"/>
+          <xs:enumeration value="vendorChipId"/>
+          <xs:enumeration value="vendorModelId"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="ServiceChannelEnum">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="msc"/>
+          <xs:enumeration value="wsc"/>
+          <xs:enumeration value="eshop"/>
+          <xs:enumeration value="ussd"/>
+          <xs:enumeration value="crm"/>
+          <xs:enumeration value="other"/>
+          <xs:enumeration value="cpa"/>
+          <xs:enumeration value="sms"/>
+          <xs:enumeration value="vk"/>
+          <xs:enumeration value="tw"/>
+          <xs:enumeration value="partner"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:schema>
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://www.yota.ru/vox/domains/common/core" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.yota.ru/vox/domains/common/core" xmlns:ns1="http://www.yota.ru/vox/domains/common/dictionaries_1.1">
+      <xs:import namespace="http://www.yota.ru/vox/domains/common/dictionaries_1.1"/>
+      <xs:complexType name="AmountType">
+        <xs:sequence>
+          <xs:element name="amount" type="xs:decimal"/>
+        </xs:sequence>
+        <xs:attribute name="currencyCode" type="ns1:CurrencyCodeEnum"/>
+      </xs:complexType>
+      <xs:complexType name="PersonalNameType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="firstName" type="xs:string"/>
+          <xs:element minOccurs="0" name="lastName" type="xs:string"/>
+          <xs:element minOccurs="0" name="middleName" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="PropertyType">
+        <xs:sequence>
+          <xs:element name="value" type="xs:string"/>
+        </xs:sequence>
+        <xs:attribute name="name" type="xs:string" use="required"/>
+      </xs:complexType>
+      <xs:complexType name="CorporateNameType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="title" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="CharValue">
+        <xs:sequence>
+          <xs:element name="value" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="EmptyType">
+        <xs:sequence/>
+      </xs:complexType>
+      <xs:complexType name="KeyValue">
+        <xs:sequence>
+          <xs:element name="value" type="xs:string"/>
+        </xs:sequence>
+        <xs:attribute name="key" type="xs:string"/>
+      </xs:complexType>
+      <xs:complexType name="KeyValueEncoded">
+        <xs:complexContent>
+          <xs:extension base="tns:KeyValue">
+            <xs:sequence/>
+            <xs:attribute name="encoding" type="xs:string"/>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="LocaleValue">
+        <xs:sequence>
+          <xs:element name="value" type="xs:string"/>
+        </xs:sequence>
+        <xs:attribute name="locale" type="xs:string"/>
+      </xs:complexType>
+      <xs:complexType name="PropertyValue">
+        <xs:sequence>
+          <xs:element name="operation" type="ns1:CompareOperationEnum"/>
+          <xs:element maxOccurs="unbounded" name="values" type="xs:string"/>
+          <xs:element name="filterOperation" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+    <xs:schema targetNamespace="http://www.yota.ru/vox/domains/common/com" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.yota.ru/vox/domains/common/com" xmlns:ns2="http://www.yota.ru/vox/domains/common/core" xmlns:ns1="http://www.yota.ru/vox/domains/common/dictionaries_1.1">
+      <xs:import namespace="http://www.yota.ru/vox/domains/common/dictionaries_1.1"/>
+      <xs:import namespace="http://www.yota.ru/vox/domains/common/core"/>
+      <xs:complexType name="PersonalDataIdentifiedObject">
+        <xs:sequence/>
+        <xs:attribute name="hid" type="xs:long"/>
+        <xs:attribute name="customerId" type="xs:string"/>
+      </xs:complexType>
+      <xs:complexType name="LivingPeriod">
+        <xs:sequence>
+          <xs:element name="fromDate" type="xs:dateTime"/>
+          <xs:element minOccurs="0" name="untilTo" type="xs:dateTime"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ResourceID">
+        <xs:sequence>
+          <xs:element name="key" type="xs:string"/>
+          <xs:element name="type" type="ns1:ResourceIdentificationEnum"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="IdentifiedObject">
+        <xs:sequence/>
+        <xs:attribute name="id" type="xs:long"/>
+      </xs:complexType>
+      <xs:complexType name="NamedObject">
+        <xs:complexContent>
+          <xs:extension base="tns:IdentifiedObject">
+            <xs:sequence>
+              <xs:element name="name" type="xs:string"/>
+              <xs:element minOccurs="0" name="description" type="xs:string"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="NamedCodedObject">
+        <xs:complexContent>
+          <xs:extension base="tns:NamedObject">
+            <xs:sequence>
+              <xs:element name="code" type="xs:string"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="ReferenceItem">
+        <xs:complexContent>
+          <xs:extension base="tns:NamedCodedObject">
+            <xs:sequence/>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="ExtendCodedObject">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="name" nillable="true" type="ns2:LocaleValue"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="description" nillable="true" type="ns2:LocaleValue"/>
+          <xs:element name="primaryObject" type="tns:CodedObject"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="CodedObject">
+        <xs:sequence>
+          <xs:element name="code" type="xs:string"/>
+          <xs:element minOccurs="0" name="description" type="xs:string"/>
+          <xs:element name="name" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ExtendNamedObject">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="description" nillable="true" type="ns2:LocaleValue"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="name" nillable="true" type="ns2:LocaleValue"/>
+          <xs:element name="primaryObject" type="tns:NamedObject"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="LivingTime">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="dayCount" type="xs:int"/>
+          <xs:element minOccurs="0" name="beginDate" type="xs:dateTime"/>
+          <xs:element minOccurs="0" name="endDate" type="xs:dateTime"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GPSCoordinates">
+        <xs:sequence>
+          <xs:element name="latitude" type="xs:string"/>
+          <xs:element name="longitude" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="BusinessEntity">
+        <xs:sequence>
+          <xs:element name="livingPeriod" type="tns:LivingPeriod"/>
+          <xs:element minOccurs="0" name="created" type="xs:dateTime"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="PersonalDataID">
+        <xs:sequence>
+          <xs:element name="key" type="ns1:PersonalDataIDTypeEnum"/>
+          <xs:element name="value" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="PhysicalResourceSpecAttribute">
+        <xs:sequence>
+          <xs:element name="value" type="xs:string"/>
+          <xs:element name="name" type="ns1:PhysicalDeviceSpecAttributeEnum"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="PushToken">
+        <xs:sequence>
+          <xs:element name="token" type="xs:string"/>
+          <xs:element name="OS" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+    <xs:schema targetNamespace="http://www.yota.ru/vox/b2b/services/simOrderFacadeService" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.yota.ru/vox/b2b/services/simOrderFacadeService" xmlns:ns5="http://www.yota.ru/vox/b2b/domains/corpSIMOrder" xmlns:ns4="http://www.yota.ru/vox/b2b/domains/common/com" xmlns:ns3="http://www.yota.ru/vox/b2b/domains/coragreement" xmlns:ns2="http://www.yota.ru/vox/domains/common/core" xmlns:ns1="http://www.yota.ru/vox/domains/common/dictionaries_1.1">
+      <xs:import namespace="http://www.yota.ru/vox/domains/common/dictionaries_1.1"/>
+      <xs:import namespace="http://www.yota.ru/vox/domains/common/core"/>
+      <xs:import namespace="http://www.yota.ru/vox/b2b/domains/coragreement"/>
+      <xs:import namespace="http://www.yota.ru/vox/b2b/domains/common/com"/>
+      <xs:import namespace="http://www.yota.ru/vox/b2b/domains/corpSIMOrder"/>
+      <xs:element name="GetClaimedPaymentRequest" type="tns:GetClaimedPaymentRequest"/>
+      <xs:element name="GetClaimedPaymentResponse" type="tns:GetClaimedPaymentResponse"/>
+      <xs:element name="GetDeliveredSimRequest" type="tns:GetDeliveredSimRequest"/>
+      <xs:element name="GetDeliveredSimResponse" type="tns:GetDeliveredSimResponse"/>
+      <xs:element name="GetPrepayBillInfoRequest" type="tns:GetPrepayBillInfoRequest"/>
+      <xs:element name="GetPrepayBillInfoResponse" type="tns:GetPrepayBillInfoResponse"/>
+      <xs:element name="GetSimStatusRequest" type="tns:GetSimStatusRequest"/>
+      <xs:element name="GetSimStatusResponse" type="tns:GetSimStatusResponse"/>
+      <xs:element name="GetVersionRequest" type="tns:GetVersionRequest"/>
+      <xs:element name="GetVersionResponse" type="tns:GetVersionResponse"/>
+      <xs:complexType name="GetClaimedPaymentRequest">
+        <xs:sequence>
+          <xs:element name="billingAccount" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetClaimedPaymentResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="amount" type="ns2:AmountType"/>
+          <xs:element minOccurs="0" name="claimedPaymentId" type="xs:long"/>
+          <xs:element minOccurs="0" name="endDate" type="xs:dateTime"/>
+          <xs:element minOccurs="0" name="orderId" type="xs:long"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetPrepayBillInfoRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="billingAccount" type="xs:string"/>
+          <xs:element minOccurs="0" name="customerId" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetPrepayBillInfoResponse">
+        <xs:sequence>
+          <xs:element name="futureCost" type="xs:long"/>
+          <xs:element name="pastCost" type="xs:long"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetDeliveredSimRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="billingAccount" type="xs:string"/>
+          <xs:element minOccurs="0" name="customerId" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetDeliveredSimResponse">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="deliveredSim" nillable="true" type="ns5:DeliveredSIM"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetSimStatusRequest">
+        <xs:sequence>
+          <xs:element name="billingAccountId" type="xs:long"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="iccid" nillable="true" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetSimStatusResponse">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="iccidWithType" nillable="true" type="ns5:IccIdWithStatus"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetVersionRequest">
+        <xs:sequence/>
+      </xs:complexType>
+      <xs:complexType name="GetVersionResponse">
+        <xs:sequence>
+          <xs:element name="version" type="ns4:VersionInfo"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+    <xs:schema targetNamespace="http://www.yota.ru/vox/b2b/domains/order" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.yota.ru/vox/b2b/domains/order" xmlns:ns9="http://www.yota.ru/vox/domains/common/com" xmlns:ns8="http://www.yota.ru/vox/domains/inventory" xmlns:ns7="http://www.yota.ru/vox/domains/order" xmlns:ns6="http://www.yota.ru/vox/b2b/domains/common/com" xmlns:ns5="http://www.yota.ru/vox/domains/common/dictionaries_1.1" xmlns:ns4="http://www.yota.ru/vox/b2b/domains/corpBalance" xmlns:ns3="http://www.yota.ru/vox/domains/common/core" xmlns:ns2="http://www.yota.ru/vox/b2b/domains/coragreement" xmlns:ns1="http://www.yota.ru/vox/b2b/domains/customer">
+      <xs:import namespace="http://www.yota.ru/vox/b2b/domains/customer"/>
+      <xs:import namespace="http://www.yota.ru/vox/b2b/domains/coragreement"/>
+      <xs:import namespace="http://www.yota.ru/vox/domains/common/core"/>
+      <xs:import namespace="http://www.yota.ru/vox/b2b/domains/corpBalance"/>
+      <xs:import namespace="http://www.yota.ru/vox/domains/common/dictionaries_1.1"/>
+      <xs:import namespace="http://www.yota.ru/vox/b2b/domains/common/com"/>
+      <xs:import namespace="http://www.yota.ru/vox/domains/order"/>
+      <xs:import namespace="http://www.yota.ru/vox/domains/inventory"/>
+      <xs:import namespace="http://www.yota.ru/vox/domains/common/com"/>
+      <xs:element name="AbstractOrderContent" type="tns:AbstractOrderContent"/>
+      <xs:element name="ActivatedUnit" type="tns:ActivatedUnit"/>
+      <xs:element name="AgreementNMPUnit" type="tns:AgreementNMPUnit"/>
+      <xs:element name="BaseAgreementOrder" type="tns:BaseAgreementOrder"/>
+      <xs:element name="BookMsisdnForSim" type="tns:BookMsisdnForSim"/>
+      <xs:element name="CancelClaimedPaymentOrder" type="tns:CancelClaimedPaymentOrder"/>
+      <xs:element name="ClaimedPaymentOrder" type="tns:ClaimedPaymentOrder"/>
+      <xs:element name="CustomerContactDataChangeOrder" type="tns:CustomerContactDataChangeOrder"/>
+      <xs:element name="CustomerDataChangeOrder" type="tns:CustomerDataChangeOrder"/>
+      <xs:element name="DeliveryAddressChangeOrder" type="tns:DeliveryAddressChangeOrder"/>
+      <xs:element name="DetailBillOrder" type="tns:DetailBillOrder"/>
+      <xs:element name="DocumentIdentification" type="tns:DocumentIdentification"/>
+      <xs:element name="EntrepreneurData" type="tns:EntrepreneurData"/>
+      <xs:element name="FindMsisdnByRegionOrder" type="tns:FindMsisdnByRegionOrder"/>
+      <xs:element name="IndividToLegalTransferOrder" type="tns:IndividToLegalTransferOrder"/>
+      <xs:element name="MNPPreOrder" type="tns:MNPPreOrder"/>
+      <xs:element name="MNPUnit" type="tns:MNPUnit"/>
+      <xs:element name="OptionOffersWithMaster" type="tns:OptionOffersWithMaster"/>
+      <xs:element name="OrderBillList" type="tns:OrderBillList"/>
+      <xs:element name="OrderDto" type="tns:OrderDto"/>
+      <xs:element name="OrganisationDataChangeOrder" type="tns:OrganisationDataChangeOrder"/>
+      <xs:element name="PhoneDataToMNP" type="tns:PhoneDataToMNP"/>
+      <xs:element name="PostponePayOrder" type="tns:PostponePayOrder"/>
+      <xs:element name="PrepayBillOrder" type="tns:PrepayBillOrder"/>
+      <xs:element name="Requisites" type="tns:Requisites"/>
+      <xs:element name="SIMActivationOrder" type="tns:SIMActivationOrder"/>
+      <xs:element name="SIMBlockOrder" type="tns:SIMBlockOrder"/>
+      <xs:element name="SIMChangeOrder" type="tns:SIMChangeOrder"/>
+      <xs:element name="SIMWithdrawOrder" type="tns:SIMWithdrawOrder"/>
+      <xs:element name="TerminateOrder" type="tns:TerminateOrder"/>
+      <xs:complexType name="DocumentIdentification">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="givenBy" type="xs:string"/>
+          <xs:element minOccurs="0" name="givenDate" type="xs:dateTime"/>
+          <xs:element minOccurs="0" name="number" type="xs:string"/>
+          <xs:element minOccurs="0" name="serial" type="xs:string"/>
+          <xs:element minOccurs="0" name="serialAndNumber" type="xs:string"/>
+        </xs:sequence>
+        <xs:attribute name="type" type="tns:DocumentIdentificationEnum"/>
+      </xs:complexType>
+      <xs:complexType name="AbstractOrderContent">
+        <xs:sequence/>
+      </xs:complexType>
+      <xs:complexType name="BaseAgreementOrder">
+        <xs:complexContent>
+          <xs:extension base="tns:AbstractOrderContent">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="agreementDate" type="xs:dateTime"/>
+              <xs:element minOccurs="0" name="agreementNMPUnit" type="tns:AgreementNMPUnit"/>
+              <xs:element minOccurs="0" name="agreementRegion" type="xs:string"/>
+              <xs:element minOccurs="0" name="clientInfo" type="ns1:LegalCustomer"/>
+              <xs:element maxOccurs="unbounded" minOccurs="0" name="docDeliveryEMails" nillable="true" type="xs:string"/>
+              <xs:element minOccurs="0" name="documentIdentification" type="tns:DocumentIdentification"/>
+              <xs:element minOccurs="0" name="entrepreneurData" type="tns:EntrepreneurData"/>
+              <xs:element minOccurs="0" name="needLinkRefSend" type="xs:boolean"/>
+              <xs:element minOccurs="0" name="needReCall" type="xs:boolean"/>
+              <xs:element minOccurs="0" name="simCount" type="xs:int"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="AgreementNMPUnit">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="phoneDataToMNP" nillable="true" type="tns:PhoneDataToMNP"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="PhoneDataToMNP">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="operatorCode" type="xs:string"/>
+          <xs:element minOccurs="0" name="operatorName" type="xs:string"/>
+          <xs:element minOccurs="0" name="phone" type="xs:string"/>
+          <xs:element minOccurs="0" name="rsRegion" type="xs:string"/>
+          <xs:element minOccurs="0" name="rsRegionName" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="EntrepreneurData">
+        <xs:sequence>
+          <xs:element name="givenBy" type="xs:string"/>
+          <xs:element name="givenDate" type="xs:dateTime"/>
+          <xs:element name="serialAndNumber" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="BookMsisdnForSim">
+        <xs:complexContent>
+          <xs:extension base="tns:AbstractOrderContent">
+            <xs:sequence>
+              <xs:element name="iccid" type="xs:string"/>
+              <xs:element minOccurs="0" name="msisdn" type="xs:string"/>
+              <xs:element minOccurs="0" name="rsRegion" type="xs:string"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="CancelClaimedPaymentOrder">
+        <xs:complexContent>
+          <xs:extension base="tns:AbstractOrderContent">
+            <xs:sequence>
+              <xs:element name="claimedOrderId" type="xs:long"/>
+              <xs:element minOccurs="0" name="corporateBalance" type="ns4:CorporateBalance"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="ClaimedPaymentOrder">
+        <xs:complexContent>
+          <xs:extension base="tns:AbstractOrderContent">
+            <xs:sequence>
+              <xs:element name="amount" type="ns3:AmountType"/>
+              <xs:element minOccurs="0" name="claimedOrderId" type="xs:long"/>
+              <xs:element minOccurs="0" name="corporateBalance" type="ns4:CorporateBalance"/>
+              <xs:element name="endDate" type="xs:dateTime"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="CustomerContactDataChangeOrder">
+        <xs:complexContent>
+          <xs:extension base="tns:AbstractOrderContent">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="administrator" type="ns2:CorporatePerson"/>
+              <xs:element maxOccurs="unbounded" name="changeType" type="tns:ContactDataChangeEnum"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="CustomerDataChangeOrder">
+        <xs:complexContent>
+          <xs:extension base="tns:AbstractOrderContent">
+            <xs:sequence>
+              <xs:element maxOccurs="unbounded" minOccurs="0" name="updatedAgreement" nillable="true" type="ns2:CorporateAgreement"/>
+              <xs:element maxOccurs="unbounded" minOccurs="0" name="updatedCustomer" nillable="true" type="ns1:LegalCustomer"/>
+              <xs:element maxOccurs="unbounded" minOccurs="0" name="updatedPerson" nillable="true" type="ns2:CorporatePerson"/>
+            </xs:sequence>
+            <xs:attribute name="changeType" type="tns:CustomerDataChangeEnum"/>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="DeliveryAddressChangeOrder">
+        <xs:complexContent>
+          <xs:extension base="tns:AbstractOrderContent">
+            <xs:sequence>
+              <xs:element name="delivery" type="ns2:DeliveryType"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="DetailBillOrder">
+        <xs:complexContent>
+          <xs:extension base="tns:AbstractOrderContent">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="beginDate" type="xs:dateTime"/>
+              <xs:element minOccurs="0" name="COId" type="xs:string"/>
+              <xs:element minOccurs="0" name="endDate" type="xs:dateTime"/>
+              <xs:element maxOccurs="unbounded" minOccurs="0" name="msisdn" nillable="true" type="xs:string"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="FindMsisdnByRegionOrder">
+        <xs:complexContent>
+          <xs:extension base="tns:AbstractOrderContent">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="msisdn" type="xs:string"/>
+              <xs:element name="region" type="xs:string"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="IndividToLegalTransferOrder">
+        <xs:complexContent>
+          <xs:extension base="tns:AbstractOrderContent">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="cancelReason" type="xs:string"/>
+              <xs:element minOccurs="0" name="clientApprovedDate" type="xs:dateTime"/>
+              <xs:element minOccurs="0" name="destOfferCode" type="xs:string"/>
+              <xs:element maxOccurs="unbounded" minOccurs="0" name="destOptionOffers" nillable="true" type="xs:string"/>
+              <xs:element name="documentScanUrl" type="xs:string"/>
+              <xs:element name="individualCustomerId" type="xs:string"/>
+              <xs:element name="initLegalCustomerId" type="xs:string"/>
+              <xs:element name="isHidden" type="xs:boolean"/>
+              <xs:element name="msisdn" type="xs:string"/>
+              <xs:element name="owner" type="xs:string"/>
+              <xs:element minOccurs="0" name="scanSendingDate" type="xs:dateTime"/>
+              <xs:element minOccurs="0" name="yotaApprovedDate" type="xs:dateTime"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="MNPPreOrder">
+        <xs:complexContent>
+          <xs:extension base="tns:AbstractOrderContent">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="agreementRef" type="xs:string"/>
+              <xs:element minOccurs="0" name="documentId" type="xs:long"/>
+              <xs:element name="operatorCode" type="xs:string"/>
+              <xs:element name="operatorName" type="xs:string"/>
+              <xs:element maxOccurs="unbounded" name="portable" type="tns:MNPUnit"/>
+              <xs:element name="processType" type="ns7:MNPTypeEnum"/>
+              <xs:element name="rsRegion" type="xs:string"/>
+              <xs:element name="rsRegionName" type="xs:string"/>
+              <xs:element minOccurs="0" name="signDate" type="xs:dateTime"/>
+              <xs:element minOccurs="0" name="startDate" type="xs:dateTime"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="MNPUnit">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="destOfferCode" type="xs:string"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="destOfferOptions" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="iccid" type="xs:string"/>
+          <xs:element name="msisdn" type="xs:string"/>
+          <xs:element minOccurs="0" name="nameOfOwner" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="OrganisationDataChangeOrder">
+        <xs:complexContent>
+          <xs:extension base="tns:AbstractOrderContent">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="address" type="ns1:FullAddressType"/>
+              <xs:element name="changeDate" type="xs:dateTime"/>
+              <xs:element minOccurs="0" name="customer" type="ns1:LegalCustomer"/>
+              <xs:element minOccurs="0" name="EGRUL" type="ns1:EGRULDataType"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="PostponePayOrder">
+        <xs:complexContent>
+          <xs:extension base="tns:AbstractOrderContent">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="claimedPayment" type="tns:ClaimedPaymentOrder"/>
+              <xs:element minOccurs="0" name="clientComment" type="xs:string"/>
+              <xs:element minOccurs="0" name="documentId" type="xs:long"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="PrepayBillOrder">
+        <xs:complexContent>
+          <xs:extension base="tns:AbstractOrderContent">
+            <xs:sequence>
+              <xs:element name="amount" type="ns3:AmountType"/>
+              <xs:element maxOccurs="unbounded" minOccurs="0" name="emails" nillable="true" type="xs:string"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="SIMActivationOrder">
+        <xs:complexContent>
+          <xs:extension base="tns:AbstractOrderContent">
+            <xs:sequence>
+              <xs:element maxOccurs="unbounded" name="activatedUnits" type="tns:ActivatedUnit"/>
+              <xs:element minOccurs="0" name="amendment" type="ns2:CorporateAgreement"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="ActivatedUnit">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="baseTariffOfferID" type="xs:long"/>
+          <xs:element minOccurs="0" name="feasibleStatus" type="xs:string"/>
+          <xs:element minOccurs="0" name="holder" type="xs:string"/>
+          <xs:element minOccurs="0" name="msisdn" type="xs:string"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="operations" nillable="true" type="tns:OptionOffersWithMaster"/>
+          <xs:element minOccurs="0" name="packageOfferExternalId" type="xs:long"/>
+          <xs:element minOccurs="0" name="regionID" type="xs:string"/>
+          <xs:element minOccurs="0" name="regionOfBuying" type="xs:string"/>
+          <xs:element minOccurs="0" name="sim" type="ns8:VacantSim"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="OptionOffersWithMaster">
+        <xs:sequence>
+          <xs:element name="masterOfferExternalId" type="xs:long"/>
+          <xs:element name="optionOfferExternalId" type="xs:long"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="SIMBlockOrder">
+        <xs:complexContent>
+          <xs:extension base="tns:AbstractOrderContent">
+            <xs:sequence>
+              <xs:element name="blockDate" type="xs:dateTime"/>
+              <xs:element name="blockType" type="ns8:SIMBlockTypeEnum"/>
+              <xs:element maxOccurs="unbounded" name="sim" type="ns8:SimCard"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="SIMChangeOrder">
+        <xs:complexContent>
+          <xs:extension base="tns:AbstractOrderContent">
+            <xs:sequence>
+              <xs:element name="billingAccountId" type="xs:long"/>
+              <xs:element name="newSimIccid" type="xs:string"/>
+              <xs:element name="oldSimIccid" type="xs:string"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="SIMWithdrawOrder">
+        <xs:complexContent>
+          <xs:extension base="tns:AbstractOrderContent">
+            <xs:sequence>
+              <xs:element maxOccurs="unbounded" name="sim" type="ns8:UsedSimCardBase"/>
+              <xs:element name="withDrawDate" type="xs:dateTime"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="TerminateOrder">
+        <xs:complexContent>
+          <xs:extension base="tns:AbstractOrderContent">
+            <xs:sequence>
+              <xs:element name="beginDate" type="xs:dateTime"/>
+              <xs:element minOccurs="0" name="cancelReason" type="xs:string"/>
+              <xs:element minOccurs="0" name="clientName" type="xs:string"/>
+              <xs:element minOccurs="0" name="documentId" type="xs:long"/>
+              <xs:element minOccurs="0" name="documentScanUrl" type="xs:string"/>
+              <xs:element minOccurs="0" name="msisdn" type="xs:string"/>
+              <xs:element minOccurs="0" name="poAScanUrl" type="xs:string"/>
+              <xs:element minOccurs="0" name="poAScanUrlId" type="xs:long"/>
+              <xs:element minOccurs="0" name="requisites" type="tns:Requisites"/>
+              <xs:element minOccurs="0" name="simCount" type="xs:int"/>
+              <xs:element name="terminateDate" type="xs:dateTime"/>
+              <xs:element minOccurs="0" name="terminateReason" type="xs:string"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="Requisites">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="bankBIK" type="xs:string"/>
+          <xs:element minOccurs="0" name="bankName" type="xs:string"/>
+          <xs:element minOccurs="0" name="companyBankAccount" type="xs:string"/>
+          <xs:element minOccurs="0" name="companyINN" type="xs:string"/>
+          <xs:element minOccurs="0" name="companyKPP" type="xs:string"/>
+          <xs:element minOccurs="0" name="companyName" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="OrderBillList">
+        <xs:sequence/>
+      </xs:complexType>
+      <xs:complexType name="OrderDto">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="authorEmail" type="xs:string"/>
+          <xs:element minOccurs="0" name="authorPhone" type="xs:string"/>
+          <xs:element minOccurs="0" name="billingAccount" type="xs:string"/>
+          <xs:element minOccurs="0" name="companyName" type="xs:string"/>
+          <xs:element minOccurs="0" name="customerId" type="xs:string"/>
+          <xs:element minOccurs="0" name="linkRef" type="xs:string"/>
+          <xs:element minOccurs="0" name="name" type="xs:string"/>
+          <xs:element minOccurs="0" name="orderChangeDate" type="xs:dateTime"/>
+          <xs:element minOccurs="0" name="orderCompleteDate" type="xs:dateTime"/>
+          <xs:element minOccurs="0" name="orderContent" type="tns:AbstractOrderContent"/>
+          <xs:element minOccurs="0" name="orderCreateDate" type="xs:dateTime"/>
+          <xs:element minOccurs="0" name="orderId" type="xs:long"/>
+          <xs:element minOccurs="0" name="orderOriginator" type="xs:string"/>
+          <xs:element minOccurs="0" name="parentOrderId" type="xs:long"/>
+          <xs:element minOccurs="0" name="revision" type="xs:int"/>
+          <xs:element minOccurs="0" name="shortLinkRef" type="xs:string"/>
+        </xs:sequence>
+        <xs:attribute name="createChannel" type="ns6:SaleChannelEnum"/>
+        <xs:attribute name="orderStatus" type="tns:OrderStatusEnum"/>
+        <xs:attribute name="orderStep" type="tns:OrderStepEnum"/>
+        <xs:attribute name="orderType" type="tns:OrderTypeEnum"/>
+        <xs:attribute name="updateChannel" type="ns6:SaleChannelEnum"/>
+      </xs:complexType>
+      <xs:simpleType name="DocumentIdentificationEnum">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="BIRTH_CERTIFICATE"/>
+          <xs:enumeration value="DIPLOMATIC_PASSPORT_RU"/>
+          <xs:enumeration value="DRIVING_LICENSE"/>
+          <xs:enumeration value="IDP_CERTIFICATE"/>
+          <xs:enumeration value="MIGRATION_CARD"/>
+          <xs:enumeration value="MILITARY_TICKET"/>
+          <xs:enumeration value="MISSED"/>
+          <xs:enumeration value="OFFICE_PASSPORT_RU"/>
+          <xs:enumeration value="OFFICER_CERTIFICATE"/>
+          <xs:enumeration value="OVERSEAS_PASSPORT_RU"/>
+          <xs:enumeration value="OVERSEAS_PASSPORT_USSR"/>
+          <xs:enumeration value="PASSPORT_FOREIGNER"/>
+          <xs:enumeration value="PASSPORT_MINMORFLOTA"/>
+          <xs:enumeration value="PASSPORT_RU"/>
+          <xs:enumeration value="PASSPORT_SAILOR"/>
+          <xs:enumeration value="PASSPORT_USSR"/>
+          <xs:enumeration value="PENSION_CERTIFICATE"/>
+          <xs:enumeration value="PRISON_CERTIFICATE"/>
+          <xs:enumeration value="REFUGEE_CERTIFICATE"/>
+          <xs:enumeration value="REFUGEE_IMMIGRANTS_CERTIFICATE"/>
+          <xs:enumeration value="RESIDENCY"/>
+          <xs:enumeration value="TEMPORARY_CERTIFICATE"/>
+          <xs:enumeration value="TEMPORARY_RESIDENCE"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="ContactDataChangeEnum">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="email"/>
+          <xs:enumeration value="name"/>
+          <xs:enumeration value="phone"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="CustomerDataChangeEnum">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="agreementUpdate"/>
+          <xs:enumeration value="customerUpdate"/>
+          <xs:enumeration value="personUpdate"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="OrderStatusEnum">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="canceled"/>
+          <xs:enumeration value="clientFulfill"/>
+          <xs:enumeration value="complete"/>
+          <xs:enumeration value="failed"/>
+          <xs:enumeration value="initiate"/>
+          <xs:enumeration value="original"/>
+          <xs:enumeration value="yotaFulfill"/>
+          <xs:enumeration value="yotaApproved"/>
+          <xs:enumeration value="clientApproved"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="OrderStepEnum">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="completeData"/>
+          <xs:enumeration value="downloadingUploading"/>
+          <xs:enumeration value="initialization"/>
+          <xs:enumeration value="waitingAddr"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="OrderTypeEnum">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="agreement"/>
+          <xs:enumeration value="bookMsisdnForSim"/>
+          <xs:enumeration value="clientDataChange"/>
+          <xs:enumeration value="consultation"/>
+          <xs:enumeration value="customerContactDataChange"/>
+          <xs:enumeration value="deliveryAddressChange"/>
+          <xs:enumeration value="detailBill"/>
+          <xs:enumeration value="individualLegalTransfer"/>
+          <xs:enumeration value="MNP"/>
+          <xs:enumeration value="organisationDataChange"/>
+          <xs:enumeration value="passwordRecall"/>
+          <xs:enumeration value="postponePay"/>
+          <xs:enumeration value="prepayBill"/>
+          <xs:enumeration value="removeDetailBill"/>
+          <xs:enumeration value="cancelClaimedPayment"/>
+          <xs:enumeration value="claimedPayment"/>
+          <xs:enumeration value="SIMActivation"/>
+          <xs:enumeration value="SIMBlock"/>
+          <xs:enumeration value="SIMChange"/>
+          <xs:enumeration value="SIMLimitChange"/>
+          <xs:enumeration value="SIMOrder"/>
+          <xs:enumeration value="SIMWithdraw"/>
+          <xs:enumeration value="findMsisdnByRegion"/>
+          <xs:enumeration value="terminate"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:schema>
+    <xs:schema targetNamespace="http://www.yota.ru/vox/b2b/domains/customer" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.yota.ru/vox/b2b/domains/customer" xmlns:ns4="http://www.yota.ru/vox/domains/customer" xmlns:ns3="http://www.yota.ru/vox/b2b/domains/common/com" xmlns:ns2="http://www.yota.ru/vox/b2b/domains/coragreement" xmlns:ns1="http://www.yota.ru/vox/b2b/domains/order">
+      <xs:import namespace="http://www.yota.ru/vox/b2b/domains/order"/>
+      <xs:import namespace="http://www.yota.ru/vox/b2b/domains/coragreement"/>
+      <xs:import namespace="http://www.yota.ru/vox/b2b/domains/common/com"/>
+      <xs:import namespace="http://www.yota.ru/vox/domains/customer"/>
+      <xs:element name="Account" type="tns:Account"/>
+      <xs:element name="CustomerBannerLink" type="tns:CustomerBannerLink"/>
+      <xs:element name="CustomerFilter" type="tns:CustomerFilter"/>
+      <xs:element name="CustomerPropertyType" type="tns:CustomerPropertyType"/>
+      <xs:element name="DealerCustomer" type="tns:DealerCustomer"/>
+      <xs:element name="EGRULDataType" type="tns:EGRULDataType"/>
+      <xs:element name="FullAddressType" type="tns:FullAddressType"/>
+      <xs:element name="FullBankInfoType" type="tns:FullBankInfoType"/>
+      <xs:element name="LegalCustomer" type="tns:LegalCustomer"/>
+      <xs:complexType name="LegalCustomer">
+        <xs:complexContent>
+          <xs:extension base="ns4:Customer">
+            <xs:sequence>
+              <xs:element maxOccurs="unbounded" minOccurs="0" name="addresses" nillable="true" type="tns:FullAddressType"/>
+              <xs:element minOccurs="0" name="bankInfo" type="tns:FullBankInfoType"/>
+              <xs:element minOccurs="0" name="baseSigning" type="xs:string"/>
+              <xs:element minOccurs="0" name="billingAccountId" type="xs:long"/>
+              <xs:element minOccurs="0" name="CEO" type="ns2:CorporatePerson"/>
+              <xs:element minOccurs="0" name="companyRegistrationDate" type="xs:dateTime"/>
+              <xs:element minOccurs="0" name="contactPerson" type="ns2:CorporatePerson"/>
+              <xs:element maxOccurs="unbounded" minOccurs="0" name="corporateAgreements" nillable="true" type="ns2:CorporateAgreement"/>
+              <xs:element minOccurs="0" name="dataChangeDate" type="xs:dateTime"/>
+              <xs:element minOccurs="0" name="EGRULData" type="tns:EGRULDataType"/>
+              <xs:element minOccurs="0" name="employeesNum" type="xs:int"/>
+              <xs:element minOccurs="0" name="fullCompanyName" type="xs:string"/>
+              <xs:element minOccurs="0" name="inactiveSIMlimit" type="xs:int"/>
+              <xs:element minOccurs="0" name="masterAgreement" type="ns2:CorporateAgreement"/>
+              <xs:element minOccurs="0" name="opf" type="xs:string"/>
+              <xs:element minOccurs="0" name="shortCompanyName" type="xs:string"/>
+              <xs:element minOccurs="0" name="unmatchedData" type="xs:boolean"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="FullAddressType">
+        <xs:complexContent>
+          <xs:extension base="ns4:AddressAttribute">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="addressType" type="tns:AddressTypesEnum"/>
+              <xs:element minOccurs="0" name="apartment" type="xs:string"/>
+              <xs:element minOccurs="0" name="area" type="xs:string"/>
+              <xs:element minOccurs="0" name="city" type="xs:string"/>
+              <xs:element minOccurs="0" name="house" type="xs:string"/>
+              <xs:element minOccurs="0" name="locality" type="xs:string"/>
+              <xs:element minOccurs="0" name="region" type="xs:string"/>
+              <xs:element minOccurs="0" name="street" type="xs:string"/>
+              <xs:element minOccurs="0" name="zipCode" type="xs:string"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="FullBankInfoType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="account" type="xs:string"/>
+          <xs:element minOccurs="0" name="bankAddress" type="xs:string"/>
+          <xs:element minOccurs="0" name="bankTitle" type="xs:string"/>
+          <xs:element minOccurs="0" name="BIK" type="xs:string"/>
+          <xs:element minOccurs="0" name="correspondAcc" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="EGRULDataType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="INN" type="xs:string"/>
+          <xs:element minOccurs="0" name="KPP" type="xs:string"/>
+          <xs:element minOccurs="0" name="OGRN" type="xs:string"/>
+          <xs:element minOccurs="0" name="OKPO" type="xs:string"/>
+          <xs:element minOccurs="0" name="OKVED" type="xs:string"/>
+          <xs:element minOccurs="0" name="OPF" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="Account">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="accountType" type="tns:AccountTypeEnum"/>
+          <xs:element minOccurs="0" name="login" type="xs:string"/>
+          <xs:element minOccurs="0" name="needResetPassword" type="xs:boolean"/>
+        </xs:sequence>
+        <xs:attribute name="userId" type="xs:string"/>
+      </xs:complexType>
+      <xs:complexType name="CustomerBannerLink">
+        <xs:sequence>
+          <xs:element name="bannerCode" type="xs:string"/>
+          <xs:element name="userId" type="xs:string"/>
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:long"/>
+      </xs:complexType>
+      <xs:complexType name="CustomerFilter">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="customerMarketingSegment" type="xs:string"/>
+          <xs:element minOccurs="0" name="customerPurpose" type="xs:string"/>
+          <xs:element minOccurs="0" name="customerType" type="tns:AccountTypeEnum"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="CustomerPropertyType">
+        <xs:sequence>
+          <xs:element name="propertyValue" type="xs:string"/>
+        </xs:sequence>
+        <xs:attribute name="name" type="tns:CustomerAttributesEnum" use="required"/>
+      </xs:complexType>
+      <xs:complexType name="DealerCustomer">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="creditLimit" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:simpleType name="AddressTypesEnum">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="ContractCity"/>
+          <xs:enumeration value="DocDelivery"/>
+          <xs:enumeration value="Legal"/>
+          <xs:enumeration value="Location"/>
+          <xs:enumeration value="Post"/>
+          <xs:enumeration value="SubscriberLocation"/>
+          <xs:enumeration value="SubscriberRegistration"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="AccountTypeEnum">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="personal"/>
+          <xs:enumeration value="corporate"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="CustomerAttributesEnum">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="companyName"/>
+          <xs:enumeration value="email"/>
+          <xs:enumeration value="fname"/>
+          <xs:enumeration value="lname"/>
+          <xs:enumeration value="login"/>
+          <xs:enumeration value="phone"/>
+          <xs:enumeration value="registredFrom"/>
+          <xs:enumeration value="mname"/>
+          <xs:enumeration value="imsi"/>
+          <xs:enumeration value="iccid"/>
+          <xs:enumeration value="mac"/>
+          <xs:enumeration value="cardNo"/>
+          <xs:enumeration value="userId"/>
+          <xs:enumeration value="marketingSegment"/>
+          <xs:enumeration value="customerPurpose"/>
+          <xs:enumeration value="accountType"/>
+          <xs:enumeration value="regInfoVerificationState"/>
+          <xs:enumeration value="documentType"/>
+          <xs:enumeration value="isAutoVerifiedDocumentType"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:schema>
+    <xs:schema targetNamespace="http://www.yota.ru/vox/b2b/domains/corpSIMOrder" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.yota.ru/vox/b2b/domains/corpSIMOrder" xmlns:ns4="http://www.yota.ru/vox/domains/inventory" xmlns:ns3="http://www.yota.ru/vox/b2b/domains/common/com" xmlns:ns2="http://www.yota.ru/vox/b2b/domains/coragreement" xmlns:ns1="http://www.yota.ru/vox/b2b/domains/order">
+      <xs:import namespace="http://www.yota.ru/vox/b2b/domains/order"/>
+      <xs:import namespace="http://www.yota.ru/vox/b2b/domains/coragreement"/>
+      <xs:import namespace="http://www.yota.ru/vox/b2b/domains/common/com"/>
+      <xs:import namespace="http://www.yota.ru/vox/domains/inventory"/>
+      <xs:element name="DeliveredSIM" type="tns:DeliveredSIM"/>
+      <xs:element name="IccIdWithStatus" type="tns:IccIdWithStatus"/>
+      <xs:element name="SIMOrder" type="tns:SIMOrder"/>
+      <xs:complexType name="DeliveredSIM">
+        <xs:complexContent>
+          <xs:extension base="ns4:SimCard">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="agreementID" type="xs:long"/>
+              <xs:element minOccurs="0" name="holder" type="ns2:CorporatePerson"/>
+              <xs:element name="iccid" type="xs:string"/>
+              <xs:element minOccurs="0" name="msisdn" type="xs:string"/>
+              <xs:element minOccurs="0" name="saleChannel" type="ns3:SaleChannelEnum"/>
+              <xs:element minOccurs="0" name="simStatus" type="tns:SIMOrderStatusEnum"/>
+              <xs:element minOccurs="0" name="simUsageRegion" type="xs:string"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="IccIdWithStatus">
+        <xs:sequence>
+          <xs:element name="iccid" type="xs:string"/>
+          <xs:element minOccurs="0" name="msisdn" type="xs:string"/>
+          <xs:element minOccurs="0" name="regionCode" type="xs:string"/>
+          <xs:element name="type" type="tns:SIMOrderStatusEnum"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="SIMOrder">
+        <xs:complexContent>
+          <xs:extension base="ns1:AbstractOrderContent">
+            <xs:sequence>
+              <xs:element maxOccurs="unbounded" name="deliveredSims" type="tns:DeliveredSIM"/>
+              <xs:element minOccurs="0" name="skipSimInfo" type="xs:boolean"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:simpleType name="SIMOrderStatusEnum">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="active"/>
+          <xs:enumeration value="fulfilled"/>
+          <xs:enumeration value="transfer"/>
+          <xs:enumeration value="vacant"/>
+          <xs:enumeration value="cancelled"/>
+          <xs:enumeration value="blocked"/>
+          <xs:enumeration value="manualBlocked"/>
+          <xs:enumeration value="preMNP"/>
+          <xs:enumeration value="MNP"/>
+          <xs:enumeration value="invalid"/>
+          <xs:enumeration value="unregistred"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:schema>
+    <xs:schema targetNamespace="http://www.yota.ru/vox/b2b/domains/corpBalance" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.yota.ru/vox/b2b/domains/corpBalance" xmlns:ns2="http://www.yota.ru/vox/domains/common/core" xmlns:ns1="http://www.yota.ru/vox/domains/common/dictionaries_1.1">
+      <xs:import namespace="http://www.yota.ru/vox/domains/common/dictionaries_1.1"/>
+      <xs:import namespace="http://www.yota.ru/vox/domains/common/core"/>
+      <xs:element name="CorporateBalance" type="tns:CorporateBalance"/>
+      <xs:complexType name="CorporateBalance">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="balance" type="ns2:AmountType"/>
+          <xs:element minOccurs="0" name="finBlockedProducts" type="ns2:AmountType"/>
+          <xs:element minOccurs="0" name="posponePay" type="ns2:AmountType"/>
+          <xs:element minOccurs="0" name="posponePayExpDate" type="xs:dateTime"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+    <xs:schema targetNamespace="http://www.yota.ru/vox/b2b/domains/coragreement" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.yota.ru/vox/b2b/domains/coragreement" xmlns:ns5="http://www.yota.ru/vox/b2b/domains/customer" xmlns:ns4="http://www.yota.ru/vox/domains/common/com" xmlns:ns3="http://www.yota.ru/vox/b2b/domains/common/com" xmlns:ns2="http://www.yota.ru/vox/domains/customer" xmlns:ns1="http://www.yota.ru/vox/b2b/domains/order">
+      <xs:import namespace="http://www.yota.ru/vox/b2b/domains/order"/>
+      <xs:import namespace="http://www.yota.ru/vox/domains/customer"/>
+      <xs:import namespace="http://www.yota.ru/vox/b2b/domains/common/com"/>
+      <xs:import namespace="http://www.yota.ru/vox/domains/common/com"/>
+      <xs:import namespace="http://www.yota.ru/vox/b2b/domains/customer"/>
+      <xs:element name="CorporateAgreement" type="tns:CorporateAgreement"/>
+      <xs:element name="CorporatePerson" type="tns:CorporatePerson"/>
+      <xs:element name="DeliveryAddress" type="tns:DeliveryAddress"/>
+      <xs:element name="DeliveryType" type="tns:DeliveryType"/>
+      <xs:complexType name="CorporatePerson">
+        <xs:complexContent>
+          <xs:extension base="ns2:PersonalCustomer">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="dul" type="ns1:DocumentIdentification"/>
+              <xs:element minOccurs="0" name="position" type="xs:string"/>
+              <xs:element name="role" type="tns:CorporatePersonRolesEnum"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="CorporateAgreement">
+        <xs:complexContent>
+          <xs:extension base="ns4:PersonalDataIdentifiedObject">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="administrator" type="tns:CorporatePerson"/>
+              <xs:element minOccurs="0" name="agreementCity" type="xs:string"/>
+              <xs:element minOccurs="0" name="agreementMSISDN" type="xs:string"/>
+              <xs:element minOccurs="0" name="agreementRegion" type="xs:string"/>
+              <xs:element minOccurs="0" name="billingAccountID" type="xs:long"/>
+              <xs:element minOccurs="0" name="contractType" type="tns:ContractTypeEnum"/>
+              <xs:element maxOccurs="unbounded" minOccurs="0" name="deliveries" nillable="true" type="tns:DeliveryType"/>
+              <xs:element minOccurs="0" name="endDate" type="xs:dateTime"/>
+              <xs:element minOccurs="0" name="generationDate" type="xs:dateTime"/>
+              <xs:element minOccurs="0" name="masterAgreementID" type="xs:long"/>
+              <xs:element minOccurs="0" name="refId" type="xs:string"/>
+              <xs:element minOccurs="0" name="saleChannel" type="ns3:SaleChannelEnum"/>
+              <xs:element minOccurs="0" name="signedDate" type="xs:dateTime"/>
+              <xs:element minOccurs="0" name="startDate" type="xs:dateTime"/>
+              <xs:element minOccurs="0" name="underWriter" type="tns:CorporatePerson"/>
+            </xs:sequence>
+            <xs:attribute name="status" type="tns:CorporateAgreementStatusEnum"/>
+            <xs:attribute name="type" type="tns:CorporateAgreementTypeEnum"/>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="DeliveryType">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" name="deliveryAddress" type="tns:DeliveryAddress"/>
+          <xs:element name="deliveryChannel" type="tns:DeliveryChannelEnum"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="DeliveryAddress">
+        <xs:sequence>
+          <xs:element name="ContractStatusEnum" type="xs:string"/>
+          <xs:element name="deliveryAddressType" type="tns:DeliveryAddressTypeEnum"/>
+          <xs:element minOccurs="0" name="email" type="xs:string"/>
+          <xs:element minOccurs="0" name="isSameAsLocation" type="xs:boolean"/>
+          <xs:element minOccurs="0" name="postal" type="ns5:FullAddressType"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:simpleType name="CorporatePersonRolesEnum">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="administrator"/>
+          <xs:enumeration value="CEO"/>
+          <xs:enumeration value="contactPerson"/>
+          <xs:enumeration value="SIMHolder"/>
+          <xs:enumeration value="underWriter"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="ContractTypeEnum">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="direct"/>
+          <xs:enumeration value="partner"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="DeliveryAddressTypeEnum">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="main"/>
+          <xs:enumeration value="optional"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="DeliveryChannelEnum">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="courier"/>
+          <xs:enumeration value="email"/>
+          <xs:enumeration value="postal"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="CorporateAgreementStatusEnum">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="activated"/>
+          <xs:enumeration value="potential"/>
+          <xs:enumeration value="closed"/>
+          <xs:enumeration value="new"/>
+          <xs:enumeration value="reassigned"/>
+          <xs:enumeration value="used"/>
+          <xs:enumeration value="UNKNOWN"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="CorporateAgreementTypeEnum">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="CA"/>
+          <xs:enumeration value="VoiceServices"/>
+          <xs:enumeration value="MNP"/>
+          <xs:enumeration value="RefuseMNP"/>
+          <xs:enumeration value="ChangeSim"/>
+          <xs:enumeration value="SIMAssigtOut"/>
+          <xs:enumeration value="SIMAssigtIn"/>
+          <xs:enumeration value="MoneyAssigtOut"/>
+          <xs:enumeration value="MoneyAssigtIn"/>
+          <xs:enumeration value="VOICE_B2B"/>
+          <xs:enumeration value="VOICE_B2B_ADD"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:schema>
+    <xs:schema targetNamespace="http://www.yota.ru/vox/b2b/domains/common/com" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.yota.ru/vox/b2b/domains/common/com">
+      <xs:element name="VersionInfo" type="tns:VersionInfo"/>
+      <xs:complexType name="VersionInfo">
+        <xs:sequence>
+          <xs:element name="branch" type="xs:string"/>
+          <xs:element name="buildHost" type="xs:string"/>
+          <xs:element name="buildTime" type="xs:string"/>
+          <xs:element name="buildUserEmail" type="xs:string"/>
+          <xs:element name="buildUserName" type="xs:string"/>
+          <xs:element name="buildVersion" type="xs:string"/>
+          <xs:element name="closestTagCommitCount" type="xs:string"/>
+          <xs:element name="closestTagName" type="xs:string"/>
+          <xs:element name="commitId" type="xs:string"/>
+          <xs:element name="commitIdAbbrev" type="xs:string"/>
+          <xs:element name="commitMessageFull" type="xs:string"/>
+          <xs:element name="commitMessageShort" type="xs:string"/>
+          <xs:element name="commitTime" type="xs:string"/>
+          <xs:element name="commitUserEmail" type="xs:string"/>
+          <xs:element name="commitUserName" type="xs:string"/>
+          <xs:element name="describe" type="xs:string"/>
+          <xs:element name="describeShort" type="xs:string"/>
+          <xs:element name="dirty" type="xs:string"/>
+          <xs:element name="remoteOriginUrl" type="xs:string"/>
+          <xs:element name="tags" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:simpleType name="SaleChannelEnum">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="B2C"/>
+          <xs:enumeration value="BPM"/>
+          <xs:enumeration value="CRM"/>
+          <xs:enumeration value="MNP"/>
+          <xs:enumeration value="Mobile"/>
+          <xs:enumeration value="PublicPortal"/>
+          <xs:enumeration value="RemoteDealer"/>
+          <xs:enumeration value="SelfCare"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:schema>
+    <xs:schema targetNamespace="http://www.roox.ru/products/common/va" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.roox.ru/products/common/va" xmlns:ns2="http://www.roox.ru/products/common/com" xmlns:ns1="http://www.roox.ru/products/common/dictionaries">
+      <xs:import namespace="http://www.roox.ru/products/common/dictionaries"/>
+      <xs:import namespace="http://www.roox.ru/products/common/com"/>
+      <xs:complexType name="ValidationRule">
+        <xs:sequence>
+          <xs:element name="errorMessage" type="xs:string"/>
+          <xs:element name="errorCode" type="xs:integer"/>
+          <xs:element name="attributeId" type="xs:long"/>
+          <xs:element name="sortOrder" type="xs:long"/>
+          <xs:element maxOccurs="unbounded" name="validationElements" type="tns:ValidationRuleElement"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ValidationRuleElement">
+        <xs:sequence>
+          <xs:element name="ruleType" type="ns1:ValidationRuleTypeEnum"/>
+          <xs:element name="value" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ScalarValidationRule">
+        <xs:complexContent>
+          <xs:extension base="tns:ValidationRule">
+            <xs:sequence/>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="StringValidationRule">
+        <xs:complexContent>
+          <xs:extension base="tns:ScalarValidationRule">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="regExp" type="xs:string"/>
+              <xs:element minOccurs="0" name="minLength" type="xs:integer"/>
+              <xs:element name="maxLength" type="xs:integer"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="IntegerValidationRule">
+        <xs:complexContent>
+          <xs:extension base="tns:ScalarValidationRule">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="minValue" type="xs:long"/>
+              <xs:element minOccurs="0" name="maxValue" type="xs:long"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="DateTimeValidationRule">
+        <xs:complexContent>
+          <xs:extension base="tns:ScalarValidationRule">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="format" type="xs:string"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="DecimalValidationRule">
+        <xs:complexContent>
+          <xs:extension base="tns:ScalarValidationRule">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="minValue" type="xs:decimal"/>
+              <xs:element name="precision" type="xs:integer"/>
+              <xs:element minOccurs="0" name="maxValue" type="xs:decimal"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="AttributeValidationRule">
+        <xs:complexContent>
+          <xs:extension base="tns:ValidationRule">
+            <xs:sequence>
+              <xs:element name="mandatory" type="xs:boolean"/>
+              <xs:element name="uniqueAttr" type="xs:boolean"/>
+              <xs:element name="undefined" type="xs:boolean"/>
+              <xs:element name="unchangeable" type="xs:boolean"/>
+              <xs:element minOccurs="0" name="parentEntityPath" type="xs:string"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="ReferenceValidationRule">
+        <xs:complexContent>
+          <xs:extension base="tns:ValidationRule">
+            <xs:sequence>
+              <xs:element name="referenceType" type="ns1:RefTypeEnum"/>
+              <xs:element name="invalidReferenceValue" type="xs:string"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="Attribute">
+        <xs:complexContent>
+          <xs:extension base="ns2:NamedObject">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="emptyTip" type="xs:string"/>
+              <xs:element name="entityId" type="xs:long"/>
+              <xs:element minOccurs="0" name="validatingTip" type="xs:string"/>
+              <xs:element minOccurs="0" name="refType" type="ns1:RefTypeEnum"/>
+              <xs:element maxOccurs="unbounded" minOccurs="0" name="scalarValidationRules" nillable="true" type="tns:ScalarValidationRule"/>
+              <xs:element maxOccurs="unbounded" minOccurs="0" name="attributeValidationRule" nillable="true" type="tns:AttributeValidationRule"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="StaticAttribute">
+        <xs:complexContent>
+          <xs:extension base="tns:Attribute">
+            <xs:sequence/>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="CustomAttribute">
+        <xs:complexContent>
+          <xs:extension base="tns:Attribute">
+            <xs:sequence>
+              <xs:element name="sortOrder" type="xs:long"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="AttributeGroup">
+        <xs:complexContent>
+          <xs:extension base="ns2:NamedObject">
+            <xs:sequence>
+              <xs:element maxOccurs="unbounded" minOccurs="0" name="attributes" nillable="true" type="tns:Attribute"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="Entity">
+        <xs:complexContent>
+          <xs:extension base="ns2:NamedCodedObject">
+            <xs:sequence>
+              <xs:element maxOccurs="unbounded" minOccurs="0" name="attributes" nillable="true" type="tns:Attribute"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="AttributeValue">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="value" type="xs:string"/>
+          <xs:element minOccurs="0" name="refitemId" type="xs:string"/>
+          <xs:element name="attributeId" type="xs:long"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://www.roox.ru/products/common/rr" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.roox.ru/products/common/rr" xmlns:ns3="http://www.roox.ru/products/common/com" xmlns:ns2="http://www.roox.ru/products/common/va" xmlns:ns1="http://www.roox.ru/products/common/core">
+      <xs:import namespace="http://www.roox.ru/products/common/core"/>
+      <xs:import namespace="http://www.roox.ru/products/common/va"/>
+      <xs:import namespace="http://www.roox.ru/products/common/com"/>
+      <xs:element name="CommonException" type="tns:CommonExceptionType"/>
+      <xs:complexType name="CommonExceptionType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="message" type="xs:string"/>
+          <xs:element minOccurs="0" name="property" type="ns1:PropertyType"/>
+          <xs:element minOccurs="0" name="cause" type="tns:CommonExceptionType"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="validationRules" nillable="true" type="ns2:ValidationRule"/>
+        </xs:sequence>
+        <xs:attribute name="code" type="xs:decimal"/>
+        <xs:attribute name="type" type="tns:ExceptionTypeEnum"/>
+        <xs:attribute name="correlationId" type="xs:string"/>
+      </xs:complexType>
+      <xs:complexType name="BaseRRType">
+        <xs:complexContent>
+          <xs:extension base="ns1:ExtendableType">
+            <xs:sequence/>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="BooleanRRType">
+        <xs:complexContent>
+          <xs:extension base="tns:BaseRRType">
+            <xs:sequence>
+              <xs:element name="param" type="xs:boolean"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="StringArrayRRType">
+        <xs:complexContent>
+          <xs:extension base="tns:BaseRRType">
+            <xs:sequence>
+              <xs:element maxOccurs="unbounded" minOccurs="0" name="param" nillable="true" type="xs:string"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="LongRRType">
+        <xs:complexContent>
+          <xs:extension base="tns:BaseRRType">
+            <xs:sequence>
+              <xs:element name="param" type="xs:long"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="ReferenceItemArrayRRType">
+        <xs:complexContent>
+          <xs:extension base="tns:BaseRRType">
+            <xs:sequence>
+              <xs:element maxOccurs="unbounded" minOccurs="0" name="references" nillable="true" type="ns3:ReferenceItem"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="ReferenceItemCodeRRType">
+        <xs:complexContent>
+          <xs:extension base="tns:BaseRRType">
+            <xs:sequence>
+              <xs:element name="param" type="xs:string"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="IntegerRRType">
+        <xs:complexContent>
+          <xs:extension base="tns:BaseRRType">
+            <xs:sequence>
+              <xs:element name="param" type="xs:int"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="OptionalDateTimeRRType">
+        <xs:complexContent>
+          <xs:extension base="tns:BaseRRType">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="value" type="xs:dateTime"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="DateTimeRRType">
+        <xs:complexContent>
+          <xs:extension base="tns:OptionalDateTimeRRType">
+            <xs:sequence/>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="ReferenceItemCodeArrayRRType">
+        <xs:complexContent>
+          <xs:extension base="tns:BaseRRType">
+            <xs:sequence>
+              <xs:element maxOccurs="unbounded" minOccurs="0" name="param" nillable="true" type="xs:string"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="OptionalStringRRType">
+        <xs:complexContent>
+          <xs:extension base="tns:BaseRRType">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="param" type="xs:string"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="StringRRType">
+        <xs:complexContent>
+          <xs:extension base="tns:OptionalStringRRType">
+            <xs:sequence/>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="ReferenceItemRRType">
+        <xs:complexContent>
+          <xs:extension base="tns:BaseRRType">
+            <xs:sequence>
+              <xs:element name="param" type="ns3:ReferenceItem"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="LongArrayRRType">
+        <xs:complexContent>
+          <xs:extension base="tns:BaseRRType">
+            <xs:sequence>
+              <xs:element maxOccurs="unbounded" minOccurs="0" name="param" type="xs:long"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:simpleType name="ExceptionTypeEnum">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="external"/>
+          <xs:enumeration value="incorrectStatusState"/>
+          <xs:enumeration value="objectNotFound"/>
+          <xs:enumeration value="processing"/>
+          <xs:enumeration value="system"/>
+          <xs:enumeration value="validation"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:schema>
+    <xs:schema targetNamespace="http://www.roox.ru/products/common/dictionaries" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:simpleType name="ValidationRuleTypeEnum">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="unchangeable"/>
+          <xs:enumeration value="uniqueAttr"/>
+          <xs:enumeration value="mandatory"/>
+          <xs:enumeration value="undefined"/>
+          <xs:enumeration value="regExp"/>
+          <xs:enumeration value="maxLength"/>
+          <xs:enumeration value="minValue"/>
+          <xs:enumeration value="maxValue"/>
+          <xs:enumeration value="precision"/>
+          <xs:enumeration value="dateFormat"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="RefTypeEnum">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="bankInfo"/>
+          <xs:enumeration value="characteristicValueType"/>
+          <xs:enumeration value="chip"/>
+          <xs:enumeration value="formFactor"/>
+          <xs:enumeration value="model"/>
+          <xs:enumeration value="vendor"/>
+          <xs:enumeration value="offerTypes"/>
+          <xs:enumeration value="productCharacteristicType"/>
+          <xs:enumeration value="cashRegisterInfo"/>
+          <xs:enumeration value="expenseType"/>
+          <xs:enumeration value="paymentMethod"/>
+          <xs:enumeration value="accountInfo"/>
+          <xs:enumeration value="adminRegions"/>
+          <xs:enumeration value="documentType"/>
+          <xs:enumeration value="cashMethod"/>
+          <xs:enumeration value="secretQuestion"/>
+          <xs:enumeration value="country"/>
+          <xs:enumeration value="commercialRegions"/>
+          <xs:enumeration value="customerLanguage"/>
+          <xs:enumeration value="sourceOfChanges"/>
+          <xs:enumeration value="marketingSegments"/>
+          <xs:enumeration value="customerAttributesGroups"/>
+          <xs:enumeration value="scenarioOfChanges"/>
+          <xs:enumeration value="agreementTypes"/>
+          <xs:enumeration value="customerPurpose"/>
+          <xs:enumeration value="paymentCardType"/>
+          <xs:enumeration value="paymentCardPermit"/>
+          <xs:enumeration value="agreementActivationMethods"/>
+          <xs:enumeration value="agreementRegistrationMethods"/>
+          <xs:enumeration value="salesChannel"/>
+          <xs:enumeration value="customerLegalizationStatus"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="RangeTypeEnum">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="include-include"/>
+          <xs:enumeration value="include-exclude"/>
+          <xs:enumeration value="exclude-include"/>
+          <xs:enumeration value="exclude-exclude"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="UnitOfMeasureEnum">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="day"/>
+          <xs:enumeration value="hour"/>
+          <xs:enumeration value="kbps"/>
+          <xs:enumeration value="mbps"/>
+          <xs:enumeration value="month"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="TermUsedForEnum">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="offering"/>
+          <xs:enumeration value="offeringLink"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="CharacteristicUsedForEnum">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="agreement"/>
+          <xs:enumeration value="logicalResource"/>
+          <xs:enumeration value="marketingCampaign"/>
+          <xs:enumeration value="product"/>
+          <xs:enumeration value="service"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="ResourceIdentificationEnum">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="extIccid"/>
+          <xs:enumeration value="iccid"/>
+          <xs:enumeration value="imsi"/>
+          <xs:enumeration value="mac"/>
+          <xs:enumeration value="sn"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="ProductStatusEnum">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="active"/>
+          <xs:enumeration value="blocked"/>
+          <xs:enumeration value="finished"/>
+          <xs:enumeration value="frozen"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="TarifficationTypeEnum">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="OneTime"/>
+          <xs:enumeration value="Monthly"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="CurrencyCodeEnum">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="RUR"/>
+          <xs:enumeration value="NIO"/>
+          <xs:enumeration value="BYR"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="DeviceAccessEnum">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="full"/>
+          <xs:enumeration value="guest"/>
+          <xs:enumeration value="service"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="RFSSpecTypeEnum">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="AAA"/>
+          <xs:enumeration value="ACL"/>
+          <xs:enumeration value="QoS"/>
+          <xs:enumeration value="PCRF"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="PhysicalDeviceSpecAttributeEnum">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="chipName"/>
+          <xs:enumeration value="deviceCategory"/>
+          <xs:enumeration value="modelName"/>
+          <xs:enumeration value="networkTechnology"/>
+          <xs:enumeration value="vendorChipId"/>
+          <xs:enumeration value="vendorModelId"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="CompareOperationEnum">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="equal"/>
+          <xs:enumeration value="in"/>
+          <xs:enumeration value="between"/>
+          <xs:enumeration value="less"/>
+          <xs:enumeration value="more"/>
+          <xs:enumeration value="lessOrEqual"/>
+          <xs:enumeration value="moreOrEqual"/>
+          <xs:enumeration value="notEqual"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:schema>
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://www.roox.ru/products/common/core" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.roox.ru/products/common/core" xmlns:ns1="http://www.roox.ru/products/common/dictionaries">
+      <xs:import namespace="http://www.roox.ru/products/common/dictionaries"/>
+      <xs:element name="extension" type="tns:ExtensionType"/>
+      <xs:complexType name="PropertyType">
+        <xs:sequence>
+          <xs:element name="value" type="xs:string"/>
+        </xs:sequence>
+        <xs:attribute name="name" type="xs:string" use="required"/>
+      </xs:complexType>
+      <xs:complexType name="ExtendableType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="extension" type="tns:ExtensionType"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ExtensionType">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="item" nillable="true" type="xs:anyType"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="CharValue">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="value" type="xs:string"/>
+          <xs:element minOccurs="0" name="intervalValue" type="tns:CharValueInterval"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="CharValueInterval">
+        <xs:sequence>
+          <xs:element name="valueFrom" type="xs:string"/>
+          <xs:element name="valueTo" type="xs:string"/>
+          <xs:element name="rangeType" type="ns1:RangeTypeEnum"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="AmountType">
+        <xs:sequence>
+          <xs:element name="amount" type="xs:decimal"/>
+        </xs:sequence>
+        <xs:attribute name="currencyCode" type="ns1:CurrencyCodeEnum"/>
+      </xs:complexType>
+      <xs:complexType name="LocaleValue">
+        <xs:sequence>
+          <xs:element name="value" type="xs:string"/>
+        </xs:sequence>
+        <xs:attribute name="locale" type="xs:string"/>
+      </xs:complexType>
+      <xs:complexType name="RequestContextType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="sender" type="xs:string"/>
+          <xs:element minOccurs="0" name="actorId" type="xs:string"/>
+          <xs:element minOccurs="0" name="targetId" type="xs:string"/>
+          <xs:element minOccurs="0" name="actionId" type="xs:int"/>
+          <xs:element minOccurs="0" name="correlationId" type="xs:string"/>
+          <xs:element minOccurs="0" name="dataAfter" type="xs:anyType"/>
+          <xs:element minOccurs="0" name="dataBefore" type="xs:anyType"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="UIDElementType">
+        <xs:sequence>
+          <xs:element name="uid" type="xs:long"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="EmptyType">
+        <xs:sequence/>
+      </xs:complexType>
+      <xs:complexType name="KeyValue">
+        <xs:sequence>
+          <xs:element name="value" type="xs:string"/>
+        </xs:sequence>
+        <xs:attribute name="key" type="xs:string"/>
+      </xs:complexType>
+      <xs:complexType name="PropertyValue">
+        <xs:sequence>
+          <xs:element name="operation" type="ns1:CompareOperationEnum"/>
+          <xs:element maxOccurs="unbounded" name="values" type="xs:string"/>
+          <xs:element name="filterOperation" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+    <xs:schema targetNamespace="http://www.roox.ru/products/common/com" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.roox.ru/products/common/com" xmlns:ns2="http://www.roox.ru/products/common/core" xmlns:ns1="http://www.roox.ru/products/common/dictionaries">
+      <xs:import namespace="http://www.roox.ru/products/common/dictionaries"/>
+      <xs:import namespace="http://www.roox.ru/products/common/core"/>
+      <xs:complexType name="ReferenceItem">
+        <xs:complexContent>
+          <xs:extension base="tns:NamedCodedObject">
+            <xs:sequence/>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="NamedCodedObject">
+        <xs:complexContent>
+          <xs:extension base="tns:NamedObject">
+            <xs:sequence>
+              <xs:element name="code" type="xs:string"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="NamedObject">
+        <xs:complexContent>
+          <xs:extension base="tns:IdentifiedObject">
+            <xs:sequence>
+              <xs:element name="name" type="xs:string"/>
+              <xs:element minOccurs="0" name="description" type="xs:string"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="IdentifiedObject">
+        <xs:sequence/>
+        <xs:attribute name="id" type="xs:long"/>
+      </xs:complexType>
+      <xs:complexType name="ResourceID">
+        <xs:sequence>
+          <xs:element name="key" type="xs:string"/>
+          <xs:element name="type" type="ns1:ResourceIdentificationEnum"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="LivingPeriod">
+        <xs:sequence>
+          <xs:element name="fromDate" type="xs:dateTime"/>
+          <xs:element minOccurs="0" name="untilTo" type="xs:dateTime"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ExtendNamedObject">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="description" nillable="true" type="ns2:LocaleValue"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="name" nillable="true" type="ns2:LocaleValue"/>
+          <xs:element name="primaryObject" type="tns:NamedObject"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="LivingTime">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="dayCount" type="xs:int"/>
+          <xs:element minOccurs="0" name="beginDate" type="xs:dateTime"/>
+          <xs:element minOccurs="0" name="endDate" type="xs:dateTime"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="BusinessEntity">
+        <xs:sequence>
+          <xs:element name="livingPeriod" type="tns:LivingPeriod"/>
+          <xs:element minOccurs="0" name="created" type="xs:dateTime"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="CodedObject">
+        <xs:sequence>
+          <xs:element name="code" type="xs:string"/>
+          <xs:element minOccurs="0" name="description" type="xs:string"/>
+          <xs:element name="name" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="PhysicalResourceSpecAttribute">
+        <xs:sequence>
+          <xs:element name="value" type="xs:string"/>
+          <xs:element name="name" type="ns1:PhysicalDeviceSpecAttributeEnum"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+    <xs:schema targetNamespace="http://www.roox.ru/products/common/ch" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.roox.ru/products/common/ch" xmlns:ns3="http://www.roox.ru/products/common/com" xmlns:ns2="http://www.roox.ru/products/common/dictionaries" xmlns:ns1="http://www.roox.ru/products/common/core">
+      <xs:import namespace="http://www.roox.ru/products/common/core"/>
+      <xs:import namespace="http://www.roox.ru/products/common/dictionaries"/>
+      <xs:import namespace="http://www.roox.ru/products/common/com"/>
+      <xs:complexType name="SpecTermValueUse">
+        <xs:complexContent>
+          <xs:extension base="ns3:IdentifiedObject">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="value" type="ns1:CharValue"/>
+              <xs:element minOccurs="0" name="useValue" type="tns:TermSpecValue"/>
+              <xs:element name="termSpec" type="tns:TermSpec"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="TermSpecValue">
+        <xs:complexContent>
+          <xs:extension base="tns:RootSpecValue">
+            <xs:sequence/>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="RootSpecValue">
+        <xs:complexContent>
+          <xs:extension base="ns3:IdentifiedObject">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="unitOfMeasure" type="ns2:UnitOfMeasureEnum"/>
+              <xs:element name="value" type="ns1:CharValue"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="SpecCharacteristicValue">
+        <xs:complexContent>
+          <xs:extension base="tns:RootSpecValue">
+            <xs:sequence>
+              <xs:element name="specCharCode" type="xs:string"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="TermSpec">
+        <xs:complexContent>
+          <xs:extension base="tns:RootSpecCharacteristic">
+            <xs:sequence>
+              <xs:element name="termUsedFor" type="ns2:TermUsedForEnum"/>
+              <xs:element maxOccurs="unbounded" minOccurs="0" name="allowedValues" nillable="true" type="tns:TermSpecValue"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="RootSpecCharacteristic">
+        <xs:complexContent>
+          <xs:extension base="ns3:NamedCodedObject">
+            <xs:sequence>
+              <xs:element name="valueType" type="xs:string"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="SpecCharacteristic">
+        <xs:complexContent>
+          <xs:extension base="tns:RootSpecCharacteristic">
+            <xs:sequence>
+              <xs:element name="charUsedFor" type="ns2:CharacteristicUsedForEnum"/>
+              <xs:element minOccurs="0" name="minCount" type="xs:int"/>
+              <xs:element minOccurs="0" name="maxCount" type="xs:int"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="CharacteristicValueUse">
+        <xs:complexContent>
+          <xs:extension base="ns3:IdentifiedObject">
+            <xs:sequence>
+              <xs:element name="specCharCode" type="xs:string"/>
+              <xs:element minOccurs="0" name="value" type="ns1:CharValue"/>
+              <xs:element minOccurs="0" name="specCVUId" type="xs:long"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="SpecCharacteristicValueUse">
+        <xs:complexContent>
+          <xs:extension base="ns3:IdentifiedObject">
+            <xs:sequence>
+              <xs:element name="specCode" type="xs:string"/>
+              <xs:element name="isDefaultValue" type="xs:boolean"/>
+              <xs:element name="characteristic" type="tns:SpecCharacteristic"/>
+              <xs:element name="value" type="tns:SpecCharacteristicValue"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+    </xs:schema>
+    <xs:schema targetNamespace="http://www.roox.ru/products/bis/rc" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.roox.ru/products/bis/rc" xmlns:ns5="http://www.roox.ru/products/bis/pas" xmlns:ns4="http://www.roox.ru/products/common/ch" xmlns:ns3="http://www.roox.ru/products/common/core" xmlns:ns2="http://www.roox.ru/products/common/com" xmlns:ns1="http://www.roox.ru/products/common/dictionaries">
+      <xs:import namespace="http://www.roox.ru/products/common/dictionaries"/>
+      <xs:import namespace="http://www.roox.ru/products/common/com"/>
+      <xs:import namespace="http://www.roox.ru/products/common/core"/>
+      <xs:import namespace="http://www.roox.ru/products/common/ch"/>
+      <xs:import namespace="http://www.roox.ru/products/bis/pas"/>
+      <xs:complexType name="Resource">
+        <xs:complexContent>
+          <xs:extension base="ns2:IdentifiedObject">
+            <xs:sequence>
+              <xs:element name="resourceSpecCode" type="xs:string"/>
+              <xs:element minOccurs="0" name="name" type="xs:string"/>
+              <xs:element name="created" type="xs:dateTime"/>
+              <xs:element minOccurs="0" name="updated" type="xs:dateTime"/>
+              <xs:element maxOccurs="unbounded" minOccurs="0" name="ResourceID" type="ns2:ResourceID"/>
+              <xs:element maxOccurs="unbounded" minOccurs="0" name="valuesResourceUse" nillable="true" type="ns4:CharacteristicValueUse"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="LogicalResource">
+        <xs:complexContent>
+          <xs:extension base="tns:Resource">
+            <xs:sequence/>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="NetworkResource">
+        <xs:complexContent>
+          <xs:extension base="tns:LogicalResource">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="secondaryNetworkRes" type="tns:NetworkResource"/>
+              <xs:element maxOccurs="unbounded" minOccurs="0" name="ownerNCRId" type="xs:long"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="NetworkResourceComposite">
+        <xs:complexContent>
+          <xs:extension base="tns:NetworkResource">
+            <xs:sequence>
+              <xs:element maxOccurs="unbounded" minOccurs="0" name="childrenNR" nillable="true" type="tns:NetworkResource"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="NetworkResourceAtomic">
+        <xs:complexContent>
+          <xs:extension base="tns:NetworkResource">
+            <xs:sequence/>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="PoolResourceAtomic">
+        <xs:complexContent>
+          <xs:extension base="tns:NetworkResourceAtomic">
+            <xs:sequence>
+              <xs:element name="regionCode" type="xs:string"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="PhysicalResource">
+        <xs:complexContent>
+          <xs:extension base="tns:Resource">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="registrState" type="ns5:PhResourceRegistrationState"/>
+              <xs:element minOccurs="0" name="networkState" type="tns:PhResourceNetworkState"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="PhResourceNetworkState">
+        <xs:sequence>
+          <xs:element name="ip" type="xs:string"/>
+          <xs:element name="resourceId" type="ns2:ResourceID"/>
+          <xs:element name="logicalResourceId" type="xs:long"/>
+          <xs:element name="accessType" type="ns1:DeviceAccessEnum"/>
+          <xs:element name="commercialRegionId" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="PhysicalDevice">
+        <xs:complexContent>
+          <xs:extension base="tns:PhysicalResource">
+            <xs:sequence/>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="SIMCard">
+        <xs:complexContent>
+          <xs:extension base="tns:PhysicalDevice">
+            <xs:sequence/>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="MSDevice">
+        <xs:complexContent>
+          <xs:extension base="tns:PhysicalDevice">
+            <xs:sequence/>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+    </xs:schema>
+    <xs:schema targetNamespace="http://www.roox.ru/products/bis/pas" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.roox.ru/products/bis/pas" xmlns:ns3="http://www.roox.ru/products/common/com" xmlns:ns2="http://www.roox.ru/products/common/core" xmlns:ns1="http://www.roox.ru/products/common/dictionaries">
+      <xs:import namespace="http://www.roox.ru/products/common/dictionaries"/>
+      <xs:import namespace="http://www.roox.ru/products/common/core"/>
+      <xs:import namespace="http://www.roox.ru/products/common/com"/>
+      <xs:complexType name="PhResourceRegistrationState">
+        <xs:sequence>
+          <xs:element name="resourceId" type="xs:long"/>
+          <xs:element minOccurs="0" name="cleaned" type="xs:dateTime"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="PhResourceNotRegisteredState">
+        <xs:complexContent>
+          <xs:extension base="tns:PhResourceRegistrationState">
+            <xs:sequence/>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="PhResourceUsedState">
+        <xs:complexContent>
+          <xs:extension base="tns:PhResourceRegistrationState">
+            <xs:sequence>
+              <xs:element name="name" type="xs:string"/>
+              <xs:element name="registerDate" type="xs:dateTime"/>
+              <xs:element name="anonymousManagement" type="xs:boolean"/>
+              <xs:element minOccurs="0" name="regionCode" type="xs:string"/>
+              <xs:element minOccurs="0" name="product" type="tns:Product"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="Product">
+        <xs:complexContent>
+          <xs:extension base="tns:ProductBase">
+            <xs:sequence>
+              <xs:element name="userId" type="xs:long"/>
+              <xs:element name="allowAutoProlong" type="xs:boolean"/>
+              <xs:element minOccurs="0" name="correlationProductId" type="xs:long"/>
+              <xs:element maxOccurs="unbounded" minOccurs="0" name="dependentProducts" nillable="true" type="tns:DependentProduct"/>
+              <xs:element minOccurs="0" name="resourceAssoc" type="tns:PhResourceUsedState"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="ProductBase">
+        <xs:complexContent>
+          <xs:extension base="ns3:IdentifiedObject">
+            <xs:sequence>
+              <xs:element name="status" type="ns1:ProductStatusEnum"/>
+              <xs:element name="beginDate" type="xs:dateTime"/>
+              <xs:element name="endDate" type="xs:dateTime"/>
+              <xs:element minOccurs="0" name="externalId" type="xs:long"/>
+              <xs:element name="productOfferingCode" type="xs:string"/>
+              <xs:element minOccurs="0" name="frozen" type="xs:dateTime"/>
+              <xs:element name="tarifficationType" type="ns1:TarifficationTypeEnum"/>
+              <xs:element maxOccurs="unbounded" minOccurs="0" name="services" nillable="true" type="tns:CustomerFacingService"/>
+              <xs:element minOccurs="0" name="price" type="tns:ProductPrice"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="DependentProduct">
+        <xs:complexContent>
+          <xs:extension base="tns:ProductBase">
+            <xs:sequence>
+              <xs:element name="masterProductId" type="xs:long"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="CustomerFacingService">
+        <xs:complexContent>
+          <xs:extension base="ns3:NamedObject">
+            <xs:sequence>
+              <xs:element name="CFSSpecificationCode" type="xs:string"/>
+              <xs:element minOccurs="0" name="endDate" type="xs:dateTime"/>
+              <xs:element minOccurs="0" name="created" type="xs:dateTime"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="ProductPrice">
+        <xs:complexContent>
+          <xs:extension base="ns3:IdentifiedObject">
+            <xs:sequence>
+              <xs:element name="price" type="ns2:AmountType"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="PhResourceUnregisteredState">
+        <xs:complexContent>
+          <xs:extension base="tns:PhResourceUsedState">
+            <xs:sequence>
+              <xs:element name="unregisterDate" type="xs:dateTime"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="PhResourceRegisteredState">
+        <xs:complexContent>
+          <xs:extension base="tns:PhResourceUsedState">
+            <xs:sequence/>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="ProductFinanceInfo">
+        <xs:complexContent>
+          <xs:extension base="ns3:IdentifiedObject">
+            <xs:sequence>
+              <xs:element name="productId" type="xs:long"/>
+              <xs:element name="writeOfAmount" type="ns2:AmountType"/>
+              <xs:element minOccurs="0" name="factAmount" type="ns2:AmountType"/>
+              <xs:element name="productInitOperation" type="tns:ProductOperEnum"/>
+              <xs:element minOccurs="0" name="livingPeriod" type="ns3:LivingPeriod"/>
+              <xs:element name="resourceAssoc" type="tns:PhResourceUsedState"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="ResourceFacingService">
+        <xs:complexContent>
+          <xs:extension base="ns3:NamedObject">
+            <xs:sequence>
+              <xs:element name="physicalResourceId" type="xs:long"/>
+              <xs:element name="logicalResourceId" type="xs:long"/>
+              <xs:element name="RFSSpecificationCode" type="xs:string"/>
+              <xs:element name="rfsType" type="ns1:RFSSpecTypeEnum"/>
+              <xs:element minOccurs="0" name="endDate" type="xs:dateTime"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:simpleType name="ProductOperEnum">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="autoProlong"/>
+          <xs:enumeration value="defrosting"/>
+          <xs:enumeration value="buying"/>
+          <xs:enumeration value="change"/>
+          <xs:enumeration value="connection"/>
+          <xs:enumeration value="disconnection"/>
+          <xs:enumeration value="migration"/>
+          <xs:enumeration value="finish"/>
+          <xs:enumeration value="freezing"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="getClaimedPaymentResponse">
+    <wsdl:part element="ns1:GetClaimedPaymentResponse" name="response"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getPrepayBillInfo">
+    <wsdl:part element="ns1:GetPrepayBillInfoRequest" name="request"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getSimStatus">
+    <wsdl:part element="ns1:GetSimStatusRequest" name="request"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="CommonFault">
+    <wsdl:part element="ns2:CommonException" name="CommonFault"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getPrepayBillInfoResponse">
+    <wsdl:part element="ns1:GetPrepayBillInfoResponse" name="response"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getVersion">
+    <wsdl:part element="ns1:GetVersionRequest" name="request"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getSimStatusResponse">
+    <wsdl:part element="ns1:GetSimStatusResponse" name="response"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getClaimedPayment">
+    <wsdl:part element="ns1:GetClaimedPaymentRequest" name="request"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getDeliveredSimResponse">
+    <wsdl:part element="ns1:GetDeliveredSimResponse" name="response"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getDeliveredSim">
+    <wsdl:part element="ns1:GetDeliveredSimRequest" name="request"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getVersionResponse">
+    <wsdl:part element="ns1:GetVersionResponse" name="response"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="SimOrderFacadeServiceInterface">
+    <wsdl:operation name="getClaimedPayment">
+      <wsdl:input message="tns:getClaimedPayment" name="getClaimedPayment"></wsdl:input>
+      <wsdl:output message="tns:getClaimedPaymentResponse" name="getClaimedPaymentResponse"></wsdl:output>
+      <wsdl:fault message="tns:CommonFault" name="CommonFault"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getPrepayBillInfo">
+      <wsdl:input message="tns:getPrepayBillInfo" name="getPrepayBillInfo"></wsdl:input>
+      <wsdl:output message="tns:getPrepayBillInfoResponse" name="getPrepayBillInfoResponse"></wsdl:output>
+      <wsdl:fault message="tns:CommonFault" name="CommonFault"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getDeliveredSim">
+      <wsdl:input message="tns:getDeliveredSim" name="getDeliveredSim"></wsdl:input>
+      <wsdl:output message="tns:getDeliveredSimResponse" name="getDeliveredSimResponse"></wsdl:output>
+      <wsdl:fault message="tns:CommonFault" name="CommonFault"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getSimStatus">
+      <wsdl:input message="tns:getSimStatus" name="getSimStatus"></wsdl:input>
+      <wsdl:output message="tns:getSimStatusResponse" name="getSimStatusResponse"></wsdl:output>
+      <wsdl:fault message="tns:CommonFault" name="CommonFault"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getVersion">
+      <wsdl:input message="tns:getVersion" name="getVersion"></wsdl:input>
+      <wsdl:output message="tns:getVersionResponse" name="getVersionResponse"></wsdl:output>
+      <wsdl:fault message="tns:CommonFault" name="CommonFault"></wsdl:fault>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SimOrderFacadeEndpointImplServiceSoapBinding" type="tns:SimOrderFacadeServiceInterface">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getClaimedPayment">
+      <soap:operation soapAction="http://www.yota.ru/vox/services/b2b/wsdl/SimOrderFacade/GetClaimedPayment" style="document"/>
+      <wsdl:input name="getClaimedPayment">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getClaimedPaymentResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="CommonFault">
+        <soap:fault name="CommonFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getPrepayBillInfo">
+      <soap:operation soapAction="http://www.yota.ru/vox/services/b2b/wsdl/SimOrderFacade/GetPrepayBillInfo" style="document"/>
+      <wsdl:input name="getPrepayBillInfo">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getPrepayBillInfoResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="CommonFault">
+        <soap:fault name="CommonFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getDeliveredSim">
+      <soap:operation soapAction="http://www.yota.ru/vox/services/b2b/wsdl/SimOrderFacade/GetDeliveredSim" style="document"/>
+      <wsdl:input name="getDeliveredSim">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getDeliveredSimResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="CommonFault">
+        <soap:fault name="CommonFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getSimStatus">
+      <soap:operation soapAction="http://www.yota.ru/vox/services/b2b/wsdl/SimOrderFacade/GetSimStatus" style="document"/>
+      <wsdl:input name="getSimStatus">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getSimStatusResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="CommonFault">
+        <soap:fault name="CommonFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getVersion">
+      <soap:operation soapAction="http://www.yota.ru/vox/services/b2b/wsdl/SimOrderFacade/GetVersion" style="document"/>
+      <wsdl:input name="getVersion">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getVersionResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="CommonFault">
+        <soap:fault name="CommonFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SimOrderFacadeEndpointImplService">
+    <wsdl:port binding="tns:SimOrderFacadeEndpointImplServiceSoapBinding" name="SimOrderFacadeEndpointPort">
+      <soap:address location="http://10.90.253.243:8080/sofs-web/SimOrderFacadeEndpoint"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://${#Project#host-b2b}-jservice.g4lab.com:8080/sofs-web/SimOrderFacadeEndpoint</con:endpoint><con:endpoint>http://${#TestCase#Node}.g4lab.com:8080/sofs-web/SimOrderFacadeEndpoint</con:endpoint><con:endpoint>http://10.90.253.243:8080/sofs-web/SimOrderFacadeEndpoint</con:endpoint></con:endpoints></con:interface>

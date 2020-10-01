@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation id="c474413d-d408-4923-8bbd-04775bb955fa" isOneWay="false" action="http://www.yota.ru/vox/services/wsdl/CustomerInformation/GetCustomerById" name="GetCustomerById" bindingOperationName="GetCustomerById" type="Request-Response" outputName="getCustomerByIdOut" inputName="getCustomerByIdIn" receivesAttachments="false" sendsAttachments="false" anonymous="optional" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="c474413d-d408-4923-8bbd-04775bb955fafileName">GetCustomerById</con:setting></con:settings><con:call id="f4cd7106-4550-4a14-96d5-1f042ec6801d" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://oxford-esb.g4lab.com:8080/CustomerInformationService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cus="http://www.yota.ru/vox/services/customerInformation" xmlns:core="http://www.roox.ru/products/common/core">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <cus:GetCustomerByIdRequest>\r
+         <!--Optional:-->\r
+         <core:extension>\r
+            <!--Zero or more repetitions:-->\r
+            <core:item>?</core:item>\r
+         </core:extension>\r
+         <customerId>\r
+            <key>?</key>\r
+            <value>?</value>\r
+         </customerId>\r
+         <includeAgreements>?</includeAgreements>\r
+      </cus:GetCustomerByIdRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.yota.ru/vox/services/wsdl/CustomerInformation/GetCustomerById"/></con:call></con:operation>

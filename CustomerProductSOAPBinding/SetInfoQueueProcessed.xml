@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation isOneWay="false" action="http://www.yota.ru/vox/services/wsdl/CustomerProduct/SetInfoQueueProcessed" name="SetInfoQueueProcessed" bindingOperationName="SetInfoQueueProcessed" type="Request-Response" outputName="SetInfoQueueProcessedOut" inputName="SetInfoQueueProcessedIn" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="92d25f92-1d89-4016-a7c9-b50f1165d934" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="92d25f92-1d89-4016-a7c9-b50f1165d934fileName">SetInfoQueueProcessed</con:setting></con:settings><con:call name="Request 1" id="2884f74d-2b8c-4e5c-8423-a770123876dd"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.78.209.200:8382/customer-product-ejb/CustomerProduct/CustomerProductServiceBean</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cus="http://www.yota.ru/vox/services/customerProduct" xmlns:core="http://www.roox.ru/products/common/core">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <cus:SetInfoQueueProcessedRequest>
+         <!--Optional:-->
+         <core:extension>
+            <!--Zero or more repetitions:-->
+            <core:item>?</core:item>
+         </core:extension>
+         <id>?</id>
+      </cus:SetInfoQueueProcessedRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.yota.ru/vox/services/wsdl/CustomerProduct/SetInfoQueueProcessed"/></con:call></con:operation>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation isOneWay="false" action="http://www.yota.ru/vox/services/b2b/wsdl/SimOrderFacade/GetSimStatus" name="getSimStatus" bindingOperationName="getSimStatus" type="Request-Response" outputName="getSimStatusResponse" inputName="getSimStatus" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="ff77f17f-0228-42c6-bb70-d394889f9325" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="ff77f17f-0228-42c6-bb70-d394889f9325fileName">getSimStatus</con:setting></con:settings><con:call name="Request 1" id="65801a30-bdd6-4af4-bdab-f93081ec8f6e"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.90.253.243:8080/sofs-web/SimOrderFacadeEndpoint</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sim="http://www.yota.ru/vox/b2b/services/simOrderFacadeService">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <sim:GetSimStatusRequest>
+         <billingAccountId>10521568</billingAccountId><iccid>020018941</iccid>
+      </sim:GetSimStatusRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.yota.ru/vox/services/b2b/wsdl/SimOrderFacade/GetSimStatus"/><con:wsrmConfig version="1.2"/></con:call></con:operation>

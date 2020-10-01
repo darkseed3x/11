@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation id="d3f8a39b-3a11-48e2-aaa0-86da4c20b7b3" isOneWay="false" action="http://www.yota.ru/vox/services/wsdl/CustomerInformation/ActivateCustomer" name="ActivateCustomer" bindingOperationName="ActivateCustomer" type="Request-Response" outputName="activateCustomerOut" inputName="activateCustomerIn" receivesAttachments="false" sendsAttachments="false" anonymous="optional" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="d3f8a39b-3a11-48e2-aaa0-86da4c20b7b3fileName">ActivateCustomer</con:setting></con:settings><con:call id="b3dcdf13-bea4-4774-b4de-f0bbcb6500e8" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://oxford-esb.g4lab.com:8080/CustomerInformationService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cus="http://www.yota.ru/vox/services/customerInformation" xmlns:core="http://www.roox.ru/products/common/core" xmlns:core1="http://www.yota.ru/vox/domains/common/core">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <cus:ActivateCustomerRequest>\r
+         <!--Optional:-->\r
+         <core:extension>\r
+            <!--Zero or more repetitions:-->\r
+            <core:item>?</core:item>\r
+         </core:extension>\r
+         <accountId>?</accountId>\r
+         <!--Optional:-->\r
+         <agreementConfirmation hid="?" customerId="?">\r
+            <refId>?</refId>\r
+            <agreementType>?</agreementType>\r
+            <agreementStatus>?</agreementStatus>\r
+            <!--Optional:-->\r
+            <iccid>?</iccid>\r
+            <!--Optional:-->\r
+            <msisdn>?</msisdn>\r
+            <!--Zero or more repetitions:-->\r
+            <serviceNumberDetails>\r
+               <!--Optional:-->\r
+               <iccid>?</iccid>\r
+               <!--Optional:-->\r
+               <msisdn>?</msisdn>\r
+            </serviceNumberDetails>\r
+            <!--Optional:-->\r
+            <region>?</region>\r
+            <!--Optional:-->\r
+            <timezone>?</timezone>\r
+            <created>?</created>\r
+            <!--Optional:-->\r
+            <signed>?</signed>\r
+            <!--Optional:-->\r
+            <serviceStartDate>?</serviceStartDate>\r
+            <!--Optional:-->\r
+            <livingPeriod>\r
+               <fromDate>?</fromDate>\r
+               <!--Optional:-->\r
+               <untilTo>?</untilTo>\r
+            </livingPeriod>\r
+            <!--Zero or more repetitions:-->\r
+            <subscriberData hid="?" customerId="?">\r
+               <created>?</created>\r
+               <!--Optional:-->\r
+               <livingPeriod>\r
+                  <fromDate>?</fromDate>\r
+                  <!--Optional:-->\r
+                  <untilTo>?</untilTo>\r
+               </livingPeriod>\r
+               <!--Zero or more repetitions:-->\r
+               <subscriberProperties name="?">\r
+                  <core1:value>?</core1:value>\r
+               </subscriberProperties>\r
+            </subscriberData>\r
+            <!--Zero or more repetitions:-->\r
+            <agreementProperties name="?">\r
+               <core1:value>?</core1:value>\r
+            </agreementProperties>\r
+            <!--Zero or more repetitions:-->\r
+            <agreementScanRef>\r
+               <scanRefValue>?</scanRefValue>\r
+               <scanRefType>?</scanRefType>\r
+            </agreementScanRef>\r
+            <!--Optional:-->\r
+            <branch>?</branch>\r
+         </agreementConfirmation>\r
+         <!--Optional:-->\r
+         <caId>?</caId>\r
+         <!--Optional:-->\r
+         <customerPurpose>?</customerPurpose>\r
+         <!--Optional:-->\r
+         <gt_vlr>?</gt_vlr>\r
+         <iccid>?</iccid>\r
+         <!--Optional:-->\r
+         <lac_tac_code>?</lac_tac_code>\r
+         <!--Optional:-->\r
+         <location_region>?</location_region>\r
+         <!--Optional:-->\r
+         <marketingSegment>?</marketingSegment>\r
+         <msisdn>?</msisdn>\r
+      </cus:ActivateCustomerRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.yota.ru/vox/services/wsdl/CustomerInformation/ActivateCustomer"/></con:call></con:operation>

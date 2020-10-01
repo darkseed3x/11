@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="2. SOFS" searchProperties="true" id="b282afd7-39c9-41a3-8464-64069996b121" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="b282afd7-39c9-41a3-8464-64069996b121fileName">2.-SOFS</con:setting></con:settings><con:testStep type="request" name="getData" id="10b08cf3-c1e8-49c0-98db-2631ee8d2398"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>CorporateOrderManagementServiceSOAPBinding</con:interface><con:operation>getOrderByCriteria</con:operation><con:request name="getData" id="86b013d5-47bc-4796-a952-97605c03e3ad"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://${#Project#host-b2b}:8082/oms-web/OrderEndpoint</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ord="http://www.yota.ru/vox/b2b/services/order">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ord:GetOrderByCriteriaRequest>
+         <orderId>1</orderId><orderStatus>complete</orderStatus>
+         <orderType>SIMActivation</orderType>
+      </ord:GetOrderByCriteriaRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="getDeliveredSim" id="bdd11a7e-8adf-4c32-8582-c9b6db98d2e0"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>SimOrderFacadeEndpointImplServiceSoapBinding</con:interface><con:operation>getDeliveredSim</con:operation><con:request name="getDeliveredSim" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="41a3fdd3-609f-4669-96d9-90760af3e8eb"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://${#Project#host-b2b}-jservice.g4lab.com:8080/sofs-web/SimOrderFacadeEndpoint</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sim="http://www.yota.ru/vox/b2b/services/simOrderFacadeService">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <sim:GetDeliveredSimRequest>
+         <!--Optional:-->
+         <!--Optional:-->
+         
+      <billingAccount>${getData#Response#declare namespace ns2='http://www.yota.ru/vox/b2b/services/order'; //ns2:GetOrderByCriteriaResponse[1]/order[1]/billingAccount[1]}</billingAccount></sim:GetDeliveredSimRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.yota.ru/vox/services/b2b/wsdl/SimOrderFacade/GetDeliveredSim"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="groovy" name="checkGetDeliveredSim" id="7308be05-f9ef-4a84-ae66-ffe359428479"><con:settings/><con:config><script><![CDATA[def path = context.expand( '${#TestCase#Path}' )
+def hostb2b = context.expand( '${#Project#host-b2b}' )
+def startDate = new Date() 
+def resp = context.expand( '${getDeliveredSim#Response}' )
+def response = context.expand( '${getDeliveredSim#Response#declare namespace ns10=\'http://www.yota.ru/vox/b2b/services/simOrderFacadeService\'; //ns10:GetDeliveredSimResponse[1]/deliveredSim[1]/simCodes[1]/type[1]}' )
+def out = new File(path+'Отчет по окружению - '+hostb2b+' - '+startDate.format("yyyy-MM-dd")+'.txt')
+
+		
+     if(response == "iccid" ) { 
+     	out <<  '------------------------SOFS-------------------------'
+          out <<  '\n'
+          out <<  '\n'
+     	out <<  'OK getDeliveredSim'
+     } else { 
+     	out <<  '------------------------SOFS-------------------------'
+     	out <<  '\n'
+     	out <<  '\n'
+     	out <<  'FAILED getDeliveredSim' 
+     def err = new File(path+'Проблемы окружения - '+hostb2b+' - '+startDate.format("yyyy-MM-dd")+'.txt')
+      err <<  '\n'
+      err <<  '----------------------------------------------------------------------'
+      err <<  '\n'
+      err <<  'FAILED getDeliveredSim' 
+      err <<  '\n'
+      err <<  '\n'
+      err << resp
+      err <<  '\n'
+      err <<  '\n'
+      err <<  '----------------------------------------------------------------------'
+      
+     } ]]></script></con:config></con:testStep><con:testStep type="request" name="getPrepayBillInfo" disabled="true" id="38348fd8-de95-4a1a-bc37-10baed8d0f0a"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>SimOrderFacadeEndpointImplServiceSoapBinding</con:interface><con:operation>getPrepayBillInfo</con:operation><con:request name="getPrepayBillInfo" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="1cc07498-00c1-4878-9406-19614835a8ce"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://${#TestCase#Node}.g4lab.com:8080/sofs-web/SimOrderFacadeEndpoint</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sim="http://www.yota.ru/vox/b2b/services/simOrderFacadeService">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <sim:GetPrepayBillInfoRequest>
+         <!--Optional:-->
+         
+         <!--Optional:-->
+         
+      <customerId>1293ff0961054fda8c19649ca7ecd68c</customerId></sim:GetPrepayBillInfoRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.yota.ru/vox/services/b2b/wsdl/SimOrderFacade/GetPrepayBillInfo"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="checkData" id="3c017835-ceb0-45a0-a051-afc855cbb9a8"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>CorpCustomerInformationServiceSOAPBinding</con:interface><con:operation>getCustomerById</con:operation><con:request name="checkData" id="0986023b-53d5-417a-b940-155444acc7af"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://${#Project#host-b2b}:8086/cis-web/CorpCustomerInformationServiceImpl</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cus="http://www.yota.ru/vox/b2b/services/customerInformation">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <cus:GetCustomerByIdRequest>
+         <customerId>${getData#Response#declare namespace ns2='http://www.yota.ru/vox/b2b/services/order'; //ns2:GetOrderByCriteriaResponse[1]/order[1]/customerId[1]}</customerId>
+         <includeAgreements>false</includeAgreements>
+      </cus:GetCustomerByIdRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="getSimStatus" id="30b6ef4b-d27d-431c-8087-212baaec2b38"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>SimOrderFacadeEndpointImplServiceSoapBinding</con:interface><con:operation>getSimStatus</con:operation><con:request name="getSimStatus" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="b3a1146a-7b73-4175-a41f-5adf662bd003"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://${#Project#host-b2b}-jservice.g4lab.com:8080/sofs-web/SimOrderFacadeEndpoint</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sim="http://www.yota.ru/vox/b2b/services/simOrderFacadeService">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <sim:GetSimStatusRequest>
+         <billingAccountId>${checkData#Response#declare namespace ns7='http://www.yota.ru/vox/b2b/services/customerInformation'; //ns7:GetCustomerByIdResponse[1]/customer[1]/masterAgreement[1]/billingAccountID[1]}</billingAccountId><iccid>${getData#Response#declare namespace ns2='http://www.yota.ru/vox/b2b/services/order'; //ns2:GetOrderByCriteriaResponse[1]/order[1]/orderContent[1]/activatedUnits[1]/sim[1]/simCodes[1]/key[1]}</iccid>
+         
+      </sim:GetSimStatusRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.yota.ru/vox/services/b2b/wsdl/SimOrderFacade/GetSimStatus"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="groovy" name="checkGetSimStatus" id="2c5c6053-1275-477a-9bc9-75c105232862"><con:settings/><con:config><script><![CDATA[def path = context.expand( '${#TestCase#Path}' )
+def hostb2b = context.expand( '${#Project#host-b2b}' )
+def startDate = new Date() 
+def resp = context.expand( '${getSimStatus#Response}' )
+def response = context.expand( '${getSimStatus#Response#declare namespace ns10=\'http://www.yota.ru/vox/b2b/services/simOrderFacadeService\'; //ns10:GetSimStatusResponse[1]/iccidWithType[1]/type[1]}' )
+
+def out = new File(path+'Отчет по окружению - '+hostb2b+' - '+startDate.format("yyyy-MM-dd")+'.txt')
+
+		
+     if(response != null ) { 
+          out <<  '\n'
+     	out <<  'OK getSimStatus'
+     } else { 
+     	out <<  '\n'
+     	out <<  'FAILED getSimStatus' 
+     def err = new File(path+'Проблемы окружения - '+hostb2b+' - '+startDate.format("yyyy-MM-dd")+'.txt')
+      err <<  '\n'
+      err <<  '----------------------------------------------------------------------'
+      err <<  '\n'
+      err <<  'FAILED getSimStatus' 
+      err <<  '\n'
+      err <<  '\n'
+      err << resp
+      err <<  '\n'
+      err <<  '\n'
+      err <<  '----------------------------------------------------------------------'
+      
+     } ]]></script></con:config></con:testStep><con:testStep type="request" name="getClaimedPayment" id="e9cd1fa5-156b-42d5-9da9-7ac409a756e5"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>SimOrderFacadeEndpointImplServiceSoapBinding</con:interface><con:operation>getClaimedPayment</con:operation><con:request name="getClaimedPayment" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="ce2bfddc-cbbc-488a-ba16-3ad80af59667"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://${#Project#host-b2b}-jservice.g4lab.com:8080/sofs-web/SimOrderFacadeEndpoint</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sim="http://www.yota.ru/vox/b2b/services/simOrderFacadeService">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <sim:GetClaimedPaymentRequest>
+         <!--Optional:-->
+         
+      <billingAccount>${getData#Response#declare namespace ns2='http://www.yota.ru/vox/b2b/services/order'; //ns2:GetOrderByCriteriaResponse[1]/order[1]/billingAccount[1]}</billingAccount></sim:GetClaimedPaymentRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.yota.ru/vox/services/b2b/wsdl/SimOrderFacade/GetClaimedPayment"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="groovy" name="checkGetClaimedPayment" id="bd0b82cf-134a-40c7-a053-80626a84539d"><con:settings/><con:config><script><![CDATA[def response = context.expand( '${getClaimedPayment#Response#//faultstring[1]}' )
+def path = context.expand( '${#TestCase#Path}' )
+def hostb2b = context.expand( '${#Project#host-b2b}' )
+def startDate = new Date() 
+def resp = context.expand( '${getClaimedPayment#Response}' )
+def out = new File(path+'Отчет по окружению - '+hostb2b+' - '+startDate.format("yyyy-MM-dd")+'.txt')
+		
+if(response == '' ) {
+          out <<  '\n'
+     	out <<  'OK getClaimedPayment'
+     	out <<  '\n'
+     	out <<  '\n'
+     	out <<  '-----------------------------------------------------'
+     	out <<  '\n'
+     } else { 
+     	out <<  '\n'
+     	out <<  'FAILED getClaimedPayment' 
+     	out <<  '\n'
+     	out <<  '\n'
+     	out <<  '-----------------------------------------------------'
+     	out <<  '\n'
+     def err = new File(path+'Проблемы окружения - '+hostb2b+' - '+startDate.format("yyyy-MM-dd")+'.txt')
+      err <<  '\n'
+      err <<  '----------------------------------------------------------------------'
+      err <<  '\n'
+      err <<  'FAILED getClaimedPayment' 
+      err <<  '\n'
+      err <<  '\n'
+      err << resp
+      err <<  '\n'
+      err <<  '\n'
+      err <<  '----------------------------------------------------------------------'
+      
+     } ]]></script></con:config></con:testStep><con:properties><con:property><con:name>Path</con:name><con:value>C:\</con:value></con:property></con:properties><con:reportParameters/><con:breakPoints><con:testStepId>10b08cf3-c1e8-49c0-98db-2631ee8d2398</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>7308be05-f9ef-4a84-ae66-ffe359428479</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>3c017835-ceb0-45a0-a051-afc855cbb9a8</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>2c5c6053-1275-477a-9bc9-75c105232862</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints></con:testCase>

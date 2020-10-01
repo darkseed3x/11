@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation id="4c319eed-23a8-42fd-93d9-2b373431d05b" isOneWay="false" action="http://www.yota.ru/vox/services/b2b/wsdl/CorporateOrderManagement/CheckIndividualTransfer" name="checkIndividualTransfer" bindingOperationName="checkIndividualTransfer" type="Request-Response" outputName="CheckIndividualTransferOut" inputName="CheckIndividualTransferIn" receivesAttachments="false" sendsAttachments="false" anonymous="optional" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="4c319eed-23a8-42fd-93d9-2b373431d05bfileName">checkIndividualTransfer</con:setting></con:settings><con:call id="392c74e4-4efa-46a3-8a56-df15cbb74eaf" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://ft1-b2b-ainst1.scartel.dc:8082/oms-web/OrderEndpoint</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ord="http://www.yota.ru/vox/b2b/services/order">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ord:CheckIndividualTransferRequest>\r
+         <!--Optional:-->\r
+         <customerId>?</customerId>\r
+         <document type="?">\r
+            <!--Optional:-->\r
+            <givenBy>?</givenBy>\r
+            <!--Optional:-->\r
+            <givenDate>?</givenDate>\r
+            <!--Optional:-->\r
+            <number>?</number>\r
+            <!--Optional:-->\r
+            <serial>?</serial>\r
+            <!--Optional:-->\r
+            <serialAndNumber>?</serialAndNumber>\r
+         </document>\r
+         <msisdn>?</msisdn>\r
+      </ord:CheckIndividualTransferRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.yota.ru/vox/services/b2b/wsdl/CorporateOrderManagement/CheckIndividualTransfer"/></con:call></con:operation>

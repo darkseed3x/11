@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation id="10e3f2b1-d16a-42c9-90f7-2577b8745c3f" isOneWay="false" action="http://www.yota.ru/vox/services/wsdl/CustomerInformation/RecreateAgreement" name="RecreateAgreement" bindingOperationName="RecreateAgreement" type="Request-Response" outputName="RecreateAgreementOut" inputName="RecreateAgreementIn" receivesAttachments="false" sendsAttachments="false" anonymous="optional" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="10e3f2b1-d16a-42c9-90f7-2577b8745c3ffileName">RecreateAgreement</con:setting></con:settings><con:call id="f154fd08-df5d-47f4-8e37-6bfa01ef3297" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://oxford-esb.g4lab.com:8080/CustomerInformationService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cus="http://www.yota.ru/vox/services/customerInformation" xmlns:core="http://www.roox.ru/products/common/core">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <cus:RecreateAgreementRequest>\r
+         <!--Optional:-->\r
+         <core:extension>\r
+            <!--Zero or more repetitions:-->\r
+            <core:item>?</core:item>\r
+         </core:extension>\r
+         <iccid>?</iccid>\r
+         <newIccid>?</newIccid>\r
+         <agreementType>?</agreementType>\r
+      </cus:RecreateAgreementRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.yota.ru/vox/services/wsdl/CustomerInformation/RecreateAgreement"/></con:call></con:operation>

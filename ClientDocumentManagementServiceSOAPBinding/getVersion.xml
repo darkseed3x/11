@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation isOneWay="false" action="http://www.yota.ru/vox/services/b2b/wsdl/ClientDocumentManagement/GetVersion" name="getVersion" bindingOperationName="getVersion" type="Request-Response" outputName="GetVersionOut" inputName="GetVersionIn" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="d9d2198c-dbf7-46eb-b58e-91c09b093c2d" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="d9d2198c-dbf7-46eb-b58e-91c09b093c2dfileName">getVersion</con:setting></con:settings><con:call name="Request 1" id="e9c11d9b-0ded-4275-b59f-06bdf8080a79"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://b2btst-corpjs-cdm.g4lab.com:8080/cdm-web/ClientDocumentManagementEndpoint</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:doc="http://www.yota.ru/vox/b2b/services/document">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <doc:GetVersionRequest/>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.yota.ru/vox/services/b2b/wsdl/ClientDocumentManagement/GetVersion"/></con:call></con:operation>

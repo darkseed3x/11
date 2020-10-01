@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation isOneWay="false" action="http://www.yota.ru/vox/services/wsdl/CustomerProduct/GetLastActivityDate" name="GetLastActivityDate" bindingOperationName="GetLastActivityDate" type="Request-Response" outputName="GetLastActivityDateOut" inputName="GetLastActivityDateIn" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="2a15de9b-870d-4111-8a92-fbeaab22cc10" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="2a15de9b-870d-4111-8a92-fbeaab22cc10fileName">GetLastActivityDate</con:setting></con:settings><con:call name="Request 1" id="5bb46c47-ba8f-45dd-84e3-606d45630172"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.78.209.200:8382/customer-product-ejb/CustomerProduct/CustomerProductServiceBean</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cus="http://www.yota.ru/vox/services/customerProduct" xmlns:core="http://www.roox.ru/products/common/core">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <cus:GetLastActivityDateRequest>
+         <!--Optional:-->
+         <core:extension>
+            <!--Zero or more repetitions:-->
+            <core:item>?</core:item>
+         </core:extension>
+         <accountId>?</accountId>
+         <!--Optional:-->
+         <checkOnline>?</checkOnline>
+      </cus:GetLastActivityDateRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.yota.ru/vox/services/wsdl/CustomerProduct/GetLastActivityDate"/></con:call></con:operation>

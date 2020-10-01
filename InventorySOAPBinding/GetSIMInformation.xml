@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation isOneWay="false" action="http://www.yota.ru/vox/services/wsdl/Inventory/GetSIMInformation" name="GetSIMInformation" bindingOperationName="GetSIMInformation" type="Request-Response" outputName="GetSIMInformationOut" inputName="GetSIMInformationIn" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="0673a252-1a90-432c-8da6-9d4ddb442140" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="0673a252-1a90-432c-8da6-9d4ddb442140fileName">GetSIMInformation</con:setting></con:settings><con:call name="Request 1" id="d21f0ecf-bf64-458a-814c-515c2edea3f6"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.78.209.114:8383/inventory-ejb/Inventory/InventoryServiceBean</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:inv="http://www.yota.ru/vox/services/inventory" xmlns:core="http://www.roox.ru/products/common/core">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <inv:GetSIMInformationRequest>
+         <!--Optional:-->
+         <core:extension>
+            <!--Zero or more repetitions:-->
+            <core:item>?</core:item>
+         </core:extension>
+         <simCode>
+            <key>0225682631</key>
+            <type>iccid</type>
+         </simCode>
+      </inv:GetSIMInformationRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.yota.ru/vox/services/wsdl/Inventory/GetSIMInformation"/><con:wsrmConfig version="1.2"/></con:call></con:operation>

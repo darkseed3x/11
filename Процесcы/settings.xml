@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testSuite name="Процесcы" id="18948a62-9e87-4698-851e-bef26ef94fdc" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="18948a62-9e87-4698-851e-bef26ef94fdcfileName">Процесcы</con:setting></con:settings><con:savedRecentRuns>1</con:savedRecentRuns><con:runType>SEQUENTIAL</con:runType><con:properties/><con:reportParameters/></con:testSuite>

@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="10. Semaphore" searchProperties="true" id="9756fe11-8c35-4782-b66e-b20f4f4da5b3" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="9756fe11-8c35-4782-b66e-b20f4f4da5b3fileName">10.-Semaphore</con:setting></con:settings><con:properties/><con:reportParameters/></con:testCase>

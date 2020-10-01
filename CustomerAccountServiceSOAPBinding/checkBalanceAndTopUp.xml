@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation isOneWay="false" action="http://www.yota.ru/vox/services/b2b/wsdl/CustomerAccount/CheckBalanceAndTopUp" name="checkBalanceAndTopUp" bindingOperationName="checkBalanceAndTopUp" type="Request-Response" inputName="CheckBalanceAndTopUpIn" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="13d80e96-d2cc-4b2f-98da-d4709126a5cf" outputName="CheckBalanceAndTopUpOut" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="13d80e96-d2cc-4b2f-98da-d4709126a5cffileName">checkBalanceAndTopUp</con:setting></con:settings><con:call name="Request 1" id="688e152b-d222-46ca-80a2-4ffa1bc296db"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://${#Project#host-b2b}-esb1.g4lab.com:8315/CustomerAccountManagementService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cus="http://www.yota.ru/vox/b2b/services/customerAccount" xmlns:core="http://www.roox.ru/products/common/core" xmlns:core1="http://www.yota.ru/vox/domains/common/core">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <cus:CheckBalanceAndTopUpRequest>
+         <!--Optional:-->
+         <core:extension>
+            <!--Zero or more repetitions:-->
+            <core:item>?</core:item>
+         </core:extension>
+         <!--Optional:-->
+         <accountId>?</accountId>
+         <!--Optional:-->
+         <canAddFinBlocked>?</canAddFinBlocked>
+         <customerId>?</customerId>
+         <!--Optional:-->
+         <finblockChange>?</finblockChange>
+         <!--Zero or more repetitions:-->
+         <maOfferCodes>?</maOfferCodes>
+         <!--Zero or more repetitions:-->
+         <productOfferCodes>?</productOfferCodes>
+         <simCardId>?</simCardId>
+         <simKey>
+            <key>?</key>
+            <type>?</type>
+         </simKey>
+         <!--Optional:-->
+         <topUpAmount currencyCode="?">
+            <core1:amount>?</core1:amount>
+         </topUpAmount>
+         <!--Optional:-->
+         <totalSum currencyCode="?">
+            <core1:amount>?</core1:amount>
+         </totalSum>
+      </cus:CheckBalanceAndTopUpRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.yota.ru/vox/services/b2b/wsdl/CustomerAccount/CheckBalanceAndTopUp"/></con:call></con:operation>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:resource name="PUT sim/info" path="/sim/info" id="7fefc3a6-d55a-48ab-9bbb-395521bfe3b9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="7fefc3a6-d55a-48ab-9bbb-395521bfe3b9fileName">PUT-sim%2Finfo</con:setting></con:settings><con:parameters/><con:method name="PUT sim/info" id="71da4671-846a-4f93-8977-07c369e888ab" method="PUT"><con:settings/><con:parameters/><con:representation type="RESPONSE"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>200</con:status><con:params/><con:element>Response</con:element></con:representation><con:representation type="FAULT"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>400</con:status><con:params/><con:element xmlns:info="http://ft1-bil-api.g4lab.com/bill/v1/sim/info">info:Fault</con:element></con:representation><con:representation type="REQUEST"><con:mediaType>application/json</con:mediaType><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:request name="Request 1" id="53bbd4b1-ce9b-4ff3-9b31-5e720bf4ac3d" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers"><![CDATA[<xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  <con:entry key="X-Branch" value="${#Project#branch}"/>
+  <con:entry key="X-CorrelationId" value="${= String receipt = new java.text.SimpleDateFormat(&quot;yyyyMMddhhmmss&quot;).format(new Date()+1).toString();}"/>
+</xml-fragment>]]></con:setting></con:settings><con:endpoint>http://${#Project#prefix.bil}-bil-api.g4lab.com:8080/bill/v1</con:endpoint><con:request>{  "imsis": [
+    {
+      "imsi": "250110200017840",
+      "attrs": [
+        {
+          "attrType": "branch",
+          "attrValue": "YOTA-002"
+        }
+      ]
+    }
+  ]
+}</con:request><con:originalUri>http://ft1-bil-api.g4lab.com/bill/v1/sim/info</con:originalUri><con:credentials><con:username xsi:nil="true"/><con:password xsi:nil="true"/><con:domain xsi:nil="true"/><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder/></con:request><con:request name="Copy of Request 1" id="2ebe81a9-47f3-42fc-a272-9561781ea65a" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers"><![CDATA[<xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  <con:entry key="X-Branch" value="${#Project#branch}"/>
+  <con:entry key="X-CorrelationId" value="${= String receipt = new java.text.SimpleDateFormat(&quot;yyyyMMddhhmmss&quot;).format(new Date()+1).toString();}"/>
+</xml-fragment>]]></con:setting></con:settings><con:endpoint>http://ft3-bil-api.g4lab.com:8080/bill/v1</con:endpoint><con:request>{
+	"iccids": [
+		{
+			"iccid": "0200441085",
+			"attrs": [
+				{
+					"attrType": "simSpec",
+					"attrValue": "PHONELEGAL"
+				},
+				{
+					"attrType": "branch",
+					"attrValue": "YOTA-001"
+				}
+			]
+		}
+	]
+}</con:request><con:originalUri>http://ft1-bil-api.g4lab.com/bill/v1/sim/info</con:originalUri><con:credentials><con:username xsi:nil="true"/><con:password xsi:nil="true"/><con:domain xsi:nil="true"/><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder/></con:request></con:method></con:resource>

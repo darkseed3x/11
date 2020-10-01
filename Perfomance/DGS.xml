@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="DGS" searchProperties="true" id="3a251989-730f-432a-aeb3-cacf493d6f68" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="3a251989-730f-432a-aeb3-cacf493d6f68fileName">DGS</con:setting></con:settings><con:testStep type="request" name="DGS" id="d297b394-8f1d-42bb-a490-b1e64056f654"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>DocumentGenerationServiceSOAPBinding</con:interface><con:operation>generateDeliveryAcceptanceAct</con:operation><con:request name="DGS" id="73962a54-8213-4c00-bf20-df8f0f41a5eb"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://${#TestCase#Node}.g4lab.com:8080/dgs-web/DocumentGenerationEndpoint</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:dgs="http://www.yota.ru/vox/b2b/domains/dgs" xmlns:core="http://www.yota.ru/vox/domains/common/core">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <dgs:GenerateDeliveryAcceptanceActRequest>
+         <billingAccount>11220010517912</billingAccount>
+         <billingAccountDate>2016-11-25T00:00:00.000+04:00</billingAccountDate>
+         <iccid>
+            <iccid>534534534</iccid>
+            <nameNomenclature>LTE NFC PK 350K 2FF/3FF/4FF</nameNomenclature>
+         </iccid>
+         <map key="companyName">
+            <core:value>ИП Андрющенко Сергей Михайлович</core:value>
+         </map>
+         <map key="billingAccount">
+         <core:value>11220010517912</core:value>
+         </map>
+         <map key="businessEntityType">
+         <core:value>50102.2014</core:value>
+         </map>
+         <map key="ceoName">
+         <core:value>АНДРЮЩЕНКО СЕРГЕЙ МИХАЙЛОВИЧ</core:value>
+         </map>
+         <proxyDate>2016-11-25T00:00:00.000+04:00</proxyDate>
+      </dgs:GenerateDeliveryAcceptanceActRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="1f2ecae9-0584-4959-a3c3-7f00d6b9bc71"/><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="groovy" name="list" id="3f12a312-5827-4de1-aaa9-a621a6d28253" disabled="true"><con:settings/><con:config><script>def response = context.expand( '${DGS#Response#declare namespace soap=\'http://schemas.xmlsoap.org/soap/envelope/\'; //soap:Envelope[1]}' )
+
+def path = context.expand( '${#TestCase#Path}' )
+
+def out= new File(path+'temp.txt')
+ out &lt;&lt; '\n'+ response</script></con:config></con:testStep><con:testStep type="request" name="CORPCIS" id="b819082f-07bc-4b37-be2a-c259b7db43d9"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>CorpCustomerInformationServiceSOAPBinding</con:interface><con:operation>getCustomerById</con:operation><con:request name="CORPCIS" id="5c7aea55-64a3-4f8a-9d5b-c3da44d571f7"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://b2btst-corpjs-cis.g4lab.com:8080/cis-web/CorpCustomerInformationServiceImpl</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cus="http://www.yota.ru/vox/b2b/services/customerInformation">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <cus:GetCustomerByIdRequest>
+         <customerId>e658129c56914b64b7defe790a7f4a23</customerId><includeAgreements>true</includeAgreements>
+      </cus:GetCustomerByIdRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="a763392e-bb78-4770-b261-020a8f3ae5a0"/><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="OMS" id="3ca82d1b-a902-4cca-8848-facb20e167b6"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>CorporateOrderManagementServiceSOAPBinding</con:interface><con:operation>getOrderById</con:operation><con:request name="OMS" id="ed8941e9-f746-42a3-8bf7-ec67e6c1e841"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://${#Project#host-b2b}-jservice.g4lab.com:8080/cdm-web/ClientDocumentManagementEndpoint</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ord="http://www.yota.ru/vox/b2b/services/order">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ord:GetOrderByIdRequest>
+         <orderId>3423</orderId>
+      </ord:GetOrderByIdRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="ef7e4f23-f802-4e71-9fb5-2f52a9d862cf"/><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:loadTest name="LoadTest 1" id="c23b5657-868f-4f10-8c86-fb5fbf42f0b8"><con:settings><con:setting id="HttpSettings@close-connections">false</con:setting></con:settings><con:threadCount>100</con:threadCount><con:startDelay>0</con:startDelay><con:sampleInterval>250</con:sampleInterval><con:calculateTPSOnTimePassed>true</con:calculateTPSOnTimePassed><con:resetStatisticsOnThreadCountChange>true</con:resetStatisticsOnThreadCountChange><con:historyLimit>-1</con:historyLimit><con:testLimit>60</con:testLimit><con:limitType>TIME</con:limitType><con:loadStrategy><con:type>Simple</con:type></con:loadStrategy><con:assertion type="Step Status" name="Step Status"/><con:maxAssertionErrors>100</con:maxAssertionErrors><con:cancelExcessiveThreads>true</con:cancelExcessiveThreads><con:strategyInterval>500</con:strategyInterval><con:reportParameters/></con:loadTest><con:properties><con:property><con:name>Path</con:name><con:value>C:\!B2BTXT\</con:value></con:property></con:properties><con:reportParameters/></con:testCase>

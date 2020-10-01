@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation isOneWay="false" action="http://www.yota.ru/vox/services/b2b/wsdl/CorpCustomerInformation/RemoveCorporateCustomer" name="removeCorporateCustomer" bindingOperationName="removeCorporateCustomer" type="Request-Response" outputName="RemoveCorporateCustomerOut" inputName="RemoveCorporateCustomerIn" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="eb4fc65b-b424-4e8b-bdd6-e3653cf93850" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="eb4fc65b-b424-4e8b-bdd6-e3653cf93850fileName">removeCorporateCustomer</con:setting></con:settings><con:call name="Request 1" id="42c6df46-9e11-4811-9562-f91cac16019a"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://b2btst-corpjs-cis.g4lab.com:8080/cis-web/CorpCustomerInformationServiceImpl</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cus="http://www.yota.ru/vox/b2b/services/customerInformation">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <cus:RemoveCorporateCustomerRequest>
+         <!--Optional:-->
+         <agreementId>?</agreementId>
+         <!--Optional:-->
+         <billingAccount>?</billingAccount>
+         <!--Optional:-->
+         <customerId>?</customerId>
+      </cus:RemoveCorporateCustomerRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.yota.ru/vox/services/b2b/wsdl/CorpCustomerInformation/RemoveCorporateCustomer"/></con:call></con:operation>

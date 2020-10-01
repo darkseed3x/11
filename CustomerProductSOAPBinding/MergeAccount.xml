@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation isOneWay="false" action="http://www.yota.ru/vox/services/wsdl/CustomerProduct/MergeAccount" name="MergeAccount" bindingOperationName="MergeAccount" type="Request-Response" outputName="MergeAccountOut" inputName="MergeAccountIn" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="c3907719-6dc2-4011-9019-cf229e507b16" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="c3907719-6dc2-4011-9019-cf229e507b16fileName">MergeAccount</con:setting></con:settings><con:call name="Request 1" id="2ab7b7ad-4fbd-4203-ba07-0d13b401a112"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.78.209.200:8382/customer-product-ejb/CustomerProduct/CustomerProductServiceBean</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cus="http://www.yota.ru/vox/services/customerProduct" xmlns:core="http://www.roox.ru/products/common/core">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <cus:MergeAccountRequest>
+         <!--Optional:-->
+         <core:extension>
+            <!--Zero or more repetitions:-->
+            <core:item>?</core:item>
+         </core:extension>
+         <destAccountId>?</destAccountId>
+         <sourceAccountId>?</sourceAccountId>
+      </cus:MergeAccountRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.yota.ru/vox/services/wsdl/CustomerProduct/MergeAccount"/></con:call></con:operation>

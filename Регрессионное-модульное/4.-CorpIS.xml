@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="4. CorpIS" searchProperties="true" id="0ab3439d-3188-43c8-950a-68bfc1c319ba" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="0ab3439d-3188-43c8-950a-68bfc1c319bafileName">4.-CorpIS</con:setting></con:settings><con:testStep type="groovy" name="checkAddMnpPortedNumber" id="4251c735-f772-4019-82e6-6f977730b1c1"><con:settings/><con:config><script><![CDATA[def path = context.expand( '${#TestCase#Path}' )
+def hostb2b = context.expand( '${#Project#host-b2b}' )
+def startDate = new Date() 
+def resp = context.expand( '${addMnpPortedNumber#Response}' )
+def response = context.expand( '${addMnpPortedNumber#Response#//faultstring[1]}' )
+def out = new File(path+'Отчет по окружению - '+hostb2b+' - '+startDate.format("yyyy-MM-dd")+'.txt')
+
+		
+     if(response == '' ) { 
+     	out <<  '-----------------------CorpIS------------------------'
+          out <<  '\n'
+          out <<  '\n'
+     	out <<  'OK addMnpPortedNumber'
+     	out <<  '\n'
+     	out <<  '\n'
+     	out <<  '-----------------------------------------------------'
+     	out <<  '\n'
+     } else { 
+     	out <<  '-----------------------CorpIS------------------------'
+     	out <<  '\n'
+     	out <<  '\n'
+     	out <<  'FAILED addMnpPortedNumber' 
+     	out <<  '\n'
+     	out <<  '\n'
+     	out <<  '-----------------------------------------------------'
+     	out <<  '\n'
+     def err = new File(path+'Проблемы окружения - '+hostb2b+' - '+startDate.format("yyyy-MM-dd")+'.txt')
+      err <<  '\n'
+      err <<  '----------------------------------------------------------------------'
+      err <<  '\n'
+      err <<  'FAILED addMnpPortedNumber' 
+      err <<  '\n'
+      err <<  '\n'
+      err << resp
+      err <<  '\n'
+      err <<  '\n'
+      err <<  '----------------------------------------------------------------------'
+      
+     } ]]></script></con:config></con:testStep><con:properties><con:property><con:name>Path</con:name><con:value>C:\</con:value></con:property></con:properties><con:reportParameters/></con:testCase>

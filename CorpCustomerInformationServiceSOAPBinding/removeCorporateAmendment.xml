@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation isOneWay="false" action="http://www.yota.ru/vox/services/b2b/wsdl/CorpCustomerInformation/RemoveCorporateAmendment" name="removeCorporateAmendment" bindingOperationName="removeCorporateAmendment" type="Request-Response" outputName="RemoveCorporateAmendmentOut" inputName="RemoveCorporateAmendmentIn" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="6f0129f2-8a5e-482c-a31b-ed1a9a34a66d" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="6f0129f2-8a5e-482c-a31b-ed1a9a34a66dfileName">removeCorporateAmendment</con:setting></con:settings><con:call name="Request 1" id="e2b5b86d-ebc0-4821-b08f-1787c9efb61c"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://b2btst-corpjs-cis.g4lab.com:8080/cis-web/CorpCustomerInformationServiceImpl</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cus="http://www.yota.ru/vox/b2b/services/customerInformation">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <cus:RemoveCorporateAmendmentRequest>
+         <hid>?</hid>
+      </cus:RemoveCorporateAmendmentRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.yota.ru/vox/services/b2b/wsdl/CorpCustomerInformation/RemoveCorporateAmendment"/></con:call></con:operation>

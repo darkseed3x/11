@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation isOneWay="false" action="http://www.yota.ru/vox/services/wsdl/Inventory/IsTestSim" name="IsTestSim" bindingOperationName="IsTestSim" type="Request-Response" outputName="IsTestSimOut" inputName="IsTestSimIn" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="7292b202-8c1f-4f1e-a743-80a69e0a2750" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="7292b202-8c1f-4f1e-a743-80a69e0a2750fileName">IsTestSim</con:setting></con:settings><con:call name="Request 1" id="180b8122-c932-4c2f-8eec-30cc9270758a"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://${#Project#host-b2c}-jservice.g4lab.com:8080/inventory-ejb/Inventory/InventoryServiceBean</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:inv="http://www.yota.ru/vox/services/inventory" xmlns:core="http://www.roox.ru/products/common/core">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <inv:IsTestSimRequest>
+         <!--Optional:-->
+         <core:extension>
+            <!--Zero or more repetitions:-->
+            <core:item>?</core:item>
+         </core:extension>
+         <simCode>
+            <key>0200181358</key>
+            <type>iccid</type>
+         </simCode>
+      </inv:IsTestSimRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.yota.ru/vox/services/wsdl/Inventory/IsTestSim"/><con:wsrmConfig version="1.2"/></con:call></con:operation>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation isOneWay="false" action="http://www.yota.ru/vox/services/b2b/wsdl/ClientDocumentManagement/SearchAndRemoveDocument" name="searchAndRemoveDocument" bindingOperationName="searchAndRemoveDocument" type="Request-Response" outputName="SearchAndRemoveDocumentOut" inputName="SearchAndRemoveDocumentIn" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="e97d2582-dcf5-4b0c-aabc-740314b9abf1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="e97d2582-dcf5-4b0c-aabc-740314b9abf1fileName">searchAndRemoveDocument</con:setting></con:settings><con:call name="Request 1" id="c213e136-e430-4a39-98ed-3b73a403a073"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://b2btst-corpjs-cdm.g4lab.com:8080/cdm-web/ClientDocumentManagementEndpoint</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:doc="http://www.yota.ru/vox/b2b/services/document">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <doc:SearchAndRemoveDocumentRequest>\r
+         <!--Optional:-->\r
+         <billingAccount>?</billingAccount>\r
+         <!--Optional:-->\r
+         <customerId>?</customerId>\r
+         <!--Optional:-->\r
+         <sourceReference>?</sourceReference>\r
+         <!--Optional:-->\r
+         <type>?</type>\r
+      </doc:SearchAndRemoveDocumentRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.yota.ru/vox/services/b2b/wsdl/ClientDocumentManagement/SearchAndRemoveDocument"/></con:call></con:operation>

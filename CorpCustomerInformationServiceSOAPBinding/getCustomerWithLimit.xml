@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation isOneWay="false" action="http://www.yota.ru/vox/services/b2b/wsdl/CorpCustomerInformation/GetCustomerWithLimit" name="getCustomerWithLimit" bindingOperationName="getCustomerWithLimit" type="Request-Response" outputName="GetCustomerWithLimitOut" inputName="GetCustomerWithLimitIn" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="0021b8cd-231b-475b-b607-cbc7940f4989" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="0021b8cd-231b-475b-b607-cbc7940f4989fileName">getCustomerWithLimit</con:setting></con:settings><con:call name="Request 1" id="f90f0c44-3839-4e73-beb1-e17cefeda2d3"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://b2btst-corpjs-cis.g4lab.com:8080/cis-web/CorpCustomerInformationServiceImpl</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cus="http://www.yota.ru/vox/b2b/services/customerInformation">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <cus:GetCustomerWithLimitRequest>
+         <!--Optional:-->
+         <billingAccount>?</billingAccount>
+         <!--Optional:-->
+         <customerId>?</customerId>
+      </cus:GetCustomerWithLimitRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.yota.ru/vox/services/b2b/wsdl/CorpCustomerInformation/GetCustomerWithLimit"/></con:call></con:operation>

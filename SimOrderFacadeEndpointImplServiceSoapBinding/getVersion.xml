@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation isOneWay="false" action="http://www.yota.ru/vox/services/b2b/wsdl/SimOrderFacade/GetVersion" name="getVersion" bindingOperationName="getVersion" type="Request-Response" outputName="getVersionResponse" inputName="getVersion" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="ce26767b-b6bb-489f-ac80-af8624775bf6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="ce26767b-b6bb-489f-ac80-af8624775bf6fileName">getVersion</con:setting></con:settings><con:call name="Request 1" id="c9d68d9d-7ce8-498b-95a9-4fe939a2e075"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.90.253.243:8080/sofs-web/SimOrderFacadeEndpoint</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sim="http://www.yota.ru/vox/b2b/services/simOrderFacadeService">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <sim:GetVersionRequest/>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.yota.ru/vox/services/b2b/wsdl/SimOrderFacade/GetVersion"/></con:call></con:operation>

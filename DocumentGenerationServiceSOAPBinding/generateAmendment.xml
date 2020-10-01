@@ -1,0 +1,637 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation isOneWay="false" action="http://www.yota.ru/vox/services/b2b/wsdl/DocumentGeneration/GenerateAmendment" name="generateAmendment" bindingOperationName="generateAmendment" type="Request-Response" outputName="GenerateAmendmentOut" inputName="GenerateAmendmentIn" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="1dc2168d-dc5a-40ce-917a-be974105ec37" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="1dc2168d-dc5a-40ce-917a-be974105ec37fileName">generateAmendment</con:setting></con:settings><con:call name="Request 1" id="027ad68e-679b-45c1-bc6c-1f421c349a37"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.90.253.219:8084/dgs-web/DocumentGenerationEndpoint</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:dgs="http://www.yota.ru/vox/b2b/domains/dgs" xmlns:core="http://www.yota.ru/vox/domains/common/core">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <dgs:GenerateAmendmentRequest>
+         <amendment hid="?" customerId="?" status="?" type="?">
+            <!--Optional:-->
+            <administrator hid="?" customerId="?">
+               <!--Optional:-->
+               <customerType>?</customerType>
+               <!--Optional:-->
+               <status>?</status>
+               <!--Optional:-->
+               <created>?</created>
+               <!--Optional:-->
+               <lac_tac_code>?</lac_tac_code>
+               <!--Optional:-->
+               <location_region>?</location_region>
+               <!--Optional:-->
+               <customerPurpose>?</customerPurpose>
+               <!--Optional:-->
+               <language>?</language>
+               <!--Optional:-->
+               <marketingSegment>?</marketingSegment>
+               <!--Zero or more repetitions:-->
+               <emails hid="?" customerId="?">
+                  <livingPeriod>
+                     <fromDate>?</fromDate>
+                     <!--Optional:-->
+                     <untilTo>?</untilTo>
+                  </livingPeriod>
+                  <!--Optional:-->
+                  <rawSource>?</rawSource>
+                  <!--Optional:-->
+                  <primary>?</primary>
+                  <!--Optional:-->
+                  <additionalInfo>?</additionalInfo>
+                  <!--Zero or more repetitions:-->
+                  <additionalProperties name="?">
+                     <core:value>?</core:value>
+                  </additionalProperties>
+                  <email>?</email>
+                  <emailType>?</emailType>
+               </emails>
+               <!--Zero or more repetitions:-->
+               <phones hid="?" customerId="?">
+                  <livingPeriod>
+                     <fromDate>?</fromDate>
+                     <!--Optional:-->
+                     <untilTo>?</untilTo>
+                  </livingPeriod>
+                  <!--Optional:-->
+                  <rawSource>?</rawSource>
+                  <!--Optional:-->
+                  <primary>?</primary>
+                  <!--Optional:-->
+                  <additionalInfo>?</additionalInfo>
+                  <!--Zero or more repetitions:-->
+                  <additionalProperties name="?">
+                     <core:value>?</core:value>
+                  </additionalProperties>
+                  <!--Optional:-->
+                  <phoneNumber>?</phoneNumber>
+                  <!--Optional:-->
+                  <phoneType>?</phoneType>
+                  <!--Optional:-->
+                  <operator>?</operator>
+                  <!--Optional:-->
+                  <countryCode>?</countryCode>
+                  <!--Optional:-->
+                  <cityCode>?</cityCode>
+                  <!--Optional:-->
+                  <telephone>?</telephone>
+                  <!--Optional:-->
+                  <extension>?</extension>
+                  <!--Optional:-->
+                  <timezone>?</timezone>
+               </phones>
+               <!--Zero or more repetitions:-->
+               <paymentCards hid="?" customerId="?">
+                  <livingPeriod>
+                     <fromDate>?</fromDate>
+                     <!--Optional:-->
+                     <untilTo>?</untilTo>
+                  </livingPeriod>
+                  <!--Optional:-->
+                  <rawSource>?</rawSource>
+                  <!--Optional:-->
+                  <primary>?</primary>
+                  <!--Optional:-->
+                  <additionalInfo>?</additionalInfo>
+                  <!--Zero or more repetitions:-->
+                  <additionalProperties name="?">
+                     <core:value>?</core:value>
+                  </additionalProperties>
+                  <partnerId>?</partnerId>
+                  <!--Optional:-->
+                  <cardAlias>?</cardAlias>
+                  <channelService>?</channelService>
+                  <serviceStatus>?</serviceStatus>
+                  <cardId>?</cardId>
+                  <!--Optional:-->
+                  <created>?</created>
+                  <!--Optional:-->
+                  <cardNumber>?</cardNumber>
+                  <!--Optional:-->
+                  <cardType>?</cardType>
+                  <!--Optional:-->
+                  <owner>?</owner>
+                  <!--Optional:-->
+                  <expirationDate>?</expirationDate>
+               </paymentCards>
+               <!--Zero or more repetitions:-->
+               <account hid="?" customerId="?">
+                  <livingPeriod>
+                     <fromDate>?</fromDate>
+                     <!--Optional:-->
+                     <untilTo>?</untilTo>
+                  </livingPeriod>
+                  <!--Optional:-->
+                  <rawSource>?</rawSource>
+                  <!--Optional:-->
+                  <primary>?</primary>
+                  <!--Optional:-->
+                  <additionalInfo>?</additionalInfo>
+                  <!--Zero or more repetitions:-->
+                  <additionalProperties name="?">
+                     <core:value>?</core:value>
+                  </additionalProperties>
+                  <account>?</account>
+                  <accountType>?</accountType>
+               </account>
+               <!--Zero or more repetitions:-->
+               <agreements hid="?" customerId="?">
+                  <refId>?</refId>
+                  <agreementType>?</agreementType>
+                  <agreementStatus>?</agreementStatus>
+                  <!--Optional:-->
+                  <iccid>?</iccid>
+                  <!--Optional:-->
+                  <msisdn>?</msisdn>
+                  <!--Zero or more repetitions:-->
+                  <serviceNumberDetails>
+                     <!--Optional:-->
+                     <iccid>?</iccid>
+                     <!--Optional:-->
+                     <msisdn>?</msisdn>
+                  </serviceNumberDetails>
+                  <!--Optional:-->
+                  <region>?</region>
+                  <!--Optional:-->
+                  <timezone>?</timezone>
+                  <created>?</created>
+                  <!--Optional:-->
+                  <signed>?</signed>
+                  <!--Optional:-->
+                  <serviceStartDate>?</serviceStartDate>
+                  <!--Optional:-->
+                  <livingPeriod>
+                     <fromDate>?</fromDate>
+                     <!--Optional:-->
+                     <untilTo>?</untilTo>
+                  </livingPeriod>
+                  <!--Zero or more repetitions:-->
+                  <subscriberData hid="?" customerId="?">
+                     <created>?</created>
+                     <!--Optional:-->
+                     <livingPeriod>
+                        <fromDate>?</fromDate>
+                        <!--Optional:-->
+                        <untilTo>?</untilTo>
+                     </livingPeriod>
+                     <!--Zero or more repetitions:-->
+                     <subscriberProperties name="?">
+                        <core:value>?</core:value>
+                     </subscriberProperties>
+                  </subscriberData>
+                  <!--Zero or more repetitions:-->
+                  <agreementProperties name="?">
+                     <core:value>?</core:value>
+                  </agreementProperties>
+                  <!--Zero or more repetitions:-->
+                  <agreementScanRef>
+                     <scanRefValue>?</scanRefValue>
+                     <scanRefType>?</scanRefType>
+                  </agreementScanRef>
+               </agreements>
+               <!--Zero or more repetitions:-->
+               <consentProperties hid="?" customerId="?">
+                  <livingPeriod>
+                     <fromDate>?</fromDate>
+                     <!--Optional:-->
+                     <untilTo>?</untilTo>
+                  </livingPeriod>
+                  <!--Optional:-->
+                  <rawSource>?</rawSource>
+                  <!--Optional:-->
+                  <primary>?</primary>
+                  <!--Optional:-->
+                  <additionalInfo>?</additionalInfo>
+                  <!--Zero or more repetitions:-->
+                  <additionalProperties name="?">
+                     <core:value>?</core:value>
+                  </additionalProperties>
+                  <key>?</key>
+                  <value>?</value>
+               </consentProperties>
+               <!--Zero or more repetitions:-->
+               <additionalProperties name="?">
+                  <core:value>?</core:value>
+               </additionalProperties>
+               <!--Zero or more repetitions:-->
+               <mobileApplications hid="?" customerId="?">
+                  <livingPeriod>
+                     <fromDate>?</fromDate>
+                     <!--Optional:-->
+                     <untilTo>?</untilTo>
+                  </livingPeriod>
+                  <!--Optional:-->
+                  <rawSource>?</rawSource>
+                  <!--Optional:-->
+                  <primary>?</primary>
+                  <!--Optional:-->
+                  <additionalInfo>?</additionalInfo>
+                  <!--Zero or more repetitions:-->
+                  <additionalProperties name="?">
+                     <core:value>?</core:value>
+                  </additionalProperties>
+                  <IDApp>?</IDApp>
+                  <!--Optional:-->
+                  <iccid>?</iccid>
+                  <!--Optional:-->
+                  <AppVersion>?</AppVersion>
+                  <OS>?</OS>
+                  <!--Optional:-->
+                  <OSVersion>?</OSVersion>
+                  <!--Optional:-->
+                  <IMEI>?</IMEI>
+                  <!--Optional:-->
+                  <ModelName>?</ModelName>
+                  <!--Optional:-->
+                  <PushToken>?</PushToken>
+               </mobileApplications>
+               <!--Optional:-->
+               <gt_vlr>?</gt_vlr>
+               <!--Optional:-->
+               <name>
+                  <!--Optional:-->
+                  <core:firstName>?</core:firstName>
+                  <!--Optional:-->
+                  <core:lastName>?</core:lastName>
+                  <!--Optional:-->
+                  <core:middleName>?</core:middleName>
+               </name>
+               <!--Optional:-->
+               <personalDetails>
+                  <!--Optional:-->
+                  <gender>?</gender>
+                  <!--Optional:-->
+                  <birthDate>?</birthDate>
+                  <!--Optional:-->
+                  <birthPlace>?</birthPlace>
+               </personalDetails>
+               <!--Optional:-->
+               <dul type="?">
+                  <!--Optional:-->
+                  <givenBy>?</givenBy>
+                  <!--Optional:-->
+                  <givenDate>?</givenDate>
+                  <!--Optional:-->
+                  <number>?</number>
+                  <!--Optional:-->
+                  <serial>?</serial>
+                  <!--Optional:-->
+                  <serialAndNumber>?</serialAndNumber>
+               </dul>
+               <!--Optional:-->
+               <position>?</position>
+               <role>?</role>
+            </administrator>
+            <!--Optional:-->
+            <agreementCity>?</agreementCity>
+            <!--Optional:-->
+            <agreementMSISDN>?</agreementMSISDN>
+            <!--Optional:-->
+            <agreementRegion>?</agreementRegion>
+            <!--Optional:-->
+            <billingAccountID>?</billingAccountID>
+            <!--Optional:-->
+            <contractType>?</contractType>
+            <!--Zero or more repetitions:-->
+            <deliveries>
+               <!--1 or more repetitions:-->
+               <deliveryAddress>
+                  <deliveryAddressType>?</deliveryAddressType>
+                  <!--Optional:-->
+                  <email>?</email>
+                  <!--Optional:-->
+                  <isSameAsLocation>?</isSameAsLocation>
+                  <!--Optional:-->
+                  <postal hid="?" customerId="?">
+                     <livingPeriod>
+                        <fromDate>?</fromDate>
+                        <!--Optional:-->
+                        <untilTo>?</untilTo>
+                     </livingPeriod>
+                     <!--Optional:-->
+                     <rawSource>?</rawSource>
+                     <!--Optional:-->
+                     <primary>?</primary>
+                     <!--Optional:-->
+                     <additionalInfo>?</additionalInfo>
+                     <!--Zero or more repetitions:-->
+                     <additionalProperties name="?">
+                        <core:value>?</core:value>
+                     </additionalProperties>
+                     <!--Optional:-->
+                     <addressText>?</addressText>
+                     <!--Optional:-->
+                     <country>?</country>
+                     <!--Optional:-->
+                     <addressType>?</addressType>
+                     <!--Optional:-->
+                     <apartment>?</apartment>
+                     <!--Optional:-->
+                     <area>?</area>
+                     <!--Optional:-->
+                     <city>?</city>
+                     <!--Optional:-->
+                     <house>?</house>
+                     <!--Optional:-->
+                     <locality>?</locality>
+                     <!--Optional:-->
+                     <region>?</region>
+                     <!--Optional:-->
+                     <street>?</street>
+                     <!--Optional:-->
+                     <zipCode>?</zipCode>
+                  </postal>
+               </deliveryAddress>
+               <deliveryChannel>?</deliveryChannel>
+            </deliveries>
+            <!--Optional:-->
+            <endDate>?</endDate>
+            <!--Optional:-->
+            <generationDate>?</generationDate>
+            <!--Optional:-->
+            <masterAgreementID>?</masterAgreementID>
+            <!--Optional:-->
+            <refId>?</refId>
+            <!--Optional:-->
+            <saleChannel>?</saleChannel>
+            <!--Optional:-->
+            <signedDate>?</signedDate>
+            <!--Optional:-->
+            <startDate>?</startDate>
+            <!--Optional:-->
+            <underWriter hid="?" customerId="?">
+               <!--Optional:-->
+               <customerType>?</customerType>
+               <!--Optional:-->
+               <status>?</status>
+               <!--Optional:-->
+               <created>?</created>
+               <!--Optional:-->
+               <lac_tac_code>?</lac_tac_code>
+               <!--Optional:-->
+               <location_region>?</location_region>
+               <!--Optional:-->
+               <customerPurpose>?</customerPurpose>
+               <!--Optional:-->
+               <language>?</language>
+               <!--Optional:-->
+               <marketingSegment>?</marketingSegment>
+               <!--Zero or more repetitions:-->
+               <emails hid="?" customerId="?">
+                  <livingPeriod>
+                     <fromDate>?</fromDate>
+                     <!--Optional:-->
+                     <untilTo>?</untilTo>
+                  </livingPeriod>
+                  <!--Optional:-->
+                  <rawSource>?</rawSource>
+                  <!--Optional:-->
+                  <primary>?</primary>
+                  <!--Optional:-->
+                  <additionalInfo>?</additionalInfo>
+                  <!--Zero or more repetitions:-->
+                  <additionalProperties name="?">
+                     <core:value>?</core:value>
+                  </additionalProperties>
+                  <email>?</email>
+                  <emailType>?</emailType>
+               </emails>
+               <!--Zero or more repetitions:-->
+               <phones hid="?" customerId="?">
+                  <livingPeriod>
+                     <fromDate>?</fromDate>
+                     <!--Optional:-->
+                     <untilTo>?</untilTo>
+                  </livingPeriod>
+                  <!--Optional:-->
+                  <rawSource>?</rawSource>
+                  <!--Optional:-->
+                  <primary>?</primary>
+                  <!--Optional:-->
+                  <additionalInfo>?</additionalInfo>
+                  <!--Zero or more repetitions:-->
+                  <additionalProperties name="?">
+                     <core:value>?</core:value>
+                  </additionalProperties>
+                  <!--Optional:-->
+                  <phoneNumber>?</phoneNumber>
+                  <!--Optional:-->
+                  <phoneType>?</phoneType>
+                  <!--Optional:-->
+                  <operator>?</operator>
+                  <!--Optional:-->
+                  <countryCode>?</countryCode>
+                  <!--Optional:-->
+                  <cityCode>?</cityCode>
+                  <!--Optional:-->
+                  <telephone>?</telephone>
+                  <!--Optional:-->
+                  <extension>?</extension>
+                  <!--Optional:-->
+                  <timezone>?</timezone>
+               </phones>
+               <!--Zero or more repetitions:-->
+               <paymentCards hid="?" customerId="?">
+                  <livingPeriod>
+                     <fromDate>?</fromDate>
+                     <!--Optional:-->
+                     <untilTo>?</untilTo>
+                  </livingPeriod>
+                  <!--Optional:-->
+                  <rawSource>?</rawSource>
+                  <!--Optional:-->
+                  <primary>?</primary>
+                  <!--Optional:-->
+                  <additionalInfo>?</additionalInfo>
+                  <!--Zero or more repetitions:-->
+                  <additionalProperties name="?">
+                     <core:value>?</core:value>
+                  </additionalProperties>
+                  <partnerId>?</partnerId>
+                  <!--Optional:-->
+                  <cardAlias>?</cardAlias>
+                  <channelService>?</channelService>
+                  <serviceStatus>?</serviceStatus>
+                  <cardId>?</cardId>
+                  <!--Optional:-->
+                  <created>?</created>
+                  <!--Optional:-->
+                  <cardNumber>?</cardNumber>
+                  <!--Optional:-->
+                  <cardType>?</cardType>
+                  <!--Optional:-->
+                  <owner>?</owner>
+                  <!--Optional:-->
+                  <expirationDate>?</expirationDate>
+               </paymentCards>
+               <!--Zero or more repetitions:-->
+               <account hid="?" customerId="?">
+                  <livingPeriod>
+                     <fromDate>?</fromDate>
+                     <!--Optional:-->
+                     <untilTo>?</untilTo>
+                  </livingPeriod>
+                  <!--Optional:-->
+                  <rawSource>?</rawSource>
+                  <!--Optional:-->
+                  <primary>?</primary>
+                  <!--Optional:-->
+                  <additionalInfo>?</additionalInfo>
+                  <!--Zero or more repetitions:-->
+                  <additionalProperties name="?">
+                     <core:value>?</core:value>
+                  </additionalProperties>
+                  <account>?</account>
+                  <accountType>?</accountType>
+               </account>
+               <!--Zero or more repetitions:-->
+               <agreements hid="?" customerId="?">
+                  <refId>?</refId>
+                  <agreementType>?</agreementType>
+                  <agreementStatus>?</agreementStatus>
+                  <!--Optional:-->
+                  <iccid>?</iccid>
+                  <!--Optional:-->
+                  <msisdn>?</msisdn>
+                  <!--Zero or more repetitions:-->
+                  <serviceNumberDetails>
+                     <!--Optional:-->
+                     <iccid>?</iccid>
+                     <!--Optional:-->
+                     <msisdn>?</msisdn>
+                  </serviceNumberDetails>
+                  <!--Optional:-->
+                  <region>?</region>
+                  <!--Optional:-->
+                  <timezone>?</timezone>
+                  <created>?</created>
+                  <!--Optional:-->
+                  <signed>?</signed>
+                  <!--Optional:-->
+                  <serviceStartDate>?</serviceStartDate>
+                  <!--Optional:-->
+                  <livingPeriod>
+                     <fromDate>?</fromDate>
+                     <!--Optional:-->
+                     <untilTo>?</untilTo>
+                  </livingPeriod>
+                  <!--Zero or more repetitions:-->
+                  <subscriberData hid="?" customerId="?">
+                     <created>?</created>
+                     <!--Optional:-->
+                     <livingPeriod>
+                        <fromDate>?</fromDate>
+                        <!--Optional:-->
+                        <untilTo>?</untilTo>
+                     </livingPeriod>
+                     <!--Zero or more repetitions:-->
+                     <subscriberProperties name="?">
+                        <core:value>?</core:value>
+                     </subscriberProperties>
+                  </subscriberData>
+                  <!--Zero or more repetitions:-->
+                  <agreementProperties name="?">
+                     <core:value>?</core:value>
+                  </agreementProperties>
+                  <!--Zero or more repetitions:-->
+                  <agreementScanRef>
+                     <scanRefValue>?</scanRefValue>
+                     <scanRefType>?</scanRefType>
+                  </agreementScanRef>
+               </agreements>
+               <!--Zero or more repetitions:-->
+               <consentProperties hid="?" customerId="?">
+                  <livingPeriod>
+                     <fromDate>?</fromDate>
+                     <!--Optional:-->
+                     <untilTo>?</untilTo>
+                  </livingPeriod>
+                  <!--Optional:-->
+                  <rawSource>?</rawSource>
+                  <!--Optional:-->
+                  <primary>?</primary>
+                  <!--Optional:-->
+                  <additionalInfo>?</additionalInfo>
+                  <!--Zero or more repetitions:-->
+                  <additionalProperties name="?">
+                     <core:value>?</core:value>
+                  </additionalProperties>
+                  <key>?</key>
+                  <value>?</value>
+               </consentProperties>
+               <!--Zero or more repetitions:-->
+               <additionalProperties name="?">
+                  <core:value>?</core:value>
+               </additionalProperties>
+               <!--Zero or more repetitions:-->
+               <mobileApplications hid="?" customerId="?">
+                  <livingPeriod>
+                     <fromDate>?</fromDate>
+                     <!--Optional:-->
+                     <untilTo>?</untilTo>
+                  </livingPeriod>
+                  <!--Optional:-->
+                  <rawSource>?</rawSource>
+                  <!--Optional:-->
+                  <primary>?</primary>
+                  <!--Optional:-->
+                  <additionalInfo>?</additionalInfo>
+                  <!--Zero or more repetitions:-->
+                  <additionalProperties name="?">
+                     <core:value>?</core:value>
+                  </additionalProperties>
+                  <IDApp>?</IDApp>
+                  <!--Optional:-->
+                  <iccid>?</iccid>
+                  <!--Optional:-->
+                  <AppVersion>?</AppVersion>
+                  <OS>?</OS>
+                  <!--Optional:-->
+                  <OSVersion>?</OSVersion>
+                  <!--Optional:-->
+                  <IMEI>?</IMEI>
+                  <!--Optional:-->
+                  <ModelName>?</ModelName>
+                  <!--Optional:-->
+                  <PushToken>?</PushToken>
+               </mobileApplications>
+               <!--Optional:-->
+               <gt_vlr>?</gt_vlr>
+               <!--Optional:-->
+               <name>
+                  <!--Optional:-->
+                  <core:firstName>?</core:firstName>
+                  <!--Optional:-->
+                  <core:lastName>?</core:lastName>
+                  <!--Optional:-->
+                  <core:middleName>?</core:middleName>
+               </name>
+               <!--Optional:-->
+               <personalDetails>
+                  <!--Optional:-->
+                  <gender>?</gender>
+                  <!--Optional:-->
+                  <birthDate>?</birthDate>
+                  <!--Optional:-->
+                  <birthPlace>?</birthPlace>
+               </personalDetails>
+               <!--Optional:-->
+               <dul type="?">
+                  <!--Optional:-->
+                  <givenBy>?</givenBy>
+                  <!--Optional:-->
+                  <givenDate>?</givenDate>
+                  <!--Optional:-->
+                  <number>?</number>
+                  <!--Optional:-->
+                  <serial>?</serial>
+                  <!--Optional:-->
+                  <serialAndNumber>?</serialAndNumber>
+               </dul>
+               <!--Optional:-->
+               <position>?</position>
+               <role>?</role>
+            </underWriter>
+         </amendment>
+         <billingAccount>?</billingAccount>
+         <masterAgreement>?</masterAgreement>
+         <orderId>?</orderId>
+      </dgs:GenerateAmendmentRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.yota.ru/vox/services/b2b/wsdl/DocumentGeneration/GenerateAmendment"/><con:wsrmConfig version="1.2"/></con:call></con:operation>

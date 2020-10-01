@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation isOneWay="false" action="http://www.yota.ru/vox/services/b2b/wsdl/CustomerAccount/ChangeBaseTarif" name="changeBaseTarif" bindingOperationName="changeBaseTarif" type="Request-Response" inputName="ChangeBaseTarifIn" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="d359f6d2-df7d-4e45-a1fc-cbfc159e1477" outputName="ChangeBaseTarifOut" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="d359f6d2-df7d-4e45-a1fc-cbfc159e1477fileName">changeBaseTarif</con:setting></con:settings><con:call name="Request 1" id="3cfb161e-653f-4838-9ecc-be1472d5c0b4"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://${#Project#host-b2b}-esb1.g4lab.com:8315/CustomerAccountManagementService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cus="http://www.yota.ru/vox/b2b/services/customerAccount" xmlns:core="http://www.roox.ru/products/common/core">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <cus:ChangeBaseTarifRequest>
+         <!--Optional:-->
+         <core:extension>
+            <!--Zero or more repetitions:-->
+            <core:item>?</core:item>
+         </core:extension>
+         <accountId>?</accountId>
+         <iccid>?</iccid>
+         <newRegion>?</newRegion>
+      </cus:ChangeBaseTarifRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.yota.ru/vox/services/b2b/wsdl/CustomerAccount/ChangeBaseTarif"/><con:wsrmConfig version="1.2"/></con:call></con:operation>

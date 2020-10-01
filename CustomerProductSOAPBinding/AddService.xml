@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation isOneWay="false" action="http://www.yota.ru/vox/services/wsdl/CustomerProduct/AddService" name="AddService" bindingOperationName="AddService" type="Request-Response" outputName="AddServiceOut" inputName="AddServiceIn" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="487e59b6-a2bc-4d83-9d15-3d81e037bb12" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="487e59b6-a2bc-4d83-9d15-3d81e037bb12fileName">AddService</con:setting></con:settings><con:call name="Request 1" id="b2906f6f-a8d6-46ef-9d66-288703234c1c"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.78.209.200:8382/customer-product-ejb/CustomerProduct/CustomerProductServiceBean</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cus="http://www.yota.ru/vox/services/customerProduct" xmlns:core="http://www.roox.ru/products/common/core">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <cus:AddServiceRequest>
+         <!--Optional:-->
+         <core:extension>
+            <!--Zero or more repetitions:-->
+            <core:item>?</core:item>
+         </core:extension>
+         <!--Optional:-->
+         <isOneTime>?</isOneTime>
+         <serviceId>?</serviceId>
+         <usedSimCardExternalId>?</usedSimCardExternalId>
+      </cus:AddServiceRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.yota.ru/vox/services/wsdl/CustomerProduct/AddService"/></con:call></con:operation>

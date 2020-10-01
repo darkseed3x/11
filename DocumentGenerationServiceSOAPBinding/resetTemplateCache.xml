@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation id="c8ae1a86-065c-4ad4-ac06-8c58bf739347" isOneWay="false" action="http://www.yota.ru/vox/services/b2b/wsdl/DocumentGeneration/ResetTemplateCache" name="resetTemplateCache" bindingOperationName="resetTemplateCache" type="Request-Response" outputName="ResetTemplateCacheOut" inputName="ResetTemplateCacheIn" receivesAttachments="false" sendsAttachments="false" anonymous="optional" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="c8ae1a86-065c-4ad4-ac06-8c58bf739347fileName">resetTemplateCache</con:setting></con:settings><con:call id="4471c7b6-21f1-45c4-af9b-6856d120790a" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.90.253.219:8084/dgs-web/DocumentGenerationEndpoint</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:dgs="http://www.yota.ru/vox/b2b/domains/dgs">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <dgs:ResetTemplateCacheRequest/>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.yota.ru/vox/services/b2b/wsdl/DocumentGeneration/ResetTemplateCache"/></con:call></con:operation>

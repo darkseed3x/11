@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Создать абонента с активными сим картами" searchProperties="true" id="b510ba88-c627-4ff5-904d-a29390a02352" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.panels.testcase.JTestRunLog$OptionsForm@max_rows">1000</con:setting><con:setting id="com.eviware.soapui.impl.wsdl.panels.testcase.JTestRunLog$OptionsForm@errors_only">false</con:setting><con:setting id="03d05b66-8313-4db5-b93a-70cac3ba4968fileName">Создание-абона-рест-AGREEMENT</con:setting><con:setting id="b510ba88-c627-4ff5-904d-a29390a02352fileName">Создать-абонента-с-активными-сим-картами</con:setting></con:settings><con:savedRecentRuns>1</con:savedRecentRuns><con:testStep type="groovy" name="data" id="209d83e2-4a9e-4390-be18-f338afc61d8d"><con:settings/><con:config><script>def date = new Date().format("yyyy-MM-dd");
+testRunner.testCase.setPropertyValue("data", date.toString()+"T00:00:00.000+03:00"  )
+
+</script></con:config></con:testStep><con:testStep type="groovy" name="random" id="3c9a720e-0244-4108-9eaf-40c9c721da0a"><con:settings/><con:config><script>testRunner.testCase.setPropertyValue("number", '')
+
+def length = 9;
+String validChars ="1234567890"
+def rnd = new Random()
+
+def number = '79'
+
+	number = number.toInteger() +  ( (1..length).sum
+{ 
+validChars[ rnd.nextInt(validChars.length()) ]})
+
+testRunner.testCase.setPropertyValue("number", number.toString()  )</script></con:config></con:testStep><con:testStep type="restrequest" name="create_AGREEMENT" id="94b6eef8-cb2b-4924-81b5-814219083c88"><con:settings/><con:config service="Corporate Order Management Service (CorpOMS)" resourcePath="/coms-web/api/createOrder" methodName="createOrder" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="create_AGREEMENT" id="978de5b9-fe46-4a0d-870c-8ad76d390f25" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://${#Project#host-b2b-rest}:8062</con:endpoint><con:request>{"order": {
+   "createChannel": "PUBLIC_PORTAL",
+   "orderStatus": "YOTA_FULFILL",
+   "orderStep": "INITIALIZATION",
+   "orderType": "AGREEMENT",
+   "updateChannel": "PUBLIC_PORTAL",
+   "authorPhone": "${#TestCase#number}",
+   "orderChangeDate": "${#TestCase#data}",
+   "orderContent": {"BaseAgreementOrder":    {
+      "needLinkRefSend": "false",
+      "needReCall": "false"
+   }}
+}}</con:request><con:originalUri>http://DEV-b2b-ainst1.scartel.dc/coms-web/api/createOrder</con:originalUri><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="groovy" name="check" id="e885d385-9d05-4a19-80d1-982c267b8e6a"><con:settings/><con:config><script>
+def response = context.expand( '${create_AGREEMENT#Response#$.resultStatus}' )
+
+ 
+ if (response != 'NEW')
+{
+  testRunner.gotoStepByName("data")
+}</script></con:config></con:testStep><con:testStep type="restrequest" name="update_AGREEMENT" id="c9e56385-0b4e-48bb-83a8-2a72dea0c846"><con:settings/><con:config service="Corporate Order Management Service (CorpOMS)" resourcePath="/coms-web/api/updateOrder" methodName="updateOrder" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="update_AGREEMENT" id="c66cec0e-a657-4ad4-8ea1-71a6e4965eb7" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://${#Project#host-b2b-rest}:8062</con:endpoint><con:request>{
+   "order":    {
+      "createChannel": "PUBLIC_PORTAL",
+      "orderStatus": "CLIENT_FULFILL",
+      "orderStep": "DOWNLOADING_UPLOADING",
+      "orderType": "AGREEMENT",
+      "updateChannel": "PUBLIC_PORTAL",
+      "authorPhone": "${#TestCase#number}",
+      "linkRef": "https://yota.ru/b2b/voice/agreement?linkref=${create_AGREEMENT#Response#$.order.shortLinkRef}",
+      "orderChangeDate": "2020-05-25T00:00:00.000+03:00",
+      "orderContent": {"BaseAgreementOrder":       {
+         "agreementDate": "2020-05-22T00:00:00.000+03:00",
+         "agreementRegion": "C_${#TestCase#region}",
+         "clientInfo":          {
+            "status": "active",
+            "customerPurpose": "COMMERCIAL",
+            "marketingSegment": "STANDARD",
+            "addresses": [            {
+               "livingPeriod": {"fromDate": "2016-03-10T00:00:00.000+03:00"},
+               "primary": "true",
+               "addressText": "309508, РОССИЯ, БЕЛГОРОДСКАЯ ОБЛ., СТАРЫЙ ОСКОЛ Г., 8 МАРТА УЛ., 104",
+               "country": "РОССИЯ",
+               "addressType": "Legal",
+               "city": "СТАРЫЙ ОСКОЛ Г",
+               "house": "104",
+               "region": "БЕЛГОРОДСКАЯ ОБЛ.",
+               "street": "8 МАРТА УЛ.",
+               "zipCode": "309508"
+            }],
+            "CEO":             {
+               "emails": [               {
+                  "livingPeriod": {"fromDate": "2000-02-01T00:00:00.000+03:00"},
+                  "rawSource": "mnp3@mail.ru",
+                  "primary": "true",
+                  "email": "MNP3@MAIL.RU",
+                  "emailType": "HOME"
+               }],
+               "personalDetails": {"gender": "Male"},
+               "name":                {
+                  "firstName": "Генадий",
+                  "lastName": "Букин",
+                  "middleName": "Кузьмич"
+               },
+               "position": "Генеральный директор",
+               "role": "CEO"
+            },
+            "companyRegistrationDate": "2015-04-24T00:00:00.000+03:00",
+            "contactPerson":             {
+               "emails": [               {
+                  "livingPeriod": {"fromDate": "2000-02-01T00:00:00.000+03:00"},
+                  "rawSource": "MNP3@MAIL.RU",
+                  "primary": "true",
+                  "email": "MNP3@MAIL.RU",
+                  "emailType": "HOME"
+               }],
+               "role": "CONTACT_PERSON"
+            },
+            "egrulData":             {
+               "inn": "7802651610",
+               "kpp": "780201001",
+               "ogrn": "1187847013947",
+               "opf": "12300.2014"
+            },
+            "fullCompanyName": "ООО ${create_AGREEMENT#Response#$.order.authorPhone}",
+            "inactiveSIMlimit": "25",
+            "masterAgreement":             {
+               "Status": "NEW",
+               "type": "VOICE_B_2_B",
+               "administrator":                {
+                  "emails": [                  {
+                     "livingPeriod": {"fromDate": "2000-02-01T00:00:00.000+03:00"},
+                     "rawSource": "mnp3@mail.ru",
+                     "primary": "true",
+                     "email": "MNP3@MAIL.RU",
+                     "emailType": "HOME"
+                  }],
+                  "phones": [                  {
+                     "livingPeriod": {"fromDate": "2017-01-17T00:00:00.000+04:00"},
+                     "primary": "true",
+                     "phoneNumber": "89811598423",
+                     "phoneType": "WORK"
+                  }],
+                  "role": "ADMINISTRATOR"
+               },
+               "agreementCity": "C_${#TestCase#region}",
+               "agreementMSISDN": "79992119452",
+               "agreementRegion": "O_${#TestCase#region}",
+               "billingAccountID": "8204135",
+               "contractType": "direct",
+               "generationDate": "2016-06-20T00:00:00.000+03:00",
+               "saleChannel": "PublicPortal",
+               "signedDate": "2020-05-22T00:00:00.000+03:00",
+               "underWriter":                {
+                  "emails": [                  {
+                     "livingPeriod": {"fromDate": "2000-02-01T00:00:00.000+03:00"},
+                     "rawSource": "mnp3@mail.ru",
+                     "primary": "true",
+                     "email": "MNP3@MAIL.RU",
+                     "emailType": "HOME"
+                  }],
+                  "role": "UNDER_WRITER"
+               }
+            },
+            "opf": "12300.2014",
+            "shortCompanyName": "${create_AGREEMENT#Response#$.order.authorPhone}"
+         },
+         "needLinkRefSend": "true",
+         "needReCall": "false",
+         "simCount": "25"
+      }},
+      "orderCreateDate": "2020-05-25T13:20:03.47Z",
+      "orderId": "${create_AGREEMENT#Response#$.order.orderId}",
+      "revision": "1",
+      "shortLinkRef": "${create_AGREEMENT#Response#$.order.shortLinkRef}"
+   },
+   "action": "PORTAL_LC_GENERATE_CONTRACT"
+}</con:request><con:originalUri>http://DEV-b2b-ainst1.scartel.dc/coms-web/api/updateOrder</con:originalUri><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="activateAgreement" id="80608caf-423d-4a61-8569-4a3e122b66b3"><con:settings/><con:config service="Corporate Order Management Service (CorpOMS)" resourcePath="/coms-web/api/activateAgreement" methodName="activateAgreement" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="activateAgreement" id="22cc0d44-b9f8-4363-8bbf-9edf8f45a9be" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://${#Project#host-b2b-rest}:8062</con:endpoint><con:request>{"orderId": "${create_AGREEMENT#Response#$.order.orderId}"}</con:request><con:originalUri>http://DEV-b2b-ainst1.scartel.dc/coms-web/api/activateAgreement</con:originalUri><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="getOrderById" id="26e158d3-79fb-4051-95f2-68e7540889c8"><con:settings/><con:config service="Corporate Order Management Service (CorpOMS)" resourcePath="/coms-web/api/getOrderById" methodName="getOrderById" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="getOrderById" id="a74f51eb-c3fb-45a8-a31c-7d549aa3624c" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="Content-Type" value="application/json" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://${#Project#host-b2b-rest}:8062</con:endpoint><con:request/><con:originalUri>http://DEV-b2b-ainst1.scartel.dc/coms-web/api/getOrderById</con:originalUri><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="orderId" value="${create_AGREEMENT#Response#$.order.orderId}" xmlns="http://eviware.com/soapui/config"/></con:parameters></con:restRequest></con:config></con:testStep><con:testStep type="groovy" name="result" id="c2b2acc1-345b-4513-b757-c744c7b5639c"><con:settings/><con:config><script><![CDATA[def customerid = context.expand( '${getOrderById#Response#$.order.customerId}' )
+def billingid = context.expand( '${getOrderById#Response#$.order.billingAccount}' )
+def path = context.expand( '${#TestCase#Path}' )
+def startDate = new Date() 
+def hostb2b = context.expand( '${#Project#host-b2b}' )
+def phone = context.expand( '${getOrderById#Response#$.order.authorPhone}' )
+def linkref = context.expand( '${getOrderById#Response#$.order.linkRef}' )
+def hostb2c = context.expand( '${#Project#host-b2c}' )
+
+def out= new File(path+'AccWithSim'+billingid+'.txt')
+
+    out.createNewFile()
+    out <<  '\n' +"Дата создания: "+startDate.format("yyyy-MM-dd'T'HH:mm:ss")  
+    out <<  '\n'
+    out <<  '\n' + "Окружение: "+ hostb2b + " и " + hostb2c
+    out <<  '\n'
+    out <<  '\n' + "Номер договора абонента: " + billingid
+    out <<  '\n'
+    out <<  '\n' + "Номер телефона абонента: " + phone
+    out <<  '\n'
+    out <<  '\n' + "customerid: " + customerid
+    out <<  '\n'
+    out <<  '\n'+ "LinkRef: " + linkref    
+    out <<  '\n']]></script></con:config></con:testStep><con:testStep type="groovy" name="SetGlobal" id="9dc808c7-145f-425c-a6ef-36120f33adfc"><con:settings/><con:config><script>def N = context.expand( '${#TestCase#N}' )
+testRunner.testCase.setPropertyValue("N", "1" )
+def billingID = context.expand( '${#TestCase#BillingID}' )
+def bill = context.expand( '${getOrderById#Response#$.order.billingAccount}' )
+
+testRunner.testCase.setPropertyValue("BillingID", bill )
+testRunner.testCase.setPropertyValue("accountID", bill.substring(6) )
+
+
+</script></con:config></con:testStep><con:testStep type="calltestcase" name="getVacantSim" id="88099a49-3790-441c-adfc-74875d68cd0b"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>f076452a-212f-4fee-921e-2d23f29a3408</con:targetTestCase><con:properties><con:property><con:name>iccid</con:name><con:value>0200436367</con:value></con:property><con:property><con:name>imsi</con:name><con:value>250110200436367</con:value></con:property><con:property><con:name>ip</con:name><con:value>10.149.227.148</con:value></con:property></con:properties><con:returnProperties><con:entry>iccid</con:entry><con:entry>imsi</con:entry><con:entry>ip</con:entry></con:returnProperties><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="restrequest" name="SIM_ORDER" id="f7a5f889-7ab5-47f7-961e-b35b5640bc89"><con:settings/><con:config service="Corporate Order Management Service (CorpOMS)" resourcePath="/coms-web/api/createOrder" methodName="createOrder" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="SIM_ORDER" id="978de5b9-fe46-4a0d-870c-8ad76d390f25" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://${#Project#host-b2b-rest}:8062</con:endpoint><con:request>{"order": {
+   "createChannel": "REMOTE_DEALER",
+   "orderStatus": "INITIATE",
+   "orderStep": "INITIALIZATION",
+   "orderType": "SIM_ORDER",
+   "updateChannel": "REMOTE_DEALER",
+   "billingAccount": "${#TestCase#BillingID}",
+   "orderChangeDate": "2016-04-06T14:04:15.511+03:00",
+   "orderContent": {"SimOrder": {"deliveredSims": [   {
+      "branch": "YOTA-001",
+      "iccid": "${getVacantSim#iccid}",
+      "saleChannel": "REMOTE_DEALER",
+      "simSpec": "PHONELEGAL"
+   }]}}
+}}</con:request><con:originalUri>http://dev-b2b-ainst1.scartel.dc/coms-web/api/createOrder</con:originalUri><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="getDeliveredSimByIccid" id="28644b83-dd5e-46b5-bfd9-9061704f4be4"><con:settings/><con:config service="Corporate Customer Information Service" resourcePath="/cis-web/api/rpc/getDeliveredSimByIccid" methodName="getDeliveredSimByIccid" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="getDeliveredSimByIccid" id="b07b8003-f48c-4cab-bc51-bd85a94bf0cd" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://${#Project#host-b2b}:8086</con:endpoint><con:request/><con:originalUri>http://b2btst-js1.g4lab.com/cis-web/api/rpc/getDeliveredSimByIccid</con:originalUri><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="iccid" value="${getVacantSim#iccid}" xmlns="http://eviware.com/soapui/config"/></con:parameters></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="updateCorporatePerson" id="bbd85cff-d391-4c79-995e-7b721a277188"><con:settings/><con:config service="Corporate Customer Information Service" resourcePath="/cis-web/api/rpc/updateCorporatePerson" methodName="UpdateCorporatePerson" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="updateCorporatePerson" id="1bc11066-a0f1-420b-bad3-dd63ca8f1215" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://${#Project#host-b2b}:8086</con:endpoint><con:request>{"person": {
+   "hid": "${getDeliveredSimByIccid#Response#$.sim.holder.hid}",
+   "customerId": "${getDeliveredSimByIccid#Response#$.sim.holder.customerId}",
+   "status": "active",
+   "identififcation": [   {
+      "livingPeriod": {"fromDate": "2018-06-05T00:00:00.000+04:00"},
+      "attempt": "0",
+      "identificationStatus": "SUCCESS",
+      "identificationType": "MIA_CHECK"
+   }],
+   "name":    {
+      "firstName": "АЛЕКСЕЙ",
+      "lastName": "ОХРЕНЕНИКУС",
+      "middleName": "ВЛАДИМИРОВИЧ"
+   },
+   "personalDetails":    {
+      "gender": "Male",
+      "birthDate": "2018-06-02T00:00:00+03:00",
+      "birthPlace": "Петербург"
+   },
+   "address":    {
+      "livingPeriod":       {
+         "fromDate": "2018-06-02T00:00:00.000+03:00",
+         "untilTo": "2018-06-02T00:00:00.000+03:00"
+      },
+      "addressText": "Ставропольский край, г Кисловодск, ул Прудная",
+      "country": "РОССИЯ",
+      "addressType": "SubscriberLocation",
+      "city": "КИСЛОВОДСК",
+      "region": "СТАВРОПОЛЬСКИЙ",
+      "street": "ПРУДНАЯ"
+   },
+   "documentDetails":    {
+      "livingPeriod":       {
+         "fromDate": "2018-06-02T00:00:00.000+04:00"
+      },
+      "documentType": "PASSPORT_RU",
+      "documentSeries": "4005",
+      "documentNumber": "900056",
+      "issueDate": "2018-06-03T00:00:00.000+04:00",
+      "issueAuthority": "УВД",
+      "departmentCode": "876-374",
+      "expiryDate": "2018-06-04T00:00:00.000+04:00",
+      "author" : "SC_CUST:b70ef1cbf2e74c089d0286254519b1b3"
+   },
+   "position": "директор",
+   "role": "CEO"
+}}</con:request><con:originalUri>http://b2btst-js1.g4lab.com/cis-web/api/rpc/updateCorporatePerson</con:originalUri><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="SIM_ACTIVATION" id="dc9ce82a-d1af-4fa8-8d9d-a52eeedbcd1d"><con:settings/><con:config service="Corporate Order Management Service (CorpOMS)" resourcePath="/coms-web/api/createOrder" methodName="createOrder" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="SIM_ACTIVATION" id="978de5b9-fe46-4a0d-870c-8ad76d390f25" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://${#Project#host-b2b-rest}:8062</con:endpoint><con:request>{"order": {
+   "orderType": "SIM_ACTIVATION",
+   "createChannel": "SELF_CARE",
+   "billingAccount": "${#TestCase#BillingID}",
+   "orderContent": {"SimActivationOrder": {"activatedUnits": [{"sim":    {
+      "branch": " ",
+      "simCodes": [      {
+         "key": "${getVacantSim#iccid}",
+         "type": "ICCID"
+      }],
+      "simSpec": "PHONELEGAL"
+   }}]}}
+}}</con:request><con:originalUri>http://dev-b2b-ainst1.scartel.dc/coms-web/api/createOrder</con:originalUri><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="getExternalID" id="24d11b98-aeb8-4fcd-a367-758263ccc06a" disabled="true"><con:settings/><con:config service="Product Management API" resourcePath="/pm/v1/simcards" methodName="getSimCardsV1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="getExternalID" id="9b2b825b-725b-4f28-b56c-0d3f9926ba7a" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://${#Project#pm_api}:8080</con:endpoint><con:request/><con:originalUri>http://ft3-pm-api.g4lab.com/pm/v1/simcards</con:originalUri><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters>
+  <con:entry key="accountId" value="${#TestCase#accountID}"/>
+  <con:entry key="returnProducts" value="false"/>
+  <con:entry key="imsi" value="25011${getVacantSim#iccid}"/>
+  <con:entry key="returnPrices" value="false"/>
+</con:parameters></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="attrB2B-Unlim" id="ba3692c2-16c3-4fb7-af2e-45193ee07386" disabled="true"><con:settings/><con:config service="Billing API" resourcePath="/bill/v1/subscriptions/{subscriptionId}/attr" methodName="setSubscriptionAttr" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="attrB2B-Unlim" id="7f3e2257-9ec8-477b-9939-26bc476a2f33" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://${#Project#billapi}:8080</con:endpoint><con:request>{
+   "attrId": "100207",
+   "attrValue": "B2B-UNLIM"
+}</con:request><con:originalUri>http://ft3-bil-api.g4lab.com/bill/v1/subscriptions/32337336/attr</con:originalUri><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="subscriptionId" value="${getExternalID#Response#$[0].externalId}" xmlns="http://eviware.com/soapui/config"/></con:parameters></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="Available" id="d9268d34-8aad-46e8-bd9e-ed46a34c77f6"><con:settings/><con:config service="Product Management API" resourcePath="/pm/v2/products/available" methodName="getAvailableProductsV2" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Available" id="20f6572a-c2ed-42d8-9329-a1656febfaf3" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://${#Project#pm_api}:8080</con:endpoint><con:request/><con:originalUri>http://ft2-pm-api.g4lab.com/pm/v2/products/available</con:originalUri><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters>
+  <con:entry key="X-Branch" value="YOTA-001"/>
+  <con:entry key="accountId" value="${#TestCase#accountID}"/>
+  <con:entry key="imsi" value="25011${SIM_ACTIVATION#Response#$.order.orderContent.SimActivationOrder.activatedUnits[0].sim.simCodes[0].key}"/>
+  <con:entry key="salesChannel" value="SC"/>
+  <con:entry key="filter" value="packages"/>
+</con:parameters></con:restRequest></con:config></con:testStep><con:testStep type="groovy" name="calculate" id="1d469dd8-f8b8-4b74-be3c-0cdaabc4a609"><con:settings/><con:config><script>String minutes = context.expand( '${Available#Response#$.products[0].offerDetails.resources[1].prices[0].calculationRule.charValueUse[0].value}' )
+String prices = context.expand( '${Available#Response#$.products[0].offerDetails.resources[1].prices[0].calculationRule.charValueUse[1].value}' )
+def sms = context.expand( '${Available#Response#$.products[0].options[0].resource.prices[0].price.price.amount}' )
+
+minutesArr = minutes.split(",")
+pricesArr = prices.split(",")
+testRunner.testCase.setPropertyValue("tarif_gener" ,minutesArr[0] )
+testRunner.testCase.setPropertyValue("price_tarif_gener" ,pricesArr[0] )
+int fullPrice = Integer.parseInt(sms)+ Integer.parseInt(pricesArr[0])
+testRunner.testCase.setPropertyValue("full_price" ,fullPrice+'' )</script></con:config></con:testStep><con:testStep type="restrequest" name="apply" id="8d84f9ef-fcaa-493c-be98-d9639308e2fb"><con:settings/><con:config service="Product Management API" resourcePath="/pm/v2/products/apply" methodName="applyProductsV2" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="apply" id="c62e3c25-5f21-46ec-abfc-436b136bfa18" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://${#Project#pm_api}:8080</con:endpoint><con:request>{
+   "accountId": "${#TestCase#accountID}",
+   "imsi": "25011${SIM_ACTIVATION#Response#$.order.orderContent.SimActivationOrder.activatedUnits[0].sim.simCodes[0].key}",
+   "salesChannel": "SC",
+   "sendNotifications": false,
+   "product":    {
+      "action": "APPLY_PRODUCT",
+      "offerCode": "${Available#Response#$.products[0].applyingProduct.offerCode}",
+      "isAutoprolongEnabled": "${Available#Response#$.products[0].applyingProduct.isAutoprolongEnabled}",
+      "resources":       [
+                  {
+            "offerCode": "${Available#Response#$.products[0].applyingProduct.resources[0].offerCode}",
+            "resourceType": "${Available#Response#$.products[0].applyingProduct.resources[0].resourceType}",
+            "productSpecCode": "${Available#Response#$.products[0].applyingProduct.resources[0].productSpecCode}",
+            "capacity": "unlimited",
+            "unitOfMeasure": "${Available#Response#$.products[0].applyingProduct.resources[0].unitOfMeasure}",
+            "priceCode": "${Available#Response#$.products[0].applyingProduct.resources[0].priceCode}",
+            "price": 0
+         },
+                  {
+            "offerCode": "${Available#Response#$.products[0].applyingProduct.resources[1].offerCode}",
+            "resourceType": "${Available#Response#$.products[0].applyingProduct.resources[1].resourceType}",
+            "productSpecCode": "${Available#Response#$.products[0].applyingProduct.resources[1].productSpecCode}",
+            "capacity": "${#TestCase#tarif_gener}",
+            "unitOfMeasure": "${Available#Response#$.products[0].applyingProduct.resources[1].unitOfMeasure}",
+            "priceCode": "${Available#Response#$.products[0].applyingProduct.resources[1].priceCode}",
+            "price": "${#TestCase#price_tarif_gener}"
+         }
+      ],
+      "options": [      {
+         "offerCode": "${Available#Response#$.products[0].options[0].applyingOption.offerCode}",
+         "isAutoprolongEnabled": "${Available#Response#$.products[0].options[0].applyingOption.isAutoprolongEnabled}",
+         "resource":          {
+            "offerCode": "${Available#Response#$.products[0].options[0].applyingOption.resource.offerCode}",
+            "resourceType": "${Available#Response#$.products[0].options[0].applyingOption.resource.resourceType}",
+            "productSpecCode": "${Available#Response#$.products[0].options[0].applyingOption.resource.productSpecCode}",
+            "capacity": "unlimited",
+            "priceCode": "${Available#Response#$.products[0].options[0].applyingOption.resource.priceCode}",
+            "price": "${Available#Response#$.products[0].options[0].resource.prices[0].price.price.amount}"
+         }
+      }],
+      "price": "${#TestCase#price_tarif_gener}",
+      "totalAmount": "${#TestCase#full_price}"
+   },
+   "totalSum": "${#TestCase#full_price}"
+}</con:request><con:originalUri>http://ft2-pm-api.g4lab.com/pm/v2/products/apply</con:originalUri><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="groovy" name="List" id="292c4819-00a9-44e3-9ad3-b9e113e76198"><con:settings/><con:config><script>def billingid = context.expand( '${#TestCase#BillingID}' )
+def icc_id = context.expand( '${getVacantSim#iccid}' )
+def path = context.expand( '${#TestCase#Path}' )
+def ip = context.expand( '${getVacantSim#ip}' )
+def msisdn = context.expand( '${SIM_ACTIVATION#Response#$.order.orderContent.SimActivationOrder.activatedUnits[0].msisdn}' )
+
+def startDate = new Date() 
+
+def out= new File(path+'AccWithSim'+billingid+'.txt')
+ out &lt;&lt; '\n'+ "Дата выдачи: "+startDate.format("yyyy-MM-dd'T'HH:mm:ss")   +" | msisdn:  "+ msisdn +  " | ICCID: " + icc_id + " | IMSI: 25011"+ icc_id + " | ip адрес:  " + ip + " | сим активирована"  
+
+    </script></con:config></con:testStep><con:testStep type="groovy" name="checkCount" id="7ceb5889-0088-4748-b8b8-3f6301be5a8d"><con:settings/><con:config><script>def N = context.expand( '${#TestCase#N}' )
+def SIMCount = context.expand( '${#TestCase#SIMCount}' )
+
+ if (N != SIMCount)
+{
+	N = N.toInteger() + 1
+
+	testRunner.testCase.setPropertyValue("N", N.toString() )
+
+  testRunner.gotoStepByName("getVacantSim")
+}</script></con:config></con:testStep><con:testStep type="restrequest" name="addMoney" id="63dc2081-e4bb-4407-9f31-2bd6ae98bd74"><con:settings/><con:config service="http://ps.gate" resourcePath="/adapters/cyber-proto/cyberplat" methodName="cyberplat" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="addMoney" id="95e6010e-e18d-4cb5-8881-fde27173427c" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>https://${#Project#host-b2c}-payment-gate.g4lab.com</con:endpoint><con:request/><con:originalUri>https://meteor-payment-gate.g4lab.com/adapters/cyber-proto/cyberplat/adapters/cyber-proto/cyberplat</con:originalUri><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters>
+  <con:entry key="amount" value="${#TestCase#money}"/>
+  <con:entry key="action" value="payment"/>
+  <con:entry key="number" value="${getVacantSim#iccid}"/>
+  <con:entry key="receipt" value="${= String receipt = new java.text.SimpleDateFormat(&quot;yyyyMMddhhmmss&quot;).format(new Date()+1).toString();}"/>
+  <con:entry key="date" value="${= String currentDate = new java.text.SimpleDateFormat(&quot;yyyy-MM-dd'T'HH:mm:ss&quot;).format(new Date()).toString();}"/>
+  <con:entry key="type" value="2"/>
+</con:parameters></con:restRequest></con:config></con:testStep><con:properties><con:property><con:name>SIMCount</con:name><con:value>1</con:value></con:property><con:property><con:name>N</con:name><con:value>1</con:value></con:property><con:property><con:name>Path</con:name><con:value>C:\Projects\!B2BTXT</con:value></con:property><con:property><con:name>BillingID</con:name><con:value>11220024018538</con:value></con:property><con:property><con:name>accountID</con:name><con:value>24018538</con:value></con:property><con:property><con:name>number</con:name><con:value>79724789765</con:value></con:property><con:property><con:name>data</con:name><con:value>2020-10-01T00:00:00.000+03:00</con:value></con:property><con:property><con:name>region</con:name><con:value>78</con:value></con:property><con:property><con:name>simlimit</con:name><con:value>800</con:value></con:property><con:property><con:name>money</con:name><con:value>20000</con:value></con:property><con:property><con:name>tarif_gener</con:name><con:value>200</con:value></con:property><con:property><con:name>price_tarif_gener</con:name><con:value>390</con:value></con:property><con:property><con:name>full_price</con:name><con:value>440</con:value></con:property></con:properties><con:reportParameters/><con:breakPoints><con:testStepId>18ede8e0-c948-4be5-9a01-faf62475ce23</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>17a458cb-d50c-466e-b37e-bf9afe1e3511</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>ccd84e25-12fb-4a73-a718-9911f3b695c3</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>5c4490e6-8cd7-4d22-b335-502b53285fb9</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>701b8157-653c-4182-be99-323c9801a764</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>3287b16b-18ad-4996-b38c-9dd51b0c782e</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>6cbd5d5e-e099-458b-96ca-fafa3ae8a4fe</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>0d48d0a4-3401-4144-a559-7ea556fb346e</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>f819a3a8-c43a-46fe-a79e-50df37748d38</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>2135ae48-2833-4369-86e2-b2ad786b9148</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>03674dc7-86fb-4ff4-a0a5-5fbaff3473f8</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>76e19857-b832-46d9-8f8b-a6934854467c</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>f2117cd6-c418-49d7-b543-1e051af74c64</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>81cab15c-037d-4b6a-a8bb-2c5d4983429f</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>5a936783-114a-41f1-b69e-b1e5e9fb2a89</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>8c99e53a-24cf-45f6-973e-ebae20d2f961</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>6a65fe4b-d826-473b-b248-fe8a04091aab</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>1d14f8a5-3702-491a-a337-a0d52cd300de</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>aad7bcb7-1be8-448c-b353-04a286edd678</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>cc7ea6c1-3475-416d-a93e-3258d3678e25</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>1a637798-af4c-431b-9abf-0d7e6157227e</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>c4eb4bfd-75e9-4434-880f-ca8c1c1d0172</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>ba6f215d-40e2-4385-99a4-63fd8a71ebbf</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>1b52064b-ab87-4339-8516-640be4572193</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>4d1cbb32-d3dd-4c13-b683-5e0fd6a399fb</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>23ed6e75-f3b3-4977-ac07-b00a52f14f22</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>5d2d687c-a5fd-4c2b-98f0-40c8edffb9ed</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>d3662775-3d62-46a0-bd27-5d7f52a8fd87</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>10b2e7d3-636a-44c4-a559-67c665773dad</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>f854af11-bd63-48ae-807c-ff5a18cc74a7</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>e79c0ab4-8e73-436f-9a09-4df35484c046</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>a3bfbaa8-a74e-45c9-a748-fe3ea59ab3b7</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>c8d242d8-ace6-4bd6-b1e3-dbb8c4860f4f</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>0c944032-d29a-4c17-93c9-fcec5cbb2666</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>25f14859-a26a-48d1-b414-33da497b73df</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>3bf22591-bcf4-4c38-a88c-361651baf325</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>0be8534d-4a71-454b-afa9-52255952e721</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>7de2b9a7-4fc5-4d67-b199-abeef81f5b4e</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>c862f3a6-e953-4c7c-b5ef-8ac9c12ee291</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>da9da319-c472-45be-aa8a-48b0bd2fc76a</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints></con:testCase>

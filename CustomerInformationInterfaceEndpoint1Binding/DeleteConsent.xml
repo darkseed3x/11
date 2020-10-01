@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation id="25698a65-1ffa-40bc-8318-f338a309ace1" isOneWay="false" action="http://www.yota.ru/vox/services/wsdl/CustomerInformation/DeleteConsent" name="DeleteConsent" bindingOperationName="DeleteConsent" type="Request-Response" outputName="DeleteConsentOut" inputName="DeleteConsentIn" receivesAttachments="false" sendsAttachments="false" anonymous="optional" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="25698a65-1ffa-40bc-8318-f338a309ace1fileName">DeleteConsent</con:setting></con:settings><con:call id="9f2328c4-91df-4caa-8949-2efc8da949bd" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://oxford-esb.g4lab.com:8080/CustomerInformationService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cus="http://www.yota.ru/vox/services/customerInformation" xmlns:core="http://www.roox.ru/products/common/core">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <cus:DeleteConsentRequest>\r
+         <!--Optional:-->\r
+         <core:extension>\r
+            <!--Zero or more repetitions:-->\r
+            <core:item>?</core:item>\r
+         </core:extension>\r
+         <consentId>\r
+            <key>?</key>\r
+            <value>?</value>\r
+         </consentId>\r
+      </cus:DeleteConsentRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.yota.ru/vox/services/wsdl/CustomerInformation/DeleteConsent"/></con:call></con:operation>

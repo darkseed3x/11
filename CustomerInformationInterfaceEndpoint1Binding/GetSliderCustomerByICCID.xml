@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation id="3d0901ff-fa14-4277-9943-de128a988d57" isOneWay="false" action="http://www.yota.ru/vox/services/wsdl/CustomerInformation/GetSliderCustomerByICCID" name="GetSliderCustomerByICCID" bindingOperationName="GetSliderCustomerByICCID" type="Request-Response" outputName="GetSliderCustomerByICCIDOut" inputName="GetSliderCustomerByICCIDIn" receivesAttachments="false" sendsAttachments="false" anonymous="optional" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="3d0901ff-fa14-4277-9943-de128a988d57fileName">GetSliderCustomerByICCID</con:setting></con:settings><con:call id="59252a48-ce7b-44db-9123-b5cf9f507c21" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://oxford-esb.g4lab.com:8080/CustomerInformationService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cus="http://www.yota.ru/vox/services/customerInformation" xmlns:core="http://www.roox.ru/products/common/core">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <cus:GetSliderCustomerByICCIDRequest>\r
+         <!--Optional:-->\r
+         <core:extension>\r
+            <!--Zero or more repetitions:-->\r
+            <core:item>?</core:item>\r
+         </core:extension>\r
+         <iccid>?</iccid>\r
+      </cus:GetSliderCustomerByICCIDRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.yota.ru/vox/services/wsdl/CustomerInformation/GetSliderCustomerByICCID"/></con:call></con:operation>

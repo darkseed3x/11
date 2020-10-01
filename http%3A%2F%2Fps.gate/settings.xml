@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:interface xsi:type="con:RestService" id="15494c8f-4fbb-426f-a64b-0958b88eaa13" wadlVersion="http://wadl.dev.java.net/2009/02" name="http://ps.gate" type="rest" basePath="" definitionUrl="C:\Users\xxmanurv\Desktop\_1.wadl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="15494c8f-4fbb-426f-a64b-0958b88eaa13fileName">http%3A%2F%2Fps.gate</con:setting></con:settings><con:definitionCache type="TEXT" rootPart="file:/C:/Users/xxmanurv/Desktop/_1.wadl"><con:part><con:url>file:/C:/Users/xxmanurv/Desktop/_1.wadl</con:url><con:content><![CDATA[<application xmlns="http://wadl.dev.java.net/2009/02">
+  <doc xml:lang="en" title="http://ps.gate"/>
+  <resources base="https://">
+    <resource path="adapters/cyber-proto/cyberplat" id="cyberplat">
+      <doc xml:lang="en" title="cyberplat"/>
+      <param name="action" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="number" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="receipt" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="date" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="amount" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="type" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="GET" id="cyberplat">
+        <doc xml:lang="en" title="cyberplat"/>
+        <request/>
+        <response status="200">
+          <representation mediaType="text/html;charset=Windows-1251"/>
+        </response>
+        <response status="">
+          <representation mediaType="text/html"/>
+        </response>
+        <response status="0">
+          <representation mediaType=""/>
+          <representation mediaType=""/>
+          <representation mediaType=""/>
+          <representation mediaType=""/>
+          <representation mediaType=""/>
+          <representation mediaType=""/>
+          <representation mediaType=""/>
+          <representation mediaType=""/>
+          <representation mediaType=""/>
+          <representation mediaType=""/>
+          <representation mediaType=""/>
+          <representation mediaType=""/>
+          <representation mediaType=""/>
+          <representation mediaType=""/>
+          <representation mediaType=""/>
+          <representation mediaType=""/>
+        </response>
+      </method>
+    </resource>
+  </resources>
+</application>]]></con:content><con:type>http://wadl.dev.java.net/2009/02</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>https://</con:endpoint></con:endpoints></con:interface>

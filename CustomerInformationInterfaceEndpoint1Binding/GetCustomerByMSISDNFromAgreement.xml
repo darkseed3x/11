@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation id="702bcfaf-bb52-4b44-a289-a228052ea00d" isOneWay="false" action="http://www.yota.ru/vox/services/wsdl/CustomerInformation/GetCustomerByMSISDNFromAgreement" name="GetCustomerByMSISDNFromAgreement" bindingOperationName="GetCustomerByMSISDNFromAgreement" type="Request-Response" outputName="GetCustomerByMSISDNFromAgreementOut" inputName="GetCustomerByMSISDNFromAgreementIn" receivesAttachments="false" sendsAttachments="false" anonymous="optional" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="702bcfaf-bb52-4b44-a289-a228052ea00dfileName">GetCustomerByMSISDNFromAgreement</con:setting></con:settings><con:call id="64370d76-ca49-4b05-b7d4-f534bce72e6b" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://oxford-esb.g4lab.com:8080/CustomerInformationService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cus="http://www.yota.ru/vox/services/customerInformation" xmlns:core="http://www.roox.ru/products/common/core">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <cus:GetCustomerByMSISDNFromAgreementRequest>\r
+         <!--Optional:-->\r
+         <core:extension>\r
+            <!--Zero or more repetitions:-->\r
+            <core:item>?</core:item>\r
+         </core:extension>\r
+         <msisdn>?</msisdn>\r
+         <!--Optional:-->\r
+         <includePotentialClients>?</includePotentialClients>\r
+      </cus:GetCustomerByMSISDNFromAgreementRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.yota.ru/vox/services/wsdl/CustomerInformation/GetCustomerByMSISDNFromAgreement"/><con:wsrmConfig version="1.2"/></con:call></con:operation>

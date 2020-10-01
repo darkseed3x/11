@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation id="c10ff59c-155c-492c-a10c-1a14dd83a07c" isOneWay="false" action="http://www.yota.ru/vox/services/wsdl/CustomerInformation/GetCustomerByAccountId" name="GetCustomerByAccountId" bindingOperationName="GetCustomerByAccountId" type="Request-Response" outputName="GetCustomerByAccountIdOut" inputName="GetCustomerByAccountIdIn" receivesAttachments="false" sendsAttachments="false" anonymous="optional" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="c10ff59c-155c-492c-a10c-1a14dd83a07cfileName">GetCustomerByAccountId</con:setting></con:settings><con:call id="c10c339b-c7d9-4e94-afef-749e388b99c8" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://oxford-esb.g4lab.com:8080/CustomerInformationService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cus="http://www.yota.ru/vox/services/customerInformation" xmlns:core="http://www.roox.ru/products/common/core">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <cus:GetCustomerByAccountIdRequest>\r
+         <!--Optional:-->\r
+         <core:extension>\r
+            <!--Zero or more repetitions:-->\r
+            <core:item>?</core:item>\r
+         </core:extension>\r
+         <accountId>?</accountId>\r
+         <includeAgreements>?</includeAgreements>\r
+      </cus:GetCustomerByAccountIdRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.yota.ru/vox/services/wsdl/CustomerInformation/GetCustomerByAccountId"/></con:call></con:operation>

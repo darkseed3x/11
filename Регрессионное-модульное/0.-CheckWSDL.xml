@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="0. CheckWSDL" searchProperties="true" id="8a4ffe3a-3625-46bf-8e58-9088bfdfdf71" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="8a4ffe3a-3625-46bf-8e58-9088bfdfdf71fileName">0.-CheckWSDL</con:setting></con:settings><con:testStep type="httprequest" name="DGS" id="7e57af87-be22-4673-88d5-1757d7869843"><con:settings/><con:config method="GET" xsi:type="con:HttpRequest" name="DGS" id="89249671-7ad2-47b0-9a96-74e41f41de5e" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://${#Project#host-b2b}-jservice.g4lab.com:8080/dgs-web/DocumentGenerationEndpoint?wsdl</con:endpoint><con:request/><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:config></con:testStep><con:testStep type="httprequest" name="SOFS" id="b93f6811-026a-4387-8d99-e54050e07f57"><con:settings/><con:config method="GET" xsi:type="con:HttpRequest" name="SOFS" id="44899202-35c3-4f41-81b2-c7bf1fd1d5d5" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://${#Project#host-b2b}-jservice.g4lab.com:8080/sofs-web/SimOrderFacadeEndpoint?wsdl</con:endpoint><con:request/><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:config></con:testStep><con:testStep type="httprequest" name="PUMS" id="a228d4c1-773a-4523-a984-6d3dea8fc4c3"><con:settings/><con:config method="GET" xsi:type="con:HttpRequest" name="PUMS" id="7af48aed-0342-44a2-8ee6-a4328a0ff10e" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://${#Project#selfcare}.emdev.ru:8080/user-service/services/PortalUserManagement?wsdl</con:endpoint><con:request/><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:config></con:testStep><con:testStep type="httprequest" name="CorpIS" id="648ae4aa-05da-4bc4-b65d-9d82592fc155"><con:settings/><con:config method="GET" xsi:type="con:HttpRequest" name="CorpIS" id="49b7d85c-b1c8-4a7b-89cb-7297dc75be78" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://${#Project#host-b2b}-jservice.g4lab.com:8080/is-web/CorporateInventoryEndpoint?wsdl </con:endpoint><con:request/><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:config></con:testStep><con:testStep type="httprequest" name="CDMS" id="bd42779a-2089-4653-a1b3-5b8343978fb6"><con:settings/><con:config method="GET" xsi:type="con:HttpRequest" name="CDMS" id="76c7428c-28b0-4a09-8708-0d219dd45d48" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://${#Project#host-b2b}-jservice.g4lab.com:8080/cdm-web/ClientDocumentManagementEndpoint?wsdl </con:endpoint><con:request/><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:config></con:testStep><con:testStep type="httprequest" name="ADMS" id="1a77e3a9-b15a-4fb3-ad40-0b08be4da15a"><con:settings/><con:config method="GET" xsi:type="con:HttpRequest" name="ADMS" id="dcc1a723-ae45-4066-957b-567ba2ad99b7" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://${#Project#host-b2b}-jservice.g4lab.com:8080/adms-web/ArchivatorDocumentManagementEndpoint?wsdl</con:endpoint><con:request/><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:config></con:testStep><con:testStep type="httprequest" name="CorpCIS" id="d1f8e7b5-7bc0-4aac-a034-a5b6f728715b"><con:settings/><con:config method="GET" xsi:type="con:HttpRequest" name="CorpCIS" id="ad249af4-2da1-4c16-89b2-b57b59f6e5b6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://${#Project#host-b2b}-jservice.g4lab.com:8080/cis-web/CorpCustomerInformationServiceImpl?wsdl </con:endpoint><con:request/><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:config></con:testStep><con:testStep type="httprequest" name="CorpCPS" id="30ee43b0-35b5-44c2-bdd6-d8ba526515aa"><con:settings/><con:config method="GET" xsi:type="con:HttpRequest" name="CorpCPS" id="82d9cb23-e546-46c1-9c86-2a8fd693e6c3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://b2btst-ttdb1.g4lab.com:8080/customer-product-ejb/CustomerProduct/CustomerProductServiceBean?wsdl</con:endpoint><con:request/><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:config></con:testStep><con:testStep type="httprequest" name="CorpOMS" id="51c45b86-08d4-493b-b87b-9102d392d996"><con:settings/><con:config method="GET" xsi:type="con:HttpRequest" name="CorpOMS" id="cee82032-d8db-4c95-9b57-e659db0c5baa" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://${#Project#host-b2b}-jservice.g4lab.com:8080/oms-web/OrderEndpoint?wsdl</con:endpoint><con:request/><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:config></con:testStep><con:testStep type="httprequest" name="Semaphore" id="c8df5efd-a74f-43fa-9957-a3e210e413c1"><con:settings/><con:config method="GET" xsi:type="con:HttpRequest" name="Semaphore" id="ac4d8045-3e09-4397-b4e3-baee68f02fe6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://${#Project#host-b2b}-jservice.g4lab.com:8080/semaphore-web/ActivityServiceInterface?wsdl </con:endpoint><con:request/><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:config></con:testStep><con:testStep type="httprequest" name="CorpCAMS" id="ee513b9d-4e11-4d15-b094-0e7d79105cda"><con:settings/><con:config method="GET" xsi:type="con:HttpRequest" name="CorpCAMS" id="cb2b9a90-1163-4558-82be-4785dd8b2c64" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://${#Project#host-b2b}-esb.g4lab.com:8080/Processes/CustomerAccountManagementService/CustomerAccount.serviceagent?wsdl</con:endpoint><con:request/><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:config></con:testStep><con:testStep type="httprequest" name="CorpPMFS" id="88c6af1e-4d8b-4c96-84a8-c97befe60c14"><con:settings/><con:config method="GET" xsi:type="con:HttpRequest" name="CorpPMFS" id="2a18ecd1-716e-4d93-b7e1-64383aed8a3d" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://${#Project#host-b2b}-esb.g4lab.com:8080/Processes/ProductManagementFacadeService/ProductManagementFacade.serviceagent?wsdl </con:endpoint><con:request/><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:config></con:testStep><con:testStep type="groovy" name="ToLog" id="4e369ba6-83b9-4db5-8a5d-e0e0c5a89951"><con:settings/><con:config><script><![CDATA[def path = context.expand( '${#TestSuite#Path}' )
+def hostb2b = context.expand( '${#Project#host-b2b}' )
+def startDate = new Date() 
+def out = new File(path+'Отчет по окружению - '+hostb2b+' - '+startDate.format("yyyy-MM-dd")+'.txt')
+def countError = 0
+def DGS = context.expand( '${DGS#Response#declare namespace wsdl=\'http://schemas.xmlsoap.org/wsdl/\'; //wsdl:definitions[1]/@name}' )
+def SOFS = context.expand( '${SOFS#Response#declare namespace wsdl=\'http://schemas.xmlsoap.org/wsdl/\'; //wsdl:definitions[1]/@name}' )
+def PUMS = context.expand( '${PUMS#Response#declare namespace wsdl=\'http://schemas.xmlsoap.org/wsdl/\'; //wsdl:definitions[1]/@name}' )
+def CorpIS = context.expand( '${CorpIS#Response#declare namespace wsdl=\'http://schemas.xmlsoap.org/wsdl/\'; //wsdl:definitions[1]/@name}' )
+def CDMS = context.expand( '${CDMS#Response#declare namespace wsdl=\'http://schemas.xmlsoap.org/wsdl/\'; //wsdl:definitions[1]/@name}' )
+def ADMS = context.expand( '${ADMS#Response#declare namespace wsdl=\'http://schemas.xmlsoap.org/wsdl/\'; //wsdl:definitions[1]/@name}' )
+def CorpCIS = context.expand( '${CorpCIS#Response#declare namespace wsdl=\'http://schemas.xmlsoap.org/wsdl/\'; //wsdl:definitions[1]/@name}' )
+def CorpCPS = context.expand( '${CorpCPS#Response#declare namespace wsdl=\'http://schemas.xmlsoap.org/wsdl/\'; //wsdl:definitions[1]/@name}' )
+def CorpOMS = context.expand( '${CorpOMS#Response#declare namespace wsdl=\'http://schemas.xmlsoap.org/wsdl/\'; //wsdl:definitions[1]/@name}' )
+def Semaphore = context.expand( '${Semaphore#Response#declare namespace wsdl=\'http://schemas.xmlsoap.org/wsdl/\'; //wsdl:definitions[1]/@name}' )
+def CorpCAMS = context.expand( '${CorpCAMS#Response#declare namespace wsdl=\'http://schemas.xmlsoap.org/wsdl/\'; //wsdl:definitions[1]/@name}' )
+def CorpPMFS = context.expand( '${CorpPMFS#Response#declare namespace wsdl=\'http://schemas.xmlsoap.org/wsdl/\'; //wsdl:definitions[1]/@name}' )
+def DGSError = context.expand( '${DGS#Response}' )
+def SOFSError = context.expand( '${SOFS#Response}' )
+def PUMSError = context.expand( '${PUMS#Response}' )
+def CorpISError = context.expand( '${CorpIS#Response}' )
+def CDMSError = context.expand( '${CDMS#Response}' )
+def ADMSError = context.expand( '${ADMS#Response}' )
+def CorpCISError = context.expand( '${CorpCIS#Response}' )
+def CorpCPSError = context.expand( '${CorpCPS#Response}' )
+def CorpOMSError = context.expand( '${CorpOMS#Response}' )
+def SemaphoreError = context.expand( '${Semaphore#Response}' )
+def CorpCAMSError = context.expand( '${CorpCAMS#Response}' )
+def CorpPMFSError = context.expand( '${CorpPMFS#Response}' )
+
+          out <<  '\n'
+          out <<  '\n'
+          out <<  'Проверка окружения от ' + startDate.format("yyyy-MM-dd' 'HH:mm") 
+          out <<  '\n'
+          out <<  '\n'
+          out <<  '------------------Проверка WSDL---------------------'
+
+
+
+
+
+
+
+
+
+     if(DGS == "DocumentGenerationEndpointImplService" ) { 
+          out <<  '\n'
+     	out <<  'DGS OK'
+     } else { 
+          out <<  '\n'
+     	out <<   'DGS ERROR'
+countError = countError + 1
+     def err = new File(path+'Проблемы окружения - '+hostb2b+' - '+startDate.format("yyyy-MM-dd")+'.txt')
+      err <<  '\n'
+      err <<  '----------------------------------------------------------------------'
+      err <<  '\n'
+      err <<  'DGS WSDL ERROR' 
+      err <<  '\n'
+      err <<  '\n'
+      err << DGSError
+      err <<  '\n'
+      err <<  '\n'
+      err <<  '----------------------------------------------------------------------'
+      
+     } 
+
+
+
+
+     if(SOFS == "SimOrderFacadeEndpointImplService" ) { 
+          out <<  '\n'
+     	out <<  'SOFS OK'
+     } else { 
+          out <<  '\n'
+     	out <<   'SOFS ERROR'
+countError = countError + 1
+     def err = new File(path+'Проблемы окружения - '+hostb2b+' - '+startDate.format("yyyy-MM-dd")+'.txt')
+      err <<  '\n'
+      err <<  '----------------------------------------------------------------------'
+      err <<  '\n'
+      err <<  'SOFS WSDL ERROR' 
+      err <<  '\n'
+      err <<  '\n'
+      err << SOFSError
+      err <<  '\n'
+      err <<  '\n'
+      err <<  '----------------------------------------------------------------------'
+      
+     } 
+
+
+     if(PUMS == "PortalUserManagement" ) { 
+          out <<  '\n'
+     	out <<  'PUMS OK'
+     } else { 
+          out <<  '\n'
+     	out <<   'PUMS ERROR'
+countError = countError + 1
+     def err = new File(path+'Проблемы окружения - '+hostb2b+' - '+startDate.format("yyyy-MM-dd")+'.txt')
+      err <<  '\n'
+      err <<  '----------------------------------------------------------------------'
+      err <<  '\n'
+      err <<  'PUMS WSDL ERROR' 
+      err <<  '\n'
+      err <<  '\n'
+      err << PUMSError
+      err <<  '\n'
+      err <<  '\n'
+      err <<  '----------------------------------------------------------------------'
+      
+     } 
+
+
+     if(CorpIS == "CorporateInventoryEndpointService" ) { 
+          out <<  '\n'
+     	out <<  'CorpIS OK'
+     } else { 
+          out <<  '\n'
+     	out <<   'CorpIS ERROR'
+countError = countError + 1
+     def err = new File(path+'Проблемы окружения - '+hostb2b+' - '+startDate.format("yyyy-MM-dd")+'.txt')
+      err <<  '\n'
+      err <<  '----------------------------------------------------------------------'
+      err <<  '\n'
+      err <<  'CorpIS WSDL ERROR' 
+      err <<  '\n'
+      err <<  '\n'
+      err << CorpISError
+      err <<  '\n'
+      err <<  '\n'
+      err <<  '----------------------------------------------------------------------'
+      
+     } 
+
+
+     if(CDMS == "ClientDocumentManagementEndpointImplService" ) { 
+          out <<  '\n'
+     	out <<  'CDMS OK'
+     } else { 
+          out <<  '\n'
+     	out <<   'CDMS ERROR'
+countError = countError + 1
+     def err = new File(path+'Проблемы окружения - '+hostb2b+' - '+startDate.format("yyyy-MM-dd")+'.txt')
+      err <<  '\n'
+      err <<  '----------------------------------------------------------------------'
+      err <<  '\n'
+      err <<  'CDMS WSDL ERROR' 
+      err <<  '\n'
+      err <<  '\n'
+      err << CDMSError
+      err <<  '\n'
+      err <<  '\n'
+      err <<  '----------------------------------------------------------------------'
+      
+     } 
+
+
+     if(ADMS == "ArchivatorDocumentManagementEndpointImplService" ) { 
+          out <<  '\n'
+     	out <<  'ADMS OK'
+     } else { 
+          out <<  '\n'
+     	out <<   'ADMS ERROR'
+countError = countError + 1
+     def err = new File(path+'Проблемы окружения - '+hostb2b+' - '+startDate.format("yyyy-MM-dd")+'.txt')
+      err <<  '\n'
+      err <<  '----------------------------------------------------------------------'
+      err <<  '\n'
+      err <<  'ADMS WSDL ERROR' 
+      err <<  '\n'
+      err <<  '\n'
+      err << ADMSError
+      err <<  '\n'
+      err <<  '\n'
+      err <<  '----------------------------------------------------------------------'
+      
+     } 
+
+
+     if(CorpCIS == "CorpCustomerInformationServiceImplService" ) { 
+          out <<  '\n'
+     	out <<  'CorpCIS OK'
+     } else { 
+          out <<  '\n'
+     	out <<   'CorpCIS ERROR'
+countError = countError + 1
+     def err = new File(path+'Проблемы окружения - '+hostb2b+' - '+startDate.format("yyyy-MM-dd")+'.txt')
+      err <<  '\n'
+      err <<  '----------------------------------------------------------------------'
+      err <<  '\n'
+      err <<  'CorpCIS WSDL ERROR' 
+      err <<  '\n'
+      err <<  '\n'
+      err << CorpCISError
+      err <<  '\n'
+      err <<  '\n'
+      err <<  '----------------------------------------------------------------------'
+      
+     } 
+
+
+     if(CorpCPS == "CorporateCustomerProduct" ) { 
+          out <<  '\n'
+     	out <<  'CorpCPS OK'
+     } else { 
+          out <<  '\n'
+     	out <<   'CorpCPS ERROR'
+countError = countError + 1
+     def err = new File(path+'Проблемы окружения - '+hostb2b+' - '+startDate.format("yyyy-MM-dd")+'.txt')
+      err <<  '\n'
+      err <<  '----------------------------------------------------------------------'
+      err <<  '\n'
+      err <<  'CorpCPS WSDL ERROR' 
+      err <<  '\n'
+      err <<  '\n'
+      err << CorpCPSError
+      err <<  '\n'
+      err <<  '\n'
+      err <<  '----------------------------------------------------------------------'
+      
+     } 
+
+
+     if(CorpOMS == "OrderEndpointImplService" ) { 
+          out <<  '\n'
+     	out <<  'CorpOMS OK'
+     } else { 
+          out <<  '\n'
+     	out <<   'CorpOMS ERROR'
+countError = countError + 1
+     def err = new File(path+'Проблемы окружения - '+hostb2b+' - '+startDate.format("yyyy-MM-dd")+'.txt')
+      err <<  '\n'
+      err <<  '----------------------------------------------------------------------'
+      err <<  '\n'
+      err <<  'CorpOMS WSDL ERROR' 
+      err <<  '\n'
+      err <<  '\n'
+      err << CorpOMSError
+      err <<  '\n'
+      err <<  '\n'
+      err <<  '----------------------------------------------------------------------'
+      
+     } 
+
+
+     if(Semaphore == "Activity" ) { 
+          out <<  '\n'
+     	out <<  'Semaphore OK'
+     } else { 
+          out <<  '\n'
+     	out <<   'Semaphore ERROR'
+countError = countError + 1
+     def err = new File(path+'Проблемы окружения - '+hostb2b+' - '+startDate.format("yyyy-MM-dd")+'.txt')
+      err <<  '\n'
+      err <<  '----------------------------------------------------------------------'
+      err <<  '\n'
+      err <<  'Semaphore WSDL ERROR' 
+      err <<  '\n'
+      err <<  '\n'
+      err << SemaphoreError
+      err <<  '\n'
+      err <<  '\n'
+      err <<  '----------------------------------------------------------------------'
+      
+     } 
+
+
+     if(CorpCAMS == "Untitled" ) { 
+          out <<  '\n'
+     	out <<  'CorpCAMS OK'
+     } else { 
+          out <<  '\n'
+     	out <<   'CorpCAMS ERROR'
+countError = countError + 1
+     def err = new File(path+'Проблемы окружения - '+hostb2b+' - '+startDate.format("yyyy-MM-dd")+'.txt')
+      err <<  '\n'
+      err <<  '----------------------------------------------------------------------'
+      err <<  '\n'
+      err <<  'CorpCAMS WSDL ERROR' 
+      err <<  '\n'
+      err <<  '\n'
+      err << CorpCAMSError
+      err <<  '\n'
+      err <<  '\n'
+      err <<  '----------------------------------------------------------------------'
+      
+     } 
+
+
+     if(CorpPMFS == "Untitled" ) { 
+          out <<  '\n'
+     	out <<  'CorpPMFS OK'
+     } else { 
+          out <<  '\n'
+     	out <<   'CorpPMFS ERROR'
+countError = countError + 1
+     def err = new File(path+'Проблемы окружения - '+hostb2b+' - '+startDate.format("yyyy-MM-dd")+'.txt')
+      err <<  '\n'
+      err <<  '----------------------------------------------------------------------'
+      err <<  '\n'
+      err <<  'CorpPMFS WSDL ERROR' 
+      err <<  '\n'
+      err <<  '\n'
+      err << CorpPMFSError
+      err <<  '\n'
+      err <<  '\n'
+      err <<  '----------------------------------------------------------------------'
+      
+     } 
+
+      out <<  '\n'
+      out <<  '----------------------------------------------------'
+      out <<  '\n'
+
+      if (countError > 0) {
+      	      out <<  '\n'
+      	      out <<  '!!!!Проблемы с WSDL!!!! Количество: ' + countError+ ' Дальнейшие проверки некорректны.'
+                out <<  '\n'
+  
+      	} 
+
+
+]]></script></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase>

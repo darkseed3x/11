@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation id="84fd14de-146b-4031-8712-8e7b2aa02fae" isOneWay="false" action="http://www.yota.ru/vox/services/wsdl/CustomerInformation/InactivateCustomer" name="InactivateCustomer" bindingOperationName="InactivateCustomer" type="Request-Response" outputName="InactivateCustomerOut" inputName="InactivateCustomerIn" receivesAttachments="false" sendsAttachments="false" anonymous="optional" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="84fd14de-146b-4031-8712-8e7b2aa02faefileName">InactivateCustomer</con:setting></con:settings><con:call id="182a4d19-ffa9-4d74-9ef8-fbe3f598e1ca" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://oxford-esb.g4lab.com:8080/CustomerInformationService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cus="http://www.yota.ru/vox/services/customerInformation">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <cus:InactivateCustomerRequest>\r
+         <customerKey>\r
+            <key>?</key>\r
+            <value>?</value>\r
+         </customerKey>\r
+      </cus:InactivateCustomerRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.yota.ru/vox/services/wsdl/CustomerInformation/InactivateCustomer"/></con:call></con:operation>

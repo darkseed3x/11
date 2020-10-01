@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation isOneWay="false" action="http://www.yota.ru/vox/services/b2b/wsdl/CorpCustomerInformation/GetCustomerByMsisdn" name="getCustomerByMsisdn" bindingOperationName="getCustomerByMsisdn" type="Request-Response" outputName="GetCustomerByMsisdnOut" inputName="GetCustomerByMsisdnIn" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="2b31abbb-de86-45f0-84ab-3a75a81282b5" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="2b31abbb-de86-45f0-84ab-3a75a81282b5fileName">getCustomerByMsisdn</con:setting></con:settings><con:call name="Request 1" id="e3907e56-9d68-4430-9cee-a48b9639d015"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://b2btst-corpjs-cis.g4lab.com:8080/cis-web/CorpCustomerInformationServiceImpl</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cus="http://www.yota.ru/vox/b2b/services/customerInformation">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <cus:GetCustomerByMsisdnRequest>
+         <includeAgreements>?</includeAgreements>
+         <msisdn>?</msisdn>
+      </cus:GetCustomerByMsisdnRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.yota.ru/vox/services/b2b/wsdl/CorpCustomerInformation/GetCustomerByMsisdn"/></con:call></con:operation>

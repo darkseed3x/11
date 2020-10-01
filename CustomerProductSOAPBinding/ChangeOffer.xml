@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation isOneWay="false" action="http://www.yota.ru/vox/services/wsdl/CustomerProduct/ChangeOffer" name="ChangeOffer" bindingOperationName="ChangeOffer" type="Request-Response" outputName="ChangeOfferOut" inputName="ChangeOfferIn" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="344403ca-1ac7-41d3-b565-137bd9c467fc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="344403ca-1ac7-41d3-b565-137bd9c467fcfileName">ChangeOffer</con:setting></con:settings><con:call name="Request 1" id="472286d3-ef2a-48e7-8b60-7c3fc4ccae3e"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.78.209.200:8382/customer-product-ejb/CustomerProduct/CustomerProductServiceBean</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cus="http://www.yota.ru/vox/services/customerProduct" xmlns:core="http://www.roox.ru/products/common/core" xmlns:core1="http://www.yota.ru/vox/domains/common/core">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <cus:ChangeOfferRequest>
+         <!--Optional:-->
+         <core:extension>
+            <!--Zero or more repetitions:-->
+            <core:item>?</core:item>
+         </core:extension>
+         <accountId>?</accountId>
+         <!--Optional:-->
+         <discountServiceId>?</discountServiceId>
+         <offerExternalId>?</offerExternalId>
+         <!--Zero or more repetitions:-->
+         <offerTerms key="?">
+            <core1:value>?</core1:value>
+         </offerTerms>
+         <!--Zero or more repetitions:-->
+         <optionOfferExternalIds>?</optionOfferExternalIds>
+         <productToChangeId>?</productToChangeId>
+         <regionOfBuying>?</regionOfBuying>
+         <!--Optional:-->
+         <productDuration>?</productDuration>
+      </cus:ChangeOfferRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.yota.ru/vox/services/wsdl/CustomerProduct/ChangeOffer"/></con:call></con:operation>

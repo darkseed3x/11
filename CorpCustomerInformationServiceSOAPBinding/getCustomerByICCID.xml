@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation isOneWay="false" action="http://www.yota.ru/vox/services/b2b/wsdl/CorpCustomerInformation/GetCustomerByICCID" name="getCustomerByICCID" bindingOperationName="getCustomerByICCID" type="Request-Response" outputName="GetCustomerByICCIDOut" inputName="GetCustomerByICCIDIn" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="f37aa3eb-3d61-4eca-b5bf-faf5db13d3ad" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="f37aa3eb-3d61-4eca-b5bf-faf5db13d3adfileName">getCustomerByICCID</con:setting></con:settings><con:call name="Request 1" id="85eed72f-96d7-4ce7-a402-b947d270a622"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://b2btst-corpjs-cis.g4lab.com:8080/cis-web/CorpCustomerInformationServiceImpl</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cus="http://www.yota.ru/vox/b2b/services/customerInformation">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <cus:GetCustomerByICCIDRequest>
+         <iccid>?</iccid>
+         <includeAgreement>?</includeAgreement>
+         <includePotentialClient>?</includePotentialClient>
+      </cus:GetCustomerByICCIDRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.yota.ru/vox/services/b2b/wsdl/CorpCustomerInformation/GetCustomerByICCID"/></con:call></con:operation>

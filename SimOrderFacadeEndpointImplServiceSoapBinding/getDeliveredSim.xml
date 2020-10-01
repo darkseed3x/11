@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation isOneWay="false" action="http://www.yota.ru/vox/services/b2b/wsdl/SimOrderFacade/GetDeliveredSim" name="getDeliveredSim" bindingOperationName="getDeliveredSim" type="Request-Response" outputName="getDeliveredSimResponse" inputName="getDeliveredSim" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="357c843f-1c2a-46a0-a4da-5eea11202cc8" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="357c843f-1c2a-46a0-a4da-5eea11202cc8fileName">getDeliveredSim</con:setting></con:settings><con:call name="Request 1" id="82d5dd29-16f2-416d-90f2-2a3318ebab09"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.90.253.243:8080/sofs-web/SimOrderFacadeEndpoint</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sim="http://www.yota.ru/vox/b2b/services/simOrderFacadeService">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <sim:GetDeliveredSimRequest>
+         <!--Optional:-->
+         <!--Optional:-->
+         
+      <billingAccount>11220010529448</billingAccount></sim:GetDeliveredSimRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.yota.ru/vox/services/b2b/wsdl/SimOrderFacade/GetDeliveredSim"/><con:wsrmConfig version="1.2"/></con:call></con:operation>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation isOneWay="false" action="http://www.yota.ru/vox/services/wsdl/CustomerProduct/ChangeSIMCard4Msisdn" name="ChangeSIMCard4Msisdn" bindingOperationName="ChangeSIMCard4Msisdn" type="Request-Response" outputName="ChangeSIMCard4MsisdnOut" inputName="ChangeSIMCard4MsisdnIn" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="8a03379c-8d48-425a-a41d-6354d3dbfce4" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="8a03379c-8d48-425a-a41d-6354d3dbfce4fileName">ChangeSIMCard4Msisdn</con:setting></con:settings><con:call name="Request 1" id="942d4e49-1be1-427c-bfec-5996e08cc6af"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.78.209.200:8382/customer-product-ejb/CustomerProduct/CustomerProductServiceBean</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cus="http://www.yota.ru/vox/services/customerProduct" xmlns:core="http://www.roox.ru/products/common/core">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <cus:ChangeSIMCard4MsisdnRequest>
+         <!--Optional:-->
+         <core:extension>
+            <!--Zero or more repetitions:-->
+            <core:item>?</core:item>
+         </core:extension>
+         <imsi>
+            <key>?</key>
+            <type>?</type>
+         </imsi>
+         <usedSimCardExternalId>?</usedSimCardExternalId>
+      </cus:ChangeSIMCard4MsisdnRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.yota.ru/vox/services/wsdl/CustomerProduct/ChangeSIMCard4Msisdn"/></con:call></con:operation>

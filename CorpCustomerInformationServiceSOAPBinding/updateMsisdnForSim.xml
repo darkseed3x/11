@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation isOneWay="false" action="http://www.yota.ru/vox/services/b2b/wsdl/CorpCustomerInformation/UpdateMsisdnForSim" name="updateMsisdnForSim" bindingOperationName="updateMsisdnForSim" type="Request-Response" outputName="UpdateMsisdnForSimOut" inputName="UpdateMsisdnForSimIn" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="ce1360a1-b43b-422f-877c-e836bae713b0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="ce1360a1-b43b-422f-877c-e836bae713b0fileName">updateMsisdnForSim</con:setting></con:settings><con:call name="Request 1" id="5e19df13-2901-4f88-807a-91d820063dc9"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://b2btst-corpjs-cis.g4lab.com:8080/cis-web/CorpCustomerInformationServiceImpl</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cus="http://www.yota.ru/vox/b2b/services/customerInformation">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <cus:UpdateMsisdnForSimRequest>
+         <!--Optional:-->
+         <msisdn>?</msisdn>
+         <newIccid>?</newIccid>
+         <oldIccid>?</oldIccid>
+      </cus:UpdateMsisdnForSimRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.yota.ru/vox/services/b2b/wsdl/CorpCustomerInformation/UpdateMsisdnForSim"/></con:call></con:operation>

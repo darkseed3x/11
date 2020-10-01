@@ -1,0 +1,4255 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:interface xsi:type="con:WsdlInterface" id="62990557-9d5c-45f9-aa0e-54e5660bd15b" wsaVersion="NONE" name="CustomerInformationInterfaceEndpoint1Binding" type="wsdl" bindingName="{http://www.yota.ru/eai/as/template/replaceMe/interface/jms}CustomerInformationInterfaceEndpoint1Binding" soapVersion="1_1" anonymous="optional" definition="http://oxford-esb.g4lab.com:8080/Processes/CustomerInformationService/CustomerInformationService.serviceagent?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="62990557-9d5c-45f9-aa0e-54e5660bd15bfileName">CustomerInformationInterfaceEndpoint1Binding</con:setting></con:settings><con:definitionCache type="TEXT" rootPart="http://oxford-esb.g4lab.com:8080/Processes/CustomerInformationService/CustomerInformationService.serviceagent?wsdl"><con:part><con:url>http://oxford-esb.g4lab.com:8080/Processes/CustomerInformationService/CustomerInformationService.serviceagent?wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="CustomerInformation" targetNamespace="http://www.yota.ru/eai/as/template/replaceMe/interface/jms" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsat="http://schemas.xmlsoap.org/ws/2004/10/wsat" xmlns:wdt="http://www.roox.ru/products/common/faults" xmlns:tns="http://www.yota.ru/eai/as/template/replaceMe/interface/jms" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:do="http://www.yota.ru/vox/services/customerInformation">
+  <wsdl:import location="http://oxford-esb.g4lab.com:8080/CustomerInformationService?wsdl=../../../Common/Common/CommonFault.wsdl.xml" namespace="http://www.roox.ru/products/common/faults"></wsdl:import>
+  <wsdl:types>
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://www.yota.ru/vox/services/wsdl/CustomerInformation">
+      <xs:import namespace="http://www.yota.ru/vox/services/customerInformation" schemaLocation="http://oxford-esb.g4lab.com:8080/CustomerInformationService?xsd=CustomerInformationService.xsd"/>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="UpdateConsentsRequest">
+    <wsdl:part element="do:UpdateConsentsRequest" name="request"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="activateCustomerResponse">
+    <wsdl:part element="do:ActivateCustomerResponse" name="response"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="UpdateCustomerResponse">
+    <wsdl:part element="do:UpdateCustomerResponse" name="response"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="CreateConsentResponse">
+    <wsdl:part element="do:CreateConsentResponse" name="response"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetCustomerByMSISDNFromAgreementResponse">
+    <wsdl:part element="do:GetCustomerByMSISDNFromAgreementResponse" name="response"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="CheckPersonalDataRequest">
+    <wsdl:part element="do:CheckPersonalDataRequest" name="request"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetCustomerByMSISDNFromAgreementRequest">
+    <wsdl:part element="do:GetCustomerByMSISDNFromAgreementRequest" name="request"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="RemovePushTokenResponse">
+    <wsdl:part element="do:RemovePushTokenResponse" name="response"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="CreateAgreementResponse">
+    <wsdl:part element="do:CreateAgreementResponse" name="response"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetCustomerByICCIDRequest">
+    <wsdl:part element="do:GetCustomerByICCIDRequest" name="request"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="UpdateAgreementResponse">
+    <wsdl:part element="do:UpdateAgreementResponse" name="response"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ClosePotentialClientResponse">
+    <wsdl:part element="do:ClosePotentialClientResponse" name="response"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="UpdateAgreementRequest">
+    <wsdl:part element="do:UpdateAgreementRequest" name="request"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="DeleteConsentRequest">
+    <wsdl:part element="do:DeleteConsentRequest" name="request"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="DeleteConsentResponse">
+    <wsdl:part element="do:DeleteConsentResponse" name="response"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="UpdateCustomerAgreementsRequest">
+    <wsdl:part element="do:UpdateCustomerAgreementsRequest" name="request"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ClosePotentialClientRequest">
+    <wsdl:part element="do:ClosePotentialClientRequest" name="request"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="RecreateAgreementRequest">
+    <wsdl:part element="do:RecreateAgreementRequest" name="request"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ChangePersonalDataResponse">
+    <wsdl:part element="do:ChangePersonalDataResponse" name="response"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetCustomerByIdResponse">
+    <wsdl:part element="do:GetCustomerByIdResponse" name="response"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="RegisterAgreementResponse">
+    <wsdl:part element="do:RegisterAgreementResponse" name="response"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="CheckPersonalDataResponse">
+    <wsdl:part element="do:CheckPersonalDataResponse" name="response"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="createPotentialCustomerRequest">
+    <wsdl:part element="do:CreatePotentialCustomerRequest" name="request"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="UpdateCustomerAgreementsResponse">
+    <wsdl:part element="do:UpdateCustomerAgreementsResponse" name="response"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="CreateAgreementRequest">
+    <wsdl:part element="do:CreateAgreementRequest" name="request"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="SearchCustomersRequest">
+    <wsdl:part element="do:SearchCustomersRequest" name="request"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetCustomerByIdRequest">
+    <wsdl:part element="do:GetCustomerByIdRequest" name="request"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="RemovePushTokenRequest">
+    <wsdl:part element="do:RemovePushTokenRequest" name="request"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="activateCustomerRequest">
+    <wsdl:part element="do:ActivateCustomerRequest" name="request"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="UpdateCustomerRequest">
+    <wsdl:part element="do:UpdateCustomerRequest" name="request"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="DeleteAgreementRequest">
+    <wsdl:part element="do:DeleteAgreementRequest" name="request"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="CreateConsentRequest">
+    <wsdl:part element="do:CreateConsentRequest" name="request"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="createPotentialCustomerResponse">
+    <wsdl:part element="do:CreatePotentialCustomerResponse" name="response"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetSliderCustomerByICCIDRequest">
+    <wsdl:part element="do:GetSliderCustomerByICCIDRequest" name="request"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetCustomerByAccountIdRequest">
+    <wsdl:part element="do:GetCustomerByAccountIdRequest" name="request"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetSliderCustomerByICCIDResponse">
+    <wsdl:part element="do:GetSliderCustomerByICCIDResponse" name="response"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="UpdateConsentsResponse">
+    <wsdl:part element="do:UpdateConsentsResponse" name="response"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="InactivateCustomerRequest">
+    <wsdl:part element="do:InactivateCustomerRequest" name="request"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="RecreateAgreementResponse">
+    <wsdl:part element="do:RecreateAgreementResponse" name="response"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="createCustomerResponse">
+    <wsdl:part element="do:CreateCustomerResponse" name="response"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="createCustomerRequest">
+    <wsdl:part element="do:CreateCustomerRequest" name="request"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="SearchCustomersResponse">
+    <wsdl:part element="do:SearchCustomersResponse" name="response"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetCustomerByICCIDResponse">
+    <wsdl:part element="do:GetCustomerByICCIDResponse" name="response"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetCustomerByAccountIdResponse">
+    <wsdl:part element="do:GetCustomerByAccountIdResponse" name="response"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="DeleteAgreementResponse">
+    <wsdl:part element="do:DeleteAgreementResponse" name="response"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="InactivateCustomerResponse">
+    <wsdl:part element="do:InactivateCustomerResponse" name="response"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="RegisterAgreementRequest">
+    <wsdl:part element="do:RegisterAgreementRequest" name="request"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ChangePersonalDataRequest">
+    <wsdl:part element="do:ChangePersonalDataRequest" name="request"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="CustomerInformationInterface">
+    <wsdl:documentation/>
+    <wsdl:operation name="CreatePotentialCustomer">
+      <wsdl:input message="tns:createPotentialCustomerRequest" name="createPotentialCustomerIn"></wsdl:input>
+      <wsdl:output message="tns:createPotentialCustomerResponse" name="createPotentialCustomerOut"></wsdl:output>
+      <wsdl:fault message="wdt:commonFault" name="commonFault"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="CreateCustomer">
+      <wsdl:input message="tns:createCustomerRequest" name="createCustomerIn"></wsdl:input>
+      <wsdl:output message="tns:createCustomerResponse" name="createCustomerOut"></wsdl:output>
+      <wsdl:fault message="wdt:commonFault" name="commonFault"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ActivateCustomer">
+      <wsdl:input message="tns:activateCustomerRequest" name="activateCustomerIn"></wsdl:input>
+      <wsdl:output message="tns:activateCustomerResponse" name="activateCustomerOut"></wsdl:output>
+      <wsdl:fault message="wdt:commonFault" name="commonFault"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SearchCustomers">
+      <wsdl:input message="tns:SearchCustomersRequest" name="searchCustomersIn"></wsdl:input>
+      <wsdl:output message="tns:SearchCustomersResponse" name="searchCustomersOut"></wsdl:output>
+      <wsdl:fault message="wdt:commonFault" name="commonFault"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomerById">
+      <wsdl:input message="tns:GetCustomerByIdRequest" name="getCustomerByIdIn"></wsdl:input>
+      <wsdl:output message="tns:GetCustomerByIdResponse" name="getCustomerByIdOut"></wsdl:output>
+      <wsdl:fault message="wdt:commonFault" name="commonFault"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetSliderCustomerByICCID">
+      <wsdl:input message="tns:GetSliderCustomerByICCIDRequest" name="GetSliderCustomerByICCIDIn"></wsdl:input>
+      <wsdl:output message="tns:GetSliderCustomerByICCIDResponse" name="GetSliderCustomerByICCIDOut"></wsdl:output>
+      <wsdl:fault message="wdt:commonFault" name="commonFault"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomerByAccountId">
+      <wsdl:input message="tns:GetCustomerByAccountIdRequest" name="GetCustomerByAccountIdIn"></wsdl:input>
+      <wsdl:output message="tns:GetCustomerByAccountIdResponse" name="GetCustomerByAccountIdOut"></wsdl:output>
+      <wsdl:fault message="wdt:commonFault" name="commonFault"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCustomer">
+      <wsdl:input message="tns:UpdateCustomerRequest" name="UpdateCustomerIn"></wsdl:input>
+      <wsdl:output message="tns:UpdateCustomerResponse" name="UpdateCustomerOut"></wsdl:output>
+      <wsdl:fault message="wdt:commonFault" name="commonFault"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCustomerAgreements">
+      <wsdl:input message="tns:UpdateCustomerAgreementsRequest" name="UpdateCustomerAgreementsIn"></wsdl:input>
+      <wsdl:output message="tns:UpdateCustomerAgreementsResponse" name="UpdateCustomerAgreementsOut"></wsdl:output>
+      <wsdl:fault message="wdt:commonFault" name="commonFault"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="CreateAgreement">
+      <wsdl:input message="tns:CreateAgreementRequest" name="CreateAgreementIn"></wsdl:input>
+      <wsdl:output message="tns:CreateAgreementResponse" name="CreateAgreementOut"></wsdl:output>
+      <wsdl:fault message="wdt:commonFault" name="commonFault"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAgreement">
+      <wsdl:input message="tns:UpdateAgreementRequest" name="UpdateAgreementIn"></wsdl:input>
+      <wsdl:output message="tns:UpdateAgreementResponse" name="UpdateAgreementOut"></wsdl:output>
+      <wsdl:fault message="wdt:commonFault" name="commonFault"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAgreement">
+      <wsdl:input message="tns:DeleteAgreementRequest" name="DeleteAgreementIn"></wsdl:input>
+      <wsdl:output message="tns:DeleteAgreementResponse" name="DeleteAgreementOut"></wsdl:output>
+      <wsdl:fault message="wdt:commonFault" name="commonFault"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomerByICCID">
+      <wsdl:input message="tns:GetCustomerByICCIDRequest" name="GetCustomerByICCIDIn"></wsdl:input>
+      <wsdl:output message="tns:GetCustomerByICCIDResponse" name="GetCustomerByICCIDOut"></wsdl:output>
+      <wsdl:fault message="wdt:commonFault" name="commonFault"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="CreateConsent">
+      <wsdl:input message="tns:CreateConsentRequest" name="CreateConsentIn"></wsdl:input>
+      <wsdl:output message="tns:CreateConsentResponse" name="CreateConsentOut"></wsdl:output>
+      <wsdl:fault message="wdt:commonFault" name="commonFault"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateConsents">
+      <wsdl:input message="tns:UpdateConsentsRequest" name="UpdateConsentsIn"></wsdl:input>
+      <wsdl:output message="tns:UpdateConsentsResponse" name="UpdateConsentsOut"></wsdl:output>
+      <wsdl:fault message="wdt:commonFault" name="commonFault"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteConsent">
+      <wsdl:input message="tns:DeleteConsentRequest" name="DeleteConsentIn"></wsdl:input>
+      <wsdl:output message="tns:DeleteConsentResponse" name="DeleteConsentOut"></wsdl:output>
+      <wsdl:fault message="wdt:commonFault" name="commonFault"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="InactivateCustomer">
+      <wsdl:input message="tns:InactivateCustomerRequest" name="InactivateCustomerIn"></wsdl:input>
+      <wsdl:output message="tns:InactivateCustomerResponse" name="InactivateCustomerOut"></wsdl:output>
+      <wsdl:fault message="wdt:commonFault" name="commonFault"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomerByMSISDNFromAgreement">
+      <wsdl:input message="tns:GetCustomerByMSISDNFromAgreementRequest" name="GetCustomerByMSISDNFromAgreementIn"></wsdl:input>
+      <wsdl:output message="tns:GetCustomerByMSISDNFromAgreementResponse" name="GetCustomerByMSISDNFromAgreementOut"></wsdl:output>
+      <wsdl:fault message="wdt:commonFault" name="commonFault"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="RegisterAgreement">
+      <wsdl:input message="tns:RegisterAgreementRequest" name="RegisterAgreementIn"></wsdl:input>
+      <wsdl:output message="tns:RegisterAgreementResponse" name="RegisterAgreementOut"></wsdl:output>
+      <wsdl:fault message="wdt:commonFault" name="commonFault"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="RecreateAgreement">
+      <wsdl:input message="tns:RecreateAgreementRequest" name="RecreateAgreementIn"></wsdl:input>
+      <wsdl:output message="tns:RecreateAgreementResponse" name="RecreateAgreementOut"></wsdl:output>
+      <wsdl:fault message="wdt:commonFault" name="commonFault"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="CheckPersonalData">
+      <wsdl:input message="tns:CheckPersonalDataRequest" name="CheckPersonalDataIn"></wsdl:input>
+      <wsdl:output message="tns:CheckPersonalDataResponse" name="CheckPersonalDataOut"></wsdl:output>
+      <wsdl:fault message="wdt:commonFault" name="commonFault"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ChangePersonalData">
+      <wsdl:input message="tns:ChangePersonalDataRequest" name="ChangePersonalDataIn"></wsdl:input>
+      <wsdl:output message="tns:ChangePersonalDataResponse" name="ChangePersonalDataOut"></wsdl:output>
+      <wsdl:fault message="wdt:commonFault" name="commonFault"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="RemovePushToken">
+      <wsdl:input message="tns:RemovePushTokenRequest" name="RemovePushTokenIn"></wsdl:input>
+      <wsdl:output message="tns:RemovePushTokenResponse" name="RemovePushTokenOut"></wsdl:output>
+      <wsdl:fault message="wdt:commonFault" name="commonFault"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ClosePotentialClient">
+      <wsdl:input message="tns:ClosePotentialClientRequest" name="ClosePotentialClientIn"></wsdl:input>
+      <wsdl:output message="tns:ClosePotentialClientResponse" name="ClosePotentialClientOut"></wsdl:output>
+      <wsdl:fault message="wdt:commonFault" name="commonFault"></wsdl:fault>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CustomerInformationInterfaceEndpoint1Binding" type="tns:CustomerInformationInterface">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="CreatePotentialCustomer">
+      <soap:operation soapAction="http://www.yota.ru/vox/services/wsdl/CustomerInformation/CreatePotentialCustomer" style="document"/>
+      <wsdl:input name="createPotentialCustomerIn">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="createPotentialCustomerOut">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="commonFault">
+        <soap:fault name="commonFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="CreateCustomer">
+      <soap:operation soapAction="http://www.yota.ru/vox/services/wsdl/CustomerInformation/CreateCustomer" style="document"/>
+      <wsdl:input name="createCustomerIn">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="createCustomerOut">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="commonFault">
+        <soap:fault name="commonFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ActivateCustomer">
+      <soap:operation soapAction="http://www.yota.ru/vox/services/wsdl/CustomerInformation/ActivateCustomer" style="document"/>
+      <wsdl:input name="activateCustomerIn">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="activateCustomerOut">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="commonFault">
+        <soap:fault name="commonFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SearchCustomers">
+      <soap:operation soapAction="http://www.yota.ru/vox/services/wsdl/CustomerInformation/SearchCustomers" style="document"/>
+      <wsdl:input name="searchCustomersIn">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="searchCustomersOut">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="commonFault">
+        <soap:fault name="commonFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomerById">
+      <soap:operation soapAction="http://www.yota.ru/vox/services/wsdl/CustomerInformation/GetCustomerById" style="document"/>
+      <wsdl:input name="getCustomerByIdIn">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getCustomerByIdOut">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="commonFault">
+        <soap:fault name="commonFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetSliderCustomerByICCID">
+      <soap:operation soapAction="http://www.yota.ru/vox/services/wsdl/CustomerInformation/GetSliderCustomerByICCID" style="document"/>
+      <wsdl:input name="GetSliderCustomerByICCIDIn">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="GetSliderCustomerByICCIDOut">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="commonFault">
+        <soap:fault name="commonFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomerByAccountId">
+      <soap:operation soapAction="http://www.yota.ru/vox/services/wsdl/CustomerInformation/GetCustomerByAccountId" style="document"/>
+      <wsdl:input name="GetCustomerByAccountIdIn">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="GetCustomerByAccountIdOut">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="commonFault">
+        <soap:fault name="commonFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCustomer">
+      <soap:operation soapAction="http://www.yota.ru/vox/services/wsdl/CustomerInformation/UpdateCustomer" style="document"/>
+      <wsdl:input name="UpdateCustomerIn">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="UpdateCustomerOut">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="commonFault">
+        <soap:fault name="commonFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCustomerAgreements">
+      <soap:operation soapAction="http://www.yota.ru/vox/services/wsdl/CustomerInformation/UpdateCustomerAgreements" style="document"/>
+      <wsdl:input name="UpdateCustomerAgreementsIn">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="UpdateCustomerAgreementsOut">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="commonFault">
+        <soap:fault name="commonFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="CreateAgreement">
+      <soap:operation soapAction="http://www.yota.ru/vox/services/wsdl/CustomerInformation/CreateAgreement" style="document"/>
+      <wsdl:input name="CreateAgreementIn">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="CreateAgreementOut">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="commonFault">
+        <soap:fault name="commonFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAgreement">
+      <soap:operation soapAction="http://www.yota.ru/vox/services/wsdl/CustomerInformation/UpdateAgreement" style="document"/>
+      <wsdl:input name="UpdateAgreementIn">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="UpdateAgreementOut">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="commonFault">
+        <soap:fault name="commonFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAgreement">
+      <soap:operation soapAction="http://www.yota.ru/vox/services/wsdl/CustomerInformation/DeleteAgreement" style="document"/>
+      <wsdl:input name="DeleteAgreementIn">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="DeleteAgreementOut">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="commonFault">
+        <soap:fault name="commonFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomerByICCID">
+      <soap:operation soapAction="http://www.yota.ru/vox/services/wsdl/CustomerInformation/GetCustomerByICCID" style="document"/>
+      <wsdl:input name="GetCustomerByICCIDIn">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="GetCustomerByICCIDOut">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="commonFault">
+        <soap:fault name="commonFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="CreateConsent">
+      <soap:operation soapAction="http://www.yota.ru/vox/services/wsdl/CustomerInformation/CreateConsent" style="document"/>
+      <wsdl:input name="CreateConsentIn">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="CreateConsentOut">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="commonFault">
+        <soap:fault name="commonFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateConsents">
+      <soap:operation soapAction="http://www.yota.ru/vox/services/wsdl/CustomerInformation/UpdateConsents" style="document"/>
+      <wsdl:input name="UpdateConsentsIn">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="UpdateConsentsOut">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="commonFault">
+        <soap:fault name="commonFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteConsent">
+      <soap:operation soapAction="http://www.yota.ru/vox/services/wsdl/CustomerInformation/DeleteConsent" style="document"/>
+      <wsdl:input name="DeleteConsentIn">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="DeleteConsentOut">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="commonFault">
+        <soap:fault name="commonFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="InactivateCustomer">
+      <soap:operation soapAction="http://www.yota.ru/vox/services/wsdl/CustomerInformation/InactivateCustomer" style="document"/>
+      <wsdl:input name="InactivateCustomerIn">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="InactivateCustomerOut">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="commonFault">
+        <soap:fault name="commonFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomerByMSISDNFromAgreement">
+      <soap:operation soapAction="http://www.yota.ru/vox/services/wsdl/CustomerInformation/GetCustomerByMSISDNFromAgreement" style="document"/>
+      <wsdl:input name="GetCustomerByMSISDNFromAgreementIn">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="GetCustomerByMSISDNFromAgreementOut">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="commonFault">
+        <soap:fault name="commonFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="RegisterAgreement">
+      <soap:operation soapAction="http://www.yota.ru/vox/services/wsdl/CustomerInformation/RegisterAgreement" style="document"/>
+      <wsdl:input name="RegisterAgreementIn">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="RegisterAgreementOut">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="commonFault">
+        <soap:fault name="commonFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="RecreateAgreement">
+      <soap:operation soapAction="http://www.yota.ru/vox/services/wsdl/CustomerInformation/RecreateAgreement" style="document"/>
+      <wsdl:input name="RecreateAgreementIn">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="RecreateAgreementOut">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="commonFault">
+        <soap:fault name="commonFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="CheckPersonalData">
+      <soap:operation soapAction="http://www.yota.ru/vox/services/wsdl/CustomerInformation/CheckPersonalData" style="document"/>
+      <wsdl:input name="CheckPersonalDataIn">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="CheckPersonalDataOut">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="commonFault">
+        <soap:fault name="commonFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ChangePersonalData">
+      <soap:operation soapAction="http://www.yota.ru/vox/services/wsdl/CustomerInformation/ChangePersonalData" style="document"/>
+      <wsdl:input name="ChangePersonalDataIn">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="ChangePersonalDataOut">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="commonFault">
+        <soap:fault name="commonFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="RemovePushToken">
+      <soap:operation soapAction="http://www.yota.ru/vox/services/wsdl/CustomerInformation/RemovePushToken" style="document"/>
+      <wsdl:input name="RemovePushTokenIn">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="RemovePushTokenOut">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="commonFault">
+        <soap:fault name="commonFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ClosePotentialClient">
+      <soap:operation soapAction="http://www.yota.ru/vox/services/wsdl/CustomerInformation/ClosePotentialClient" style="document"/>
+      <wsdl:input name="ClosePotentialClientIn">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="ClosePotentialClientOut">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="commonFault">
+        <soap:fault name="commonFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CustomerInformationService.serviceagent">
+    <wsdl:port binding="tns:CustomerInformationInterfaceEndpoint1Binding" name="CustomerInformationInterfaceEndpoint1">
+      <soap:address location="http://oxford-esb.g4lab.com:8080/CustomerInformationService"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part><con:part><con:url>http://oxford-esb.g4lab.com:8080/CustomerInformationService?wsdl=../../../Common/Common/CommonFault.wsdl.xml</con:url><con:content><![CDATA[<definitions name="Core" targetNamespace="http://www.roox.ru/products/common/faults" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:rr="http://www.roox.ru/products/common/rr" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema targetNamespace="http://www.roox.ru/products/common/faults">
+      <xsd:import namespace="http://www.roox.ru/products/common/rr" schemaLocation="http://oxford-esb.g4lab.com:8080/CustomerInformationService?xsd=../../../Common/Common/CommonRRTypes.xsd"/>
+    </xsd:schema>
+  </types>
+  <message name="commonFault">
+    <part element="rr:CommonException" name="fault"></part>
+  </message>
+</definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part><con:part><con:url>http://oxford-esb.g4lab.com:8080/CustomerInformationService?xsd=../../../Common/Common/CommonRRTypes.xsd</con:url><con:content><![CDATA[<?java.package com.roox.generated.common.rr?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.roox.ru/products/common/rr" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:va="http://www.roox.ru/products/common/va" xmlns:rr="http://www.roox.ru/products/common/rr" xmlns:cor="http://www.roox.ru/products/common/core" xmlns:com="http://www.roox.ru/products/common/com">
+  <xs:import namespace="http://www.roox.ru/products/common/com" schemaLocation="http://oxford-esb.g4lab.com:8080/CustomerInformationService?xsd=../../../Common/Common/CommonObjects.xsd"/>
+  <xs:import namespace="http://www.roox.ru/products/common/core" schemaLocation="http://oxford-esb.g4lab.com:8080/CustomerInformationService?xsd=../../../Common/Common/CoreDataTypes.xsd"/>
+  <xs:import namespace="http://www.roox.ru/products/common/va" schemaLocation="http://oxford-esb.g4lab.com:8080/CustomerInformationService?xsd=../../../Common/Common/ValidateAttributes.xsd"/>
+  <xs:simpleType name="ExceptionTypeEnum">
+    <xs:annotation>
+      <xs:documentation>Ð¢Ð¸Ð¿ Ð¸ÑÐºÐ»ÑŽÑ‡ÐµÐ½Ð¸Ñ.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="external"/>
+      <xs:enumeration value="incorrectStatusState"/>
+      <xs:enumeration value="objectNotFound"/>
+      <xs:enumeration value="processing"/>
+      <xs:enumeration value="system"/>
+      <xs:enumeration value="validation"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="BaseRRType">
+    <xs:annotation>
+      <xs:documentation>{PROPERTY:class.allFieldsUseInEquals}Ð¢Ð¸Ð¿ Ð¸ÑÐºÐ»ÑŽÑ‡ÐµÐ½Ð¸Ñ.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="cor:ExtendableType">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="BooleanRRType">
+    <xs:complexContent>
+      <xs:extension base="rr:BaseRRType">
+        <xs:sequence>
+          <xs:element name="param" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="CommonExceptionType">
+    <xs:annotation>
+      <xs:documentation>Тип общего исключения.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="message" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Необязательное текстовое сообщение об ошибке.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="property" type="cor:PropertyType">
+        <xs:annotation>
+          <xs:documentation>Необязательный безразмерный массив
+                        дополнительных пар имя-значение для облегчения
+                        обработки ошибок на стороне клиента</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="cause" type="rr:CommonExceptionType">
+        <xs:annotation>
+          <xs:documentation>Необязательная ссылка на такую же структуру
+                        CommonExceptionType, определяющую первопричину
+                        возникшей исключительной ситуации</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="validationRules" type="va:ValidationRule"/>
+    </xs:sequence>
+    <xs:attribute name="code" type="xs:decimal" use="optional">
+      <xs:annotation>
+        <xs:documentation>Обязательный уникальный числовой код ошибки. Может
+                    использоваться клиентом в качестве идентификатора
+                    ошибки, а так же в качестве идентификатора
+                    текстового ресурса для интернационализации
+                    приложения</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="type" type="rr:ExceptionTypeEnum" use="optional">
+      <xs:annotation>
+        <xs:documentation>Тип исключительной ситуации.</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="correlationId" type="xs:string" use="optional"/>
+  </xs:complexType>
+  <xs:complexType name="DateTimeRRType">
+    <xs:complexContent>
+      <xs:restriction base="rr:OptionalDateTimeRRType">
+        <xs:sequence>
+          <xs:element minOccurs="0" ref="cor:extension"/>
+          <xs:element name="value" type="xs:dateTime"/>
+        </xs:sequence>
+      </xs:restriction>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="IntegerRRType">
+    <xs:complexContent>
+      <xs:extension base="rr:BaseRRType">
+        <xs:sequence>
+          <xs:element name="param" type="xs:int"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="LongArrayRRType">
+    <xs:complexContent>
+      <xs:extension base="rr:BaseRRType">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="param" type="xs:long"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="LongRRType">
+    <xs:complexContent>
+      <xs:extension base="rr:BaseRRType">
+        <xs:sequence>
+          <xs:element name="param" type="xs:long"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="OptionalDateTimeRRType">
+    <xs:complexContent>
+      <xs:extension base="rr:BaseRRType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="value" type="xs:dateTime"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="OptionalStringRRType">
+    <xs:complexContent>
+      <xs:extension base="rr:BaseRRType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="param" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="ReferenceItemArrayRRType">
+    <xs:complexContent>
+      <xs:extension base="rr:BaseRRType">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="references" type="com:ReferenceItem"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="ReferenceItemCodeArrayRRType">
+    <xs:complexContent>
+      <xs:extension base="rr:BaseRRType">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="param" type="cor:ReferenceItemCodeType"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="ReferenceItemCodeRRType">
+    <xs:complexContent>
+      <xs:extension base="rr:BaseRRType">
+        <xs:sequence>
+          <xs:element name="param" type="cor:ReferenceItemCodeType"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="ReferenceItemRRType">
+    <xs:complexContent>
+      <xs:extension base="rr:BaseRRType">
+        <xs:sequence>
+          <xs:element name="param" type="com:ReferenceItem"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="StringArrayRRType">
+    <xs:complexContent>
+      <xs:extension base="rr:BaseRRType">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="param" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="StringRRType">
+    <xs:complexContent>
+      <xs:restriction base="rr:OptionalStringRRType">
+        <xs:sequence>
+          <xs:element minOccurs="0" ref="cor:extension"/>
+          <xs:element name="param" type="xs:string"/>
+        </xs:sequence>
+      </xs:restriction>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CommonException" type="rr:CommonExceptionType">
+    <xs:annotation>
+      <xs:documentation>Общее исключение.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://oxford-esb.g4lab.com:8080/CustomerInformationService?xsd=../../../Common/Common/CommonObjects.xsd</con:url><con:content><![CDATA[<?java.package com.roox.generated.common.com?>
+<xs:schema targetNamespace="http://www.roox.ru/products/common/com" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:va="http://www.roox.ru/products/common/va" xmlns:dic="http://www.roox.ru/products/common/dictionaries" xmlns:cor="http://www.roox.ru/products/common/core" xmlns:com="http://www.roox.ru/products/common/com">
+  <xs:import namespace="http://www.roox.ru/products/common/core" schemaLocation="http://oxford-esb.g4lab.com:8080/CustomerInformationService?xsd=../../../Common/Common/CoreDataTypes.xsd"/>
+  <xs:import namespace="http://www.roox.ru/products/common/dictionaries" schemaLocation="http://oxford-esb.g4lab.com:8080/CustomerInformationService?xsd=../../../Common/Common/Dictionaries.xsd"/>
+  <xs:import namespace="http://www.roox.ru/products/common/va" schemaLocation="http://oxford-esb.g4lab.com:8080/CustomerInformationService?xsd=../../../Common/Common/ValidateAttributes.xsd"/>
+  <xs:complexType name="BusinessEntity">
+    <xs:annotation>
+      <xs:documentation>Бизнес-значимая сущность. С поддержкой историчности.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="livingPeriod" type="com:LivingPeriod"/>
+      <xs:element minOccurs="0" name="created" type="xs:dateTime"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="CodedObject">
+    <xs:annotation>
+      <xs:documentation>Идентифицируемый текстовым кодом объект</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="code" type="cor:ReferenceItemCodeType">
+        <xs:annotation>
+          <xs:documentation>Текстовый идентификатор сущности</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="description" type="xs:string"/>
+      <xs:element name="name" type="cor:NameType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ExtendNamedObject">
+    <xs:annotation>
+      <xs:documentation>Локализованная информация именованного объекта</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="description" type="cor:LocaleValue">
+        <xs:annotation>
+          <xs:documentation>Список локализованных описаний объекта</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="name" type="cor:LocaleValue">
+        <xs:annotation>
+          <xs:documentation>Список локализованных названий объекта</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="primaryObject" type="com:NamedObject"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="IdentifiedObject">
+    <xs:annotation>
+      <xs:documentation>Идентифицируемый объект</xs:documentation>
+    </xs:annotation>
+    <xs:sequence/>
+    <xs:attribute name="id" type="xs:long" use="optional">
+      <xs:annotation>
+        <xs:documentation>{PROPERTY:field.useInEquals}Идентификатор объекта</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:complexType name="LivingPeriod">
+    <xs:annotation>
+      <xs:documentation>Временной интервал жизни объекта</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="fromDate" type="xs:dateTime">
+        <xs:annotation>
+          <xs:documentation>{PROPERTY:field.useInEquals}</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="untilTo" type="xs:dateTime">
+        <xs:annotation>
+          <xs:documentation>{PROPERTY:field.useInEquals}</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="LivingTime">
+    <xs:annotation>
+      <xs:documentation>Время жизни экземпляра может задаваться одним из следующих вариантов:
+1) Длительность. Количество дней действия
+2) Дата начала и дата окончания жизни</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="dayCount" type="xs:int">
+        <xs:annotation>
+          <xs:documentation>Количество дней действия</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="beginDate" type="xs:dateTime">
+        <xs:annotation>
+          <xs:documentation>{PROPERTY:field.useInEquals}Дата начала действия</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="endDate" type="xs:dateTime">
+        <xs:annotation>
+          <xs:documentation>{PROPERTY:field.useInEquals}Дата окончания действия</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="NamedCodedObject">
+    <xs:annotation>
+      <xs:documentation>Базовый тип именованного объекта с кодом</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="com:NamedObject">
+        <xs:sequence>
+          <xs:element name="code" type="cor:ReferenceItemCodeType">
+            <xs:annotation>
+              <xs:documentation>{PROPERTY:field.useInEquals}Строковый код объекта.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="NamedObject">
+    <xs:annotation>
+      <xs:documentation>Именованный объект</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="com:IdentifiedObject">
+        <xs:sequence>
+          <xs:element name="name" type="cor:NameType">
+            <xs:annotation>
+              <xs:documentation>{PROPERTY:field.useInEquals}Имя объекта</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="description" type="xs:string">
+            <xs:annotation>
+              <xs:documentation>Описание объекта</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="PhysicalResourceSpecAttribute">
+    <xs:annotation>
+      <xs:documentation>Пары атрибут-значение для поиска спецификаций устройств</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="value" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>{PROPERTY:field.useInEquals}Значение атрибута</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="name" type="dic:PhysicalDeviceSpecAttributeEnum">
+        <xs:annotation>
+          <xs:documentation>{PROPERTY:field.useInEquals}Имя параметра спецификации физического устройства по которому нужно осуществлять поиск</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ReferenceItem">
+    <xs:annotation>
+      <xs:documentation>Элемент справочника</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="com:NamedCodedObject">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="ResourceID">
+    <xs:annotation>
+      <xs:documentation>Структура, описывающая идентификатор устройства
+Не применяется для логических ресурсов</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="key" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>{PROPERTY:field.useInEquals}Значение</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="type" type="dic:ResourceIdentificationEnum">
+        <xs:annotation>
+          <xs:documentation>{PROPERTY:field.useInEquals}Тип идентификатора</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://oxford-esb.g4lab.com:8080/CustomerInformationService?xsd=../../../Common/Common/CoreDataTypes.xsd</con:url><con:content><![CDATA[<?java.package com.roox.generated.common.core?>
+<xs:schema elementFormDefault="qualified" targetNamespace="http://www.roox.ru/products/common/core" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:dic="http://www.roox.ru/products/common/dictionaries" xmlns:cor="http://www.roox.ru/products/common/core">
+  <xs:import namespace="http://www.roox.ru/products/common/dictionaries" schemaLocation="http://oxford-esb.g4lab.com:8080/CustomerInformationService?xsd=../../../Common/Common/Dictionaries.xsd"/>
+  <xs:simpleType name="CodeType">
+    <xs:annotation>
+      <xs:documentation>Тип для представления кодов</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:token">
+      <xs:pattern value="\d{12}"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="CustomerNameType">
+    <xs:annotation>
+      <xs:documentation>Представление для имен пользователя ФЛ</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="2"/>
+      <xs:maxLength value="64"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="EMailType">
+    <xs:annotation>
+      <xs:documentation>Представление для адреса электронной почты</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="100"/>
+      <xs:pattern value="([a-zA-Z0-9\.\-_]+)@(([a-zA-Z0-9\-_]+\.)+[a-zA-Z]{2,})"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ExternalIdentificatorType">
+    <xs:annotation>
+      <xs:documentation>Тип внешнего идентификатора.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:long"/>
+  </xs:simpleType>
+  <xs:simpleType name="IDType">
+    <xs:annotation>
+      <xs:documentation>Представление для целочисленных идентификаторов</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:long">
+      <xs:fractionDigits value="0"/>
+      <xs:totalDigits value="19"/>
+      <xs:pattern value="\d{19}"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="IPType">
+    <xs:annotation>
+      <xs:documentation>Представление IP адреса</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:pattern value="(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="LoginType">
+    <xs:annotation>
+      <xs:documentation>Представление для логина пользователя</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:simpleType name="LongNameType">
+    <xs:annotation>
+      <xs:documentation>Представление для названий</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="2"/>
+      <xs:maxLength value="255"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="MACType">
+    <xs:annotation>
+      <xs:documentation>Представление для MAC адреса устройства</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[0-9A-F]{12}"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="MoneyType">
+    <xs:annotation>
+      <xs:documentation>Представление для денежных сумм</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:decimal">
+      <xs:fractionDigits value="2"/>
+      <xs:totalDigits value="20"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="NameType">
+    <xs:annotation>
+      <xs:documentation>Представление для названий</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="64"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="OperatorLoginType">
+    <xs:annotation>
+      <xs:documentation>Представление для логина оператор системы</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:token">
+      <xs:maxLength value="32"/>
+      <xs:pattern value="[a-zA-Z][a-zA-Z0-9]+"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="PasswordType">
+    <xs:annotation>
+      <xs:documentation>Представление для пароля</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="6"/>
+      <xs:maxLength value="24"/>
+      <xs:pattern value="[A-Za-z0-9 (!#$%()*+,-./\\:;?@`\[\]^_'{|}~)]+"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="PhoneType">
+    <xs:annotation>
+      <xs:documentation>Представление для номера телефона</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[1-79][0-9]{10}|[1-9][0-9]{11,14}"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="PhResourceNameType">
+    <xs:annotation>
+      <xs:documentation>Тип для представления пользовательского имени устройства</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="64"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ReferenceItemCodeType">
+    <xs:annotation>
+      <xs:documentation>Представление для кода элемента справочника</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="32"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="RegionFormatType">
+    <xs:annotation>
+      <xs:documentation>Представление для региона</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:pattern value="\d{13}"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="UIDType">
+    <xs:annotation>
+      <xs:documentation>Представление для идентификатора пользователя</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:long">
+      <xs:fractionDigits value="0"/>
+      <xs:totalDigits value="10"/>
+      <xs:pattern value="\d{10}"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="AmountType">
+    <xs:annotation>
+      <xs:documentation>Тип, содержащий денежное значение</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="amount" type="cor:MoneyType">
+        <xs:annotation>
+          <xs:documentation>Сумма в указанной валюте</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="currencyCode" type="dic:CurrencyCodeEnum" use="optional">
+      <xs:annotation>
+        <xs:documentation>Код валюты</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:complexType name="CharValue">
+    <xs:choice>
+      <xs:element name="value" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>{PROPERTY:field.useInEquals}Единичное значение характеристики</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="intervalValue" type="cor:CharValueInterval">
+        <xs:annotation>
+          <xs:documentation>{PROPERTY:field.useInEquals}Интервальное значение характеристики</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:choice>
+  </xs:complexType>
+  <xs:complexType name="CharValueInterval">
+    <xs:sequence>
+      <xs:element name="valueFrom" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>{PROPERTY:field.useInEquals}Начальное значение интервала</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="valueTo" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>{PROPERTY:field.useInEquals}Значение окончания интервала</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="rangeType" type="dic:RangeTypeEnum">
+        <xs:annotation>
+          <xs:documentation>{PROPERTY:field.useInEquals}Тип вхождения граничных значений в интервал.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="EmptyType">
+    <xs:annotation>
+      <xs:documentation>Совсем пустой тип</xs:documentation>
+    </xs:annotation>
+    <xs:sequence/>
+  </xs:complexType>
+  <xs:complexType name="ExtendableType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="extension" type="cor:ExtensionType">
+        <xs:annotation>
+          <xs:documentation>{PROPERTY:field.notUseInEquals}</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ExtensionType">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="item" type="xs:anyType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="KeyValue">
+    <xs:annotation>
+      <xs:documentation>Для пар: ключ-значение</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="value" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>{PROPERTY:field.useInEquals}имя</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="key" type="xs:string" use="optional">
+      <xs:annotation>
+        <xs:documentation>{PROPERTY:field.useInEquals}имя</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:complexType name="LocaleValue">
+    <xs:sequence>
+      <xs:element name="value" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>{PROPERTY:field.useInEquals}</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="locale" type="xs:string" use="optional">
+      <xs:annotation>
+        <xs:documentation>{PROPERTY:field.useInEquals}имя</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:complexType name="PropertyType">
+    <xs:annotation>
+      <xs:documentation>Пара имя:значение</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="value" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>{PROPERTY:field.useInEquals}значение</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="name" type="xs:string" use="required">
+      <xs:annotation>
+        <xs:documentation>{PROPERTY:field.useInEquals}имя</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:complexType name="PropertyValue">
+    <xs:annotation>
+      <xs:documentation>Тип, содержащий значение(я) атрибута для фильтрации объектов</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="operation" type="dic:CompareOperationEnum">
+        <xs:annotation>
+          <xs:documentation>{PROPERTY:field.useInEquals}Тип операции сравнения</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element maxOccurs="unbounded" name="values" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>{PROPERTY:field.useInEquals}Значения для сравнения</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="filterOperation" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>{PROPERTY:field.useInEquals}Фильтрующий (обязательный) критерий  - все результаты поиска должны удовлетворять заданному условию</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RequestContextType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="sender" type="xs:string"/>
+      <xs:element minOccurs="0" name="actorId" type="xs:string"/>
+      <xs:element minOccurs="0" name="targetId" type="xs:string"/>
+      <xs:element minOccurs="0" name="actionId" type="xs:int"/>
+      <xs:element minOccurs="0" name="correlationId" type="xs:string"/>
+      <xs:element minOccurs="0" name="dataAfter" type="xs:anyType"/>
+      <xs:element minOccurs="0" name="dataBefore" type="xs:anyType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="UIDElementType">
+    <xs:annotation>
+      <xs:documentation>OBSOLETED: Обёртка для идентификатора пользователя</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="uid" type="cor:UIDType">
+        <xs:annotation>
+          <xs:documentation>{PROPERTY:field.useInEquals}Уникальный идентификатор пользователя</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="extension" type="cor:ExtensionType"/>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://oxford-esb.g4lab.com:8080/CustomerInformationService?xsd=../../../Common/Common/Dictionaries.xsd</con:url><con:content><![CDATA[<?java.package com.roox.generated.common.dic?>
+<xs:schema elementFormDefault="qualified" targetNamespace="http://www.roox.ru/products/common/dictionaries" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:dic="http://www.roox.ru/products/common/dictionaries">
+  <xs:simpleType name="AccountStatusEnum">
+    <xs:annotation>
+      <xs:documentation>Возможные состояния клиента.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="active"/>
+      <xs:enumeration value="blocked"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AccountTypeEnum">
+    <xs:annotation>
+      <xs:documentation>Типы пользователей в BIS 2.0</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="personal">
+        <xs:annotation>
+          <xs:documentation>физическое лицо</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="corporate">
+        <xs:annotation>
+          <xs:documentation>корпоративный клиент</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ActionTypeEnum">
+    <xs:annotation>
+      <xs:documentation>Типы операций для системы логгирования</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="session">
+        <xs:annotation>
+          <xs:documentation>Операции над сессией</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="account">
+        <xs:annotation>
+          <xs:documentation>Операции с учётной записью</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="report">
+        <xs:annotation>
+          <xs:documentation>Операции с отчётами</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="device">
+        <xs:annotation>
+          <xs:documentation>Операции с устройствами пользователей</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="card">
+        <xs:annotation>
+          <xs:documentation>Операции над скрэтч картами</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="cardPool">
+        <xs:annotation>
+          <xs:documentation>Операции с пулом скрэтч карт</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AttributeValidationRuleType">
+    <xs:annotation>
+      <xs:documentation>Определяет тип сообщения, показываемового пользователю, если валидация по правилу не
+                прошла.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="error"/>
+      <xs:enumeration value="suggestion"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="BlockTypeEnum">
+    <xs:annotation>
+      <xs:documentation>Тип блокировки абонента</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="blockCorp">
+        <xs:annotation>
+          <xs:documentation>Блокировка ЮЛ</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="blockOnRegInfoState">
+        <xs:annotation>
+          <xs:documentation>Блокировка по статусу проверки регистрационной информации</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="totalBlockCorp">
+        <xs:annotation>
+          <xs:documentation>Полная блокировка ЮЛ</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="CardStatusEnum">
+    <xs:annotation>
+      <xs:documentation>Статусы скрэтч карты</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="active">
+        <xs:annotation>
+          <xs:documentation>Еще не использована - может быть использована</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="invalid">
+        <xs:annotation>
+          <xs:documentation>Забракованная</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="usedForDevice">
+        <xs:annotation>
+          <xs:documentation>Использована для подключения устройства (начиная с 1.5)</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="usedForService">
+        <xs:annotation>
+          <xs:documentation>Использована (используется) для аутентификации ФЛ (до 1.5)</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="usedForAccount">
+        <xs:annotation>
+          <xs:documentation>Использована (используется) для аутентификации ЮЛ/КК (начиная с 1.6)</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="usedForCalls">
+        <xs:annotation>
+          <xs:documentation>Специальное использование в сервисах</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="usedForPP">
+        <xs:annotation>
+          <xs:documentation>Использована для предварительного платежа</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="CharacteristicTypeEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="int"/>
+      <xs:enumeration value="decimal"/>
+      <xs:enumeration value="boolean"/>
+      <xs:enumeration value="string"/>
+      <xs:enumeration value="interval"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="CharacteristicUsedForEnum">
+    <xs:annotation>
+      <xs:documentation>Список областей применения характеристик</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="agreement"/>
+      <xs:enumeration value="logicalResource"/>
+      <xs:enumeration value="marketingCampaign"/>
+      <xs:enumeration value="product"/>
+      <xs:enumeration value="service"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="CheckCardStatusEnum">
+    <xs:annotation>
+      <xs:documentation>Статус проверки карты</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="valid">
+        <xs:annotation>
+          <xs:documentation>Проверка успешна</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="cardNumAbsent">
+        <xs:annotation>
+          <xs:documentation>Не введён номер карты</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="cardPasswordAbsent">
+        <xs:annotation>
+          <xs:documentation>Не введён пароль карты</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="invalidCardNumOrPassword">
+        <xs:annotation>
+          <xs:documentation>Номер карты или пароль введены неверно.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="used">
+        <xs:annotation>
+          <xs:documentation>Карта подключения уже использовалась</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="CompareOperationEnum">
+    <xs:annotation>
+      <xs:documentation>Типы сравнений
+                Все значения, кроме equal и notEqual - можно на future</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="equal"/>
+      <xs:enumeration value="in"/>
+      <xs:enumeration value="between"/>
+      <xs:enumeration value="less"/>
+      <xs:enumeration value="more"/>
+      <xs:enumeration value="lessOrEqual"/>
+      <xs:enumeration value="moreOrEqual"/>
+      <xs:enumeration value="notEqual"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="CountryEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Russia"/>
+      <xs:enumeration value="Belarus"/>
+      <xs:enumeration value="Nicaragua"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="CurrencyCodeEnum">
+    <xs:annotation>
+      <xs:documentation>Доступные валюты</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="RUR">
+        <xs:annotation>
+          <xs:documentation>Российский рубль</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="NIO">
+        <xs:annotation>
+          <xs:documentation>Никарагуанская кордоба</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="BYR">
+        <xs:annotation>
+          <xs:documentation>Белорусский рубль</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="CustomerAttributesEnum">
+    <xs:annotation>
+      <xs:documentation>Возможные атрибуты клиента (список является открытым).</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="companyName"/>
+      <xs:enumeration value="email"/>
+      <xs:enumeration value="fname"/>
+      <xs:enumeration value="lname"/>
+      <xs:enumeration value="login"/>
+      <xs:enumeration value="phone"/>
+      <xs:enumeration value="registredFrom"/>
+      <xs:enumeration value="mname">
+        <xs:annotation>
+          <xs:documentation>отчество</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="imsi"/>
+      <xs:enumeration value="iccid"/>
+      <xs:enumeration value="mac"/>
+      <xs:enumeration value="cardNo"/>
+      <xs:enumeration value="userId"/>
+      <xs:enumeration value="marketingSegment"/>
+      <xs:enumeration value="customerPurpose"/>
+      <xs:enumeration value="accountType"/>
+      <xs:enumeration value="regInfoVerificationState"/>
+      <xs:enumeration value="documentType"/>
+      <xs:enumeration value="isAutoVerifiedDocumentType">
+        <xs:annotation>
+          <xs:documentation>Тип документа с признаком автоматической проверки</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="DataVerifyEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="unverified"/>
+      <xs:enumeration value="valid"/>
+      <xs:enumeration value="invalid"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="DeviceAccessEnum">
+    <xs:annotation>
+      <xs:documentation>Уровень доступа устройства в транспортной сети.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="full"/>
+      <xs:enumeration value="guest"/>
+      <xs:enumeration value="service"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="MarketingCampaignClassEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="OneDayFree"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="MarketingCampaignStatusEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="active"/>
+      <xs:enumeration value="used"/>
+      <xs:enumeration value="overdue"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="MarketingCampaignTypeEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ForNewClient"/>
+      <xs:enumeration value="ForExistingClient"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ModificationTypeEnum">
+    <xs:annotation>
+      <xs:documentation>Подтипы операций для системы логгирования</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="create">
+        <xs:annotation>
+          <xs:documentation>Создание сущности</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="read">
+        <xs:annotation>
+          <xs:documentation>Чтение информации</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="modify">
+        <xs:annotation>
+          <xs:documentation>Изменение атрибутов</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="remove">
+        <xs:annotation>
+          <xs:documentation>Удаление сущности</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="OperationEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="create"/>
+      <xs:enumeration value="update"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="OperationResultEnum">
+    <xs:annotation>
+      <xs:documentation>Результат выполнения операции для подсистемы логгирования</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Success"/>
+      <xs:enumeration value="Failure"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="PasswordRecoveryStatusEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="needSecretAnswer"/>
+      <xs:enumeration value="passwordSent"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="PaymentEnum">
+    <xs:annotation>
+      <xs:documentation>Периодичность платежей</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="once">
+        <xs:annotation>
+          <xs:documentation>единовременно</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="daily">
+        <xs:annotation>
+          <xs:documentation>по дням</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="monthly">
+        <xs:annotation>
+          <xs:documentation>ежемесячно</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="PaySchemaEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="postpaid">
+        <xs:annotation>
+          <xs:documentation>Схема оплаты</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="prepaid"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="PhysicalDeviceSpecAttributeEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="chipName"/>
+      <xs:enumeration value="deviceCategory"/>
+      <xs:enumeration value="modelName"/>
+      <xs:enumeration value="networkTechnology"/>
+      <xs:enumeration value="vendorChipId"/>
+      <xs:enumeration value="vendorModelId"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ProductStatusEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="active"/>
+      <xs:enumeration value="blocked"/>
+      <xs:enumeration value="finished"/>
+      <xs:enumeration value="frozen"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="RangeTypeEnum">
+    <xs:annotation>
+      <xs:documentation>Тип интервала по включению-исключению граничных значений</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="include-include"/>
+      <xs:enumeration value="include-exclude"/>
+      <xs:enumeration value="exclude-include"/>
+      <xs:enumeration value="exclude-exclude"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="RefTypeEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="bankInfo"/>
+      <xs:enumeration value="characteristicValueType"/>
+      <xs:enumeration value="chip"/>
+      <xs:enumeration value="formFactor"/>
+      <xs:enumeration value="model"/>
+      <xs:enumeration value="vendor"/>
+      <xs:enumeration value="offerTypes"/>
+      <xs:enumeration value="productCharacteristicType"/>
+      <xs:enumeration value="cashRegisterInfo"/>
+      <xs:enumeration value="expenseType"/>
+      <xs:enumeration value="paymentMethod"/>
+      <xs:enumeration value="accountInfo"/>
+      <xs:enumeration value="adminRegions"/>
+      <xs:enumeration value="documentType"/>
+      <xs:enumeration value="cashMethod"/>
+      <xs:enumeration value="secretQuestion"/>
+      <xs:enumeration value="country"/>
+      <xs:enumeration value="commercialRegions"/>
+      <xs:enumeration value="customerLanguage"/>
+      <xs:enumeration value="sourceOfChanges"/>
+      <xs:enumeration value="marketingSegments"/>
+      <xs:enumeration value="customerAttributesGroups">
+        <xs:annotation>
+          <xs:documentation>Группы атрибутов, определенные для клиента</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="scenarioOfChanges"/>
+      <xs:enumeration value="agreementTypes"/>
+      <xs:enumeration value="customerPurpose"/>
+      <xs:enumeration value="paymentCardType"/>
+      <xs:enumeration value="paymentCardPermit">
+        <xs:annotation>
+          <xs:documentation>Типы разрешений средств оплаты</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="agreementActivationMethods">
+        <xs:annotation>
+          <xs:documentation>Способы активации соглашения</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="agreementRegistrationMethods">
+        <xs:annotation>
+          <xs:documentation>Способы заключения соглашения</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="salesChannel">
+        <xs:annotation>
+          <xs:documentation>Каналы продаж</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="customerLegalizationStatus">
+        <xs:annotation>
+          <xs:documentation>Статусы легализации абонента</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ResourceEventEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="removeService"/>
+      <xs:enumeration value="addService"/>
+      <xs:enumeration value="unblock"/>
+      <xs:enumeration value="block"/>
+      <xs:enumeration value="removeDevice"/>
+      <xs:enumeration value="addDevice"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ResourceIdentificationEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="extIccid">
+        <xs:annotation>
+          <xs:documentation>Расширенный ICCID - 18-20 символов</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="iccid">
+        <xs:annotation>
+          <xs:documentation>Короткий ICCID (10 символов)</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="imsi"/>
+      <xs:enumeration value="mac"/>
+      <xs:enumeration value="sn"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="RFSSpecTypeEnum">
+    <xs:annotation>
+      <xs:documentation>Типы RFS Spec</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="AAA">
+        <xs:annotation>
+          <xs:documentation>Используется для WiMax</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ACL">
+        <xs:annotation>
+          <xs:documentation>Правила транспортного доступа</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="QoS">
+        <xs:annotation>
+          <xs:documentation>Качество предоставления сервиса</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="PCRF"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="SMSmessageStatusEnum">
+    <xs:annotation>
+      <xs:documentation>Статусы состояния сообщений в SMSGatе</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="failed">
+        <xs:annotation>
+          <xs:documentation>сообщение не удалось доставить провайдеру</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="inprocess">
+        <xs:annotation>
+          <xs:documentation>сообщение в процессе доставки</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="success">
+        <xs:annotation>
+          <xs:documentation>сообщение доставлено провайдеру</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="SortOrderEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="asc"/>
+      <xs:enumeration value="desc"/>
+      <xs:enumeration value="none"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="TarifficationTypeEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="OneTime"/>
+      <xs:enumeration value="Monthly"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="TermUsedForEnum">
+    <xs:annotation>
+      <xs:documentation>Список областей применения условий</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="offering"/>
+      <xs:enumeration value="offeringLink"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="TransportActionEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="removeAll"/>
+      <xs:enumeration value="add"/>
+      <xs:enumeration value="change"/>
+      <xs:enumeration value="serviceAccess"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="UnitOfMeasureEnum">
+    <xs:annotation>
+      <xs:documentation>Тип измеряемого значения</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="day"/>
+      <xs:enumeration value="hour"/>
+      <xs:enumeration value="kbps"/>
+      <xs:enumeration value="mbps"/>
+      <xs:enumeration value="month"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ValidationRuleTypeEnum">
+    <xs:annotation>
+      <xs:documentation>Типы валидационных проверок</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="unchangeable"/>
+      <xs:enumeration value="uniqueAttr"/>
+      <xs:enumeration value="mandatory"/>
+      <xs:enumeration value="undefined"/>
+      <xs:enumeration value="regExp"/>
+      <xs:enumeration value="maxLength"/>
+      <xs:enumeration value="minValue"/>
+      <xs:enumeration value="maxValue"/>
+      <xs:enumeration value="precision"/>
+      <xs:enumeration value="dateFormat"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:annotation>
+    <xs:documentation>Системные справочники (enumerations)</xs:documentation>
+  </xs:annotation>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://oxford-esb.g4lab.com:8080/CustomerInformationService?xsd=../../../Common/Common/ValidateAttributes.xsd</con:url><con:content><![CDATA[<?java.package com.roox.generated.common.va?>
+<xs:schema targetNamespace="http://www.roox.ru/products/common/va" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:va="http://www.roox.ru/products/common/va" xmlns:dic="http://www.roox.ru/products/common/dictionaries" xmlns:cor="http://www.roox.ru/products/common/core" xmlns:com="http://www.roox.ru/products/common/com">
+  <xs:import namespace="http://www.roox.ru/products/common/com" schemaLocation="http://oxford-esb.g4lab.com:8080/CustomerInformationService?xsd=../../../Common/Common/CommonObjects.xsd"/>
+  <xs:import namespace="http://www.roox.ru/products/common/core" schemaLocation="http://oxford-esb.g4lab.com:8080/CustomerInformationService?xsd=../../../Common/Common/CoreDataTypes.xsd"/>
+  <xs:import namespace="http://www.roox.ru/products/common/dictionaries" schemaLocation="http://oxford-esb.g4lab.com:8080/CustomerInformationService?xsd=../../../Common/Common/Dictionaries.xsd"/>
+  <xs:complexType name="Attribute">
+    <xs:annotation>
+      <xs:documentation>Описание атрибута</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="com:NamedObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="emptyTip" type="xs:string">
+            <xs:annotation>
+              <xs:documentation>Ключ ресурса, показываемого в пустом поле редактирования</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="entityId" type="xs:long">
+            <xs:annotation>
+              <xs:documentation>Идентификатор сущности, к которой принадлежит атрибут</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="validatingTip" type="xs:string">
+            <xs:annotation>
+              <xs:documentation>Ключ, показываемый при валидации поля редактирования</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="refType" type="dic:RefTypeEnum">
+            <xs:annotation>
+              <xs:documentation>Тип справочника, если значения атрибута ограничены справочником</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="scalarValidationRules" type="va:ScalarValidationRule"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="attributeValidationRule" type="va:AttributeValidationRule"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="AttributeGroup">
+    <xs:annotation>
+      <xs:documentation>Группа атрибутов - например, атрибуты, которые должны присутствовать в Customer для
+                подключения устройства</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="com:NamedObject">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="attributes" type="va:Attribute"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="AttributeValidationRule">
+    <xs:annotation>
+      <xs:documentation>Правила валидации атрибута</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="va:ValidationRule">
+        <xs:sequence>
+          <xs:element name="mandatory" type="xs:boolean">
+            <xs:annotation>
+              <xs:documentation>Атрибут опциональный(может быть пустым)</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="uniqueAttr" type="xs:boolean">
+            <xs:annotation>
+              <xs:documentation>атрибут уникальный в контексте одной сущности</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="undefined" type="xs:boolean"/>
+          <xs:element name="unchangeable" type="xs:boolean"/>
+          <xs:element minOccurs="0" name="parentEntityPath" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="AttributeValue">
+    <xs:annotation>
+      <xs:documentation>Значение атрибута</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="value" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>{PROPERTY:field.useInEquals}Значение атрибута</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="refitemId" type="cor:ReferenceItemCodeType">
+        <xs:annotation>
+          <xs:documentation>{PROPERTY:field.useInEquals}Поле для поддержки справочников - передается для атрибутов типа справочник . Сюда
+                        сохраняется Reference.code, а в value сохраняется Reference.name</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="attributeId" type="xs:long">
+        <xs:annotation>
+          <xs:documentation>{PROPERTY:field.useInEquals}Идентификатор атрибута, который описывает значение</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="CustomAttribute">
+    <xs:annotation>
+      <xs:documentation>Динамический атрибут</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="va:Attribute">
+        <xs:sequence>
+          <xs:element name="sortOrder" type="xs:long">
+            <xs:annotation>
+              <xs:documentation>Номер по порядку при отображении атрибута на UI</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="DateTimeValidationRule">
+    <xs:complexContent>
+      <xs:extension base="va:ScalarValidationRule">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="format" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="DecimalValidationRule">
+    <xs:annotation>
+      <xs:documentation>Правило валидации нецелого числа</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="va:ScalarValidationRule">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="minValue" type="xs:decimal">
+            <xs:annotation>
+              <xs:documentation>минимальное значение для нецелого числа</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="precision" type="xs:integer">
+            <xs:annotation>
+              <xs:documentation>кол-во точек после запятой</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="maxValue" type="xs:decimal">
+            <xs:annotation>
+              <xs:documentation>максимальное значение для нецелого числа</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Entity">
+    <xs:annotation>
+      <xs:documentation>Сущность, которой принадлежат атрибуты</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="com:NamedCodedObject">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="attributes" type="va:Attribute"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="IntegerValidationRule">
+    <xs:complexContent>
+      <xs:extension base="va:ScalarValidationRule">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="minValue" type="xs:long"/>
+          <xs:element minOccurs="0" name="maxValue" type="xs:long"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="ReferenceValidationRule">
+    <xs:annotation>
+      <xs:documentation>Правила валидации справочного типа</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="va:ValidationRule">
+        <xs:sequence>
+          <xs:element name="referenceType" type="dic:RefTypeEnum"/>
+          <xs:element name="invalidReferenceValue" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="ScalarValidationRule">
+    <xs:annotation>
+      <xs:documentation>Правило валидации скалярного атрибута</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="va:ValidationRule">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="ValidationRule">
+    <xs:annotation>
+      <xs:documentation>Правило валидации</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="errorMessage" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Сообщение, которое отображается пользователю при нарушении правила</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="errorCode" type="xs:integer">
+        <xs:annotation>
+          <xs:documentation>Код сообщения об ошибке</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="attributeId" type="xs:long">
+        <xs:annotation>
+          <xs:documentation>Идентикиатор соответствующего атрибута</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="sortOrder" type="xs:long">
+        <xs:annotation>
+          <xs:documentation>Порядок применения валидационного правила</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element maxOccurs="unbounded" name="validationElements" type="va:ValidationRuleElement"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="StaticAttribute">
+    <xs:annotation>
+      <xs:documentation>Статический атрибут (основной атрибут сущности, не зависящий от конфигурации)</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="va:Attribute">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="StringValidationRule">
+    <xs:annotation>
+      <xs:documentation>валидация строкового значения</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="va:ScalarValidationRule">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="regExp" type="xs:string">
+            <xs:annotation>
+              <xs:documentation>регулярное выражение которому должен соответствовать атрибут</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="minLength" type="xs:integer"/>
+          <xs:element name="maxLength" type="xs:integer"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="ValidationRuleElement">
+    <xs:annotation>
+      <xs:documentation>Элемент правила, критерий проверки</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="ruleType" type="dic:ValidationRuleTypeEnum">
+        <xs:annotation>
+          <xs:documentation>Тип проверки</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="value" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Значение для проверки</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://oxford-esb.g4lab.com:8080/CustomerInformationService?xsd=CustomerInformationService.xsd</con:url><con:content><![CDATA[<xs:schema targetNamespace="http://www.yota.ru/vox/services/customerInformation" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:rr="http://www.roox.ru/products/common/rr" xmlns:cus="http://www.yota.ru/vox/domains/customer" xmlns:cor="http://www.yota.ru/vox/domains/common/core" xmlns:com="http://www.yota.ru/vox/domains/common/com" xmlns:cis="http://www.yota.ru/vox/services/customerInformation" xmlns="http://www.yota.ru/vox/services/customerInformation">
+  <xs:import namespace="http://www.roox.ru/products/common/rr" schemaLocation="http://oxford-esb.g4lab.com:8080/CustomerInformationService?xsd=../../../Common/Common/CommonRRTypes.xsd"/>
+  <xs:import namespace="http://www.yota.ru/vox/domains/common/com" schemaLocation="http://oxford-esb.g4lab.com:8080/CustomerInformationService?xsd=../../../VOX/Domains/Common/VoxCommonObjects.xsd"/>
+  <xs:import namespace="http://www.yota.ru/vox/domains/common/core" schemaLocation="http://oxford-esb.g4lab.com:8080/CustomerInformationService?xsd=../../../VOX/Domains/Common/VoxCoreDataTypes.xsd"/>
+  <xs:import namespace="http://www.yota.ru/vox/domains/customer" schemaLocation="http://oxford-esb.g4lab.com:8080/CustomerInformationService?xsd=../../../VOX/Domains/Customer/Customer.xsd"/>
+  <xs:complexType name="ActivateCustomerRequest">
+    <xs:complexContent>
+      <xs:extension base="rr:BaseRRType">
+        <xs:sequence>
+          <xs:element name="accountId" type="cor:ExternalIDType"/>
+          <xs:element minOccurs="0" name="agreementConfirmation" type="cus:Agreement"/>
+          <xs:element minOccurs="0" name="caId" type="xs:string">
+            <xs:annotation>
+              <xs:documentation>ИД соглашения из УЦ</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="customerPurpose" type="cor:ReferenceItemCodeType"/>
+          <xs:element minOccurs="0" name="gt_vlr" type="cor:ReferenceItemCodeType"/>
+          <xs:element name="iccid" type="xs:string"/>
+          <xs:element minOccurs="0" name="lac_tac_code" type="cor:ReferenceItemCodeType"/>
+          <xs:element minOccurs="0" name="location_region" type="cor:ReferenceItemCodeType"/>
+          <xs:element minOccurs="0" name="marketingSegment" type="cor:ReferenceItemCodeType"/>
+          <xs:element name="msisdn" type="cor:PhoneType"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="ActivateCustomerResponse">
+    <xs:complexContent>
+      <xs:extension base="rr:BaseRRType">
+        <xs:sequence>
+          <xs:element name="customer" type="cus:Customer"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="CreateAgreementRequest">
+    <xs:complexContent>
+      <xs:extension base="rr:BaseRRType">
+        <xs:sequence>
+          <xs:element name="agreement" type="cus:Agreement"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="CreateAgreementResponse">
+    <xs:complexContent>
+      <xs:extension base="rr:BaseRRType">
+        <xs:sequence>
+          <xs:element name="agreement" type="cus:Agreement"/>
+          <xs:element minOccurs="0" name="customerId" type="com:PersonalDataID"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="CreateConsentRequest">
+    <xs:complexContent>
+      <xs:extension base="rr:BaseRRType">
+        <xs:sequence>
+          <xs:element name="consent" type="cus:ConsentDataProperty"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="CreateConsentResponse">
+    <xs:complexContent>
+      <xs:extension base="rr:BaseRRType">
+        <xs:sequence>
+          <xs:element name="consent" type="cus:ConsentDataProperty"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="CreateCustomerRequest">
+    <xs:complexContent>
+      <xs:extension base="rr:BaseRRType">
+        <xs:sequence>
+          <xs:element name="customer" type="cus:Customer"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="CreateCustomerResponse">
+    <xs:complexContent>
+      <xs:extension base="rr:BaseRRType">
+        <xs:sequence>
+          <xs:element name="customer" type="cus:Customer"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="CreatePotentialCustomerRequest">
+    <xs:complexContent>
+      <xs:extension base="rr:BaseRRType">
+        <xs:sequence>
+          <xs:element name="customer" type="cus:Customer"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="CreatePotentialCustomerResponse">
+    <xs:complexContent>
+      <xs:extension base="rr:BaseRRType">
+        <xs:sequence>
+          <xs:element name="customer" type="cus:Customer"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="DeleteAgreementRequest">
+    <xs:complexContent>
+      <xs:extension base="rr:BaseRRType">
+        <xs:sequence>
+          <xs:element name="agreementId" type="com:PersonalDataID"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="DeleteAgreementResponse">
+    <xs:complexContent>
+      <xs:extension base="rr:BaseRRType">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="DeleteConsentRequest">
+    <xs:complexContent>
+      <xs:extension base="rr:BaseRRType">
+        <xs:sequence>
+          <xs:element name="consentId" type="com:PersonalDataID"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="DeleteConsentResponse">
+    <xs:complexContent>
+      <xs:extension base="rr:BaseRRType">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="GetCustomerByAccountIdRequest">
+    <xs:complexContent>
+      <xs:extension base="rr:BaseRRType">
+        <xs:sequence>
+          <xs:element name="accountId" type="xs:string"/>
+          <xs:element name="includeAgreements" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="GetCustomerByAccountIdResponse">
+    <xs:complexContent>
+      <xs:extension base="rr:BaseRRType">
+        <xs:sequence>
+          <xs:element name="customer" type="cus:Customer"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="GetCustomerByICCIDRequest">
+    <xs:complexContent>
+      <xs:extension base="rr:BaseRRType">
+        <xs:sequence>
+          <xs:element name="iccid" type="xs:string"/>
+          <xs:element name="includeAgreements" type="xs:boolean"/>
+          <xs:element minOccurs="0" name="includePotentialClients" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="GetCustomerByICCIDResponse">
+    <xs:complexContent>
+      <xs:extension base="rr:BaseRRType">
+        <xs:sequence>
+          <xs:element name="customer" type="cus:Customer"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="GetCustomerByIdRequest">
+    <xs:complexContent>
+      <xs:extension base="rr:BaseRRType">
+        <xs:sequence>
+          <xs:element name="customerId" type="com:PersonalDataID"/>
+          <xs:element name="includeAgreements" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="GetCustomerByIdResponse">
+    <xs:complexContent>
+      <xs:extension base="rr:BaseRRType">
+        <xs:sequence>
+          <xs:element name="customer" type="cus:Customer"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="GetCustomerByMSISDNFromAgreementRequest">
+    <xs:complexContent>
+      <xs:extension base="rr:BaseRRType">
+        <xs:sequence>
+          <xs:element name="msisdn" type="cor:PhoneType"/>
+          <xs:element minOccurs="0" name="includePotentialClients" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="GetCustomerByMSISDNFromAgreementResponse">
+    <xs:complexContent>
+      <xs:extension base="rr:BaseRRType">
+        <xs:sequence>
+          <xs:element name="customer" type="cus:Customer"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="GetSliderCustomerByICCIDRequest">
+    <xs:complexContent>
+      <xs:extension base="rr:BaseRRType">
+        <xs:sequence>
+          <xs:element name="iccid" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="GetSliderCustomerByICCIDResponse">
+    <xs:complexContent>
+      <xs:extension base="rr:BaseRRType">
+        <xs:sequence>
+          <xs:element name="customer" type="cus:Customer"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="InactivateCustomerRequest">
+    <xs:annotation>
+      <xs:documentation>Компенсационный метод для откатывания действия activateCustomer</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="customerKey" type="com:PersonalDataID"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="InactivateCustomerResponse">
+    <xs:sequence/>
+  </xs:complexType>
+  <xs:complexType name="RegisterAgreementRequest">
+    <xs:complexContent>
+      <xs:extension base="rr:BaseRRType">
+        <xs:sequence>
+          <xs:element name="agreement" type="cus:Agreement"/>
+          <xs:element minOccurs="0" name="preorderCustomerId" type="com:PersonalDataID"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="RegisterAgreementResponse">
+    <xs:complexContent>
+      <xs:extension base="rr:BaseRRType">
+        <xs:sequence>
+          <xs:element name="agreement" type="cus:Agreement"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="SearchCustomersRequest">
+    <xs:complexContent>
+      <xs:extension base="rr:BaseRRType">
+        <xs:sequence>
+          <xs:element name="searchString" type="xs:string"/>
+          <xs:element minOccurs="0" name="withAgreements" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="SearchCustomersResponse">
+    <xs:complexContent>
+      <xs:extension base="rr:BaseRRType">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="customers" type="cus:Customer"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="UpdateAgreementRequest">
+    <xs:complexContent>
+      <xs:extension base="rr:BaseRRType">
+        <xs:sequence>
+          <xs:element name="agreement" type="cus:Agreement"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="UpdateAgreementResponse">
+    <xs:complexContent>
+      <xs:extension base="rr:BaseRRType">
+        <xs:sequence>
+          <xs:element name="agreement" type="cus:Agreement"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="UpdateConsentsRequest">
+    <xs:complexContent>
+      <xs:extension base="rr:BaseRRType">
+        <xs:sequence>
+          <xs:element name="customerId" type="com:PersonalDataID"/>
+          <xs:element maxOccurs="unbounded" name="consents" type="cus:ConsentDataProperty"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="UpdateConsentsResponse">
+    <xs:complexContent>
+      <xs:extension base="rr:BaseRRType">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" name="consent" type="cus:ConsentDataProperty"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="UpdateCustomerAgreementsRequest">
+    <xs:complexContent>
+      <xs:extension base="rr:BaseRRType">
+        <xs:sequence>
+          <xs:element name="customerId" type="com:PersonalDataID"/>
+          <xs:element maxOccurs="unbounded" name="agreements" type="cus:Agreement"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="UpdateCustomerAgreementsResponse">
+    <xs:complexContent>
+      <xs:extension base="rr:BaseRRType">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="agreements" type="cus:Agreement"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="UpdateCustomerRequest">
+    <xs:complexContent>
+      <xs:extension base="rr:BaseRRType">
+        <xs:sequence>
+          <xs:element name="customer" type="cus:Customer"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="UpdateCustomerResponse">
+    <xs:complexContent>
+      <xs:extension base="rr:BaseRRType">
+        <xs:sequence>
+          <xs:element name="customer" type="cus:Customer"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="RecreateAgreementRequest">
+    <xs:complexContent>
+      <xs:extension base="rr:BaseRRType">
+        <xs:sequence>
+          <xs:element maxOccurs="1" minOccurs="1" name="iccid" type="xs:string"/>
+          <xs:element maxOccurs="1" minOccurs="1" name="newIccid" type="xs:string"/>
+          <xs:element maxOccurs="1" minOccurs="1" name="agreementType" type="cus:AgreementTypeEnum"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="RecreateAgreementResponse">
+    <xs:complexContent>
+      <xs:extension base="rr:BaseRRType">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="1" name="agreements" type="cus:Agreement"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="CheckPersonalDataRequest">
+    <xs:complexContent>
+      <xs:extension base="rr:BaseRRType">
+        <xs:sequence>
+          <xs:element maxOccurs="1" minOccurs="1" name="document" type="cus:DocumentAttribute"/>
+          <xs:element maxOccurs="1" minOccurs="0" name="iccid" type="xs:string"/>
+          <xs:element maxOccurs="1" minOccurs="0" name="phone" type="cus:PhoneAttribute"/>
+          <xs:element maxOccurs="1" minOccurs="0" name="customerId" type="com:PersonalDataID"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="CheckPersonalDataResponse">
+    <xs:complexContent>
+      <xs:extension base="rr:BaseRRType">
+        <xs:sequence>
+          <xs:element maxOccurs="1" minOccurs="1" name="result" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="ChangePersonalDataRequest">
+    <xs:complexContent>
+      <xs:extension base="rr:BaseRRType">
+        <xs:sequence>
+          <xs:element maxOccurs="1" minOccurs="1" name="subscriberData" type="cus:PersonalSubscriberData"/>
+          <xs:element maxOccurs="1" minOccurs="0" name="iccid" type="xs:string"/>
+          <xs:element maxOccurs="1" minOccurs="0" name="phone" type="cus:PhoneAttribute"/>
+          <xs:element maxOccurs="1" minOccurs="0" name="customerId" type="com:PersonalDataID"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="ChangePersonalDataResponse">
+    <xs:complexContent>
+      <xs:extension base="rr:BaseRRType">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="RemovePushTokenRequest">
+    <xs:annotation>
+      <xs:documentation>Затирает значение PUSH-токена в данных мобильного приложения.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="rr:BaseRRType">
+        <xs:sequence>
+          <xs:element maxOccurs="1" minOccurs="1" name="pushToken" type="xs:string">
+            <xs:annotation>
+              <xs:documentation>Значение push-токена предназначенного для удаления из CDI</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="RemovePushTokenResponse">
+    <xs:complexContent>
+      <xs:extension base="rr:BaseRRType">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="ClosePotentialClientRequest">
+    <xs:complexContent>
+      <xs:extension base="rr:BaseRRType">
+        <xs:sequence>
+          <xs:element maxOccurs="1" minOccurs="1" name="customerId" type="com:PersonalDataID"/>
+          <xs:element maxOccurs="1" minOccurs="1" name="sourceSystem" type="cus:SourceSystemEnum"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="ClosePotentialClientResponse">
+    <xs:complexContent>
+      <xs:extension base="rr:BaseRRType">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ActivateCustomerRequest" type="ActivateCustomerRequest"/>
+  <xs:element name="ActivateCustomerResponse" type="ActivateCustomerResponse"/>
+  <xs:element name="CreateAgreementRequest" type="CreateAgreementRequest"/>
+  <xs:element name="CreateAgreementResponse" type="CreateAgreementResponse"/>
+  <xs:element name="CreateConsentRequest" type="CreateConsentRequest"/>
+  <xs:element name="CreateConsentResponse" type="CreateConsentResponse"/>
+  <xs:element name="CreateCustomerRequest" type="CreateCustomerRequest"/>
+  <xs:element name="CreateCustomerResponse" type="CreateCustomerResponse"/>
+  <xs:element name="CreatePotentialCustomerRequest" type="CreatePotentialCustomerRequest"/>
+  <xs:element name="CreatePotentialCustomerResponse" type="CreatePotentialCustomerResponse"/>
+  <xs:element name="DeleteAgreementRequest" type="DeleteAgreementRequest"/>
+  <xs:element name="DeleteAgreementResponse" type="DeleteAgreementResponse"/>
+  <xs:element name="DeleteConsentRequest" type="DeleteConsentRequest"/>
+  <xs:element name="DeleteConsentResponse" type="DeleteConsentResponse"/>
+  <xs:element name="GetCustomerByAccountIdRequest" type="GetCustomerByAccountIdRequest"/>
+  <xs:element name="GetCustomerByAccountIdResponse" type="GetCustomerByAccountIdResponse"/>
+  <xs:element name="GetCustomerByICCIDRequest" type="GetCustomerByICCIDRequest"/>
+  <xs:element name="GetCustomerByICCIDResponse" type="GetCustomerByICCIDResponse"/>
+  <xs:element name="GetCustomerByIdRequest" type="GetCustomerByIdRequest"/>
+  <xs:element name="GetCustomerByIdResponse" type="GetCustomerByIdResponse"/>
+  <xs:element name="GetCustomerByMSISDNFromAgreementRequest" type="GetCustomerByMSISDNFromAgreementRequest"/>
+  <xs:element name="GetCustomerByMSISDNFromAgreementResponse" type="GetCustomerByMSISDNFromAgreementResponse"/>
+  <xs:element name="GetSliderCustomerByICCIDRequest" type="GetSliderCustomerByICCIDRequest"/>
+  <xs:element name="GetSliderCustomerByICCIDResponse" type="GetSliderCustomerByICCIDResponse"/>
+  <xs:element name="InactivateCustomerRequest" type="InactivateCustomerRequest"/>
+  <xs:element name="InactivateCustomerResponse" type="InactivateCustomerResponse"/>
+  <xs:element name="RegisterAgreementRequest" type="RegisterAgreementRequest"/>
+  <xs:element name="RegisterAgreementResponse" type="RegisterAgreementResponse"/>
+  <xs:element name="SearchCustomersRequest" type="SearchCustomersRequest"/>
+  <xs:element name="SearchCustomersResponse" type="SearchCustomersResponse"/>
+  <xs:element name="UpdateAgreementRequest" type="UpdateAgreementRequest"/>
+  <xs:element name="UpdateAgreementResponse" type="UpdateAgreementResponse"/>
+  <xs:element name="UpdateConsentsRequest" type="UpdateConsentsRequest"/>
+  <xs:element name="UpdateConsentsResponse" type="UpdateConsentsResponse"/>
+  <xs:element name="UpdateCustomerAgreementsRequest" type="UpdateCustomerAgreementsRequest"/>
+  <xs:element name="UpdateCustomerAgreementsResponse" type="UpdateCustomerAgreementsResponse"/>
+  <xs:element name="UpdateCustomerRequest" type="UpdateCustomerRequest"/>
+  <xs:element name="UpdateCustomerResponse" type="UpdateCustomerResponse"/>
+  <xs:element name="RecreateAgreementRequest" type="RecreateAgreementRequest"/>
+  <xs:element name="RecreateAgreementResponse" type="RecreateAgreementResponse"/>
+  <xs:element name="CheckPersonalDataRequest" type="CheckPersonalDataRequest"/>
+  <xs:element name="CheckPersonalDataResponse" type="CheckPersonalDataResponse"/>
+  <xs:element name="ChangePersonalDataRequest" type="ChangePersonalDataRequest"/>
+  <xs:element name="ChangePersonalDataResponse" type="ChangePersonalDataResponse"/>
+  <xs:element name="RemovePushTokenRequest" type="RemovePushTokenRequest"/>
+  <xs:element name="RemovePushTokenResponse" type="RemovePushTokenResponse"/>
+  <xs:element name="ClosePotentialClientRequest" type="ClosePotentialClientRequest"/>
+  <xs:element name="ClosePotentialClientResponse" type="ClosePotentialClientResponse"/>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://oxford-esb.g4lab.com:8080/CustomerInformationService?xsd=../../../VOX/Domains/Common/VoxCommonObjects.xsd</con:url><con:content><![CDATA[<?java.package com.yota.generated.common.vox.com?>
+<xs:schema targetNamespace="http://www.yota.ru/vox/domains/common/com" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:dic="http://www.yota.ru/vox/domains/common/dictionaries_1.1" xmlns:cor="http://www.yota.ru/vox/domains/common/core" xmlns:com="http://www.yota.ru/vox/domains/common/com" xmlns="http://www.yota.ru/vox/domains/common/com">
+  <xs:import namespace="http://www.yota.ru/vox/domains/common/core" schemaLocation="http://oxford-esb.g4lab.com:8080/CustomerInformationService?xsd=../../../VOX/Domains/Common/VoxCoreDataTypes.xsd"/>
+  <xs:import namespace="http://www.yota.ru/vox/domains/common/dictionaries_1.1" schemaLocation="http://oxford-esb.g4lab.com:8080/CustomerInformationService?xsd=../../../VOX/Domains/Common/VoxDictionaries.xsd"/>
+  <xs:complexType name="BusinessEntity">
+    <xs:annotation>
+      <xs:documentation>Бизнес-значимая сущность. С поддержкой историчности.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="livingPeriod" type="com:LivingPeriod"/>
+      <xs:element minOccurs="0" name="created" type="xs:dateTime"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="CodedObject">
+    <xs:annotation>
+      <xs:documentation>Идентифицируемый текстовым кодом объект</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="code" type="cor:ReferenceItemCodeType">
+        <xs:annotation>
+          <xs:documentation>Текстовый идентификатор сущности</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="description" type="xs:string"/>
+      <xs:element name="name" type="cor:NameType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ExtendCodedObject">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="name" type="cor:LocaleValue"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="description" type="cor:LocaleValue"/>
+      <xs:element name="primaryObject" type="com:CodedObject"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ExtendNamedObject">
+    <xs:annotation>
+      <xs:documentation>Локализованная информация именованного объекта</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="description" type="cor:LocaleValue">
+        <xs:annotation>
+          <xs:documentation>Список локализованных описаний объекта</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="name" type="cor:LocaleValue">
+        <xs:annotation>
+          <xs:documentation>Список локализованных названий объекта</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="primaryObject" type="com:NamedObject"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="GPSCoordinates">
+    <xs:sequence>
+      <xs:element name="latitude" type="xs:string"/>
+      <xs:element name="longitude" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="IdentifiedObject">
+    <xs:annotation>
+      <xs:documentation>Идентифицируемый объект</xs:documentation>
+    </xs:annotation>
+    <xs:attribute name="id" type="xs:long" use="optional">
+      <xs:annotation>
+        <xs:documentation>Идентификатор объекта</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:complexType name="LivingPeriod">
+    <xs:annotation>
+      <xs:documentation>Временной интервал жизни объекта</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="fromDate" type="xs:dateTime"/>
+      <xs:element minOccurs="0" name="untilTo" type="xs:dateTime"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="LivingTime">
+    <xs:annotation>
+      <xs:documentation>Время жизни экземпляра может задаваться одним из следующих вариантов:
+1) Длительность. Количество дней действия
+2) Дата начала и дата окончания жизни</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="dayCount" type="xs:int">
+        <xs:annotation>
+          <xs:documentation>Количество дней действия</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="beginDate" type="xs:dateTime">
+        <xs:annotation>
+          <xs:documentation>Дата начала действия</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="endDate" type="xs:dateTime">
+        <xs:annotation>
+          <xs:documentation>Дата окончания действия</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="NamedCodedObject">
+    <xs:annotation>
+      <xs:documentation>Базовый тип именованного объекта с кодом</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="com:NamedObject">
+        <xs:sequence>
+          <xs:element name="code" type="cor:ReferenceItemCodeType">
+            <xs:annotation>
+              <xs:documentation>Строковый код объекта.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="NamedObject">
+    <xs:annotation>
+      <xs:documentation>Именованный объект</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="com:IdentifiedObject">
+        <xs:sequence>
+          <xs:element name="name" type="cor:NameType">
+            <xs:annotation>
+              <xs:documentation>Имя объекта</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="description" type="xs:string">
+            <xs:annotation>
+              <xs:documentation>Описание объекта</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="PersonalDataID">
+    <xs:annotation>
+      <xs:documentation>Первичный ключ объекта клиента</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="key" type="dic:PersonalDataIDTypeEnum"/>
+      <xs:element name="value" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PersonalDataIdentifiedObject">
+    <xs:attribute name="hid" type="xs:long"/>
+    <xs:attribute name="customerId" type="xs:string"/>
+  </xs:complexType>
+  <xs:complexType name="PhysicalResourceSpecAttribute">
+    <xs:annotation>
+      <xs:documentation>Пары атрибут-значение для поиска спецификаций устройств</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="value" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Значение атрибута</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="name" type="dic:PhysicalDeviceSpecAttributeEnum">
+        <xs:annotation>
+          <xs:documentation>Имя параметра спецификации физического устройства по которому нужно осуществлять поиск</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PushToken">
+    <xs:sequence>
+      <xs:element name="token" type="xs:string"/>
+      <xs:element name="OS" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ReferenceItem">
+    <xs:annotation>
+      <xs:documentation>Элемент справочника</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="com:NamedCodedObject"/>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="ResourceID">
+    <xs:annotation>
+      <xs:documentation>Структура, описывающая идентификатор ресурса (не применяется для логических ресурсов, кроме пин-кода)</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="key" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Значение</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="type" type="dic:ResourceIdentificationEnum">
+        <xs:annotation>
+          <xs:documentation>Тип идентификатора</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://oxford-esb.g4lab.com:8080/CustomerInformationService?xsd=../../../VOX/Domains/Common/VoxCoreDataTypes.xsd</con:url><con:content><![CDATA[<?java.package com.yota.generated.common.vox.core?>
+<xs:schema elementFormDefault="qualified" targetNamespace="http://www.yota.ru/vox/domains/common/core" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:dic="http://www.yota.ru/vox/domains/common/dictionaries_1.1" xmlns:cor="http://www.yota.ru/vox/domains/common/core">
+  <xs:import namespace="http://www.yota.ru/vox/domains/common/dictionaries_1.1" schemaLocation="http://oxford-esb.g4lab.com:8080/CustomerInformationService?xsd=../../../VOX/Domains/Common/VoxDictionaries.xsd"/>
+  <xs:simpleType name="CodeType">
+    <xs:annotation>
+      <xs:documentation>Тип для представления кодов</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:token">
+      <xs:pattern value="\d{12}"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="CustomerNameType">
+    <xs:annotation>
+      <xs:documentation>Представление для имен пользователя ФЛ</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="64"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="EMailType">
+    <xs:annotation>
+      <xs:documentation>Представление для адреса электронной почты</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <!--xs:pattern value="(([a-zA-Z0-9\.\-_]+)@(([a-zA-Z0-9\-_]+\.)+[a-zA-Z]{2,})((-\d{4}-\d{14}){0,1}(_from_cboss\d{8}){0,1})(, ){0,1}){1,}"/-->
+      <xs:maxLength value="100"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ExternalIDType">
+    <xs:annotation>
+      <xs:documentation>Тип внешнего идентификатора.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:long"/>
+  </xs:simpleType>
+  <xs:simpleType name="GUIDType">
+    <xs:annotation>
+      <xs:documentation>Представление для глобального ID</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[0-9a-fA-F]{8}[0-9a-fA-F]{4}[0-9a-fA-F]{4}[0-9a-fA-F]{4}[0-9a-fA-F]{12}"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="IDType">
+    <xs:annotation>
+      <xs:documentation>Представление для целочисленных идентификаторов</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:long">
+      <xs:pattern value="\d{19}"/>
+      <xs:fractionDigits value="0"/>
+      <xs:totalDigits value="19"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="IPType">
+    <xs:annotation>
+      <xs:documentation>Представление IP адреса</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:pattern value="(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="LoginType">
+    <xs:annotation>
+      <xs:documentation>Представление для логина пользователя</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:simpleType name="LongNameType">
+    <xs:annotation>
+      <xs:documentation>Представление для названий</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="255"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="MACType">
+    <xs:annotation>
+      <xs:documentation>Представление для MAC адреса устройства</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[0-9A-F]{12}"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="MoneyType">
+    <xs:annotation>
+      <xs:documentation>Представление для денежных сумм</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:decimal">
+      <xs:fractionDigits value="8"/>
+      <xs:totalDigits value="26"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="NameType">
+    <xs:annotation>
+      <xs:documentation>Представление для названий</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="4000"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="OperatorLoginType">
+    <xs:annotation>
+      <xs:documentation>Представление для логина оператор системы</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:token">
+      <xs:pattern value="[a-zA-Z][a-zA-Z0-9]+"/>
+      <xs:maxLength value="32"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="PasswordType">
+    <xs:annotation>
+      <xs:documentation>Представление для пароля</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[A-Za-z0-9 (!#$%()*+,-./\\:;?@`\[\]^_'{|}~)]+"/>
+      <xs:minLength value="6"/>
+      <xs:maxLength value="24"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="PhoneType">
+    <xs:annotation>
+      <xs:documentation>Представление для номера телефона</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:simpleType name="PhResourceNameType">
+    <xs:annotation>
+      <xs:documentation>Тип для представления пользовательского имени устройства</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="64"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ReferenceItemCodeType">
+    <xs:annotation>
+      <xs:documentation>Представление для кода элемента справочника</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="32"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="RegionFormatType">
+    <xs:annotation>
+      <xs:documentation>Представление для региона</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:pattern value="\d{13}"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="UIDType">
+    <xs:annotation>
+      <xs:documentation>Представление для идентификатора пользователя</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:long">
+      <xs:pattern value="\d{10}"/>
+      <xs:fractionDigits value="0"/>
+      <xs:totalDigits value="10"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="URLType">
+    <xs:annotation>
+      <xs:documentation>Представление для адреса ресурса в интернете</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:complexType name="AmountType">
+    <xs:annotation>
+      <xs:documentation>Тип, содержащий денежное значение</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="amount" type="cor:MoneyType">
+        <xs:annotation>
+          <xs:documentation>Сумма в указанной валюте</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="currencyCode" type="dic:CurrencyCodeEnum" use="optional">
+      <xs:annotation>
+        <xs:documentation>Код валюты</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:complexType name="CharValue">
+    <xs:annotation>
+      <xs:documentation>Значение характеристики</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="value" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Единичное значение характеристики</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="CorporateNameType">
+    <xs:annotation>
+      <xs:documentation>Имя ЮЛ</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="0" name="title" type="cor:LongNameType">
+        <xs:annotation>
+          <xs:documentation>Название организации</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="EmptyType">
+    <xs:annotation>
+      <xs:documentation>Совсем пустой тип</xs:documentation>
+    </xs:annotation>
+    <xs:sequence/>
+  </xs:complexType>
+  <xs:complexType name="KeyValue">
+    <xs:annotation>
+      <xs:documentation>Для пар: ключ-значение</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="value" type="xs:string"/>
+    </xs:sequence>
+    <xs:attribute name="key" type="xs:string" use="optional"/>
+  </xs:complexType>
+  <xs:complexType name="KeyValueEncoded">
+    <xs:complexContent>
+      <xs:extension base="cor:KeyValue">
+        <xs:sequence/>
+        <xs:attribute name="encoding" type="xs:string" use="optional"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="LocaleValue">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="value" type="xs:string"/>
+    </xs:sequence>
+    <xs:attribute name="locale" type="xs:string" use="optional"/>
+  </xs:complexType>
+  <xs:complexType name="PersonalNameType">
+    <xs:annotation>
+      <xs:documentation>Имя ФЛ</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="0" name="firstName" type="cor:CustomerNameType">
+        <xs:annotation>
+          <xs:documentation>Имя</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element maxOccurs="1" minOccurs="0" name="lastName" type="cor:CustomerNameType">
+        <xs:annotation>
+          <xs:documentation>Фамилия</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element maxOccurs="1" minOccurs="0" name="middleName" type="cor:CustomerNameType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PropertyType">
+    <xs:annotation>
+      <xs:documentation>Пара имя:значение</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="value" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>значение</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="name" type="xs:string" use="required">
+      <xs:annotation>
+        <xs:documentation>имя</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:complexType name="PropertyValue">
+    <xs:annotation>
+      <xs:documentation>Тип, содержащий значение(я) атрибута для фильтрации объектов</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="operation" type="dic:CompareOperationEnum">
+        <xs:annotation>
+          <xs:documentation>Тип операции сравнения</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element maxOccurs="unbounded" minOccurs="1" name="values" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Значения для сравнения</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element maxOccurs="1" minOccurs="1" name="filterOperation" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Фильтрующий (обязательный) критерий  - все результаты поиска должны удовлетворять заданному условию</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://oxford-esb.g4lab.com:8080/CustomerInformationService?xsd=../../../VOX/Domains/Common/VoxDictionaries.xsd</con:url><con:content><![CDATA[<?java.package com.yota.generated.common.vox.dic?>
+<xs:schema elementFormDefault="qualified" targetNamespace="http://www.yota.ru/vox/domains/common/dictionaries_1.1" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:dic="http://www.yota.ru/vox/domains/common/dictionaries_1.1" xmlns="http://www.yota.ru/vox/domains/common/dictionaries_1.1">
+  <xs:simpleType name="ActionTypeEnum">
+    <xs:annotation>
+      <xs:documentation>Типы операций для системы логгирования</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="session">
+        <xs:annotation>
+          <xs:documentation>Операции над сессией</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="account">
+        <xs:annotation>
+          <xs:documentation>Операции с учётной записью</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="report">
+        <xs:annotation>
+          <xs:documentation>Операции с отчётами</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="device">
+        <xs:annotation>
+          <xs:documentation>Операции с устройствами пользователей</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="card">
+        <xs:annotation>
+          <xs:documentation>Операции над скрэтч картами</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="cardPool">
+        <xs:annotation>
+          <xs:documentation>Операции с пулом скрэтч карт</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AliasTypeEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="iccid"/>
+      <xs:enumeration value="msisdn"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="CompareOperationEnum">
+    <xs:annotation>
+      <xs:documentation>Типы сравнений
+Все значения, кроме equal и notEqual - можно на future</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="equal"/>
+      <xs:enumeration value="in"/>
+      <xs:enumeration value="between"/>
+      <xs:enumeration value="less"/>
+      <xs:enumeration value="more"/>
+      <xs:enumeration value="lessOrEqual"/>
+      <xs:enumeration value="moreOrEqual"/>
+      <xs:enumeration value="notEqual"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="CountryEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Russia"/>
+      <xs:enumeration value="Belarus"/>
+      <xs:enumeration value="Nicaragua"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="CurrencyCodeEnum">
+    <xs:annotation>
+      <xs:documentation>Доступные валюты</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="RUR">
+        <xs:annotation>
+          <xs:documentation>Российский рубль</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="NIO">
+        <xs:annotation>
+          <xs:documentation>Никарагуанская кордоба</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="BYR">
+        <xs:annotation>
+          <xs:documentation>Белорусский рубль</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="MarketingCampaignClassEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="OneDayFree"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="MarketingCampaignStatusEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="active"/>
+      <xs:enumeration value="used"/>
+      <xs:enumeration value="overdue"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="MarketingCampaignTypeEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ForNewClient"/>
+      <xs:enumeration value="ForExistingClient"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ModificationTypeEnum">
+    <xs:annotation>
+      <xs:documentation>Подтипы операций для системы логгирования</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="create">
+        <xs:annotation>
+          <xs:documentation>Создание сущности</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="read">
+        <xs:annotation>
+          <xs:documentation>Чтение информации</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="modify">
+        <xs:annotation>
+          <xs:documentation>Изменение атрибутов</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="remove">
+        <xs:annotation>
+          <xs:documentation>Удаление сущности</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="OperationEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="create"/>
+      <xs:enumeration value="update"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="OperationResultEnum">
+    <xs:annotation>
+      <xs:documentation>Результат выполнения операции для подсистемы логгирования</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Success"/>
+      <xs:enumeration value="Failure"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="PersonalDataIDTypeEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="HID"/>
+      <xs:enumeration value="CustomerID"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="PersonTypeEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="corporate"/>
+      <xs:enumeration value="personal"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="PhysicalDeviceSpecAttributeEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="chipName"/>
+      <xs:enumeration value="deviceCategory"/>
+      <xs:enumeration value="modelName"/>
+      <xs:enumeration value="networkTechnology"/>
+      <xs:enumeration value="vendorChipId"/>
+      <xs:enumeration value="vendorModelId"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ProductStatusEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="active">
+        <xs:annotation>
+          <xs:documentation>Активен</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="blocked">
+        <xs:annotation>
+          <xs:documentation>Финансово заблокирован</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="finished">
+        <xs:annotation>
+          <xs:documentation>Завершен</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="planned">
+        <xs:annotation>
+          <xs:documentation>Продукт запланирован</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="suspended">
+        <xs:annotation>
+          <xs:documentation>Приостановлен (для управляемых услуг)</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ResourceIdentificationEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="extIccid">
+        <xs:annotation>
+          <xs:documentation>[не используется] Расширенный ICCID - 18-20 символов</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="imsi">
+        <xs:annotation>
+          <xs:documentation>IMSI - 15 цифр
+Общий формат поля: [код страны 3 разряда][код оператора 2 разряда][код HSS 2 разряда][порядковый номер карты 8 разрядов]
+Формат поля для Yota (модемы): [250][11][01][YYYYYYYY]
+Формат поля для Yota (сим карты): [250][11][02][YYYYYYYY]</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="iccid">
+        <xs:annotation>
+          <xs:documentation>Короткий ICCID (10 символов)</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="RFSSpecTypeEnum">
+    <xs:annotation>
+      <xs:documentation>Типы RFS Spec</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="AAA">
+        <xs:annotation>
+          <xs:documentation>Используется для WiMax</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ACL">
+        <xs:annotation>
+          <xs:documentation>Правила транспортного доступа</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="QoS">
+        <xs:annotation>
+          <xs:documentation>Качество предоставления сервиса</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="PCRF"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ServiceChannelEnum">
+    <xs:annotation>
+      <xs:documentation>Канал обслуживания/привлечения</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="msc">
+        <xs:annotation>
+          <xs:documentation>Mobile Selfcare</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="wsc">
+        <xs:annotation>
+          <xs:documentation>Web Selfcare</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="eshop">
+        <xs:annotation>
+          <xs:documentation>Интернет-магазин</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ussd">
+        <xs:annotation>
+          <xs:documentation>USSD</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="crm">
+        <xs:annotation>
+          <xs:documentation>CRM</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="other"/>
+      <xs:enumeration value="cpa"/>
+      <xs:enumeration value="sms"/>
+      <xs:enumeration value="vk">
+        <xs:annotation>
+          <xs:documentation>вконтакте</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="tw">
+        <xs:annotation>
+          <xs:documentation>твиттер</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="partner"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="SMSmessageStatusEnum">
+    <xs:annotation>
+      <xs:documentation>Статусы состояния сообщений в SMSGatе</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="failed">
+        <xs:annotation>
+          <xs:documentation>сообщение не удалось доставить провайдеру</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="inprocess">
+        <xs:annotation>
+          <xs:documentation>сообщение в процессе доставки</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="success">
+        <xs:annotation>
+          <xs:documentation>сообщение доставлено провайдеру</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="SortOrderEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="asc"/>
+      <xs:enumeration value="desc"/>
+      <xs:enumeration value="none"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="UnitOfMeasureEnum">
+    <xs:annotation>
+      <xs:documentation>Тип измеряемого значения</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="byte"/>
+      <xs:enumeration value="day"/>
+      <xs:enumeration value="hour"/>
+      <xs:enumeration value="gb"/>
+      <xs:enumeration value="kb"/>
+      <xs:enumeration value="kbps"/>
+      <xs:enumeration value="mb"/>
+      <xs:enumeration value="mbps"/>
+      <xs:enumeration value="month"/>
+      <xs:enumeration value="minute"/>
+      <xs:enumeration value="item"/>
+      <xs:enumeration value="rub"/>
+      <xs:enumeration value="second"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ValidationRuleTypeEnum">
+    <xs:annotation>
+      <xs:documentation>Типы валидационных проверок</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="unchangeable"/>
+      <xs:enumeration value="uniqueAttr"/>
+      <xs:enumeration value="mandatory"/>
+      <xs:enumeration value="undefined"/>
+      <xs:enumeration value="regExp"/>
+      <xs:enumeration value="maxLength"/>
+      <xs:enumeration value="minValue"/>
+      <xs:enumeration value="maxValue"/>
+      <xs:enumeration value="precision"/>
+      <xs:enumeration value="dateFormat"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:annotation>
+    <xs:documentation>Системные справочники (enumerations)</xs:documentation>
+  </xs:annotation>
+  <xs:simpleType name="IdentityVerificationStatus">
+    <xs:annotation>
+      <xs:documentation>Статус идентификации ФЛ по базам даных гос.органов</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NOT_POSSIBLE">
+        <xs:annotation>
+          <xs:documentation>Невозможно провести</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="NOT_VERIFY">
+        <xs:annotation>
+          <xs:documentation>Не проводилась</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="SUCCESS">
+        <xs:annotation>
+          <xs:documentation>Успешная</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="UNSUCCESS">
+        <xs:annotation>
+          <xs:documentation>Неуспешная</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="VERIFYING">
+        <xs:annotation>
+          <xs:documentation>Проводится</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="SUCCESS_EDITED"/>
+      <xs:enumeration value="WAITING"/>
+      <xs:enumeration value="REQUIRED"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="IdentityVerificationType">
+    <xs:annotation>
+      <xs:documentation>Тип идентификации - проверки по БД гос. структур</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="FTS_CHECK">
+        <xs:annotation>
+          <xs:documentation>Статус проверки по БД ФНС</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="GHI_CHECK">
+        <xs:annotation>
+          <xs:documentation>Статус проверки по БД ОМС</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="MIA_CHECK">
+        <xs:annotation>
+          <xs:documentation>Статус проверки по БД МВД</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="PF_CHECK">
+        <xs:annotation>
+          <xs:documentation>Статус проверки по БД ПФР</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="OAO_CHECK"/>
+      <xs:enumeration value="TPOP_CHECK"/>
+      <xs:enumeration value="UNKNOWN"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://oxford-esb.g4lab.com:8080/CustomerInformationService?xsd=../../../VOX/Domains/Customer/Customer.xsd</con:url><con:content><![CDATA[<?java.package com.yota.generated.vox.domains.customer?>
+<xs:schema targetNamespace="http://www.yota.ru/vox/domains/customer" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:dic="http://www.yota.ru/vox/domains/common/dictionaries_1.1" xmlns:cus="http://www.yota.ru/vox/domains/customer" xmlns:cor="http://www.yota.ru/vox/domains/common/core" xmlns:com="http://www.yota.ru/vox/domains/common/com" xmlns="http://www.yota.ru/vox/domains/customer">
+  <xs:import namespace="http://www.yota.ru/vox/domains/common/com" schemaLocation="http://oxford-esb.g4lab.com:8080/CustomerInformationService?xsd=../../../VOX/Domains/Common/VoxCommonObjects.xsd"/>
+  <xs:import namespace="http://www.yota.ru/vox/domains/common/core" schemaLocation="http://oxford-esb.g4lab.com:8080/CustomerInformationService?xsd=../../../VOX/Domains/Common/VoxCoreDataTypes.xsd"/>
+  <xs:import namespace="http://www.yota.ru/vox/domains/common/dictionaries_1.1" schemaLocation="http://oxford-esb.g4lab.com:8080/CustomerInformationService?xsd=../../../VOX/Domains/Common/VoxDictionaries.xsd"/>
+  <xs:simpleType name="AccountStatusEnum">
+    <xs:annotation>
+      <xs:documentation>Возможные состояния клиента.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="active"/>
+      <xs:enumeration value="blocked"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AccountTypeEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Other"/>
+      <xs:enumeration value="Skype"/>
+      <xs:enumeration value="VK"/>
+      <xs:enumeration value="Facebook"/>
+      <xs:enumeration value="ICQ"/>
+      <xs:enumeration value="Twitter"/>
+      <xs:enumeration value="OK"/>
+      <xs:enumeration value="Google"/>
+      <xs:enumeration value="Linkedin"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AgreementStatusEnum">
+    <xs:annotation>
+      <xs:documentation>Статусы соглашения</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="new">
+        <xs:annotation>
+          <xs:documentation>Не активировано</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="activated">
+        <xs:annotation>
+          <xs:documentation>Активировано</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="used"/>
+      <xs:enumeration value="closed">
+        <xs:annotation>
+          <xs:documentation>Закрыто</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="reassigned"/>
+      <xs:enumeration value="potential"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AgreementTypeEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="CA"/>
+      <xs:enumeration value="VoiceServices"/>
+      <xs:enumeration value="MNP"/>
+      <xs:enumeration value="RefuseMNP"/>
+      <xs:enumeration value="ChangeSim"/>
+      <xs:enumeration value="SIMAssigtOut"/>
+      <xs:enumeration value="SIMAssigtIn"/>
+      <xs:enumeration value="MoneyAssigtOut"/>
+      <xs:enumeration value="MoneyAssigtIn"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="CardTypeEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Other"/>
+      <xs:enumeration value="Visa"/>
+      <xs:enumeration value="Mastercard"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ConsentTypeEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="PERSONAL_DATA_PROCESSING"/>
+      <xs:enumeration value="GOODS_SERVICES_ADVERTISING"/>
+      <xs:enumeration value="PERSONAL_DATA_TRANSFER"/>
+      <xs:enumeration value="PHONE_CONTACT"/>
+      <xs:enumeration value="SMS_CONTACT"/>
+      <xs:enumeration value="EMAIL_CONTACT"/>
+      <xs:enumeration value="MAIL_CONTACT"/>
+      <xs:enumeration value="PUSH_CONTACT"/>
+      <xs:enumeration value="DND_WORK"/>
+      <xs:enumeration value="DND_MOBILE"/>
+      <xs:enumeration value="DND_HOME"/>
+      <xs:enumeration value="CARD"/>
+      <xs:enumeration value="YOTAPAY_ROUND_OFFER"/>
+      <xs:enumeration value="YOTAPAY_YOTA_OFFER"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ConsentValueEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="COMMON_CANCELED"/>
+      <xs:enumeration value="COMMON_DENIED"/>
+      <xs:enumeration value="COMMON_GRANTED"/>
+      <xs:enumeration value="COMMON_NOT_REQUIRED_TO_OBTAIN"/>
+      <xs:enumeration value="COMMON_REQUIRED_TO_OBTAIN"/>
+      <xs:enumeration value="COMMON_UNKNOWN"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="CustomerAttributesEnum">
+    <xs:annotation>
+      <xs:documentation>Возможные атрибуты клиента (список является открытым).</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="companyName"/>
+      <xs:enumeration value="email"/>
+      <xs:enumeration value="fname"/>
+      <xs:enumeration value="lname"/>
+      <xs:enumeration value="login"/>
+      <xs:enumeration value="phone"/>
+      <xs:enumeration value="registredFrom"/>
+      <xs:enumeration value="mname">
+        <xs:annotation>
+          <xs:documentation>отчество</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="imsi"/>
+      <xs:enumeration value="iccid"/>
+      <xs:enumeration value="mac"/>
+      <xs:enumeration value="cardNo"/>
+      <xs:enumeration value="userId"/>
+      <xs:enumeration value="marketingSegment"/>
+      <xs:enumeration value="customerPurpose"/>
+      <xs:enumeration value="accountType"/>
+      <xs:enumeration value="regInfoVerificationState"/>
+      <xs:enumeration value="documentType"/>
+      <xs:enumeration value="isAutoVerifiedDocumentType">
+        <xs:annotation>
+          <xs:documentation>Тип документа с признаком автоматической проверки</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="CustomerTypeEnum">
+    <xs:annotation>
+      <xs:documentation>expected - потенциальный пользователь, regular - настоящий пользователь</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="slider"/>
+      <xs:enumeration value="potentialVoice"/>
+      <xs:enumeration value="voice"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="DocumentTypeEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="PassportRU"/>
+      <xs:enumeration value="PassportUSSR"/>
+      <xs:enumeration value="Other"/>
+      <xs:enumeration value="PassportForeigner"/>
+      <xs:enumeration value="OverseasPassportRU"/>
+      <xs:enumeration value="OverseasPassportUSSR"/>
+      <xs:enumeration value="DiplomaticPassportRU"/>
+      <xs:enumeration value="TemporaryCertificate"/>
+      <xs:enumeration value="BirthCertificate"/>
+      <xs:enumeration value="OfficerCertificate"/>
+      <xs:enumeration value="MilitaryTicket"/>
+      <xs:enumeration value="PassportSailor"/>
+      <xs:enumeration value="PassportMinmorflota"/>
+      <xs:enumeration value="PrisonCertificate"/>
+      <xs:enumeration value="Residency"/>
+      <xs:enumeration value="MigrationCard"/>
+      <xs:enumeration value="TemporaryResidence"/>
+      <xs:enumeration value="RefugeeCertificate"/>
+      <xs:enumeration value="IDPCertificate"/>
+      <xs:enumeration value="RefugeeImmigrantsCertificate"/>
+      <xs:enumeration value="PensionCertificate"/>
+      <xs:enumeration value="DrivingLicense"/>
+      <xs:enumeration value="OfficePassportRU"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="EmailTypeEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Home"/>
+      <xs:enumeration value="Other"/>
+      <xs:enumeration value="Work"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="GenderTypeEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Female"/>
+      <xs:enumeration value="Male"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="LanguageTypeEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="RU"/>
+      <xs:enumeration value="EN"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="PhoneTypeEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Work"/>
+      <xs:enumeration value="Home"/>
+      <xs:enumeration value="Mobile"/>
+      <xs:enumeration value="Fax"/>
+      <xs:enumeration value="Spouse"/>
+      <xs:enumeration value="Relative"/>
+      <xs:enumeration value="Other"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ScanRefTypeEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="agreement"/>
+      <xs:enumeration value="autorization"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="TimeZoneTypeEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="MISSED"/>
+      <xs:enumeration value="UTC+1"/>
+      <xs:enumeration value="UTC+2"/>
+      <xs:enumeration value="UTC+3"/>
+      <xs:enumeration value="UTC+4"/>
+      <xs:enumeration value="UTC+5"/>
+      <xs:enumeration value="UTC+6"/>
+      <xs:enumeration value="UTC+7"/>
+      <xs:enumeration value="UTC+8"/>
+      <xs:enumeration value="UTC+9"/>
+      <xs:enumeration value="UTC+10"/>
+      <xs:enumeration value="UTC+11"/>
+      <xs:enumeration value="UTC+12"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="SourceSystemEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="PartnerFacade"/>
+      <xs:enumeration value="SelfCare"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="AccountAttribute">
+    <xs:complexContent>
+      <xs:extension base="PersonalDataAttribute">
+        <xs:sequence>
+          <xs:element maxOccurs="1" minOccurs="1" name="account" type="xs:string"/>
+          <xs:element maxOccurs="1" minOccurs="1" name="accountType" type="AccountTypeEnum"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="AddressAttribute">
+    <xs:annotation>
+      <xs:documentation>Географический адрес</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="PersonalDataAttribute">
+        <xs:sequence>
+          <xs:element maxOccurs="1" minOccurs="0" name="addressText" type="xs:string">
+            <xs:annotation>
+              <xs:documentation>Строка, описывающая адрес или местонахождение</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element maxOccurs="1" minOccurs="0" name="country" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Agreement">
+    <xs:annotation>
+      <xs:documentation>Соглашение. Исторический объект.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="com:PersonalDataIdentifiedObject">
+        <xs:sequence>
+          <xs:element maxOccurs="1" minOccurs="1" name="refId" type="xs:string"/>
+          <xs:element maxOccurs="1" minOccurs="1" name="agreementType" type="AgreementTypeEnum"/>
+          <xs:element maxOccurs="1" minOccurs="1" name="agreementStatus" type="AgreementStatusEnum">
+            <xs:annotation>
+              <xs:documentation>Статус соглашения</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element maxOccurs="1" minOccurs="0" name="iccid" type="xs:string"/>
+          <xs:element maxOccurs="1" minOccurs="0" name="msisdn" type="cor:PhoneType"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="serviceNumberDetails" type="ServiceNumberDetails"/>
+          <xs:element maxOccurs="1" minOccurs="0" name="region" type="cor:ReferenceItemCodeType"/>
+          <xs:element maxOccurs="1" minOccurs="0" name="timezone" type="TimeZoneTypeEnum"/>
+          <xs:element maxOccurs="1" minOccurs="1" name="created" type="xs:dateTime">
+            <xs:annotation>
+              <xs:documentation>Дата создания записи</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element maxOccurs="1" minOccurs="0" name="signed" type="xs:dateTime">
+            <xs:annotation>
+              <xs:documentation>Дата подписания договора (с которым клиент передал нам ПД) в точке
+                                продажи</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element maxOccurs="1" minOccurs="0" name="serviceStartDate" type="xs:dateTime"/>
+          <xs:element maxOccurs="1" minOccurs="0" name="livingPeriod" type="com:LivingPeriod">
+            <xs:annotation>
+              <xs:documentation>Период действия договора</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="subscriberData" type="SubscriberData"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="agreementProperties" type="cor:PropertyType"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="agreementScanRef" type="ScanRef"/>
+          <xs:element maxOccurs="1" minOccurs="0" name="branch" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="ServiceNumberDetails">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="iccid" type="xs:string"/>
+      <xs:element minOccurs="0" name="msisdn" type="cor:PhoneType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="AgreementAuthorizationAttribute">
+    <xs:annotation>
+      <xs:documentation>Авторизация соглашения (факт заключения соглашения, проверки данных соглашения)</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="PersonalDataAttribute">
+        <xs:sequence>
+          <xs:element maxOccurs="1" minOccurs="1" name="agreement" type="Agreement">
+            <xs:annotation>
+              <xs:documentation>Идентификатор авторизуемого соглашения</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element maxOccurs="1" minOccurs="1" name="authorizationType" type="xs:string">
+            <xs:annotation>
+              <xs:documentation>Тип авторизации</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element maxOccurs="1" minOccurs="1" name="authorizationResult" type="xs:string">
+            <xs:annotation>
+              <xs:documentation>Результат авторизации</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element maxOccurs="1" minOccurs="1" name="authorized" type="xs:dateTime">
+            <xs:annotation>
+              <xs:documentation>Дата авторизации</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element maxOccurs="1" minOccurs="0" name="authorizedBy" type="xs:string">
+            <xs:annotation>
+              <xs:documentation>Кем авторизовано</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element maxOccurs="1" minOccurs="1" name="sourceOfAuthorization" type="xs:string">
+            <xs:annotation>
+              <xs:documentation>Выполнившая сторона</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element maxOccurs="1" minOccurs="0" name="placeOfAuthorization" type="xs:string">
+            <xs:annotation>
+              <xs:documentation>Место</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element maxOccurs="1" minOccurs="0" name="comment" type="xs:string">
+            <xs:annotation>
+              <xs:documentation>Комментарий</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="ConsentDataProperty">
+    <xs:complexContent>
+      <xs:extension base="PersonalDataAttribute">
+        <xs:sequence>
+          <xs:element maxOccurs="1" minOccurs="1" name="key" type="ConsentTypeEnum"/>
+          <xs:element maxOccurs="1" minOccurs="1" name="value" type="ConsentValueEnum"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="CorporateCustomer">
+    <xs:annotation>
+      <xs:documentation>Корпоративный клиент</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="Customer">
+        <xs:sequence>
+          <xs:element maxOccurs="1" minOccurs="0" name="companyName" type="cor:CorporateNameType">
+            <xs:annotation>
+              <xs:documentation>Название КК</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Customer">
+    <xs:annotation>
+      <xs:documentation>Клиент</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="com:PersonalDataIdentifiedObject">
+        <xs:sequence>
+          <xs:element maxOccurs="1" minOccurs="0" name="customerType" type="CustomerTypeEnum"/>
+          <xs:element maxOccurs="1" minOccurs="0" name="status" type="AccountStatusEnum">
+            <xs:annotation>
+              <xs:documentation>Статус клиента в системе</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element maxOccurs="1" minOccurs="0" name="created" type="xs:dateTime">
+            <xs:annotation>
+              <xs:documentation>Дата регистрации аккаунта в CDI. Заполняется при создании аккаунта</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element maxOccurs="1" minOccurs="0" name="lac_tac_code" type="cor:ReferenceItemCodeType"/>
+          <xs:element maxOccurs="1" minOccurs="0" name="location_region" type="cor:ReferenceItemCodeType"/>
+          <xs:element maxOccurs="1" minOccurs="0" name="customerPurpose" type="cor:ReferenceItemCodeType">
+            <xs:annotation>
+              <xs:documentation>Назначение клиента</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element maxOccurs="1" minOccurs="0" name="language" type="LanguageTypeEnum">
+            <xs:annotation>
+              <xs:documentation>Объект содержащий язык пользователя
+                                В БД необходимо сохранять только идентификатор языка из справочника возможных языков.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element maxOccurs="1" minOccurs="0" name="marketingSegment" type="cor:ReferenceItemCodeType">
+            <xs:annotation>
+              <xs:documentation>Маркетинговый сегмент</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="emails" type="EmailAttribute">
+            <xs:annotation>
+              <xs:documentation>E-mail</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="phones" type="PhoneAttribute">
+            <xs:annotation>
+              <xs:documentation>Телефонный номер клиента</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="paymentCards" type="PaymentCardAttribute"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="account" type="AccountAttribute"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="agreements" type="Agreement"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="consentProperties" type="ConsentDataProperty"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="additionalProperties" type="cor:PropertyType"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="mobileApplications" type="MobileApplicationAttribute"/>
+          <xs:element maxOccurs="1" minOccurs="0" name="gt_vlr" type="cor:ReferenceItemCodeType"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="identififcation" type="IdentificationAttribute"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="DocumentAttribute">
+    <xs:complexContent>
+      <xs:extension base="PersonalDataAttribute">
+        <xs:sequence>
+          <xs:element maxOccurs="1" minOccurs="0" name="documentType" type="DocumentTypeEnum"/>
+          <xs:element maxOccurs="1" minOccurs="0" name="documentSeries" type="xs:string"/>
+          <xs:element maxOccurs="1" minOccurs="0" name="documentNumber" type="xs:string"/>
+          <xs:element maxOccurs="1" minOccurs="0" name="issueDate" type="xs:dateTime"/>
+          <xs:element maxOccurs="1" minOccurs="0" name="issueAuthority" type="xs:string"/>
+          <xs:element maxOccurs="1" minOccurs="0" name="departmentCode" type="xs:string"/>
+          <xs:element maxOccurs="1" minOccurs="0" name="expiryDate" type="xs:dateTime"/>
+          <xs:element maxOccurs="1" minOccurs="0" name="author" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="EmailAttribute">
+    <xs:complexContent>
+      <xs:extension base="PersonalDataAttribute">
+        <xs:sequence>
+          <xs:element maxOccurs="1" minOccurs="1" name="email" type="cor:EMailType"/>
+          <xs:element maxOccurs="1" minOccurs="1" name="emailType" type="EmailTypeEnum"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="IdentificationAttribute">
+    <xs:complexContent>
+      <xs:extension base="PersonalDataAttribute">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="attempt" type="xs:int">
+            <xs:annotation>
+              <xs:documentation>Количество попыток идентификации</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="comment" type="xs:string"/>
+          <xs:element minOccurs="1" name="identificationStatus" type="dic:IdentityVerificationStatus"/>
+          <xs:element minOccurs="0" name="identificationType" type="dic:IdentityVerificationType"/>
+          <xs:element minOccurs="0" name="invalidDocumentDate" type="xs:dateTime">
+            <xs:annotation>
+              <xs:documentation>Документ не действителен с</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="invalidReason" type="xs:string">
+            <xs:annotation>
+              <xs:documentation>Причина неудачной проверки</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="nextDate" type="xs:dateTime">
+            <xs:annotation>
+              <xs:documentation>Дата следующей проверки</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="taskId" type="xs:string">
+            <xs:annotation>
+              <xs:documentation>Номер задачи проверки в СМЭВ</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="MobileApplicationAttribute">
+    <xs:complexContent>
+      <xs:extension base="PersonalDataAttribute">
+        <xs:sequence>
+          <xs:element maxOccurs="1" minOccurs="1" name="IDApp" type="xs:string"/>
+          <xs:element minOccurs="0" name="iccid" type="xs:string"/>
+          <xs:element maxOccurs="1" minOccurs="0" name="AppVersion" type="xs:string"/>
+          <xs:element maxOccurs="1" minOccurs="1" name="OS" type="xs:string"/>
+          <xs:element maxOccurs="1" minOccurs="0" name="OSVersion" type="xs:string"/>
+          <xs:element maxOccurs="1" minOccurs="0" name="IMEI" type="xs:string"/>
+          <xs:element maxOccurs="1" minOccurs="0" name="ModelName" type="xs:string"/>
+          <xs:element maxOccurs="1" minOccurs="0" name="PushToken" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="PaymentCardAttribute">
+    <xs:annotation>
+      <xs:documentation>Информация о привязке пластиковой карты к абоненту через банк-партнёр</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="PersonalDataAttribute">
+        <xs:sequence>
+          <xs:element maxOccurs="1" minOccurs="1" name="partnerId" type="xs:long">
+            <xs:annotation>
+              <xs:documentation>Идентификатор банка-партнера</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element maxOccurs="1" minOccurs="0" name="cardAlias" type="xs:string"/>
+          <xs:element maxOccurs="1" minOccurs="1" name="channelService" type="xs:string">
+            <xs:annotation>
+              <xs:documentation>Канал обслуживания: идентификатор магазина в системе банка-партнера
+                                (product_id Хронопея для Yota или YPlay)</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element maxOccurs="1" minOccurs="1" name="serviceStatus" type="xs:boolean"/>
+          <xs:element maxOccurs="1" minOccurs="1" name="cardId" type="xs:string">
+            <xs:annotation>
+              <xs:documentation>Идентификатор привязки</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element maxOccurs="1" minOccurs="0" name="created" type="xs:dateTime">
+            <xs:annotation>
+              <xs:documentation>Дата создания привязки</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element maxOccurs="1" minOccurs="0" name="cardNumber" type="xs:string">
+            <xs:annotation>
+              <xs:documentation>Обрезанный номер карты</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element maxOccurs="1" minOccurs="0" name="cardType" type="CardTypeEnum"/>
+          <xs:element maxOccurs="1" minOccurs="0" name="owner" type="xs:string">
+            <xs:annotation>
+              <xs:documentation>Идентификатор пользователя</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element maxOccurs="1" minOccurs="0" name="expirationDate" type="xs:dateTime"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="PersonalCustomer">
+    <xs:annotation>
+      <xs:documentation>Клиент - физическое лицо</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="Customer">
+        <xs:sequence>
+          <xs:element maxOccurs="1" minOccurs="0" name="name" type="cor:PersonalNameType">
+            <xs:annotation>
+              <xs:documentation>Имя клиента</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element maxOccurs="1" minOccurs="0" name="personalDetails" type="PersonalDetailsType"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="PersonalDataAttribute">
+    <xs:complexContent>
+      <xs:extension base="com:PersonalDataIdentifiedObject">
+        <xs:sequence>
+          <xs:element maxOccurs="1" minOccurs="1" name="livingPeriod" type="com:LivingPeriod"/>
+          <xs:element maxOccurs="1" minOccurs="0" name="rawSource" type="xs:string"/>
+          <xs:element maxOccurs="1" minOccurs="0" name="primary" type="xs:boolean"/>
+          <xs:element maxOccurs="1" minOccurs="0" name="additionalInfo" type="xs:string"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="additionalProperties" type="cor:PropertyType"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="PersonalDetailsType">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="0" name="gender" type="GenderTypeEnum"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="birthDate" type="xs:dateTime"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="birthPlace" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PersonalSubscriberData">
+    <xs:complexContent>
+      <xs:extension base="SubscriberData">
+        <xs:sequence>
+          <xs:element maxOccurs="1" minOccurs="1" name="name" type="cor:PersonalNameType">
+            <xs:annotation>
+              <xs:documentation>ФИО</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element maxOccurs="1" minOccurs="0" name="accountId" type="cor:ExternalIDType">
+            <xs:annotation>
+              <xs:documentation>Номер ЛС - Биллинговый идентификатор клиента</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element maxOccurs="1" minOccurs="0" name="personalDetails" type="PersonalDetailsType"/>
+          <xs:element maxOccurs="1" minOccurs="0" name="document" type="DocumentAttribute"/>
+          <xs:element maxOccurs="1" minOccurs="0" name="address" type="AddressAttribute">
+            <xs:annotation>
+              <xs:documentation>Адрес</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="PhoneAttribute">
+    <xs:complexContent>
+      <xs:extension base="PersonalDataAttribute">
+        <xs:sequence>
+          <xs:element maxOccurs="1" minOccurs="0" name="phoneNumber" type="cor:PhoneType"/>
+          <xs:element maxOccurs="1" minOccurs="0" name="phoneType" type="PhoneTypeEnum"/>
+          <xs:element maxOccurs="1" minOccurs="0" name="operator" type="xs:string"/>
+          <xs:element maxOccurs="1" minOccurs="0" name="countryCode" type="xs:string"/>
+          <xs:element maxOccurs="1" minOccurs="0" name="cityCode" type="xs:string"/>
+          <xs:element maxOccurs="1" minOccurs="0" name="telephone" type="xs:string"/>
+          <xs:element maxOccurs="1" minOccurs="0" name="extension" type="xs:string"/>
+          <xs:element maxOccurs="1" minOccurs="0" name="timezone" type="TimeZoneTypeEnum"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="ScanRef">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="scanRefValue" type="xs:string"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="scanRefType" type="ScanRefTypeEnum"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="SubscriberData">
+    <xs:annotation>
+      <xs:documentation>Персональные данные абонента заключившего соглашение</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="com:PersonalDataIdentifiedObject">
+        <xs:sequence>
+          <xs:element maxOccurs="1" minOccurs="1" name="created" type="xs:dateTime">
+            <xs:annotation>
+              <xs:documentation>Дата создания ConsumerData.
+                                Проставляется при первом получении ПД клиента</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element maxOccurs="1" minOccurs="0" name="livingPeriod" type="com:LivingPeriod">
+            <xs:annotation>
+              <xs:documentation>Дата/ время начала и окончания периода действия персональных данных.
+                                Используется для поддержки историчности.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="subscriberProperties" type="cor:PropertyType">
+            <xs:annotation>
+              <xs:documentation>Идентификация ФЛ\ЮЛ (основана на динамических атрибутах)</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://oxford-esb.g4lab.com:8080/CustomerInformationService</con:endpoint></con:endpoints></con:interface>

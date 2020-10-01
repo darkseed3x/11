@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation id="5111f6c6-3674-4dee-acf9-138469bfe834" isOneWay="false" action="http://www.yota.ru/vox/services/b2b/wsdl/CorporateOrderManagement/SearchOrderByUniversalId" name="searchOrderByUniversalId" bindingOperationName="searchOrderByUniversalId" type="Request-Response" outputName="SearchOrderByUniversalIdOut" inputName="SearchOrderByUniversalIdIn" receivesAttachments="false" sendsAttachments="false" anonymous="optional" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="5111f6c6-3674-4dee-acf9-138469bfe834fileName">searchOrderByUniversalId</con:setting></con:settings><con:call id="0f9e02f0-aa20-4d2d-8604-b8eb55f57089" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://ft1-b2b-ainst1.scartel.dc:8082/oms-web/OrderEndpoint</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ord="http://www.yota.ru/vox/b2b/services/order">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ord:SearchOrderByUniversalIdRequest>\r
+         <!--Optional:-->\r
+         <billingAccount>?</billingAccount>\r
+         <!--Optional:-->\r
+         <customerId>?</customerId>\r
+         <!--Zero or more repetitions:-->\r
+         <orderStatus>?</orderStatus>\r
+         <!--Zero or more repetitions:-->\r
+         <orderType>?</orderType>\r
+      </ord:SearchOrderByUniversalIdRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.yota.ru/vox/services/b2b/wsdl/CorporateOrderManagement/SearchOrderByUniversalId"/></con:call></con:operation>

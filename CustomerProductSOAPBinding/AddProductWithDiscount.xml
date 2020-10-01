@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation isOneWay="false" action="http://www.yota.ru/vox/services/wsdl/CustomerProduct/AddProductWithDiscount" name="AddProductWithDiscount" bindingOperationName="AddProductWithDiscount" type="Request-Response" outputName="AddProductWithDiscountOut" inputName="AddProductWithDiscountIn" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="2d279d5e-9edf-4148-a0f2-7bd43fa97ef2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="2d279d5e-9edf-4148-a0f2-7bd43fa97ef2fileName">AddProductWithDiscount</con:setting></con:settings><con:call name="Request 1" id="a4d7d223-f436-42f2-b2d2-aa54dec842e6"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.78.209.200:8382/customer-product-ejb/CustomerProduct/CustomerProductServiceBean</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cus="http://www.yota.ru/vox/services/customerProduct" xmlns:core="http://www.roox.ru/products/common/core">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <cus:AddProductWithDiscountRequest>
+         <!--Optional:-->
+         <core:extension>
+            <!--Zero or more repetitions:-->
+            <core:item>?</core:item>
+         </core:extension>
+         <accountId>?</accountId>
+         <offerExternalId>?</offerExternalId>
+         <discountServiceId>?</discountServiceId>
+         <regionOfBuying>?</regionOfBuying>
+         <simKey>
+            <key>?</key>
+            <type>?</type>
+         </simKey>
+         <!--Optional:-->
+         <changingProductId>?</changingProductId>
+         <!--Zero or more repetitions:-->
+         <optionOfferExternalIds>?</optionOfferExternalIds>
+         <!--Optional:-->
+         <baseTarifOfferExternalId>?</baseTarifOfferExternalId>
+         <!--Optional:-->
+         <masterProductId>?</masterProductId>
+         <!--Optional:-->
+         <allowAutoProlong>?</allowAutoProlong>
+         <!--Optional:-->
+         <canAddFinBlocked>?</canAddFinBlocked>
+      </cus:AddProductWithDiscountRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.yota.ru/vox/services/wsdl/CustomerProduct/AddProductWithDiscount"/></con:call></con:operation>

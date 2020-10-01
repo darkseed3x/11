@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation isOneWay="false" action="http://www.yota.ru/vox/services/b2b/wsdl/CorpCustomerInformation/GetCorporatePerson" name="getCorporatePerson" bindingOperationName="getCorporatePerson" type="Request-Response" outputName="GetCorporatePersonOut" inputName="GetCorporatePersonIn" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="a389fec6-b7f6-4605-9cf2-410be98439fe" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="a389fec6-b7f6-4605-9cf2-410be98439fefileName">getCorporatePerson</con:setting></con:settings><con:call name="Request 1" id="9766988c-9808-4bdb-b5ab-2f2f156fd485"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://b2btst-corpjs-cis.g4lab.com:8080/cis-web/CorpCustomerInformationServiceImpl</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cus="http://www.yota.ru/vox/b2b/services/customerInformation">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <cus:GetCorporatePersonRequest>
+         <customerId>?</customerId>
+         <role>?</role>
+      </cus:GetCorporatePersonRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.yota.ru/vox/services/b2b/wsdl/CorpCustomerInformation/GetCorporatePerson"/></con:call></con:operation>

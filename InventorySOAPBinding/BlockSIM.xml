@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation isOneWay="false" action="http://www.yota.ru/vox/services/wsdl/Inventory/BlockSIM" name="BlockSIM" bindingOperationName="BlockSIM" type="Request-Response" outputName="BlockSIMOut" inputName="BlockSIMIn" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="cca8297d-2620-4536-a409-ac79bbe4cddc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="cca8297d-2620-4536-a409-ac79bbe4cddcfileName">BlockSIM</con:setting></con:settings><con:call name="Request 1" id="0c45f3e6-bf3c-412d-894a-6ac6bb0ec156"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.78.209.114:8383/inventory-ejb/Inventory/InventoryServiceBean</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:inv="http://www.yota.ru/vox/services/inventory" xmlns:core="http://www.roox.ru/products/common/core">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <inv:BlockSIMRequest>
+         <!--Optional:-->
+         <core:extension>
+            <!--Zero or more repetitions:-->
+            <core:item>?</core:item>
+         </core:extension>
+         <simCode>
+            <key>?</key>
+            <type>?</type>
+         </simCode>
+      </inv:BlockSIMRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.yota.ru/vox/services/wsdl/Inventory/BlockSIM"/><con:wsrmConfig version="1.2"/></con:call></con:operation>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation id="9b6c709c-5011-4de8-a58f-436bc84b8458" isOneWay="false" action="http://www.yota.ru/vox/services/wsdl/CustomerInformation/CreateConsent" name="CreateConsent" bindingOperationName="CreateConsent" type="Request-Response" outputName="CreateConsentOut" inputName="CreateConsentIn" receivesAttachments="false" sendsAttachments="false" anonymous="optional" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="9b6c709c-5011-4de8-a58f-436bc84b8458fileName">CreateConsent</con:setting></con:settings><con:call id="eb4962b5-51c6-4b0e-96a9-ca16e9e94c60" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://oxford-esb.g4lab.com:8080/CustomerInformationService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cus="http://www.yota.ru/vox/services/customerInformation" xmlns:core="http://www.roox.ru/products/common/core" xmlns:core1="http://www.yota.ru/vox/domains/common/core">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <cus:CreateConsentRequest>\r
+         <!--Optional:-->\r
+         <core:extension>\r
+            <!--Zero or more repetitions:-->\r
+            <core:item>?</core:item>\r
+         </core:extension>\r
+         <consent hid="?" customerId="?">\r
+            <livingPeriod>\r
+               <fromDate>?</fromDate>\r
+               <!--Optional:-->\r
+               <untilTo>?</untilTo>\r
+            </livingPeriod>\r
+            <!--Optional:-->\r
+            <rawSource>?</rawSource>\r
+            <!--Optional:-->\r
+            <primary>?</primary>\r
+            <!--Optional:-->\r
+            <additionalInfo>?</additionalInfo>\r
+            <!--Zero or more repetitions:-->\r
+            <additionalProperties name="?">\r
+               <core1:value>?</core1:value>\r
+            </additionalProperties>\r
+            <key>?</key>\r
+            <value>?</value>\r
+         </consent>\r
+      </cus:CreateConsentRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.yota.ru/vox/services/wsdl/CustomerInformation/CreateConsent"/></con:call></con:operation>

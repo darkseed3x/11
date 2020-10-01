@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation isOneWay="false" action="http://www.yota.ru/vox/services/b2b/wsdl/SimOrderFacade/GetClaimedPayment" name="getClaimedPayment" bindingOperationName="getClaimedPayment" type="Request-Response" outputName="getClaimedPaymentResponse" inputName="getClaimedPayment" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="2f2899e9-7407-43fa-9c4b-407df2fae091" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="2f2899e9-7407-43fa-9c4b-407df2fae091fileName">getClaimedPayment</con:setting></con:settings><con:call name="Request 1" id="379d31e0-9b62-4e12-b119-6c301c398054"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.90.253.243:8080/sofs-web/SimOrderFacadeEndpoint</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sim="http://www.yota.ru/vox/b2b/services/simOrderFacadeService">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <sim:GetClaimedPaymentRequest>
+         <!--Optional:-->
+         <billingAccount>?</billingAccount>
+      </sim:GetClaimedPaymentRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.yota.ru/vox/services/b2b/wsdl/SimOrderFacade/GetClaimedPayment"/></con:call></con:operation>

@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="mnp_old" searchProperties="true" id="43a35d02-0544-4088-a6e5-86f858e04bf0" disabled="true" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.panels.testcase.JTestRunLog$OptionsForm@max_rows">1000</con:setting><con:setting id="com.eviware.soapui.impl.wsdl.panels.testcase.JTestRunLog$OptionsForm@errors_only">false</con:setting><con:setting id="43a35d02-0544-4088-a6e5-86f858e04bf0fileName">mnp_old</con:setting></con:settings><con:testStep type="calltestcase" name="setupprop" id="675d2b38-112f-482f-ae86-60037e9ede94" disabled="true"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>7e5cda9a-de60-4865-b480-74309741c59f</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="groovy" name="data" id="faae20b7-4b1c-401a-a266-2cd7ec6ad06f"><con:settings/><con:config><script>def date = new Date().format("yyyy-MM-dd");
+testRunner.testCase.setPropertyValue("data", date.toString()  )</script></con:config></con:testStep><con:testStep type="groovy" name="random" id="426da660-0ca5-42c7-acc5-61dcfc24ec11"><con:settings/><con:config><script>testRunner.testCase.setPropertyValue("number", '')
+
+def length = 9;
+String validChars ="1234567890"
+def rnd = new Random()
+
+def number = '79'
+
+	number = number.toInteger() +  ( (1..length).sum
+{ 
+validChars[ rnd.nextInt(validChars.length()) ]})
+
+testRunner.testCase.setPropertyValue("number", number.toString()  )</script></con:config></con:testStep><con:testStep type="groovy" name="randmnp" id="e4bee2bb-2da2-441a-8d27-b29c40e1b29d"><con:settings/><con:config><script>testRunner.testCase.setPropertyValue("numberMNP", '')
+
+def length = 6;
+String validChars ="1234567890"
+def rnd = new Random()
+
+def number = '79511'
+
+	number = number.toInteger() +  ( (1..length).sum
+{ 
+validChars[ rnd.nextInt(validChars.length()) ]})
+
+testRunner.testCase.setPropertyValue("numberMNP", number.toString()  )</script></con:config></con:testStep><con:testStep type="request" name="create" id="2aaaeae8-4864-492d-87fe-913725ec9248"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>CorporateOrderManagementServiceSOAPBinding</con:interface><con:operation>createOrder</con:operation><con:request name="create" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="218a63dc-de6d-47f5-8abb-8158f95d1f31"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.90.253.219:8082/oms-web/OrderEndpoint</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ord="http://www.yota.ru/vox/b2b/services/order" xmlns:ns3="http://www.yota.ru/vox/b2b/domains/order">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ord:CreateOrderRequest>
+          <order createChannel="PublicPortal" orderStatus="yotaFulfill" orderStep="initialization" orderType="agreement" updateChannel="PublicPortal">
+            <authorPhone>${#TestCase#number}</authorPhone>        
+            <orderChangeDate>${#TestCase#data}T00:00:00.000+03:00</orderChangeDate>
+            <orderContent xsi:type="ns3:BaseAgreementOrder" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+               <needReCall>true</needReCall>
+            </orderContent>
+         </order>
+      </ord:CreateOrderRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" name="SOAP Response" id="a36013f1-90be-41b6-b3f0-e3fee8e167a5"/><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.yota.ru/vox/services/b2b/wsdl/CorporateOrderManagement/CreateOrder"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="groovy" name="check" id="81510e52-513f-40b5-b0ea-ff931e176592"><con:settings/><con:config><script>def response = context.expand( '${create#Response#declare namespace ns2=\'http://www.yota.ru/vox/b2b/services/order\'; //ns2:CreateOrderResponse[1]/@resultStatus}' )
+
+ 
+ if (response != 'new')
+{
+  testRunner.gotoStepByName("data")
+}</script></con:config></con:testStep><con:testStep type="request" name="gener" id="2cd93ec6-5f9a-4491-a227-b3edcbc618b3"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>CorporateOrderManagementServiceSOAPBinding</con:interface><con:operation>updateOrder</con:operation><con:request name="gener" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="f6d45253-a1fa-4299-abf6-2ddeb3cdff87"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.90.253.219:8082/oms-web/OrderEndpoint</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ord="http://www.yota.ru/vox/b2b/services/order" xmlns:ns3="http://www.yota.ru/vox/b2b/domains/order">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ord:UpdateOrderRequest>
+         <action>portalLcGenerateContract</action>
+         <order createChannel="PublicPortal" orderStatus="clientFulfill" orderStep="downloadingUploading" orderType="agreement" updateChannel="PublicPortal">
+            <authorPhone>${create#Response#declare namespace ns2='http://www.yota.ru/vox/b2b/services/order'; //ns2:CreateOrderResponse[1]/order[1]/authorPhone[1]}</authorPhone>
+            <linkRef>${create#Response#declare namespace ns2='http://www.yota.ru/vox/b2b/services/order'; //ns2:CreateOrderResponse[1]/order[1]/linkRef[1]}</linkRef>
+            <orderChangeDate>${create#Response#declare namespace ns2='http://www.yota.ru/vox/b2b/services/order'; //ns2:CreateOrderResponse[1]/order[1]/orderChangeDate[1]}</orderChangeDate>
+            <orderContent xsi:type="ns3:BaseAgreementOrder" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+               <agreementNMPUnit>
+                  <phoneDataToMNP>
+                     <operatorCode>mMTS</operatorCode>
+                     <operatorName>"Мобильные ТелеСистемы" ПАО</operatorName>
+                     <phone>${#TestCase#numberMNP}</phone>
+                     <rsRegion>78</rsRegion>
+                     <rsRegionName>г. Санкт-Петербург, Ленинградская область</rsRegionName>
+                  </phoneDataToMNP>
+               </agreementNMPUnit>
+               <agreementDate>2016-06-20T00:00:00.000Z</agreementDate>
+               <agreementRegion>C_${#TestCase#region}</agreementRegion>
+               <clientInfo>
+                  <status>active</status>
+                  <customerPurpose>COMMERCIAL</customerPurpose>
+                  <marketingSegment>STANDARD</marketingSegment>
+                  <addresses>
+                     <livingPeriod>
+                        <fromDate>2016-03-10T00:00:00.000+03:00</fromDate>
+                     </livingPeriod>
+                     <primary>true</primary>
+                     <addressText>309508, РОССИЯ, БЕЛГОРОДСКАЯ ОБЛ., СТАРЫЙ ОСКОЛ Г., 8 МАРТА УЛ., 104</addressText>
+                     <country>РОССИЯ</country>
+                     <addressType>Legal</addressType>
+                     <city>СТАРЫЙ ОСКОЛ Г.</city>
+                     <house>104</house>
+                     <region>БЕЛГОРОДСКАЯ ОБЛ.</region>
+                     <street>8 МАРТА УЛ.</street>
+                     <zipCode>309508</zipCode>
+                  </addresses>
+                  <CEO>
+                     <emails>
+                        <livingPeriod>
+                           <fromDate>2000-02-01T00:00:00.000+03:00</fromDate>
+                        </livingPeriod>
+                        <rawSource>mnp3@mail.ru</rawSource>
+                        <primary>true</primary>
+                        <email>MNP3@MAIL.RU</email>
+                        <emailType>Home</emailType>
+                     </emails>
+                     <name>
+                        <core:firstName xmlns:core="http://www.yota.ru/vox/domains/common/core">Виктор</core:firstName>
+                        <core:lastName xmlns:core="http://www.yota.ru/vox/domains/common/core">Игнатенко</core:lastName>
+                        <core:middleName xmlns:core="http://www.yota.ru/vox/domains/common/core">Владимирович</core:middleName>
+                     </name>
+                     <personalDetails>
+                        <gender>Male</gender>
+                     </personalDetails>
+                     <position>Генеральный директор</position>
+                     <role>CEO</role>
+                  </CEO>
+                  <companyRegistrationDate>2015-04-24T00:00:00.000+03:00</companyRegistrationDate>
+                  <contactPerson>
+                     <emails>
+                        <livingPeriod>
+                           <fromDate>2000-02-01T00:00:00.000+03:00</fromDate>
+                        </livingPeriod>
+                        <rawSource>mnp3@mail.ru</rawSource>
+                        <primary>true</primary>
+                        <email>MNP3@MAIL.RU</email>
+                        <emailType>Home</emailType>
+                     </emails>
+                     <role>contactPerson</role>
+                  </contactPerson>
+                  <EGRULData>
+                     <INN>3128105468</INN>
+                     <KPP>312801001</KPP>
+                     <OGRN>1153128001960</OGRN>
+                     <OPF>12300.2014</OPF>
+                  </EGRULData>
+                  <fullCompanyName>ООО ${#TestCase#number}</fullCompanyName>
+                  <inactiveSIMlimit>25</inactiveSIMlimit>
+                  <masterAgreement status="new" type="VOICE_B2B">
+                     <administrator>
+                        <emails>
+                           <livingPeriod>
+                              <fromDate>2000-02-01T00:00:00.000+03:00</fromDate>
+                           </livingPeriod>
+                           <rawSource>mnp3@mail.ru</rawSource>
+                           <primary>true</primary>
+                           <email>MNP3@MAIL.RU</email>
+                           <emailType>Home</emailType>
+                        </emails>
+                        <role>administrator</role>
+                     </administrator>
+                     <agreementCity>C_${#TestCase#region}</agreementCity>
+                     <agreementMSISDN>79992119452</agreementMSISDN>
+                     <agreementRegion>O_${#TestCase#region}</agreementRegion>
+                     <billingAccountID>8204135</billingAccountID>
+                     <contractType>direct</contractType>
+                     <generationDate>2016-06-20T00:00:00.000+03:00</generationDate>
+                     <saleChannel>PublicPortal</saleChannel>
+                     <underWriter>
+                        <emails>
+                           <livingPeriod>
+                              <fromDate>2000-02-01T00:00:00.000+03:00</fromDate>
+                           </livingPeriod>
+                           <rawSource>mnp3@mail.ru</rawSource>
+                           <primary>true</primary>
+                           <email>MNP3@MAIL.RU</email>
+                           <emailType>Home</emailType>
+                        </emails>
+                        <role>underWriter</role>
+                     </underWriter>
+                  </masterAgreement>
+                  <opf>12300.2014</opf>
+                  <shortCompanyName>${#TestCase#number}</shortCompanyName>
+               </clientInfo>
+               <needLinkRefSend>true</needLinkRefSend>
+               <needReCall>false</needReCall>
+               <simCount>${#TestCase#simlimit}</simCount>
+            </orderContent>
+            <orderCreateDate>${create#Response#declare namespace ns2='http://www.yota.ru/vox/b2b/services/order'; //ns2:CreateOrderResponse[1]/order[1]/orderCreateDate[1]}</orderCreateDate>
+            <orderId>${create#Response#declare namespace ns2='http://www.yota.ru/vox/b2b/services/order'; //ns2:CreateOrderResponse[1]/order[1]/orderId[1]}</orderId>
+            <revision>1</revision>
+            <shortLinkRef>${create#Response#declare namespace ns2='http://www.yota.ru/vox/b2b/services/order'; //ns2:CreateOrderResponse[1]/order[1]/shortLinkRef[1]}</shortLinkRef>
+            <revision>1</revision>
+         </order>
+      </ord:UpdateOrderRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" name="SOAP Response" id="55159c70-4ebe-49c5-a54e-4b3e43ae1239"/><con:assertion type="XPath Match" name="Check for existance of [orderId]" id="08cefc2e-f72d-4e1b-a56d-8c5b93809d53"><con:configuration><path>declare namespace ns2='http://www.yota.ru/vox/b2b/services/order';
+exists( //ns2:UpdateOrderResponse/orderId)</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.yota.ru/vox/services/b2b/wsdl/CorporateOrderManagement/UpdateOrder"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="activate" id="812fbe12-bc65-4c62-b357-48dbeaa25262" disabled="true"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>CorporateOrderManagementServiceSOAPBinding</con:interface><con:operation>activateAgreement</con:operation><con:request name="activate" id="4ee87411-55d5-4bb5-9299-f70bf5f3dad7"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://${#Project#host-b2b}:8082/oms-web/OrderEndpoint</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ord="http://www.yota.ru/vox/b2b/services/order">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ord:ActivateAgreementRequest>
+         <orderId>${gener#Response#declare namespace ns2='http://www.yota.ru/vox/b2b/services/order'; //ns2:UpdateOrderResponse[1]/orderId[1]}</orderId>
+      </ord:ActivateAgreementRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="eed9a1c0-9fea-43a1-96d7-7a423fdcbc85"/><con:assertion type="XPath Match" name="Check for existance of [ns2:ActivateAgreementResponse]" id="f7ab97c5-f84b-4dd7-95d4-b16d4d26674c"><con:configuration><path>declare namespace ns2='http://www.yota.ru/vox/b2b/services/order';
+exists( //ns2:ActivateAgreementResponse)</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="get" id="3de80418-bca3-4b29-87b3-70a969957e13"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>CorporateOrderManagementServiceSOAPBinding</con:interface><con:operation>getOrderById</con:operation><con:request name="get" id="4fb52ad4-8ab4-4a15-9777-1f8bfd584a68"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://${#Project#host-b2b}:8082/oms-web/OrderEndpoint</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ord="http://www.yota.ru/vox/b2b/services/order">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ord:GetOrderByIdRequest>
+         <orderId>${gener#Response#declare namespace ns2='http://www.yota.ru/vox/b2b/services/order'; //ns2:UpdateOrderResponse[1]/orderId[1]}</orderId>
+      </ord:GetOrderByIdRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="006986be-3e2f-41ca-adf0-fb77cafb90eb"/><con:assertion type="XPath Match" name="Match content of [@status]" id="7cb21dcc-5f85-490a-a8c1-997609f01042"><con:configuration><path>declare namespace ns2='http://www.yota.ru/vox/b2b/services/order';
+//ns2:GetOrderByIdResponse[1]/order[1]/orderContent[1]/clientInfo[1]/masterAgreement[1]/@status</path><content>activated</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="groovy" name="result" id="4db093c3-7208-467b-83ae-865bd826d7ca" disabled="true"><con:settings/><con:config><script><![CDATA[def billingid = context.expand( '${get#Response#declare namespace ns2=\'http://www.yota.ru/vox/b2b/services/order\'; //ns2:GetOrderByIdResponse[1]/order[1]/billingAccount[1]}' )
+def path = context.expand( '${#TestCase#Path}' )
+def startDate = new Date() 
+def hostb2b = context.expand( '${#Project#host-b2b}' )
+def hostb2c = context.expand( '${#Project#host-b2c}' )
+def customerid = context.expand( '${get#Response#declare namespace ns2=\'http://www.yota.ru/vox/b2b/services/order\'; //ns2:GetOrderByIdResponse[1]/order[1]/customerId[1]}' )
+def phone = context.expand( '${get#Response#declare namespace ns2=\'http://www.yota.ru/vox/b2b/services/order\'; //ns2:GetOrderByIdResponse[1]/order[1]/authorPhone[1]}' )
+def linkref = context.expand( '${get#Response#declare namespace ns2=\'http://www.yota.ru/vox/b2b/services/order\'; //ns2:GetOrderByIdResponse[1]/order[1]/linkRef[1]}' )
+
+def out= new File(path+'AccWithSim'+billingid+'.txt')
+
+    out.createNewFile()
+    out <<  '\n' +"Дата создания: "+startDate.format("yyyy-MM-dd'T'HH:mm:ss")  
+    out <<  '\n'
+    out <<  '\n' + "Окружение: "+ hostb2b + " и " + hostb2c
+    out <<  '\n'
+    out <<  '\n' + "Номер договора абонента: " + billingid
+    out <<  '\n'
+    out <<  '\n' + "Номер телефона абонента: " + phone
+    out <<  '\n'
+    out <<  '\n' + "customerid: " + customerid
+    out <<  '\n'
+    out <<  '\n'+ "LinkRef: " + linkref    
+    out <<  '\n']]></script></con:config></con:testStep><con:testStep type="groovy" name="SetGlobal" id="d11d734f-61dc-4c20-8794-c570447b930d" disabled="true"><con:settings/><con:config><script>def N = context.expand( '${#TestCase#N}' )
+testRunner.testCase.setPropertyValue("N", "1" )
+def billingID = context.expand( '${#TestCase#BillingID}' )
+def bill = context.expand( '${get#Response#declare namespace ns2=\'http://www.yota.ru/vox/b2b/services/order\'; //ns2:GetOrderByIdResponse[1]/order[1]/billingAccount[1]}' )
+testRunner.testCase.setPropertyValue("BillingID", bill )</script></con:config></con:testStep><con:testStep type="datasource" name="DB" id="50d179ce-0957-4e88-879b-8ba60014638b" disabled="true"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.teststeps.WsdlDataSourceTestStep@prepared-properties">&lt;xml-fragment/></con:setting></con:settings><con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:dataSource type="JDBC"><con:configuration><driver>oracle.jdbc.driver.OracleDriver</driver><connstr>jdbc:oracle:thin:${#Project#cbossDBUser}/PASS_VALUE@${#Project#cbossDBHost}:${#Project#cbossDBPort}</connstr><pass>${#Project#cbossDBPassword}</pass><Connection/><query>SELECT sc.icc_id
+  FROM sim_card sc, unit u
+ WHERE     SYSDATE BETWEEN sc.fd AND sc.td
+       AND sc.status = 1
+       AND u.ser_num = sc.icc_id
+       AND u.td = TO_DATE('01019999', 'ddmmyyyy')
+       AND u.UP = '442'
+       AND u.code = 'PHONE-001'
+       AND ROWNUM &lt;= 10000 
+       ORDER BY DBMS_RANDOM.random</query><fetchSize/><stored-procedure>false</stored-procedure></con:configuration></con:dataSource><con:property>icc_id</con:property><con:restartOnRun>true</con:restartOnRun></con:config></con:testStep><con:testStep type="request" name="ISSIM" id="7c69ba25-4252-4135-9c1e-23edfefd40f8" disabled="true"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>InventorySOAPBinding</con:interface><con:operation>GetSIMInformation</con:operation><con:request name="ISSIM" id="7447407b-05b4-455f-a691-3348199f2bfb"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://${#Project#host-b2c}-jservice.g4lab.com:8080/inventory-ejb/Inventory/InventoryServiceBean</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:inv="http://www.yota.ru/vox/services/inventory">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <inv:GetSIMInformationRequest>
+         <simCode>
+            <key>${DB#icc_id}</key>
+            <type>iccid</type>
+         </simCode>
+      </inv:GetSIMInformationRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="fb9521e5-9ead-4c27-a0a3-2ede83638ab5"/><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="groovy" name="checkIS" id="ed0e05f3-00f8-4af5-bb54-d08167074154" disabled="true"><con:settings/><con:config><script>def simtype = context.expand( '${ISSIM#Response#declare namespace ns5=\'http://www.yota.ru/vox/services/inventory\'; //ns5:GetSIMInformationResponse[1]/sim[1]/simSpec[1]}' )
+ 
+ if (simtype != 'PHONE-001')
+{
+  testRunner.gotoStepByName("DB")
+}</script></con:config></con:testStep><con:testStep type="groovy" name="checkIS2" id="61b54de6-eb44-4514-8f99-0f8a62e98249" disabled="true"><con:settings/><con:config><script>def vacant = context.expand( '${ISSIM#Response#declare namespace ns5=\'http://www.yota.ru/vox/services/inventory\'; declare namespace xsi=\'http://www.w3.org/2001/XMLSchema-instance\'; //ns5:GetSIMInformationResponse[1]/sim[1]/@xsi:type}' )
+
+  if (vacant != 'ns7:VacantSim')
+{
+  testRunner.gotoStepByName("DB")
+}</script></con:config></con:testStep><con:testStep type="request" name="cams" id="76734e20-03c8-43ce-95e6-10e1f6402c1e" disabled="true"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>CustomerAccountServiceSOAPBinding</con:interface><con:operation>checkSimAvailability</con:operation><con:request name="cams" id="79671178-8731-441e-a0f8-12f6e1cdd458"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://${#Project#host-b2b}-esb1.g4lab.com:8315/CustomerAccountManagementService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cus="http://www.yota.ru/vox/b2b/services/customerAccount">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <cus:CheckSimAvailabilityRequest>
+         <iccid>${DB#icc_id}</iccid>
+      </cus:CheckSimAvailabilityRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="2cb0e524-0f78-43f8-b31b-69f96b839530"/><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="groovy" name="checkCams" id="5061225d-3ec2-4081-9966-1292f653ee04" disabled="true"><con:settings/><con:config><script>def checksim = context.expand( '${cams#Response#declare namespace ns0=\'http://www.yota.ru/vox/b2b/services/customerAccount\'; //ns0:CheckSimAvailabilityResponse[1]/validationResult[1]}' )
+
+ if (checksim != 'true')
+{
+  testRunner.gotoStepByName("DB")
+}</script></con:config></con:testStep><con:testStep type="httprequest" name="delSub" id="61626579-fc79-4990-a1e5-1c6e6a6aabf9" disabled="true"><con:settings/><con:config method="GET" xsi:type="con:HttpRequest" name="delSub" id="5912f92d-7027-41c6-b38e-b48c5a1f7ef3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://${#Project#pcrf}.g4lab.com/spr/sm/deleteSubscriber</con:endpoint><con:request/><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><con:parameter><con:name>id</con:name><con:value>25011${DB#icc_id}</con:value><con:style>QUERY</con:style><con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type><con:default>250110200201504</con:default><con:path xsi:nil="true"/><con:description xsi:nil="true"/></con:parameter></con:parameters></con:config></con:testStep><con:testStep type="httprequest" name="addSub" id="eda395e2-bf6f-4630-8d4d-c898615fc74c" disabled="true"><con:settings/><con:config method="GET" xsi:type="con:HttpRequest" name="addSub" id="cd166f09-98fc-4e8e-aa54-06145b92826a" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://${#Project#pcrf}.g4lab.com/spr/sm/addSubscriber</con:endpoint><con:request/><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><con:parameter><con:name>id</con:name><con:value>25011${DB#icc_id}</con:value><con:style>QUERY</con:style><con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type><con:default>250110200201504</con:default><con:path xsi:nil="true"/><con:description xsi:nil="true"/></con:parameter></con:parameters></con:config></con:testStep><con:testStep type="request" name="extradition" id="6f338ef4-a1b4-48b5-847f-3084a6f780b4" disabled="true"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>CorporateOrderManagementServiceSOAPBinding</con:interface><con:operation>createOrder</con:operation><con:request name="extradition" id="63679b8c-f03b-48b3-bf27-792c37c54a44"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://${#Project#host-b2b}:8082/oms-web/OrderEndpoint</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ord="http://www.yota.ru/vox/b2b/services/order">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ord:CreateOrderRequest>
+         <order createChannel="RemoteDealer" orderStatus="complete" orderStep="initialization" orderType="SIMOrder" updateChannel="RemoteDealer">
+            <billingAccount>${#TestCase#BillingID}</billingAccount>
+            <orderChangeDate>2016-04-06T14:04:15.511+03:00</orderChangeDate>
+            <orderContent xsi:type="ns641:SIMOrder" xmlns:ns641="http://www.yota.ru/vox/b2b/domains/corpSIMOrder" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+               <deliveredSims><branch/><simSpec/><iccid>${DB#icc_id}</iccid>
+                  <saleChannel>RemoteDealer</saleChannel>
+               </deliveredSims>
+            </orderContent>
+         </order>
+      </ord:CreateOrderRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="8387a320-b9ff-41b5-b07f-d0c252b394ee"/><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="groovy" name="checkExtradition" id="28833dc8-e2ef-4f01-943a-8c3eb26cba48" disabled="true"><con:settings/><con:config><script>def ok = context.expand( '${extradition#Response#declare namespace ns2=\'http://www.yota.ru/vox/b2b/services/order\'; //ns2:CreateOrderResponse[1]/@resultStatus}' )
+
+ if (ok != 'new')
+{
+  testRunner.gotoStepByName("DB")
+}</script></con:config></con:testStep><con:testStep type="groovy" name="List" id="446fb35d-da99-4c39-a134-d0b30bcd893c" disabled="true"><con:settings/><con:config><script>def billingid = context.expand( '${get#Response#declare namespace ns2=\'http://www.yota.ru/vox/b2b/services/order\'; //ns2:GetOrderByIdResponse[1]/order[1]/billingAccount[1]}' )
+def icc_id = context.expand( '${DB#icc_id}' )
+def path = context.expand( '${#TestCase#Path}' )
+def startDate = new Date() 
+
+def out= new File(path+'AccWithSim'+billingid+'.txt')
+ out &lt;&lt; '\n'+ "Дата выдачи: "+startDate.format("yyyy-MM-dd'T'HH:mm:ss")  +  " | ICCID: " + icc_id + " | IMSI: 25011"+ icc_id
+
+    </script></con:config></con:testStep><con:testStep type="groovy" name="checkCount" id="533b84cd-24d4-4988-9b20-074e1a41227e" disabled="true"><con:settings/><con:config><script>def N = context.expand( '${#TestCase#N}' )
+def SIMCount = context.expand( '${#TestCase#SIMCount}' )
+
+ if (N != SIMCount)
+{
+	N = N.toInteger() + 1
+
+	testRunner.testCase.setPropertyValue("N", N.toString() )
+
+  testRunner.gotoStepByName("DB")
+}</script></con:config></con:testStep><con:properties><con:property><con:name>SIMCount</con:name><con:value>15</con:value></con:property><con:property><con:name>N</con:name><con:value>2</con:value></con:property><con:property><con:name>Path</con:name><con:value>C:\!B2BTXT\</con:value></con:property><con:property><con:name>BillingID</con:name><con:value>11220012643252</con:value></con:property><con:property><con:name>number</con:name><con:value>79212195134</con:value></con:property><con:property><con:name>data</con:name><con:value>2019-10-17</con:value></con:property><con:property><con:name>region</con:name><con:value>77</con:value></con:property><con:property><con:name>simlimit</con:name><con:value>80</con:value></con:property><con:property><con:name>numberMNP</con:name><con:value>79511264851</con:value></con:property></con:properties><con:reportParameters/><con:breakPoints><con:testStepId>18ede8e0-c948-4be5-9a01-faf62475ce23</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>17a458cb-d50c-466e-b37e-bf9afe1e3511</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>ccd84e25-12fb-4a73-a718-9911f3b695c3</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>5c4490e6-8cd7-4d22-b335-502b53285fb9</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>701b8157-653c-4182-be99-323c9801a764</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>3287b16b-18ad-4996-b38c-9dd51b0c782e</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>6cbd5d5e-e099-458b-96ca-fafa3ae8a4fe</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>0d48d0a4-3401-4144-a559-7ea556fb346e</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>f819a3a8-c43a-46fe-a79e-50df37748d38</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints></con:testCase>

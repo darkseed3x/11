@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation isOneWay="false" action="http://www.yota.ru/vox/services/b2b/wsdl/CorpCustomerInformation/RemoveSIMfromClient" name="removeSIMfromClient" bindingOperationName="removeSIMfromClient" type="Request-Response" outputName="RemoveSIMfromClientOut" inputName="RemoveSIMfromClientIn" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="2e12f72e-e0c9-49e5-aaa8-3ba0f46b4125" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="2e12f72e-e0c9-49e5-aaa8-3ba0f46b4125fileName">removeSIMfromClient</con:setting></con:settings><con:call name="Request 1" id="582cca0f-3092-402b-98ee-344f17f8c3f1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://b2btst-corpjs-cis.g4lab.com:8080/cis-web/CorpCustomerInformationServiceImpl</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cus="http://www.yota.ru/vox/b2b/services/customerInformation">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <cus:RemoveSIMfromClientRequest>
+         <customerId>?</customerId>
+         <iccid>?</iccid>
+      </cus:RemoveSIMfromClientRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.yota.ru/vox/services/b2b/wsdl/CorpCustomerInformation/RemoveSIMfromClient"/></con:call></con:operation>

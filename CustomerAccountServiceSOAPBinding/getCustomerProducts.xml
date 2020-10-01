@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation isOneWay="false" action="http://www.yota.ru/vox/services/b2b/wsdl/CustomerAccount/GetCustomerProducts" name="getCustomerProducts" bindingOperationName="getCustomerProducts" type="Request-Response" inputName="GetCustomerProductsIn" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="82d1310b-cf35-48ce-b0c8-62585331ca8b" outputName="GetCustomerProductsOut" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="82d1310b-cf35-48ce-b0c8-62585331ca8bfileName">getCustomerProducts</con:setting></con:settings><con:call name="Request 1" id="72b9c644-0bd7-41ee-b588-d099916b0595"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://${#Project#host-b2b}-esb1.g4lab.com:8315/CustomerAccountManagementService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cus="http://www.yota.ru/vox/b2b/services/customerAccount" xmlns:core="http://www.roox.ru/products/common/core">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <cus:GetCustomerProductsRequest>
+         <!--Optional:-->
+         <core:extension>
+            <!--Zero or more repetitions:-->
+            <core:item>?</core:item>
+         </core:extension>
+         <!--Optional:-->
+         <accountId>?</accountId>
+         <!--Optional:-->
+         <customerId>?</customerId>
+         <simKey>
+            <key>?</key>
+            <type>?</type>
+         </simKey>
+      </cus:GetCustomerProductsRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.yota.ru/vox/services/b2b/wsdl/CustomerAccount/GetCustomerProducts"/></con:call></con:operation>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation isOneWay="false" action="http://www.yota.ru/vox/services/b2b/wsdl/CustomerAccount/CloseProduct" name="closeProduct" bindingOperationName="closeProduct" type="Request-Response" inputName="CloseProductIn" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="4c8c35b9-630b-47fe-a4b6-7dc2624cbbd4" outputName="CloseProductOut" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="4c8c35b9-630b-47fe-a4b6-7dc2624cbbd4fileName">closeProduct</con:setting></con:settings><con:call name="Request 1" id="5263f014-9258-4164-a386-eebe9ca8c152"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://${#Project#host-b2b}-esb1.g4lab.com:8315/CustomerAccountManagementService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cus="http://www.yota.ru/vox/b2b/services/customerAccount" xmlns:core="http://www.roox.ru/products/common/core">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <cus:CloseProductRequest>
+         <!--Optional:-->
+         <core:extension>
+            <!--Zero or more repetitions:-->
+            <core:item>?</core:item>
+         </core:extension>
+         <accountId>?</accountId>
+         <imsi>
+            <key>?</key>
+            <type>?</type>
+         </imsi>
+         <productId>?</productId>
+         <salesChannel>?</salesChannel>
+      </cus:CloseProductRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.yota.ru/vox/services/b2b/wsdl/CustomerAccount/CloseProduct"/></con:call></con:operation>

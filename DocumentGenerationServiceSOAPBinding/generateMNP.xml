@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation isOneWay="false" action="http://www.yota.ru/vox/services/b2b/wsdl/DocumentGeneration/GenerateMNP" name="generateMNP" bindingOperationName="generateMNP" type="Request-Response" outputName="GenerateMNPOut" inputName="GenerateMNPIn" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="11d5cca3-a4bd-43a5-aa0e-2d35bea65ced" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="11d5cca3-a4bd-43a5-aa0e-2d35bea65cedfileName">generateMNP</con:setting></con:settings><con:call name="Request 1" id="a13d668a-f6e4-46eb-acfd-daeaa016debf"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.90.253.219:8084/dgs-web/DocumentGenerationEndpoint</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:dgs="http://www.yota.ru/vox/b2b/domains/dgs">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <dgs:GenerateMNPRequest>
+         <customerId>?</customerId>
+         <donorOperatorName>?</donorOperatorName>
+         <donorRsRegionName>?</donorRsRegionName>
+         <longProcess>?</longProcess>
+         <!--1 or more repetitions:-->
+         <msisdn>?</msisdn>
+         <!--Optional:-->
+         <orderId>?</orderId>
+      </dgs:GenerateMNPRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.yota.ru/vox/services/b2b/wsdl/DocumentGeneration/GenerateMNP"/><con:wsrmConfig version="1.2"/></con:call></con:operation>

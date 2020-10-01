@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation isOneWay="false" action="http://www.yota.ru/vox/services/wsdl/MNPService/CheckMNPPortinCancellationPossible" name="CheckMNPPortinCancellationPossible" bindingOperationName="CheckMNPPortinCancellationPossible" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="74d3256c-e004-4d69-8405-7f30327a2fef" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="74d3256c-e004-4d69-8405-7f30327a2feffileName">CheckMNPPortinCancellationPossible</con:setting></con:settings><con:call name="Request 1" id="f19f3b2a-a26c-42bb-baa6-de3146cb1785"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8319/MNPService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:mnp="http://www.yota.ru/vox/services/mnpService" xmlns:core="http://www.roox.ru/products/common/core">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <mnp:CheckMNPPortinCancellationPossibleRequest>
+         <!--Optional:-->
+         <core:extension>
+            <!--Zero or more repetitions:-->
+            <core:item>?</core:item>
+         </core:extension>
+         <portableNumber>?</portableNumber>
+         <signedDate>?</signedDate>
+      </mnp:CheckMNPPortinCancellationPossibleRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.yota.ru/vox/services/wsdl/MNPService/CheckMNPPortinCancellationPossible"/></con:call></con:operation>

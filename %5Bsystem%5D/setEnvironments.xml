@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="d780d460-641b-4419-b4c2-b65bce7c5736" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="setEnvironments" searchProperties="true" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="d780d460-641b-4419-b4c2-b65bce7c5736fileName">setEnvironments</con:setting></con:settings><con:savedRecentRuns>1</con:savedRecentRuns><con:testStep type="groovy" name="set" id="f4e9fc12-8360-4bf1-8cc7-1f3cd12b4ae9"><con:settings/><con:config><script>
+import javax.swing.*
+
+JTextField sims = new JTextField();
+
+
+String[] types = ['ft1 + meteor', 'ft2 + oxford','ft3 + bend'] as String[]
+
+JComboBox typeBox = new JComboBox(new DefaultComboBoxModel(types));
+typeBox.setSelectedItem('ft2 + oxford');
+Object[] typeObj = ['types: ', typeBox];
+
+int result = JOptionPane.showConfirmDialog(null,typeObj,"Выбор окружения",JOptionPane.OK_CANCEL_OPTION)
+if(2 == result){
+    testRunner.fail("Отмена выбора окружения");
+    return null;
+}
+if(typeBox.getSelectedItem().equals("ft1 + meteor")){
+	testRunner.testCase.testSuite.project.setPropertyValue("host-b2c", "meteor" )
+	testRunner.testCase.testSuite.project.setPropertyValue("CBOSS_ENV", "SCART_TEST_P" )
+	testRunner.testCase.testSuite.project.setPropertyValue("pcrf", "pcrf-lab" )
+	testRunner.testCase.testSuite.project.setPropertyValue("pcrfHost", "pcrf-lab.g4lab.com" )
+	testRunner.testCase.testSuite.project.setPropertyValue("billapi", "ft1-bil-api.g4lab.com" )
+	testRunner.testCase.testSuite.project.setPropertyValue("pm_api", "ft1-pm-api.g4lab.com" )
+	testRunner.testCase.testSuite.project.setPropertyValue("cbossDBHost", "test-bill-db1.scartel.dc" )
+	testRunner.testCase.testSuite.project.setPropertyValue("cbossDBPort", "1521/billdb5.scartel.dc" )
+}
+if(typeBox.getSelectedItem().equals("ft2 + oxford")){
+	testRunner.testCase.testSuite.project.setPropertyValue("host-b2c", "oxford" )
+	testRunner.testCase.testSuite.project.setPropertyValue("CBOSS_ENV", "SCART_API_P" )
+	testRunner.testCase.testSuite.project.setPropertyValue("pcrf", "pcrf-api" )
+	testRunner.testCase.testSuite.project.setPropertyValue("pcrfHost", "pcrf-api.g4lab.com" )
+	testRunner.testCase.testSuite.project.setPropertyValue("billapi", "ft2-bil-api.g4lab.com" )
+	testRunner.testCase.testSuite.project.setPropertyValue("pm_api", "ft2-pm-api.g4lab.com" )
+	testRunner.testCase.testSuite.project.setPropertyValue("cbossDBHost", "test-bill-db2.scartel.dc" )
+	testRunner.testCase.testSuite.project.setPropertyValue("cbossDBPort", "1521/billdev.scartel.dc" )
+}
+if(typeBox.getSelectedItem().equals("ft3 + bend")){
+	testRunner.testCase.testSuite.project.setPropertyValue("host-b2c", "bend" )
+	testRunner.testCase.testSuite.project.setPropertyValue("CBOSS_ENV", "SCART_API_P" )
+	testRunner.testCase.testSuite.project.setPropertyValue("pcrf", "pcrf-api" )
+	testRunner.testCase.testSuite.project.setPropertyValue("pcrfHost", "pcrf-api.g4lab.com" )
+	testRunner.testCase.testSuite.project.setPropertyValue("billapi", "ft3-bil-api.g4lab.com" )
+	testRunner.testCase.testSuite.project.setPropertyValue("pm_api", "ft3-pm-api.g4lab.com" )
+	testRunner.testCase.testSuite.project.setPropertyValue("cbossDBHost", "test-bill-db2.scartel.dc" )
+	testRunner.testCase.testSuite.project.setPropertyValue("cbossDBPort", "1521/billdev.scartel.dc" )
+}
+</script></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase>

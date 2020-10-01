@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation isOneWay="false" action="http://www.yota.ru/vox/services/b2b/wsdl/DocumentGeneration/GenerateAgreement" name="generateAgreement" bindingOperationName="generateAgreement" type="Request-Response" outputName="GenerateAgreementOut" inputName="GenerateAgreementIn" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="93b33e5e-c6b1-4e1d-b825-df732e538b98" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="93b33e5e-c6b1-4e1d-b825-df732e538b98fileName">generateAgreement</con:setting></con:settings><con:call name="Request 1" id="f1d680f0-964f-44ec-96fb-e4f5476bf8b5"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.90.253.219:8084/dgs-web/DocumentGenerationEndpoint</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:dgs="http://www.yota.ru/vox/b2b/domains/dgs">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <dgs:GenerateAgreementRequest>
+         <orderId>?</orderId>
+      </dgs:GenerateAgreementRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.yota.ru/vox/services/b2b/wsdl/DocumentGeneration/GenerateAgreement"/></con:call></con:operation>

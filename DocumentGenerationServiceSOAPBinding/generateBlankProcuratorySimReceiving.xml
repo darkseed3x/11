@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation isOneWay="false" action="http://www.yota.ru/vox/services/b2b/wsdl/DocumentGeneration/GenerateBlankProcuratorySimReceiving" name="generateBlankProcuratorySimReceiving" bindingOperationName="generateBlankProcuratorySimReceiving" type="Request-Response" outputName="GenerateBlankProcuratorySimReceivingOut" inputName="GenerateBlankProcuratorySimReceivingIn" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="e577b3ea-6c51-40dc-9736-6025765f790a" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="e577b3ea-6c51-40dc-9736-6025765f790afileName">generateBlankProcuratorySimReceiving</con:setting></con:settings><con:call name="Request 1" id="0d27a9f5-fba4-4224-b52a-e78115b38960"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.90.253.219:8084/dgs-web/DocumentGenerationEndpoint</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:dgs="http://www.yota.ru/vox/b2b/domains/dgs">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <dgs:GenerateBlankProcuratorySimReceivingRequest>
+         <orderId>?</orderId>
+      </dgs:GenerateBlankProcuratorySimReceivingRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.yota.ru/vox/services/b2b/wsdl/DocumentGeneration/GenerateBlankProcuratorySimReceiving"/></con:call></con:operation>

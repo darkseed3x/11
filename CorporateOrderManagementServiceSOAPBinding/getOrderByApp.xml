@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation isOneWay="false" action="http://www.yota.ru/vox/services/b2b/wsdl/CorporateOrderManagement/GetOrderByApp" name="getOrderByApp" bindingOperationName="getOrderByApp" type="Request-Response" outputName="GetOrderByAppOut" inputName="GetOrderByAppIn" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="4ca7c89f-2a43-40a7-ba84-a428c0eacf52" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="4ca7c89f-2a43-40a7-ba84-a428c0eacf52fileName">getOrderByApp</con:setting></con:settings><con:call name="Request 1" id="31ddda70-f2d7-4827-847b-b2f5c8b0885b"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://ft1-b2b-ainst1.scartel.dc:8082/oms-web/OrderEndpoint</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ord="http://www.yota.ru/vox/b2b/services/order">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ord:GetOrderByAppRequest>
+         <usedSimCard>
+            <!--1 or more repetitions:-->
+            <simCodes>
+               <key>?</key>
+               <type>?</type>
+            </simCodes>
+            <simSpec>?</simSpec>
+            <activated>?</activated>
+            <accountId>?</accountId>
+            <!--Optional:-->
+            <baseProductRegion>?</baseProductRegion>
+            <!--Optional:-->
+            <customerId>?</customerId>
+            <externalId>?</externalId>
+            <msisdn>?</msisdn>
+            <!--Zero or more repetitions:-->
+            <products id="?">
+               <accountId>?</accountId>
+               <!--Optional:-->
+               <accumLeft>?</accumLeft>
+               <!--Optional:-->
+               <allowAutoProlong>?</allowAutoProlong>
+               <!--Optional:-->
+               <allowProductChange>?</allowProductChange>
+               <beginDate>?</beginDate>
+               <!--Optional:-->
+               <bundledProductId>?</bundledProductId>
+               <correlationProductId>?</correlationProductId>
+               <!--Optional:-->
+               <customerId>?</customerId>
+               <!--Zero or more repetitions:-->
+               <dependentProducts>?</dependentProducts>
+               <endDate>?</endDate>
+               <!--Optional:-->
+               <masterProductId>?</masterProductId>
+               <!--Optional:-->
+               <offeringIdToChange>?</offeringIdToChange>
+               <productOfferingId>?</productOfferingId>
+               <!--Optional:-->
+               <regionOfBuying>?</regionOfBuying>
+               <status>?</status>
+            </products>
+            <status>
+               <changed>?</changed>
+               <!--Optional:-->
+               <reason>?</reason>
+               <status>?</status>
+            </status>
+         </usedSimCard>
+      </ord:GetOrderByAppRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.yota.ru/vox/services/b2b/wsdl/CorporateOrderManagement/GetOrderByApp"/></con:call></con:operation>

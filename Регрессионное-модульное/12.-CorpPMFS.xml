@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="12. CorpPMFS" searchProperties="true" id="fb30f616-52cf-476d-a6ba-13b722b289e3" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="fb30f616-52cf-476d-a6ba-13b722b289e3fileName">12.-CorpPMFS</con:setting></con:settings><con:properties/><con:reportParameters/></con:testCase>

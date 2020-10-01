@@ -1,0 +1,677 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="статусы и блокировки рест" searchProperties="true" id="0f55302d-e9ac-4b70-af74-975255bb97c3" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.panels.testcase.JTestRunLog$OptionsForm@max_rows">1000</con:setting><con:setting id="com.eviware.soapui.impl.wsdl.panels.testcase.JTestRunLog$OptionsForm@errors_only">false</con:setting><con:setting id="0f55302d-e9ac-4b70-af74-975255bb97c3fileName">статусы-и-блокировки-рест</con:setting></con:settings><con:testStep type="groovy" name="chooseTypeRegistration" id="ed362c3c-918a-4502-a863-8c2c4f28a528"><con:settings/><con:config><script>
+import javax.swing.*
+
+JTextField sims = new JTextField();
+
+
+String[] types = ['OOO', 'IP'] as String[]
+
+JComboBox typeBox = new JComboBox(new DefaultComboBoxModel(types));
+typeBox.setSelectedItem('OOO');
+Object[] typeObj = ['types: ', typeBox];
+
+int result = JOptionPane.showConfirmDialog(null,typeObj,"Выбор регистрации абонента",JOptionPane.OK_CANCEL_OPTION)
+if(2 == result){
+    testRunner.fail("Отмена выбора типа регистрации");
+    return null;
+}
+if(typeBox.getSelectedItem().equals("OOO")){
+		testRunner.testCase.getTestStepByName( "OOO_update_BOX_AGREEMENT" ).disabled = false
+		testRunner.testCase.getTestStepByName( "OOO_checkUpdate" ).disabled = false
+		testRunner.testCase.getTestStepByName( "IP_update_BOX_AGREEMENT" ).disabled = true
+		testRunner.testCase.getTestStepByName( "IP_checkUpdate" ).disabled = true
+	}
+else{
+		testRunner.testCase.getTestStepByName( "OOO_update_BOX_AGREEMENT" ).disabled = true
+		testRunner.testCase.getTestStepByName( "OOO_checkUpdate" ).disabled = true
+		testRunner.testCase.getTestStepByName( "IP_update_BOX_AGREEMENT" ).disabled =false
+		testRunner.testCase.getTestStepByName( "IP_checkUpdate" ).disabled = false
+	
+	}
+
+
+
+</script></con:config></con:testStep><con:testStep type="calltestcase" name="b2bbox" id="aaf04477-44b1-4d00-adcf-2a2ce805b82d"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>62908315-44a2-40ad-812a-dad6b3bca4b3</con:targetTestCase><con:properties><con:property><con:name>SIMCount</con:name><con:value>10</con:value></con:property><con:property><con:name>N</con:name></con:property><con:property><con:name>Path</con:name></con:property><con:property><con:name>iccid1</con:name><con:value>0200440928</con:value></con:property><con:property><con:name>iccid2</con:name><con:value>0200440899</con:value></con:property><con:property><con:name>iccid3</con:name><con:value>0200435265</con:value></con:property><con:property><con:name>iccid4</con:name><con:value>0200434970</con:value></con:property><con:property><con:name>iccid5</con:name><con:value>0200434310</con:value></con:property><con:property><con:name>iccid6</con:name><con:value/></con:property><con:property><con:name>iccid7</con:name><con:value/></con:property><con:property><con:name>iccid8</con:name><con:value/></con:property><con:property><con:name>iccid9</con:name><con:value/></con:property><con:property><con:name>iccid10</con:name><con:value/></con:property><con:property><con:name>box</con:name><con:value/></con:property><con:property><con:name>iccid11</con:name><con:value/></con:property><con:property><con:name>iccid12</con:name><con:value/></con:property><con:property><con:name>iccid13</con:name><con:value/></con:property><con:property><con:name>iccid14</con:name><con:value/></con:property><con:property><con:name>iccid15</con:name><con:value/></con:property><con:property><con:name>iccid16</con:name><con:value/></con:property><con:property><con:name>iccid17</con:name><con:value/></con:property><con:property><con:name>iccid18</con:name><con:value/></con:property><con:property><con:name>iccid19</con:name><con:value/></con:property><con:property><con:name>iccid20</con:name><con:value/></con:property><con:property><con:name>iccid</con:name></con:property><con:property><con:name>imsi</con:name></con:property><con:property><con:name>ip1</con:name><con:value>10.43.2.125</con:value></con:property><con:property><con:name>ip2</con:name><con:value>10.162.189.210</con:value></con:property><con:property><con:name>ip3</con:name><con:value>10.137.178.191</con:value></con:property><con:property><con:name>ip4</con:name><con:value>10.127.42.3</con:value></con:property><con:property><con:name>ip5</con:name><con:value>10.81.12.120</con:value></con:property><con:property><con:name>ip6</con:name><con:value/></con:property><con:property><con:name>ip7</con:name><con:value/></con:property><con:property><con:name>ip8</con:name><con:value/></con:property><con:property><con:name>ip9</con:name><con:value/></con:property><con:property><con:name>ip10</con:name><con:value/></con:property><con:property><con:name>ip11</con:name><con:value/></con:property><con:property><con:name>ip12</con:name><con:value/></con:property><con:property><con:name>ip13</con:name><con:value/></con:property><con:property><con:name>ip14</con:name><con:value/></con:property><con:property><con:name>ip15</con:name><con:value/></con:property><con:property><con:name>ip16</con:name><con:value/></con:property><con:property><con:name>ip17</con:name><con:value/></con:property><con:property><con:name>ip18</con:name><con:value/></con:property><con:property><con:name>ip19</con:name><con:value/></con:property><con:property><con:name>ip20</con:name><con:value/></con:property></con:properties><con:returnProperties><con:entry>box</con:entry><con:entry>SIMCount</con:entry><con:entry>iccid1</con:entry><con:entry>iccid2</con:entry><con:entry>iccid3</con:entry><con:entry>iccid4</con:entry><con:entry>iccid5</con:entry><con:entry>iccid6</con:entry><con:entry>iccid7</con:entry><con:entry>iccid8</con:entry><con:entry>iccid9</con:entry><con:entry>iccid10</con:entry><con:entry>iccid11</con:entry><con:entry>iccid12</con:entry><con:entry>iccid13</con:entry><con:entry>iccid14</con:entry><con:entry>iccid15</con:entry><con:entry>iccid16</con:entry><con:entry>iccid17</con:entry><con:entry>iccid18</con:entry><con:entry>iccid19</con:entry><con:entry>iccid20</con:entry><con:entry>ip1</con:entry><con:entry>ip2</con:entry><con:entry>ip3</con:entry><con:entry>ip4</con:entry><con:entry>ip5</con:entry><con:entry>ip6</con:entry><con:entry>ip7</con:entry><con:entry>ip8</con:entry><con:entry>ip9</con:entry><con:entry>ip10</con:entry><con:entry>ip11</con:entry><con:entry>ip12</con:entry><con:entry>ip13</con:entry><con:entry>ip14</con:entry><con:entry>ip15</con:entry><con:entry>ip16</con:entry><con:entry>ip17</con:entry><con:entry>ip18</con:entry><con:entry>ip19</con:entry><con:entry>ip20</con:entry></con:returnProperties><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="groovy" name="random" id="911bda60-484a-4e4c-9507-322f855d521f"><con:settings/><con:config><script>
+testRunner.testCase.setPropertyValue('N', "1");
+testRunner.testCase.setPropertyValue("number", '')
+testRunner.testCase.setPropertyValue("revision",'0')
+testRunner.testCase.setPropertyValue("identificationStatusCount",'0')
+def sIMCount = context.expand( '${b2bbox#SIMCount}' )
+testRunner.testCase.setPropertyValue('SIMCount', sIMCount);
+
+def length = 9;
+String validChars ="1234567890"
+def rnd = new Random()
+
+def number = '9'
+
+	number = number.toInteger() +  ( (1..length).sum
+{ 
+validChars[ rnd.nextInt(validChars.length()) ]})
+testRunner.testCase.setPropertyValue("number", number.toString()  )
+</script></con:config></con:testStep><con:testStep type="httprequest" name="searchInBase" id="d82140d6-ec73-43af-879c-1358d1bdd6bc"><con:settings/><con:config method="GET" xsi:type="con:HttpRequest" id="87a9c40f-1537-4da1-9a9d-74e42f6da24b" name="searchInBase" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://${#Project#selfcare}:8099/pums/searchByLogin</con:endpoint><con:request/><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><con:parameter><con:name>username</con:name><con:value>${#TestCase#number}</con:value><con:style>QUERY</con:style></con:parameter></con:parameters></con:config></con:testStep><con:testStep type="groovy" name="checkPums" id="4f9b3f90-cd96-4832-bc7e-65873e167f78"><con:settings/><con:config><script>
+def response = context.expand( '${searchInBase#Response#$.phone}' )
+
+if(isDigit(response)){
+	testRunner.gotoStepByName("random")
+}
+
+
+
+private static boolean isDigit(String s) throws NumberFormatException {
+    try {
+        Integer.parseInt(s);
+        return true;
+    } catch (NumberFormatException e) {
+        return false;
+    }
+}</script></con:config></con:testStep><con:testStep type="httprequest" name="LK_registration" id="359d5a55-210b-49d1-adae-97af4b91d7b6"><con:settings/><con:config method="POST" xsi:type="con:HttpRequest" id="20359e8e-8dcd-4921-9a09-bb8a62b8790d" name="LK_registration" postQueryString="false" mediaType="application/json" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://${#Project#selfcare}:8099/registration</con:endpoint><con:request>{
+   "username": "${#TestCase#number}",
+   "password": "123123123",
+   "regionCode": "O_${#TestCase#region}",
+   "iccid": "${b2bbox#iccid1}"
+}</con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:config></con:testStep><con:testStep type="groovy" name="data" id="60aecc7b-152f-4176-ab48-e278abfed8ac"><con:settings/><con:config><script>def date = new Date().format("yyyy-MM-dd");
+testRunner.testCase.setPropertyValue("data", date.toString()  )
+
+</script></con:config></con:testStep><con:testStep type="restrequest" name="create_BOX_AGREEMENT" id="39a8fb66-4e3b-43c8-914d-38399fb651c2"><con:settings/><con:config service="Corporate Order Management Service (CorpOMS)" resourcePath="/coms-web/api/createOrder" methodName="createOrder" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="create_BOX_AGREEMENT" id="978de5b9-fe46-4a0d-870c-8ad76d390f25" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://${#Project#host-b2b-rest}:8062</con:endpoint><con:request>{"order": {
+   "createChannel": "PUBLIC_PORTAL",
+   "orderStatus": "YOTA_FULFILL",
+   "orderStep": "INITIALIZATION",
+   "orderType": "BOX_AGREEMENT",
+   "updateChannel": "PUBLIC_PORTAL",
+   "authorPhone": "7${#TestCase#number}",
+   "orderChangeDate": "${#TestCase#data}T00:00:00.000+03:00",
+   "orderContent": {"BoxAgreementOrder": {"scUserId": "${LK_registration#Response#$.payload.userId}"}},
+   "parentOrderId": "${b2bbox#box}"
+}}</con:request><con:originalUri>http://DEV-b2b-ainst1.scartel.dc/coms-web/api/createOrder</con:originalUri><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="groovy" name="check" id="8826e153-a8ee-4559-9ccd-caba4a502397"><con:settings/><con:config><script>def response = context.expand( '${create_BOX_AGREEMENT#Response#$.resultStatus}' )
+
+ 
+ if (response != 'NEW')
+{
+  testRunner.gotoStepByName("b2bbox")
+}</script></con:config></con:testStep><con:testStep type="delay" name="Delay" id="b92e0b91-3a9d-4c2c-938f-2ac4518608d0"><con:settings/><con:config><delay>1000</delay></con:config></con:testStep><con:testStep type="restrequest" name="OOO_update_BOX_AGREEMENT" id="4e7f8194-835c-48f3-93b3-b076e7236036"><con:settings/><con:config service="Corporate Order Management Service (CorpOMS)" methodName="updateOrder" resourcePath="/coms-web/api/updateOrder" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="OOO_update_BOX_AGREEMENT" id="104ce6e9-3e63-4b41-8034-a9c4c09a7d1b" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://${#Project#host-b2b-rest}:8062</con:endpoint><con:request>{
+   "order":    {
+      "createChannel": "PUBLIC_PORTAL",
+      "orderStatus": "CLIENT_FULFILL",
+      "orderStep": "DOWNLOADING_UPLOADING",
+      "orderType": "BOX_AGREEMENT",
+      "updateChannel": "PUBLIC_PORTAL",
+      "authorPhone": "${create_BOX_AGREEMENT#Response#$.order.authorPhone}",
+      "orderChangeDate": "2020-05-25T00:00:00.000+03:00",
+      "orderContent": {"BoxAgreementOrder":       {
+         "scUserId": "${create_BOX_AGREEMENT#Response#$.order.orderContent.BoxAgreementOrder.scUserId}",
+         "agreementDate": "2020-05-22T00:00:00.000+03:00",
+         "agreementRegion": "C_${#TestCase#region}",
+         "clientInfo":          {
+            "status": "active",
+            "customerPurpose": "COMMERCIAL",
+            "marketingSegment": "STANDARD",
+            "addresses": [            {
+               "livingPeriod": {"fromDate": "2016-03-10T00:00:00.000+03:00"},
+               "primary": "true",
+               "addressText": "309508, РОССИЯ, БЕЛГОРОДСКАЯ ОБЛ., СТАРЫЙ ОСКОЛ Г., 8 МАРТА УЛ., 104",
+               "country": "РОССИЯ",
+               "addressType": "Legal",
+               "city": "СТАРЫЙ ОСКОЛ Г",
+               "house": "104",
+               "region": "БЕЛГОРОДСКАЯ ОБЛ.",
+               "street": "8 МАРТА УЛ.",
+               "zipCode": "309508"
+            }],
+            "CEO":             {
+               "emails": [               {
+                  "livingPeriod": {"fromDate": "2000-02-01T00:00:00.000+03:00"},
+                  "rawSource": "mnp3@mail.ru",
+                  "primary": "true",
+                  "email": "MNP3@MAIL.RU",
+                  "emailType": "HOME"
+               }],
+               "personalDetails": {"gender": "Male"},
+               "name":                {
+                  "firstName": "Генадий",
+                  "lastName": "Букин",
+                  "middleName": "Кузьмич"
+               },
+               "position": "Генеральный директор",
+               "role": "CEO"
+            },
+            "companyRegistrationDate": "2015-04-24T00:00:00.000+03:00",
+            "contactPerson":             {
+               "emails": [               {
+                  "livingPeriod": {"fromDate": "2000-02-01T00:00:00.000+03:00"},
+                  "rawSource": "MNP3@MAIL.RU",
+                  "primary": "true",
+                  "email": "MNP3@MAIL.RU",
+                  "emailType": "HOME"
+               }],
+               "role": "CONTACT_PERSON"
+            },
+            "egrulData":             {
+               "inn": "7802651610",
+               "kpp": "780201001",
+               "ogrn": "1187847013947",
+               "opf": "12300.2014"
+            },
+            "fullCompanyName": "${create_BOX_AGREEMENT#Response#$.order.authorPhone}",
+            "inactiveSIMlimit": "25",
+            "masterAgreement":             {
+               "Status": "NEW",
+               "type": "VOICE_B_2_B",
+               "administrator":                {
+                  "emails": [                  {
+                     "livingPeriod": {"fromDate": "2000-02-01T00:00:00.000+03:00"},
+                     "rawSource": "mnp3@mail.ru",
+                     "primary": "true",
+                     "email": "MNP3@MAIL.RU",
+                     "emailType": "HOME"
+                  }],
+                  "phones": [                  {
+                     "livingPeriod": {"fromDate": "2017-01-17T00:00:00.000+04:00"},
+                     "primary": "true",
+                     "phoneNumber": "89811598423",
+                     "phoneType": "WORK"
+                  }],
+                  "role": "ADMINISTRATOR"
+               },
+               "agreementCity": "C_${#TestCase#region}",
+               "agreementMSISDN": "79992119452",
+               "agreementRegion": "O_${#TestCase#region}",
+               "billingAccountID": "8204135",
+               "contractType": "direct",
+               "generationDate": "2016-06-20T00:00:00.000+03:00",
+               "saleChannel": "PublicPortal",
+               "underWriter":                {
+                  "emails": [                  {
+                     "livingPeriod": {"fromDate": "2000-02-01T00:00:00.000+03:00"},
+                     "rawSource": "mnp3@mail.ru",
+                     "primary": "true",
+                     "email": "MNP3@MAIL.RU",
+                     "emailType": "HOME"
+                  }],
+                  "role": "UNDER_WRITER"
+               }
+            },
+            "opf": "12300.2014",
+            "shortCompanyName": "79918371215"
+         },
+         "needLinkRefSend": "true",
+         "needReCall": "false",
+         "simCount": "25"
+      }},
+      "orderCreateDate": "${create_BOX_AGREEMENT#Response#$.order.orderCreateDate}",
+      "orderId": "${create_BOX_AGREEMENT#Response#$.order.orderId}",
+      "revision": "${#TestCase#revision}",
+      "parentOrderId": "${create_BOX_AGREEMENT#Response#$.order.parentOrderId}"
+   },
+   "action": "PORTAL_LC_GENERATE_CONTRACT"
+}</con:request><con:originalUri>http://DEV-b2b-ainst1.scartel.dc/coms-web/api/updateOrder</con:originalUri><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="IP_update_BOX_AGREEMENT" id="e895add5-30e8-4eb5-a3e9-6334afca6ce0" disabled="true"><con:settings/><con:config service="Corporate Order Management Service (CorpOMS)" methodName="updateOrder" resourcePath="/coms-web/api/updateOrder" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="IP_update_BOX_AGREEMENT" id="104ce6e9-3e63-4b41-8034-a9c4c09a7d1b" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://${#Project#host-b2b-rest}:8082</con:endpoint><con:request>{
+   "order":    {
+      "createChannel": "PUBLIC_PORTAL",
+      "orderStatus": "CLIENT_FULFILL",
+      "orderStep": "DOWNLOADING_UPLOADING",
+      "orderType": "BOX_AGREEMENT",
+      "updateChannel": "PUBLIC_PORTAL",
+      "authorPhone": "${create_BOX_AGREEMENT#Response#$.order.authorPhone}",
+      "orderChangeDate": "2020-05-25T00:00:00.000+03:00",
+      "orderContent": {"BoxAgreementOrder":       {
+         "scUserId": "${LK_registration#Response#$.payload.userId}",
+         "agreementDate": "2020-05-22T00:00:00.000+03:00",
+         "agreementRegion": "C_${#TestCase#region}",
+         "clientInfo":          {
+            "status": "active",
+            "customerPurpose": "COMMERCIAL",
+            "marketingSegment": "STANDARD",
+            "addresses": [            {
+               "livingPeriod": {"fromDate": "2016-03-10T00:00:00.000+03:00"},
+               "primary": "true",
+               "addressText": "309508, РОССИЯ, БЕЛГОРОДСКАЯ ОБЛ., СТАРЫЙ ОСКОЛ Г., 8 МАРТА УЛ., 104",
+               "country": "РОССИЯ",
+               "addressType": "Legal",
+               "city": "СТАРЫЙ ОСКОЛ Г",
+               "house": "104",
+               "region": "БЕЛГОРОДСКАЯ ОБЛ.",
+               "street": "8 МАРТА УЛ.",
+               "zipCode": "309508"
+            }],
+            "CEO":             {
+               "emails": [               {
+                  "livingPeriod": {"fromDate": "2000-02-01T00:00:00.000+03:00"},
+                  "rawSource": "mnp3@mail.ru",
+                  "primary": "true",
+                  "email": "MNP3@MAIL.RU",
+                  "emailType": "HOME"
+               }],
+               "personalDetails": {"gender": "Male"},
+               "name":                {
+                  "firstName": "Генадий",
+                  "lastName": "Букин",
+                  "middleName": "Кузьмич"
+               },
+               "documentDetails":               {
+                  "livingPeriod": {"fromDate": "2019-08-07T00:00:00.000+04:00"},
+                  "primary": "true",
+                  "documentType": "PASSPORT_RU",
+                  "documentSeries": "40 09",
+                  "documentNumber": "500080",
+                  "issueDate": "2019-08-07T00:00:00.000+04:00",
+                  "issueAuthority": "УВД ВСЕВОЛОЖСКОГО РАЙОНА ЛО",
+                  "departmentCode": "472-004"
+               },
+               "role": "CEO"
+            },
+            "companyRegistrationDate": "2015-04-24T00:00:00.000+03:00",
+            "contactPerson":             {
+               "emails": [               {
+                  "livingPeriod": {"fromDate": "2000-02-01T00:00:00.000+03:00"},
+                  "rawSource": "MNP3@MAIL.RU",
+                  "primary": "true",
+                  "email": "MNP3@MAIL.RU",
+                  "emailType": "HOME"
+               }],
+               "role": "CONTACT_PERSON"
+            },
+            "egrulData":             {
+               "inn": "7802651610",
+               "ogrn": "1187847013947",
+               "opf": "15300.2014"
+            },
+            "fullCompanyName": "ИП ${create_BOX_AGREEMENT#Response#$.order.authorPhone}",
+            "inactiveSIMlimit": "25",
+            "masterAgreement":             {
+               "Status": "NEW",
+               "type": "VOICE_B_2_B",
+               "administrator":                {
+                  "emails": [                  {
+                     "livingPeriod": {"fromDate": "2000-02-01T00:00:00.000+03:00"},
+                     "rawSource": "mnp3@mail.ru",
+                     "primary": "true",
+                     "email": "MNP3@MAIL.RU",
+                     "emailType": "HOME"
+                  }],
+                  "phones": [                  {
+                     "livingPeriod": {"fromDate": "2017-01-17T00:00:00.000+04:00"},
+                     "primary": "true",
+                     "phoneNumber": "89811598423",
+                     "phoneType": "WORK"
+                  }],
+                  "role": "ADMINISTRATOR"
+               },
+               "agreementCity": "C_${#TestCase#region}",
+               "agreementMSISDN": "79992119452",
+               "agreementRegion": "O_${#TestCase#region}",
+               "billingAccountID": "8204135",
+               "contractType": "direct",
+               "generationDate": "2016-06-20T00:00:00.000+03:00",
+               "saleChannel": "PublicPortal",
+               "underWriter":                {
+                  "emails": [                  {
+                     "livingPeriod": {"fromDate": "2000-02-01T00:00:00.000+03:00"},
+                     "rawSource": "mnp3@mail.ru",
+                     "primary": "true",
+                     "email": "MNP3@MAIL.RU",
+                     "emailType": "HOME"
+                  }],
+                  "role": "UNDER_WRITER"
+               }
+            },
+            "opf": "15300.2014",
+            "shortCompanyName": "${create_BOX_AGREEMENT#Response#$.order.authorPhone}"
+         },
+         "needLinkRefSend": "true",
+         "needReCall": "false",
+         "simCount": "25"
+      }},
+      "orderCreateDate": "${create_BOX_AGREEMENT#Response#$.order.orderCreateDate}",
+      "orderId": "${create_BOX_AGREEMENT#Response#$.order.orderId}",
+      "revision": "${#TestCase#revision}",
+      "parentOrderId": "${create_BOX_AGREEMENT#Response#$.order.parentOrderId}"
+   },
+   "action": "PORTAL_LC_GENERATE_CONTRACT"
+}</con:request><con:originalUri>http://DEV-b2b-ainst1.scartel.dc/coms-web/api/updateOrder</con:originalUri><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="groovy" name="OOO_checkUpdate" id="91dc81a9-b634-4ef9-9b76-92a8742fe275"><con:settings/><con:config><script>def revision = context.expand( '${#TestCase#revision}' )
+def orderid = context.expand( '${OOO_update_BOX_AGREEMENT#Response#$.orderId}' )
+
+	log.info(orderid)
+
+if(!isDigit(orderid)){
+		revision = revision.toInteger() + 1
+		if(revision > 15){
+				testRunner.fail("Слишком много попыток обновить ордер");
+				return null;
+		}
+		testRunner.testCase.setPropertyValue("revision",revision.toString())
+		  testRunner.gotoStepByName("Delay")
+
+		
+	}
+
+	private static boolean isDigit(String s) throws NumberFormatException {
+    try {
+        Integer.parseInt(s);
+        return true;
+    } catch (NumberFormatException e) {
+        return false;
+    }
+
+}</script></con:config></con:testStep><con:testStep type="groovy" name="IP_checkUpdate" id="7443b56c-0369-4206-9523-10dd086cdf83" disabled="true"><con:settings/><con:config><script>def revision = context.expand( '${#TestCase#revision}' )
+def orderid = context.expand( '${IP_update_BOX_AGREEMENT#Response#$.orderId}' )
+
+
+	log.info(orderid)
+
+if(!isDigit(orderid)){
+		revision = revision.toInteger() + 1
+		if(revision > 15){
+				testRunner.fail("Слишком много попыток обновить ордер");
+				return null;
+		}
+		testRunner.testCase.setPropertyValue("revision",revision.toString())
+		  testRunner.gotoStepByName("Delay")
+
+		
+	}
+
+	private static boolean isDigit(String s) throws NumberFormatException {
+    try {
+        Integer.parseInt(s);
+        return true;
+    } catch (NumberFormatException e) {
+        return false;
+    }
+
+}</script></con:config></con:testStep><con:testStep type="restrequest" name="activateAgreement" id="48ad5d6f-f162-4f67-b739-09ba2f2ba987"><con:settings/><con:config service="Corporate Order Management Service (CorpOMS)" resourcePath="/coms-web/api/activateAgreement" methodName="activateAgreement" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="activateAgreement" id="22cc0d44-b9f8-4363-8bbf-9edf8f45a9be" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://${#Project#host-b2b-rest}:8062</con:endpoint><con:request>{"orderId": "${create_BOX_AGREEMENT#Response#$.order.orderId}"}</con:request><con:originalUri>http://DEV-b2b-ainst1.scartel.dc/coms-web/api/activateAgreement</con:originalUri><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="getOrderById" id="a9dc614b-ac9c-4f7e-955f-d1a2564f73ae"><con:settings/><con:config service="Corporate Order Management Service (CorpOMS)" resourcePath="/coms-web/api/getOrderById" methodName="getOrderById" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="getOrderById" id="a74f51eb-c3fb-45a8-a31c-7d549aa3624c" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="Content-Type" value="application/json" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://${#Project#host-b2b-rest}:8062</con:endpoint><con:request/><con:originalUri>http://DEV-b2b-ainst1.scartel.dc/coms-web/api/getOrderById</con:originalUri><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="orderId" value="${create_BOX_AGREEMENT#Response#$.order.orderId}" xmlns="http://eviware.com/soapui/config"/></con:parameters></con:restRequest></con:config></con:testStep><con:testStep type="groovy" name="result" id="c6d1bd78-f926-4707-ba73-e5eec083731d"><con:settings/><con:config><script><![CDATA[def billingid = context.expand( '${getOrderById#Response#$.order.billingAccount}' )
+def path = context.expand( '${#TestCase#Path}' )
+def startDate = new Date() 
+def hostb2b = context.expand( '${#Project#host-b2b-rest}' )
+def hostb2c = context.expand( '${#Project#host-b2c}' )
+def customerid = context.expand( '${getOrderById#Response#$.order.customerId}' )
+def phone = context.expand( '${getOrderById#Response#$.order.authorPhone}' )
+testRunner.testCase.setPropertyValue("BillingID", billingid )
+testRunner.testCase.setPropertyValue("accountID", billingid.substring(6) )
+
+
+def out= new File(path+'AccWithSim'+billingid+'.txt')
+
+    out.createNewFile()
+    out <<  '\n' +"Дата создания: "+startDate.format("yyyy-MM-dd'T'HH:mm:ss")  
+    out <<  '\n'
+    out <<  '\n' + "Окружение: "+ hostb2b + " и " + hostb2c
+    out <<  '\n'
+    out <<  '\n' + "Номер договора абонента: " + billingid
+    out <<  '\n'
+    out <<  '\n' + "Номер телефона абонента: " + phone
+    out <<  '\n'
+    out <<  '\n' + "customerid: " + customerid
+    out <<  '\n']]></script></con:config></con:testStep><con:testStep type="restrequest" name="getOrderById b2bbox" id="c4de9989-9acc-47ea-b743-5c04999a82df"><con:settings/><con:config service="Corporate Order Management Service (CorpOMS)" resourcePath="/coms-web/api/getOrderById" methodName="getOrderById" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="getOrderById b2bbox" id="a74f51eb-c3fb-45a8-a31c-7d549aa3624c" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="Content-Type" value="application/json" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://${#Project#host-b2b-rest}:8062</con:endpoint><con:request/><con:originalUri>http://DEV-b2b-ainst1.scartel.dc/coms-web/api/getOrderById</con:originalUri><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="orderId" value="${b2bbox#box}" xmlns="http://eviware.com/soapui/config"/></con:parameters></con:restRequest></con:config></con:testStep><con:testStep type="delay" name="Delay2" id="c4370dc4-a776-480e-afb8-2e7df695b6a2"><con:settings/><con:config><delay>20000</delay></con:config></con:testStep><con:testStep type="groovy" name="forIdentificationStatus" id="dae87bc5-e54f-4257-8451-469284e9afce"><con:settings/><con:config><script>import groovy.json.JsonBuilder
+import groovy.json.JsonSlurper
+import groovy.json.JsonOutput
+
+
+def n = context.expand( '${#TestCase#N}' )
+def iccid = context.expand( '${b2bbox#iccid'+n+'}' )
+
+testRunner.testCase.setPropertyValue("iccidFofActivation",iccid )
+int identificationStatusCount = Integer.parseInt(context.expand( '${#TestCase#identificationStatusCount}' ))
+
+
+String[] identificationStatus = ['UNSUCCESS', 'SUCCESS_EDITED', 'REQUIRED', 'NOT_VERIFY', 'NOT_POSSIBLE','SUCCESS'] as String[]
+
+
+def  testRequest = testRunner.testCase.testSteps["updateCorporatePerson"].testRequest.getRequestContent()
+def slurped = new JsonSlurper().parseText(testRequest)
+def  testRequest2 = testRunner.testCase.testSteps["updateDeliveredSim"].testRequest.getRequestContent()
+def slurped2 = new JsonSlurper().parseText(testRequest2)
+
+if(identificationStatusCount &lt; identificationStatus.length){
+	log.info identificationStatusCount
+	slurped.person.identififcation[0]."identificationStatus" = identificationStatus[identificationStatusCount -1]
+	slurped2.deliveredSim[0]."name" = identificationStatus[identificationStatusCount-1]
+}
+
+JsonBuilder builder = new JsonBuilder(slurped)
+String  json = JsonOutput.prettyPrint(builder.toString())
+
+JsonBuilder builder2 = new JsonBuilder(slurped2)
+String  json2 = JsonOutput.prettyPrint(builder2.toString())
+
+
+def nextStep = context.testCase.getTestStepByName("updateCorporatePerson")
+nextStep.httpRequest.requestContent = json
+def nextStep2 = context.testCase.getTestStepByName("updateDeliveredSim")
+nextStep2.httpRequest.requestContent = json2</script></con:config></con:testStep><con:testStep type="restrequest" name="getDeliveredSimByIccid" id="7ecf23e8-1899-4194-8064-53407d84eadb"><con:settings/><con:config service="Corporate Customer Information Service" resourcePath="/cis-web/api/rpc/getDeliveredSimByIccid" methodName="getDeliveredSimByIccid" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="getDeliveredSimByIccid" id="b07b8003-f48c-4cab-bc51-bd85a94bf0cd" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://${#Project#host-b2b}:8086</con:endpoint><con:request/><con:originalUri>http://b2btst-js1.g4lab.com/cis-web/api/rpc/getDeliveredSimByIccid</con:originalUri><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="iccid" value="${#TestCase#iccidFofActivation}" xmlns="http://eviware.com/soapui/config"/></con:parameters></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="updateDeliveredSim" id="b5611a5f-cc94-403e-a1c5-db18c6fb421d"><con:settings/><con:config service="Corporate Customer Information Service" resourcePath="/cis-web/api/rpc/updateDeliveredSim" methodName="UpdateDeliveredSim" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="updateDeliveredSim" id="1bc11066-a0f1-420b-bad3-dd63ca8f1215" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://${#Project#host-b2b}:8086</con:endpoint><con:request>{
+    "deliveredSim": [
+        {
+            "holder": {
+                "role": "SIM_HOLDER"
+            },
+            "customerId": "${getDeliveredSimByIccid#Response#$.sim.holder.customerId}",
+            "hid": "${getDeliveredSimByIccid#Response#$.sim.holder.hid}",
+            "name": "NOT_POSSIBLE",
+            "iccid": "${#TestCase#iccidFofActivation}",
+            "saleChannel": "SELF_CARE",
+            "simUsageRegion": "${#TestCase#region}"
+        }
+    ]
+}</con:request><con:originalUri>http://b2btst-js1.g4lab.com/cis-web/api/rpc/updateCorporatePerson</con:originalUri><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="updateCorporatePerson" id="1f953ac5-2fc4-473a-8b81-c17f656381ac"><con:settings/><con:config service="Corporate Customer Information Service" resourcePath="/cis-web/api/rpc/updateCorporatePerson" methodName="UpdateCorporatePerson" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="updateCorporatePerson" id="1bc11066-a0f1-420b-bad3-dd63ca8f1215" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://${#Project#host-b2b}:8086</con:endpoint><con:request>{
+    "person": {
+        "position": "Director",
+        "customerId": "${getDeliveredSimByIccid#Response#$.sim.holder.customerId}",
+        "hid": "${getDeliveredSimByIccid#Response#$.sim.holder.hid}",
+        "address": {
+            "addressText": "Moscow",
+            "livingPeriod": {
+                "untilTo": "2018-06-02T00:00:00.000+03:00",
+                "fromDate": "2018-06-02T00:00:00.000+03:00"
+            },
+            "addressType": "SubscriberLocation",
+            "city": "Moscow",
+            "country": "Russia"
+        },
+        "status": "active",
+        "personalDetails": {
+            "gender": "Male",
+            "birthDate": "2000-06-02T00:00:00.000+04:00",
+            "birthPlace": "Moscow"
+        },
+        "name": {
+            "middleName": "Ivanovich",
+            "lastName": "Bukin",
+            "firstName": "Genadiy"
+        },
+        "documentDetails": {
+            "documentType": "PASSPORT_RU",
+            "issueAuthority": "UVD",
+            "expiryDate": "2018-06-04T00:00:00.000+04:00",
+            "documentSeries": "4005",
+            "documentNumber": "900056",
+            "issueDate": "2018-06-03T00:00:00.000+04:00",
+            "livingPeriod": {
+                "untilTo": "2018-06-02T00:00:00.000+04:00",
+                "fromDate": "2018-06-02T00:00:00.000+04:00"
+            },
+            "departmentCode": "876-374"
+        },
+        "role": "CEO",
+        "identififcation": [
+            {
+                "attempt": "2",
+                "identificationStatus": "NOT_POSSIBLE",
+                "livingPeriod": {
+                    "fromDate": "2018-06-05T00:00:00.000+04:00"
+                }
+            }
+        ]
+    }
+}</con:request><con:originalUri>http://b2btst-js1.g4lab.com/cis-web/api/rpc/updateCorporatePerson</con:originalUri><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="groovy" name="Copy to List" id="9494dcfa-4ec8-4e6b-a654-03dbdb900c9b"><con:settings/><con:config><script>def billingid = context.expand( '${getOrderById#Response#$.order.billingAccount}' )
+def path = context.expand( '${#TestCase#Path}' )
+def startDate = new Date() 
+int n = Integer.parseInt(context.expand( '${#TestCase#N}' ))
+int identificationStatusCount = Integer.parseInt(context.expand( '${#TestCase#identificationStatusCount}' ))
+
+
+String[] identificationStatus = ['UNSUCCESS', 'SUCCESS_EDITED', 'REQUIRED', 'NOT_VERIFY', 'NOT_POSSIBLE', 'SUCCESS'] as String[]
+def iccidFofActivation = context.expand( '${#TestCase#iccidFofActivation}' )
+
+
+def out= new File(path+'AccWithSim'+billingid+'.txt')
+
+ out &lt;&lt; '\n'+ "Дата выдачи: "+startDate.format("yyyy-MM-dd'T'HH:mm:ss")  +  " | ICCID: " +iccidFofActivation + " identificationStatus is " + identificationStatus[identificationStatusCount] 
+
+n++
+
+testRunner.testCase.setPropertyValue("N", n.toString() )
+
+
+if (identificationStatusCount  &lt; identificationStatus.length -1){
+	
+	identificationStatusCount++
+	testRunner.testCase.setPropertyValue("identificationStatusCount", identificationStatusCount.toString() )
+  	
+  testRunner.gotoStepByName("forIdentificationStatus")
+}else{
+
+	testRunner.testCase.setPropertyValue("identificationStatusCount","0")
+	}</script></con:config></con:testStep><con:testStep type="delay" name="Delay3" id="bb40d675-94c2-4480-9720-e42db1656dd2"><con:settings/><con:config><delay>1000</delay></con:config></con:testStep><con:testStep type="groovy" name="forRestrictionStatus" id="4f082da9-a551-484e-a994-a3ae20ad574b"><con:settings/><con:config><script>import groovy.json.JsonBuilder
+import groovy.json.JsonSlurper
+import groovy.json.JsonOutput
+
+
+def n = context.expand( '${#TestCase#N}' )
+def iccid = context.expand( '${b2bbox#iccid'+n+'}' )
+
+testRunner.testCase.setPropertyValue("iccidFofActivation",iccid )
+
+int identificationStatusCount = Integer.parseInt(context.expand( '${#TestCase#identificationStatusCount}' ))
+
+String[] typeBlock = ['2', '4', '8', '16'] as String[]
+
+def  testRequest = testRunner.testCase.testSteps["restriction"].testRequest.getRequestContent()
+def slurped = new JsonSlurper().parseText(testRequest)
+def  testRequest2 = testRunner.testCase.testSteps["updateNameSim"].testRequest.getRequestContent()
+def slurped2 = new JsonSlurper().parseText(testRequest2)
+
+if(identificationStatusCount &lt; typeBlock.length){
+	log.info identificationStatusCount
+	slurped."restrictionCode" = typeBlock[identificationStatusCount ]
+	slurped2.deliveredSim[0]."name" = "restrictionCode " + typeBlock[identificationStatusCount]
+}
+
+JsonBuilder builder = new JsonBuilder(slurped)
+String  json = JsonOutput.prettyPrint(builder.toString())
+
+JsonBuilder builder2 = new JsonBuilder(slurped2)
+String  json2 = JsonOutput.prettyPrint(builder2.toString())
+
+
+def nextStep = context.testCase.getTestStepByName("restriction")
+nextStep.httpRequest.requestContent = json
+def nextStep2 = context.testCase.getTestStepByName("updateNameSim")
+nextStep2.httpRequest.requestContent = json2</script></con:config></con:testStep><con:testStep type="restrequest" name="Copy of getDeliveredSimByIccid" id="95b8f770-d98a-4327-9002-964fff8ad82c"><con:settings/><con:config service="Corporate Customer Information Service" resourcePath="/cis-web/api/rpc/getDeliveredSimByIccid" methodName="getDeliveredSimByIccid" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Copy of getDeliveredSimByIccid" id="b07b8003-f48c-4cab-bc51-bd85a94bf0cd" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://${#Project#host-b2b}:8086</con:endpoint><con:request/><con:originalUri>http://b2btst-js1.g4lab.com/cis-web/api/rpc/getDeliveredSimByIccid</con:originalUri><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="iccid" value="${#TestCase#iccidFofActivation}" xmlns="http://eviware.com/soapui/config"/></con:parameters></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="updateNameSim" id="9a134011-336a-4443-b6fe-5a14c7b903d7"><con:settings/><con:config service="Corporate Customer Information Service" resourcePath="/cis-web/api/rpc/updateDeliveredSim" methodName="UpdateDeliveredSim" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="updateNameSim" id="1bc11066-a0f1-420b-bad3-dd63ca8f1215" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://${#Project#host-b2b}:8086</con:endpoint><con:request>{
+    "deliveredSim": [
+        {
+            "holder": {
+                "role": "SIM_HOLDER"
+            },
+            "customerId": "${Copy of getDeliveredSimByIccid#Response#$.sim.holder.customerId}",
+            "hid": "${Copy of getDeliveredSimByIccid#Response#$.sim.holder.hid}",
+            "name": "restrictionCode 16",
+            "iccid": "${#TestCase#iccidFofActivation}",
+            "saleChannel": "SELF_CARE",
+            "simUsageRegion": "${#TestCase#region}"
+        }
+    ]
+}</con:request><con:originalUri>http://b2btst-js1.g4lab.com/cis-web/api/rpc/updateCorporatePerson</con:originalUri><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="Copy of updateCorporatePerson" id="87056be9-92f0-49e6-b32e-ed84656d00b3"><con:settings/><con:config service="Corporate Customer Information Service" resourcePath="/cis-web/api/rpc/updateCorporatePerson" methodName="UpdateCorporatePerson" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Copy of updateCorporatePerson" id="1bc11066-a0f1-420b-bad3-dd63ca8f1215" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://${#Project#host-b2b}:8086</con:endpoint><con:request>{"person": {
+   "position": "Director",
+   "customerId": "${Copy of getDeliveredSimByIccid#Response#$.sim.holder.customerId}",
+   "hid": "${Copy of getDeliveredSimByIccid#Response#$.sim.holder.hid}",
+   "address":    {
+      "addressText": "Moscow",
+      "livingPeriod":       {
+         "untilTo": "2018-06-02T00:00:00.000+03:00",
+         "fromDate": "2018-06-02T00:00:00.000+03:00"
+      },
+      "addressType": "SubscriberLocation",
+      "city": "Moscow",
+      "country": "Russia"
+   },
+   "status": "active",
+   "personalDetails":    {
+      "gender": "Male",
+      "birthDate": "2000-06-02T00:00:00.000+04:00",
+      "birthPlace": "Moscow"
+   },
+   "name":    {
+      "middleName": "Ivanovich",
+      "lastName": "Bukin",
+      "firstName": "Genadiy"
+   },
+   "documentDetails":    {
+      "documentType": "PASSPORT_RU",
+      "issueAuthority": "UVD",
+      "expiryDate": "2018-06-04T00:00:00.000+04:00",
+      "documentSeries": "4005",
+      "documentNumber": "900056",
+      "issueDate": "2018-06-03T00:00:00.000+04:00",
+      "livingPeriod":       {
+         "untilTo": "2018-06-02T00:00:00.000+04:00",
+         "fromDate": "2018-06-02T00:00:00.000+04:00"
+      },
+      "departmentCode": "876-374"
+   },
+   "role": "CEO",
+   "identififcation": [   {
+      "attempt": "2",
+      "identificationStatus": "SUCCESS",
+      "livingPeriod": {"fromDate": "2018-06-05T00:00:00.000+04:00"}
+   }]
+}}</con:request><con:originalUri>http://b2btst-js1.g4lab.com/cis-web/api/rpc/updateCorporatePerson</con:originalUri><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="SIM_ACTIVATION" id="c7b2cdac-fb75-45f0-869c-1ecf499650f9"><con:settings/><con:config service="Corporate Order Management Service (CorpOMS)" resourcePath="/coms-web/api/createOrder" methodName="createOrder" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="SIM_ACTIVATION" id="978de5b9-fe46-4a0d-870c-8ad76d390f25" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://${#Project#host-b2b-rest}:8062</con:endpoint><con:request>{"order": {
+   "orderType": "SIM_ACTIVATION",
+   "createChannel": "SELF_CARE",
+   "billingAccount": "${#TestCase#BillingID}",
+   "orderContent": {"SimActivationOrder": {"activatedUnits": [{
+   	"packageCountMin": "300",
+      "destOptionCode": "B2B-OP-MA2-SMS",
+   	"sim":    {
+      "branch": " ",
+      "simCodes": [      {
+         "key": "${#TestCase#iccidFofActivation}",
+         "type": "ICCID"
+      }],
+      "simSpec": "PHONELEGAL"
+   }}]}}
+}}</con:request><con:originalUri>http://dev-b2b-ainst1.scartel.dc/coms-web/api/createOrder</con:originalUri><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="delay" name="Delay 6" id="48e54005-534f-4e5a-9a5a-d510dc5d2071"><con:settings/><con:config><delay>15000</delay></con:config></con:testStep><con:testStep type="restrequest" name="getSimcards" id="47852aa4-87ea-489f-b066-21b0b2b3e50d"><con:settings/><con:config service="Product Management API" resourcePath="/pm/v1/simcards" methodName="getSimCardsV1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="getSimcards" id="9b2b825b-725b-4f28-b56c-0d3f9926ba7a" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://${#Project#pm_api}:8080</con:endpoint><con:request/><con:originalUri>http://ft2-pm-api.g4lab.com/pm/v1/simcards</con:originalUri><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters>
+  <con:entry key="accountId" value="${#TestCase#accountID}"/>
+  <con:entry key="returnProducts" value="false"/>
+  <con:entry key="imsi" value="25011${#TestCase#iccidFofActivation}"/>
+  <con:entry key="returnPrices" value="false"/>
+</con:parameters></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="restriction" id="761428f4-4817-4ff0-a347-1201f76c1785"><con:settings/><con:config service="Billing API" resourcePath="/bill/v1/service/restriction" methodName="addServiceRestrictions" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="restriction" id="cde55281-ea1f-4ebe-864f-6a9e046c588b" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://${#Project#billapi}:8080</con:endpoint><con:request>{
+    "usedSimCardExternalId": "${getSimcards#Response#$[0].externalId}",
+    "serviceId": "567",
+    "isOneTime": false,
+    "restrictionCode": "16"
+}</con:request><con:originalUri>http://ft3-bil-api.g4lab.com/bill/v1/service/restriction</con:originalUri><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="groovy" name="2Copy to List" id="8e32dc74-6989-4063-ad1d-21199772bc51"><con:settings/><con:config><script>def billingid = context.expand( '${getOrderById#Response#$.order.billingAccount}' )
+def path = context.expand( '${#TestCase#Path}' )
+def startDate = new Date() 
+int n = Integer.parseInt(context.expand( '${#TestCase#N}' ))
+int identificationStatusCount = Integer.parseInt(context.expand( '${#TestCase#identificationStatusCount}' ))
+def iccidFofActivation = context.expand( '${#TestCase#iccidFofActivation}' )
+
+String[] typeBlock = ['2', '4', '8', '16'] as String[]
+
+
+def out= new File(path+'AccWithSim'+billingid+'.txt')
+
+ out &lt;&lt; '\n'+ "Дата выдачи: "+startDate.format("yyyy-MM-dd'T'HH:mm:ss")  +  " | ICCID: " +iccidFofActivation + " RestrictionCode is " + typeBlock[identificationStatusCount] 	
+ 
+n++
+
+testRunner.testCase.setPropertyValue("N", n.toString() )
+
+
+if (identificationStatusCount  &lt; typeBlock.length -1){
+	
+	identificationStatusCount++
+	testRunner.testCase.setPropertyValue("identificationStatusCount", identificationStatusCount.toString() )
+  	
+  testRunner.gotoStepByName("forRestrictionStatus")
+}</script></con:config></con:testStep><con:properties><con:property><con:name>SIMCount</con:name><con:value>10</con:value></con:property><con:property><con:name>N</con:name><con:value>11</con:value></con:property><con:property><con:name>Path</con:name><con:value>C:\Projects\!B2BTXT</con:value></con:property><con:property><con:name>BillingID</con:name><con:value>11220024002717</con:value></con:property><con:property><con:name>number</con:name><con:value>9735293973</con:value></con:property><con:property><con:name>data</con:name><con:value>2020-06-30</con:value></con:property><con:property><con:name>region</con:name><con:value>78</con:value></con:property><con:property><con:name>simlimit</con:name><con:value>800</con:value></con:property><con:property><con:name>b2bbox</con:name><con:value>425108</con:value></con:property><con:property><con:name>iccidFofActivation</con:name><con:value>0200435272</con:value></con:property><con:property><con:name>revision</con:name><con:value>1</con:value></con:property><con:property><con:name>money</con:name><con:value>20000</con:value></con:property><con:property><con:name>accountID</con:name><con:value>24002717</con:value></con:property><con:property><con:name>identificationStatusCount</con:name><con:value>3</con:value></con:property></con:properties><con:reportParameters/><con:breakPoints><con:testStepId>18ede8e0-c948-4be5-9a01-faf62475ce23</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>17a458cb-d50c-466e-b37e-bf9afe1e3511</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>ccd84e25-12fb-4a73-a718-9911f3b695c3</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>5c4490e6-8cd7-4d22-b335-502b53285fb9</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>701b8157-653c-4182-be99-323c9801a764</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>3287b16b-18ad-4996-b38c-9dd51b0c782e</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>6cbd5d5e-e099-458b-96ca-fafa3ae8a4fe</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>0d48d0a4-3401-4144-a559-7ea556fb346e</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>f819a3a8-c43a-46fe-a79e-50df37748d38</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>2135ae48-2833-4369-86e2-b2ad786b9148</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>03674dc7-86fb-4ff4-a0a5-5fbaff3473f8</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>76e19857-b832-46d9-8f8b-a6934854467c</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>f2117cd6-c418-49d7-b543-1e051af74c64</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>81cab15c-037d-4b6a-a8bb-2c5d4983429f</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>5a936783-114a-41f1-b69e-b1e5e9fb2a89</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>8c99e53a-24cf-45f6-973e-ebae20d2f961</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>6a65fe4b-d826-473b-b248-fe8a04091aab</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>1d14f8a5-3702-491a-a337-a0d52cd300de</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>aad7bcb7-1be8-448c-b353-04a286edd678</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>cc7ea6c1-3475-416d-a93e-3258d3678e25</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>1a637798-af4c-431b-9abf-0d7e6157227e</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>c4eb4bfd-75e9-4434-880f-ca8c1c1d0172</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>ba6f215d-40e2-4385-99a4-63fd8a71ebbf</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>1b52064b-ab87-4339-8516-640be4572193</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>4d1cbb32-d3dd-4c13-b683-5e0fd6a399fb</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>23ed6e75-f3b3-4977-ac07-b00a52f14f22</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>229207bc-51f0-49d3-958e-aa1b6e020944</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>5d2d687c-a5fd-4c2b-98f0-40c8edffb9ed</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>d3662775-3d62-46a0-bd27-5d7f52a8fd87</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>10b2e7d3-636a-44c4-a559-67c665773dad</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>f854af11-bd63-48ae-807c-ff5a18cc74a7</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>08c9fb4b-58a9-4c8c-bea9-4ba90d504e65</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>889c27d1-7311-4fb6-b542-90ef2c32f379</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>f19aefa0-8b6f-47ed-a9e6-1d4080138462</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>f225a63c-47d9-4f89-801e-4d33030387d6</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>4e867447-6a89-446d-9922-cda49598815c</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>c61a168e-c216-4e89-9cca-7b1e9274617b</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>01becd7a-4f33-4155-9905-76e27310a825</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>1a8ee86f-a05f-4428-b0c7-a6a464e9968d</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>6c28f0bd-f507-4ce3-81ff-7974706a54f9</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>f32121c7-d62a-4814-914e-ce37e98511ef</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>d919d11f-8c7b-42bd-996b-36e73b783ed6</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>8baf035a-bfec-481a-be61-e126d83354f4</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>acfe566d-5ef3-432c-978c-68d3622be8a0</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>13139781-a93a-42c8-875c-5afb26ead16f</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>e20228cb-618d-44a2-b0ae-257436c53cd7</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>b5611a5f-cc94-403e-a1c5-db18c6fb421d</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>1f953ac5-2fc4-473a-8b81-c17f656381ac</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>7ecf23e8-1899-4194-8064-53407d84eadb</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>9494dcfa-4ec8-4e6b-a654-03dbdb900c9b</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>4f082da9-a551-484e-a994-a3ae20ad574b</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>9a134011-336a-4443-b6fe-5a14c7b903d7</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>87056be9-92f0-49e6-b32e-ed84656d00b3</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>8e32dc74-6989-4063-ad1d-21199772bc51</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>95b8f770-d98a-4327-9002-964fff8ad82c</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints></con:testCase>

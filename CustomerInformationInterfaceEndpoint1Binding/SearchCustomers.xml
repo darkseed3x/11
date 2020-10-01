@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation id="c9f6bf49-f968-4367-a733-fe04bd9582c8" isOneWay="false" action="http://www.yota.ru/vox/services/wsdl/CustomerInformation/SearchCustomers" name="SearchCustomers" bindingOperationName="SearchCustomers" type="Request-Response" outputName="searchCustomersOut" inputName="searchCustomersIn" receivesAttachments="false" sendsAttachments="false" anonymous="optional" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="c9f6bf49-f968-4367-a733-fe04bd9582c8fileName">SearchCustomers</con:setting></con:settings><con:call id="cef5c9b0-ac89-4360-9700-662f73bf02ec" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://oxford-esb.g4lab.com:8080/CustomerInformationService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cus="http://www.yota.ru/vox/services/customerInformation" xmlns:core="http://www.roox.ru/products/common/core">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <cus:SearchCustomersRequest>\r
+         <!--Optional:-->\r
+         <core:extension>\r
+            <!--Zero or more repetitions:-->\r
+            <core:item>?</core:item>\r
+         </core:extension>\r
+         <searchString>?</searchString>\r
+         <!--Optional:-->\r
+         <withAgreements>?</withAgreements>\r
+      </cus:SearchCustomersRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.yota.ru/vox/services/wsdl/CustomerInformation/SearchCustomers"/></con:call></con:operation>

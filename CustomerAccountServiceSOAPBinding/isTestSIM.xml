@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation isOneWay="false" action="http://www.yota.ru/vox/services/b2b/wsdl/CustomerAccount/IsTestSIM" name="isTestSIM" bindingOperationName="isTestSIM" type="Request-Response" inputName="IsTestSIMIn" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="a457722b-a12d-49bd-91e1-3da419692746" outputName="IsTestSIMOut" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="a457722b-a12d-49bd-91e1-3da419692746fileName">isTestSIM</con:setting></con:settings><con:call name="Request 1" id="0944bb26-0a87-49ac-837c-db9d91f3f717"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://${#Project#host-b2b}-esb1.g4lab.com:8315/CustomerAccountManagementService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cus="http://www.yota.ru/vox/b2b/services/customerAccount" xmlns:core="http://www.roox.ru/products/common/core">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <cus:IsTestSIMRequest>
+         <!--Optional:-->
+         <core:extension>
+            <!--Zero or more repetitions:-->
+            <core:item>?</core:item>
+         </core:extension>
+         <imsi>
+            <key>?</key>
+            <type>?</type>
+         </imsi>
+      </cus:IsTestSIMRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.yota.ru/vox/services/b2b/wsdl/CustomerAccount/IsTestSIM"/></con:call></con:operation>

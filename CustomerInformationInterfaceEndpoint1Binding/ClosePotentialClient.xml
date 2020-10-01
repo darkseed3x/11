@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation id="5189fa31-42fe-4134-a058-c76374174eec" isOneWay="false" action="http://www.yota.ru/vox/services/wsdl/CustomerInformation/ClosePotentialClient" name="ClosePotentialClient" bindingOperationName="ClosePotentialClient" type="Request-Response" outputName="ClosePotentialClientOut" inputName="ClosePotentialClientIn" receivesAttachments="false" sendsAttachments="false" anonymous="optional" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="5189fa31-42fe-4134-a058-c76374174eecfileName">ClosePotentialClient</con:setting></con:settings><con:call id="85f6f659-3848-496a-a42c-5e0628d14553" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://oxford-esb.g4lab.com:8080/CustomerInformationService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cus="http://www.yota.ru/vox/services/customerInformation" xmlns:core="http://www.roox.ru/products/common/core">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <cus:ClosePotentialClientRequest>\r
+         <!--Optional:-->\r
+         <core:extension>\r
+            <!--Zero or more repetitions:-->\r
+            <core:item>?</core:item>\r
+         </core:extension>\r
+         <customerId>\r
+            <key>?</key>\r
+            <value>?</value>\r
+         </customerId>\r
+         <sourceSystem>?</sourceSystem>\r
+      </cus:ClosePotentialClientRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.yota.ru/vox/services/wsdl/CustomerInformation/ClosePotentialClient"/></con:call></con:operation>

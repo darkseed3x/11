@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation isOneWay="false" action="http://www.yota.ru/vox/services/b2b/wsdl/CorporateOrderManagement/GetOrderByCriteria" name="getOrderByCriteria" bindingOperationName="getOrderByCriteria" type="Request-Response" outputName="GetOrderByCriteriaOut" inputName="GetOrderByCriteriaIn" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="4f683584-6d2b-4ca6-9476-1ed888d6febe" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="4f683584-6d2b-4ca6-9476-1ed888d6febefileName">getOrderByCriteria</con:setting></con:settings><con:call name="Request 1" id="1e9a1c65-7bdd-4161-a75c-401b9ad9d662"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://ft1-b2b-ainst1.scartel.dc:8082/oms-web/OrderEndpoint</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ord="http://www.yota.ru/vox/b2b/services/order">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ord:GetOrderByCriteriaRequest>\r
+         <!--Zero or more repetitions:-->\r
+         <authorEmail>?</authorEmail>\r
+         <!--Zero or more repetitions:-->\r
+         <authorPhone>?</authorPhone>\r
+         <!--Zero or more repetitions:-->\r
+         <billingAccount>?</billingAccount>\r
+         <!--Zero or more repetitions:-->\r
+         <channel>?</channel>\r
+         <!--Zero or more repetitions:-->\r
+         <customerId>?</customerId>\r
+         <!--Zero or more repetitions:-->\r
+         <iccid>?</iccid>\r
+         <!--Zero or more repetitions:-->\r
+         <linkRef>?</linkRef>\r
+         <!--Zero or more repetitions:-->\r
+         <msisdn>?</msisdn>\r
+         <!--Optional:-->\r
+         <operatorCode>?</operatorCode>\r
+         <!--Zero or more repetitions:-->\r
+         <orderId>?</orderId>\r
+         <!--Zero or more repetitions:-->\r
+         <orderNotStatus>?</orderNotStatus>\r
+         <!--Zero or more repetitions:-->\r
+         <orderStatus>?</orderStatus>\r
+         <!--Zero or more repetitions:-->\r
+         <orderStep>?</orderStep>\r
+         <!--Zero or more repetitions:-->\r
+         <orderType>?</orderType>\r
+         <!--Zero or more repetitions:-->\r
+         <parentOrderId>?</parentOrderId>\r
+         <!--Optional:-->\r
+         <rsRegion>?</rsRegion>\r
+         <!--Optional:-->\r
+         <storeKeeper>?</storeKeeper>\r
+         <!--Optional:-->\r
+         <delivery>?</delivery>\r
+      </ord:GetOrderByCriteriaRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.yota.ru/vox/services/b2b/wsdl/CorporateOrderManagement/GetOrderByCriteria"/><con:wsrmConfig version="1.2"/></con:call></con:operation>

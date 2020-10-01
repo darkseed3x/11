@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation isOneWay="false" action="http://www.yota.ru/vox/services/wsdl/MNPService/StartMNPPortin" name="StartMNPPortin" bindingOperationName="StartMNPPortin" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="7da73762-c362-43ef-9b6f-06b6f9c6a74e" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="7da73762-c362-43ef-9b6f-06b6f9c6a74efileName">StartMNPPortin</con:setting></con:settings><con:call name="Request 1" id="d3fbc4e2-b1cb-4c92-91ec-84f4a27f63ec"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8319/MNPService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:mnp="http://www.yota.ru/vox/services/mnpService" xmlns:core="http://www.roox.ru/products/common/core" xmlns:core1="http://www.yota.ru/vox/domains/common/core">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <mnp:StartMNPPortinRequest>
+         <!--Optional:-->
+         <core:extension>
+            <!--Zero or more repetitions:-->
+            <core:item>?</core:item>
+         </core:extension>
+         <startServiceDate>?</startServiceDate>
+         <signedDate>?</signedDate>
+         <portableNumber>?</portableNumber>
+         <!--Optional:-->
+         <subscriberData customerId="?" hid="?">
+            <created>?</created>
+            <!--Optional:-->
+            <livingPeriod>
+               <fromDate>?</fromDate>
+               <!--Optional:-->
+               <untilTo>?</untilTo>
+            </livingPeriod>
+            <!--Zero or more repetitions:-->
+            <subscriberProperties name="?">
+               <core1:value>?</core1:value>
+            </subscriberProperties>
+            <name>
+               <!--Optional:-->
+               <core1:firstName>?</core1:firstName>
+               <!--Optional:-->
+               <core1:lastName>?</core1:lastName>
+               <!--Optional:-->
+               <core1:middleName>?</core1:middleName>
+            </name>
+            <!--Optional:-->
+            <accountId>?</accountId>
+            <!--Optional:-->
+            <personalDetails>
+               <!--Optional:-->
+               <gender>?</gender>
+               <!--Optional:-->
+               <birthDate>?</birthDate>
+               <!--Optional:-->
+               <birthPlace>?</birthPlace>
+            </personalDetails>
+            <!--Optional:-->
+            <document customerId="?" hid="?">
+               <livingPeriod>
+                  <fromDate>?</fromDate>
+                  <!--Optional:-->
+                  <untilTo>?</untilTo>
+               </livingPeriod>
+               <!--Optional:-->
+               <rawSource>?</rawSource>
+               <!--Optional:-->
+               <primary>?</primary>
+               <!--Optional:-->
+               <additionalInfo>?</additionalInfo>
+               <!--Zero or more repetitions:-->
+               <additionalProperties name="?">
+                  <core1:value>?</core1:value>
+               </additionalProperties>
+               <!--Optional:-->
+               <documentType>?</documentType>
+               <!--Optional:-->
+               <documentSeries>?</documentSeries>
+               <!--Optional:-->
+               <documentNumber>?</documentNumber>
+               <!--Optional:-->
+               <issueDate>?</issueDate>
+               <!--Optional:-->
+               <issueAuthority>?</issueAuthority>
+               <!--Optional:-->
+               <departmentCode>?</departmentCode>
+               <!--Optional:-->
+               <expiryDate>?</expiryDate>
+               <!--Optional:-->
+               <author>?</author>
+            </document>
+            <!--Optional:-->
+            <address customerId="?" hid="?">
+               <livingPeriod>
+                  <fromDate>?</fromDate>
+                  <!--Optional:-->
+                  <untilTo>?</untilTo>
+               </livingPeriod>
+               <!--Optional:-->
+               <rawSource>?</rawSource>
+               <!--Optional:-->
+               <primary>?</primary>
+               <!--Optional:-->
+               <additionalInfo>?</additionalInfo>
+               <!--Zero or more repetitions:-->
+               <additionalProperties name="?">
+                  <core1:value>?</core1:value>
+               </additionalProperties>
+               <!--Optional:-->
+               <addressText>?</addressText>
+               <!--Optional:-->
+               <country>?</country>
+            </address>
+         </subscriberData>
+         <rsRegion>?</rsRegion>
+         <iccid>?</iccid>
+         <agreementRef>?</agreementRef>
+         <!--Optional:-->
+         <authorizationRef>?</authorizationRef>
+         <!--Optional:-->
+         <contactPhone>?</contactPhone>
+         <!--Optional:-->
+         <contactEmail>?</contactEmail>
+         <!--Optional:-->
+         <mnpPortType>?</mnpPortType>
+      </mnp:StartMNPPortinRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.yota.ru/vox/services/wsdl/MNPService/StartMNPPortin"/></con:call></con:operation>

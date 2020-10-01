@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation isOneWay="false" action="http://www.yota.ru/vox/services/wsdl/CustomerProduct/GetProducts" name="GetProducts" bindingOperationName="GetProducts" type="Request-Response" outputName="GetProductsOut" inputName="GetProductsIn" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="7ec7598a-17d2-48fd-940e-be4a3e6a1fac" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="7ec7598a-17d2-48fd-940e-be4a3e6a1facfileName">GetProducts</con:setting></con:settings><con:call name="Request 1" id="39bf3660-9085-499d-95e4-3716a0804b87"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.78.209.200:8382/customer-product-ejb/CustomerProduct/CustomerProductServiceBean</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cus="http://www.yota.ru/vox/services/customerProduct" xmlns:core="http://www.roox.ru/products/common/core">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <cus:GetProductsRequest>
+         <!--Optional:-->
+         <core:extension>
+            <!--Zero or more repetitions:-->
+            <core:item>?</core:item>
+         </core:extension>
+         <accountId>?</accountId>
+         <!--Optional:-->
+         <msisdn>?</msisdn>
+         <!--Optional:-->
+         <productsWithCost>?</productsWithCost>
+         <!--Optional:-->
+         <simKey>
+            <key>?</key>
+            <type>?</type>
+         </simKey>
+      </cus:GetProductsRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.yota.ru/vox/services/wsdl/CustomerProduct/GetProducts"/></con:call></con:operation>

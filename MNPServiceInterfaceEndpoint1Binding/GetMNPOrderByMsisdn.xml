@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation isOneWay="false" action="http://www.yota.ru/vox/services/wsdl/MNPService/GetMNPOrderByMsisdn" name="GetMNPOrderByMsisdn" bindingOperationName="GetMNPOrderByMsisdn" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="2eb6b9d4-acc6-4e25-b738-6d85ffcd44b5" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="2eb6b9d4-acc6-4e25-b738-6d85ffcd44b5fileName">GetMNPOrderByMsisdn</con:setting></con:settings><con:call name="Request 1" id="e96ee9ba-2be1-4d65-9dc5-e6b06c8ade77"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8319/MNPService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:mnp="http://www.yota.ru/vox/services/mnpService">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <mnp:GetMNPOrderByMsisdnRequest>
+         <phone>?</phone>
+      </mnp:GetMNPOrderByMsisdnRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.yota.ru/vox/services/wsdl/MNPService/GetMNPOrderByMsisdn"/></con:call></con:operation>

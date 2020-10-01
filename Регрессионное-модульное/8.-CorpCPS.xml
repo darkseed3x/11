@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="8. CorpCPS" searchProperties="true" id="409ea91b-4272-4403-b9ea-af88821c982a" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="409ea91b-4272-4403-b9ea-af88821c982afileName">8.-CorpCPS</con:setting></con:settings><con:properties/><con:reportParameters/></con:testCase>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation isOneWay="false" action="http://www.yota.ru/vox/services/b2b/wsdl/DocumentGeneration/GenerateDeliveryAcceptanceAct" name="generateDeliveryAcceptanceAct" bindingOperationName="generateDeliveryAcceptanceAct" type="Request-Response" outputName="GenerateDeliveryAcceptanceActOut" inputName="GenerateDeliveryAcceptanceActIn" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="8bd2c788-b22e-459e-ab85-153b1d11219b" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="8bd2c788-b22e-459e-ab85-153b1d11219bfileName">generateDeliveryAcceptanceAct</con:setting></con:settings><con:call name="Request 1" id="edf7e5e5-3c04-498a-ba6a-d6ef27d288ef"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.90.253.219:8084/dgs-web/DocumentGenerationEndpoint</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:dgs="http://www.yota.ru/vox/b2b/domains/dgs" xmlns:core="http://www.yota.ru/vox/domains/common/core">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <dgs:GenerateDeliveryAcceptanceActRequest>
+         <!--Optional:-->
+         <billingAccount>?</billingAccount>
+         <billingAccountDate>?</billingAccountDate>
+         <!--Optional:-->
+         <customerId>?</customerId>
+         <!--1 or more repetitions:-->
+         <iccid>
+            <iccid>?</iccid>
+            <nameNomenclature>?</nameNomenclature>
+         </iccid>
+         <!--1 or more repetitions:-->
+         <map key="?">
+            <core:value>?</core:value>
+         </map>
+         <proxyDate>?</proxyDate>
+      </dgs:GenerateDeliveryAcceptanceActRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.yota.ru/vox/services/b2b/wsdl/DocumentGeneration/GenerateDeliveryAcceptanceAct"/><con:wsrmConfig version="1.2"/></con:call><con:call id="e9cf52a8-0562-42ba-8af0-bc88b5b1c065" name="Request 2"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.90.253.219:8084/dgs-web/DocumentGenerationEndpoint</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:dgs="http://www.yota.ru/vox/b2b/domains/dgs" xmlns:core="http://www.yota.ru/vox/domains/common/core">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <dgs:GenerateDeliveryAcceptanceActRequest>\r
+         <billingAccount>11220021662030</billingAccount>\r
+         <billingAccountDate>2019-09-11T00:00:00.000+04:00</billingAccountDate>\r
+         <iccid>\r
+            <iccid>0217935462</iccid>\r
+            <nameNomenclature>Сим-карта LTE NFC PK 350K 2FF/3FF/4FF</nameNomenclature>\r
+         </iccid>\r
+         <map key="billingAccount">\r
+            <core:value>11220021662030</core:value>\r
+         </map>\r
+         <map key="businessEntityType">\r
+            <core:value>12300.2014</core:value>\r
+         </map>\r
+         <map key="companyName">\r
+            <core:value>ООО 79089191215</core:value>\r
+         </map>\r
+         <map key="ceoName">\r
+            <core:value>ИГНАТЕНКО ВИКТОР ВЛАДИМИРОВИЧ</core:value>\r
+         </map>\r
+         <proxyDate>2019-09-11T00:00:00.000+04:00</proxyDate>\r
+      </dgs:GenerateDeliveryAcceptanceActRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.yota.ru/vox/services/b2b/wsdl/DocumentGeneration/GenerateDeliveryAcceptanceAct"/><con:wsrmConfig version="1.2"/></con:call></con:operation>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation isOneWay="false" action="http://www.yota.ru/vox/services/b2b/wsdl/CorpCustomerInformation/AddSIMtoClient" name="addSIMtoClient" bindingOperationName="addSIMtoClient" type="Request-Response" outputName="AddSIMtoClientOut" inputName="AddSIMtoClientIn" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="bf4be401-8089-4db5-beaa-b59b5cae05d0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="bf4be401-8089-4db5-beaa-b59b5cae05d0fileName">addSIMtoClient</con:setting></con:settings><con:call name="Request 1" id="9c83e22f-aa45-4b5a-9ab6-611b3547b2f1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://b2btst-corpjs-cis.g4lab.com:8080/cis-web/CorpCustomerInformationServiceImpl</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cus="http://www.yota.ru/vox/b2b/services/customerInformation">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <cus:AddSIMtoClientRequest>
+         <billingAccount>?</billingAccount>
+         <iccid>?</iccid>
+      </cus:AddSIMtoClientRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.yota.ru/vox/services/b2b/wsdl/CorpCustomerInformation/AddSIMtoClient"/><con:wsrmConfig version="1.2"/></con:call></con:operation>

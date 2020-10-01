@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation isOneWay="false" action="http://www.yota.ru/vox/services/b2b/wsdl/CustomerAccount/AddCustomerProduct" name="addCustomerProduct" bindingOperationName="addCustomerProduct" type="Request-Response" inputName="AddCustomerProductIn" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="6a864485-dc6b-41ae-917c-082b0b405956" outputName="AddCustomerProductOut" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="6a864485-dc6b-41ae-917c-082b0b405956fileName">addCustomerProduct</con:setting></con:settings><con:call name="Request 1" id="506db3c3-ef45-4e21-97c1-2615fa4556ba"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://${#Project#host-b2b}-esb1.g4lab.com:8315/CustomerAccountManagementService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cus="http://www.yota.ru/vox/b2b/services/customerAccount" xmlns:core="http://www.roox.ru/products/common/core" xmlns:core1="http://www.yota.ru/vox/domains/common/core">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <cus:AddCustomerProductRequest>
+         <!--Optional:-->
+         <core:extension>
+            <!--Zero or more repetitions:-->
+            <core:item>?</core:item>
+         </core:extension>
+         <!--Optional:-->
+         <allowAutoProlong>?</allowAutoProlong>
+         <customerId>?</customerId>
+         <imsi>
+            <key>?</key>
+            <type>?</type>
+         </imsi>
+         <!--Optional:-->
+         <maOfferCode>?</maOfferCode>
+         <!--Optional:-->
+         <offerCode>?</offerCode>
+         <!--Zero or more repetitions:-->
+         <optionOfferCodes>?</optionOfferCodes>
+         <!--Optional:-->
+         <productDuration>?</productDuration>
+         <!--Optional:-->
+         <productId>?</productId>
+         <!--Optional:-->
+         <productRegion>?</productRegion>
+         <salesChannel>?</salesChannel>
+         <!--Optional:-->
+         <topUpAmount currencyCode="?">
+            <core1:amount>?</core1:amount>
+         </topUpAmount>
+      </cus:AddCustomerProductRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.yota.ru/vox/services/b2b/wsdl/CustomerAccount/AddCustomerProduct"/><con:wsrmConfig version="1.2"/></con:call></con:operation>

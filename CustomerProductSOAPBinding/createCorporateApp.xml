@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation isOneWay="false" action="http://www.yota.ru/vox/services/wsdl/CustomerProduct/CreateCorporateApp" name="createCorporateApp" bindingOperationName="createCorporateApp" type="Request-Response" outputName="CreateCorporateAppOut" inputName="CreateCorporateAppIn" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="5972ba78-39ee-428a-aeb9-737d0a4296b0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="5972ba78-39ee-428a-aeb9-737d0a4296b0fileName">createCorporateApp</con:setting></con:settings><con:call name="Request 1" id="05d75800-bf11-4ed9-ae96-d365003a3d52"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.78.209.200:8382/customer-product-ejb/CustomerProduct/CustomerProductServiceBean</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cus="http://www.yota.ru/vox/services/customerProduct" xmlns:core="http://www.roox.ru/products/common/core">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <cus:CreateCorporateAppRequest>
+         <!--Optional:-->
+         <core:extension>
+            <!--Zero or more repetitions:-->
+            <core:item>?</core:item>
+         </core:extension>
+         <accountID>?</accountID>
+         <!--Optional:-->
+         <allowAutoProlong>?</allowAutoProlong>
+         <baseTariffOfferID>?</baseTariffOfferID>
+         <!--Optional:-->
+         <canAddFinBlocked>?</canAddFinBlocked>
+         <!--Optional:-->
+         <discountServiceid>?</discountServiceid>
+         <msisdn>?</msisdn>
+         <newSIM>
+            <!--1 or more repetitions:-->
+            <branch/><simCodes>
+               <key>?</key>
+               <type>?</type>
+            </simCodes>
+            <simSpec>?</simSpec>
+         </newSIM>
+         <!--Zero or more repetitions:-->
+         <options>
+            <masterOfferExternalId>?</masterOfferExternalId>
+            <optionOfferExternalId>?</optionOfferExternalId>
+         </options>
+         <!--Optional:-->
+         <packageOfferExternalId>?</packageOfferExternalId>
+         <!--Optional:-->
+         <productDuration>?</productDuration>
+         <regionOfBuying>?</regionOfBuying>
+      </cus:CreateCorporateAppRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.yota.ru/vox/services/wsdl/CustomerProduct/CreateCorporateApp"/><con:wsrmConfig version="1.2"/></con:call></con:operation>

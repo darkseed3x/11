@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation isOneWay="false" action="http://www.yota.ru/vox/services/b2b/wsdl/CustomerAccount/GetCustomerSimCards" name="getCustomerSimCards" bindingOperationName="getCustomerSimCards" type="Request-Response" inputName="GetCustomerSimCardsIn" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="875ea04a-4ac5-41ad-98cf-7136893351c8" outputName="GetCustomerSimCardsOut" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="875ea04a-4ac5-41ad-98cf-7136893351c8fileName">getCustomerSimCards</con:setting></con:settings><con:call name="Request 1" id="912cfbc5-c3f6-427f-94f8-f5d7d6525e32"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://${#Project#host-b2b}-esb1.g4lab.com:8315/CustomerAccountManagementService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cus="http://www.yota.ru/vox/b2b/services/customerAccount" xmlns:core="http://www.roox.ru/products/common/core">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <cus:GetCustomerSimCardsRequest>
+         <!--Optional:-->
+         <core:extension>
+            <!--Zero or more repetitions:-->
+            <core:item>?</core:item>
+         </core:extension>
+         <!--Optional:-->
+         <accountId>?</accountId>
+         <!--Optional:-->
+         <customerId>?</customerId>
+         <returnProducts>?</returnProducts>
+         <!--Optional:-->
+         <simKey>
+            <key>?</key>
+            <type>?</type>
+         </simKey>
+      </cus:GetCustomerSimCardsRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.yota.ru/vox/services/b2b/wsdl/CustomerAccount/GetCustomerSimCards"/></con:call></con:operation>

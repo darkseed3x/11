@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation isOneWay="false" action="http://www.yota.ru/vox/services/wsdl/Inventory/GetRandomMSISDNList" name="GetRandomMSISDNList" bindingOperationName="GetRandomMSISDNList" type="Request-Response" outputName="GetRandomMSISDNListOut" inputName="GetRandomMSISDNListIn" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="7517138c-95f8-4f2e-8eed-5f27f0af163e" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="7517138c-95f8-4f2e-8eed-5f27f0af163efileName">GetRandomMSISDNList</con:setting></con:settings><con:call name="Request 1" id="850f6ae2-4b79-4cf7-ad8e-f8288e1ad03c"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.78.209.114:8383/inventory-ejb/Inventory/InventoryServiceBean</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:inv="http://www.yota.ru/vox/services/inventory" xmlns:core="http://www.roox.ru/products/common/core">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <inv:GetRandomMSISDNListRequest>
+         <!--Optional:-->
+         <core:extension>
+            <!--Zero or more repetitions:-->
+            <core:item>?</core:item>
+         </core:extension>
+         <!--Optional:-->
+         <category>?</category>
+         <count>?</count>
+         <MsisdnHomeRegion>?</MsisdnHomeRegion>
+      </inv:GetRandomMSISDNListRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.yota.ru/vox/services/wsdl/Inventory/GetRandomMSISDNList"/></con:call></con:operation>

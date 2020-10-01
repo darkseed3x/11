@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation isOneWay="false" action="http://www.yota.ru/vox/services/b2b/wsdl/CorporateOrderManagement/CreateOrder" name="createOrder" bindingOperationName="createOrder" type="Request-Response" outputName="CreateOrderOut" inputName="CreateOrderIn" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="87cd26cc-f715-4677-92b7-121f4f272d80" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="87cd26cc-f715-4677-92b7-121f4f272d80fileName">createOrder</con:setting></con:settings><con:call name="Request 1" id="5e3f02a8-9450-4ddc-ba71-3bc04d91549e"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://ft1-b2b-ainst1.scartel.dc:8082/oms-web/OrderEndpoint</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ord="http://www.yota.ru/vox/b2b/services/order">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ord:CreateOrderRequest>
+         <order createChannel="?" orderStatus="?" orderStep="?" orderType="?" updateChannel="?">
+            <!--Optional:-->
+            <authorEmail>?</authorEmail>
+            <!--Optional:-->
+            <authorPhone>?</authorPhone>
+            <!--Optional:-->
+            <billingAccount>?</billingAccount>
+            <!--Optional:-->
+            <companyName>?</companyName>
+            <!--Optional:-->
+            <customerId>?</customerId>
+            <!--Optional:-->
+            <linkRef>?</linkRef>
+            <!--Optional:-->
+            <name>?</name>
+            <!--Optional:-->
+            <orderChangeDate>?</orderChangeDate>
+            <!--Optional:-->
+            <orderCompleteDate>?</orderCompleteDate>
+            <!--Optional:-->
+            
+            <!--Optional:-->
+            <orderCreateDate>?</orderCreateDate>
+            <!--Optional:-->
+            <orderId>?</orderId>
+            <!--Optional:-->
+            <orderOriginator>?</orderOriginator>
+            <!--Optional:-->
+            <parentOrderId>?</parentOrderId>
+            <!--Optional:-->
+            <revision>?</revision>
+            <!--Optional:-->
+            <shortLinkRef>?</shortLinkRef>
+         </order>
+      </ord:CreateOrderRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.yota.ru/vox/services/b2b/wsdl/CorporateOrderManagement/CreateOrder"/><con:wsrmConfig version="1.2"/></con:call></con:operation>

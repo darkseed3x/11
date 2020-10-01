@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation isOneWay="false" action="http://www.yota.ru/vox/services/b2b/wsdl/CorporateOrderManagement/ActivateAgreement" name="activateAgreement" bindingOperationName="activateAgreement" type="Request-Response" outputName="ActivateAgreementOut" inputName="ActivateAgreementIn" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="22e71567-8b38-46bb-b418-939daabb2300" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="22e71567-8b38-46bb-b418-939daabb2300fileName">activateAgreement</con:setting></con:settings><con:call name="Request 1" id="f0320160-094a-4247-8aef-4dfd25a87122"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://b2btst-js1.g4lab.com:8082/oms-web/OrderEndpoint</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ord="http://www.yota.ru/vox/b2b/services/order">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ord:ActivateAgreementRequest>
+         <orderId>439201</orderId>
+      </ord:ActivateAgreementRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.yota.ru/vox/services/b2b/wsdl/CorporateOrderManagement/ActivateAgreement"/><con:wsrmConfig version="1.2"/></con:call></con:operation>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation isOneWay="false" action="http://www.yota.ru/vox/services/b2b/wsdl/PortalUserManagement/CreateUser" name="createUser" bindingOperationName="createUser" type="Request-Response" outputName="createUserResponse" inputName="createUser" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="1e1cdfe6-5390-4c84-a9d8-33334fa25ffd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="1e1cdfe6-5390-4c84-a9d8-33334fa25ffdfileName">createUser</con:setting></con:settings><con:call name="Request 1" id="75c95915-252f-4780-a2e4-26a83af47c7b"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://b2bload-ps1.g4lab.com:8080/user-service/services/PortalUserManagement</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:por="http://www.yota.ru/vox/b2b/services/portal">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <por:CreateUserRequest>
+         <user userPasswordStatus="main" userStatus="active">
+            <billingAccount>11220010497024</billingAccount>
+            <customerId>6390b19cdc334b589268364f3737454f</customerId>
+            <phone>79990000022</phone><userRoles>
+               <userRole>administrator</userRole>
+            </userRoles>
+         </user>
+      </por:CreateUserRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.yota.ru/vox/services/b2b/wsdl/PortalUserManagement/CreateUser"/><con:wsrmConfig version="1.2"/></con:call></con:operation>

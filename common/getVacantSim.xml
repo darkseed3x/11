@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="f076452a-212f-4fee-921e-2d23f29a3408" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="getVacantSim" searchProperties="true" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="f076452a-212f-4fee-921e-2d23f29a3408fileName">getVacantSim</con:setting></con:settings><con:testStep type="restrequest" name="getVacantSim" id="1f6dec41-fc03-4444-936b-d01f053c9572"><con:settings/><con:config service="Billing API" resourcePath="/bill/v1/vacant/sim" methodName="FindVacantSimCards" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="getVacantSim" id="c81e607e-ba23-4ea3-8cf0-1b0f84cfeb93" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://${#Project#billapi}:8080</con:endpoint><con:request/><con:originalUri>http://ft3-bil-api.g4lab.com/bill/v1/vacant/sim</con:originalUri><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters>
+  <con:entry key="spec" value="PHONE-001"/>
+  <con:entry key="cnt" value="200"/>
+</con:parameters></con:restRequest></con:config></con:testStep><con:testStep type="groovy" name="checks" id="60bd1ae5-bb30-42ec-afaa-29d2e565c3ec"><con:settings/><con:config><script>import groovy.json.JsonSlurper
+
+def responseBILL = context.expand( '${getVacantSim#Response}' )
+
+def sims = new JsonSlurper().parseText(responseBILL)
+
+
+String iccid="";
+String imsi="";
+def isVacant = false;
+def count =0;
+while(!isVacant &amp;&amp; count&lt;200){
+	Collections.shuffle sims;
+	def item = sims.first();
+	count=count+1;
+	
+	iccid = item.iccid;
+	imsi = item.imsi;
+
+	testRunner.testCase.setPropertyValue( "iccid", iccid);
+	testRunner.testCase.setPropertyValue( "imsi", imsi);
+
+	//проверка вакантности 
+	testRunner.runTestStepByName("info");
+	String  status = context.expand( '${info#Response#$[0].status}' )
+	
+	log.info status
+	if(status.equals("vacant")){
+
+		testRunner.runTestStepByName("putBranch");		
+		
+		//проверка на принадлежность к ордеру
+		testRunner.runTestStepByName("checkbox");	
+		def orderId = context.expand( '${checkbox#Response#$.order[0].orderId}' )
+		if(!isDigit(orderId)){
+			isVacant = true
+			}
+
+				
+	}else{
+		//сбрасываем симку в отстойник
+		testRunner.runTestStepByName("store");
+	}
+}
+if(!isVacant){
+	testRunner.fail("Вакантная сим не найдена");
+	return null;
+}else{
+	log.info isVacant.toString()
+}
+
+
+
+private static boolean isDigit(String s) throws NumberFormatException {
+    try {
+        Integer.parseInt(s);
+        return true;
+    } catch (NumberFormatException e) {
+        return false;
+    }
+}</script></con:config></con:testStep><con:testStep type="restrequest" name="checkbox" id="81cb6e42-2875-4764-a6bb-b1da0bdf4e4a" disabled="true"><con:settings/><con:config service="Corporate Order Management Service (CorpOMS)" resourcePath="/coms-web/api/getOrderByCriteria" methodName="getOrderByCriteria" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="checkbox" id="32654599-3ac8-40e0-ba91-5cae3a8d67e1" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://${#Project#host-b2b-rest}:8062</con:endpoint><con:request>{
+   
+    "iccid": ["${#TestCase#iccid}"],
+    "orderType": ["B_2_B_BOX"]
+}</con:request><con:originalUri>http://dev-b2b-ainst1.scartel.dc/coms-web/api/getOrderByCriteria</con:originalUri><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="putBranch" id="b40661e2-85b1-45b8-abbf-9743d839dbed" disabled="true"><con:settings/><con:config service="Billing API" resourcePath="/bill/v1/sim/info" methodName="setSIMInformation" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="putBranch" id="e4a51fec-a8f9-40a0-9937-858a67d49b31" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://${#Project#billapi}:8080</con:endpoint><con:request>{"imsis": [{
+   "imsi": "${#TestCase#imsi}",
+   "attrs":    [
+            {
+         "attrType": "branch",
+         "attrValue": "YOTA-001"
+      },
+        {
+        	"attrType": "simSpec",
+          "attrValue": "PHONELEGAL"
+        	}
+   ]
+}]}</con:request><con:originalUri>http://ft3-bil-api.g4lab.com/bill/v1/sim/info</con:originalUri><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="info" id="6529194d-2ef1-4430-b03c-bdc367ef4e52" disabled="true"><con:settings/><con:config service="Billing API" resourcePath="/bill/v1/sim/info" methodName="getSIMInformation" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="info" id="25163017-c7d8-4fd3-9cad-5b19eb39ba0f" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://${#Project#billapi}:8080</con:endpoint><con:request/><con:originalUri>http://ft3-bil-api.g4lab.com/bill/v1/sim/info</con:originalUri><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="imsis" value="${#TestCase#imsi}" xmlns="http://eviware.com/soapui/config"/></con:parameters></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="store" id="884ca721-bf35-4ca5-8e69-f01a792d6a8d" disabled="true"><con:settings/><con:config service="Billing API" resourcePath="/bill/v1/sim/store" methodName="changeSIMStore" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="store" id="5c9f77ed-7498-4460-9237-041667d9a8c0" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://${#Project#billapi}:8080</con:endpoint><con:request>{
+   "imsi": "${#TestCase#imsi}",
+   "store": 461
+}</con:request><con:originalUri>http://ft3-bil-api.g4lab.com/bill/v1/sim/store</con:originalUri><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="httprequest" name="Copy of delSub" id="5fea992c-347c-4db0-a5ac-0919eac490c6"><con:settings/><con:config method="GET" xsi:type="con:HttpRequest" name="Copy of delSub" id="5912f92d-7027-41c6-b38e-b48c5a1f7ef3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://${#Project#pcrf}.g4lab.com/spr/sm/deleteSubscriber</con:endpoint><con:request/><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><con:parameter><con:name>id</con:name><con:value>${#TestCase#imsi</con:value><con:style>QUERY</con:style><con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type><con:default>250110200201504</con:default><con:path xsi:nil="true"/><con:description xsi:nil="true"/></con:parameter></con:parameters></con:config></con:testStep><con:testStep type="httprequest" name="Copy of addSub" id="89f28699-1053-49c2-8b5e-c6f4d5e9f092"><con:settings/><con:config method="GET" xsi:type="con:HttpRequest" name="Copy of addSub" id="cd166f09-98fc-4e8e-aa54-06145b92826a" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://${#Project#pcrf}.g4lab.com/spr/sm/addSubscriber</con:endpoint><con:request/><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><con:parameter><con:name>id</con:name><con:value>${#TestCase#imsi}</con:value><con:style>QUERY</con:style><con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type><con:default>250110200201504</con:default><con:path xsi:nil="true"/><con:description xsi:nil="true"/></con:parameter></con:parameters></con:config></con:testStep><con:testStep type="groovy" name="ipGener" id="df381f89-f241-484f-abff-46906fb7a6fb"><con:settings/><con:config><script>import java.util.Random  
+Random rand = new Random()  
+int max = 255  
+int IP1 = 10
+int IP2
+int IP3
+int IP4
+String IP
+
+IP2 = rand.nextInt(max+1)
+IP3 = rand.nextInt(max+1)  
+IP4 = rand.nextInt(max+1)    
+
+IP = (IP1 + '.' + IP2 + '.' + IP3 + '.' + IP4)
+
+log.info('Save IP (' + IP + ') to the test case property')
+testRunner.testCase.setPropertyValue( "ip", IP)
+</script></con:config></con:testStep><con:testStep type="httprequest" name="IpCheck" id="472dd10f-c574-4c57-b3c0-14b40183bf65"><con:settings/><con:config method="GET" xsi:type="con:HttpRequest" id="43f12350-a3f4-428a-b0e0-e5c1f886642b" name="IpCheck" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://${#Project#pcrf}.g4lab.com/grapi/run</con:endpoint><con:request/><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><con:parameter><con:name>script</con:name><con:value>fast_sso</con:value><con:style>QUERY</con:style></con:parameter><con:parameter><con:name>ip</con:name><con:value>${#TestCase#ip}</con:value><con:style>QUERY</con:style></con:parameter></con:parameters></con:config></con:testStep><con:testStep type="groovy" name="CheckScr" id="0f73f625-410d-49f0-b5d3-2e264f7d2687"><con:settings/><con:config><script>String response = context.expand( '${IpCheck#Response}' )
+String qwerty = 'not found'
+
+if (!(response.toLowerCase().contains(qwerty.toLowerCase())))
+{
+   log.info 'Goto step GenerateIP'
+   testRunner.gotoStepByName("ipGener")
+}
+else 
+{
+	log.info ('ip')
+}
+</script></con:config></con:testStep><con:testStep type="httprequest" name="addTestSession" id="1038334d-a40b-4cd2-be2d-ae0032d02d5a"><con:settings/><con:config method="GET" xsi:type="con:HttpRequest" id="6a372e8c-114e-4493-821f-c32eedc31da7" name="addTestSession" downloadIncludedResources="false" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://helper.scartel.dc:9921/${#Project#host-b2c}/pcrf/info/createTestSession</con:endpoint><con:request/><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><con:parameter><con:name>subscriber_id</con:name><con:value>${#TestCase#imsi}</con:value><con:style>QUERY</con:style></con:parameter><con:parameter><con:name>ip</con:name><con:value>${#TestCase#ip}</con:value><con:style>QUERY</con:style></con:parameter><con:parameter><con:name>tac</con:name><con:value>5000</con:value><con:style>QUERY</con:style></con:parameter><con:parameter><con:name>plmn</con:name><con:value>250011</con:value><con:style>QUERY</con:style></con:parameter></con:parameters></con:config></con:testStep><con:properties><con:property><con:name>iccid</con:name><con:value>0200442359</con:value></con:property><con:property><con:name>imsi</con:name><con:value>250110200442359</con:value></con:property><con:property><con:name>ip</con:name><con:value>10.156.36.124</con:value></con:property></con:properties><con:reportParameters/></con:testCase>

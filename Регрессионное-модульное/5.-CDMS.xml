@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="5. CDMS" searchProperties="true" id="19d51e6a-3ba1-4fdc-9627-0014993cf236" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="19d51e6a-3ba1-4fdc-9627-0014993cf236fileName">5.-CDMS</con:setting></con:settings><con:properties/><con:reportParameters/></con:testCase>

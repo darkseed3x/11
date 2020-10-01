@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="90b780fe-6836-4817-a306-2079cedd69f3" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="b2bBoxWithoutDB_old" searchProperties="true" disabled="true" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="90b780fe-6836-4817-a306-2079cedd69f3fileName">b2bBoxWithoutDB_old</con:setting></con:settings><con:testStep type="groovy" name="setPropertiess" id="a889929d-21b9-49ca-be1d-9dec72609888"><con:settings/><con:config><script>import javax.swing.*
+
+def map = testRunner.testCase.getProperties()
+def t= map.each{
+    key, value -> testRunner.testCase.setPropertyValue(key, "")
+}
+
+testRunner.testCase.setPropertyValue('N', "0");
+testRunner.testCase.setPropertyValue('path', "C:/Projects/");
+
+
+JTextField sims = new JTextField();
+
+ JOptionPane.showConfirmDialog(null, sims, "Введите кол-во сим", JOptionPane.OK_CANCEL_OPTION);
+ 
+ int counter = 0;
+def text = sims.getText();
+if(text.isInteger()){
+	text = text as Integer;
+	if( text &lt;= 20 &amp;&amp; text > 0){
+	 	counter  = text;
+	}else{
+		counter = 10;
+		}
+}else{
+	counter = 1;
+	}
+testRunner.testCase.setPropertyValue('SIMCount', counter.toString());
+
+
+</script></con:config></con:testStep><con:testStep type="calltestcase" name="getVacantSim" id="20220ca0-52e8-4073-88cf-df1945b3b88e"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>f076452a-212f-4fee-921e-2d23f29a3408</con:targetTestCase><con:properties><con:property><con:name>iccid</con:name><con:value>0200344003</con:value></con:property><con:property><con:name>imsi</con:name><con:value>250110200344003</con:value></con:property><con:property><con:name>ip</con:name></con:property></con:properties><con:returnProperties><con:entry>iccid</con:entry><con:entry>imsi</con:entry></con:returnProperties><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="groovy" name="Copy of checkSim" id="37b22365-b2e3-40a5-a511-35a8dff01eba"><con:settings/><con:config><script>int N = context.expand( '${#TestCase#N}' ).toInteger()
+String icc_id = context.expand( '${getVacantSim#iccid}' )
+
+
+for(int i = 1; i &lt;= N; i++){
+	String iccid = context.expand( '${#TestCase#iccid'+i+'}' )
+	log.info(iccid)
+	if(iccid.equals(icc_id)){
+		testRunner.gotoStepByName("getVacantSim")
+		break;
+	}
+	
+}</script></con:config></con:testStep><con:testStep type="groovy" name="add iccid" id="925a8b9a-aa75-40af-a209-bc13e4dfc512"><con:settings/><con:config><script>int N = context.expand( '${#TestCase#N}' ).toInteger()
+int SIMCount = context.expand( '${#TestCase#SIMCount}' ).toInteger()
+String icc_id = context.expand( '${getVacantSim#iccid}' )
+
+	N++
+	def iccidName = "iccid" + N
+	def ipName = "ip" + N
+	testRunner.testCase.setPropertyValue(iccidName, context.expand('${getVacantSim#iccid}'));
+	testRunner.testCase.setPropertyValue(iccidName,  icc_id);
+	testRunner.testCase.setPropertyValue("N", N.toString() )
+	
+	 if (N &lt; SIMCount){
+	 	
+		testRunner.gotoStepByName("getVacantSim")
+	}</script></con:config></con:testStep><con:testStep type="groovy" name="buildXml" id="56bbfa82-b942-45be-954d-7a410754eddb"><con:settings/><con:config><script>
+def testRequest = context.testCase.testSteps["box_extradition"].testRequest
+def request = testRequest.requestContent;
+
+def SIMCount = context.expand( '${#TestCase#SIMCount}' ).toInteger()
+
+
+def iccidBlock =''
+def newRequest=''
+
+for(int i = 1; i &lt;= SIMCount; i++){
+	iccidBlock += '&lt;iccid>${#TestCase#iccid' + i + '}&lt;/iccid>\n'
+	}
+
+def splitRequest = request.split("\n");
+
+for (splitString in splitRequest)		{
+
+	if (splitString.contains("&lt;iccid>"))	{
+		continue;
+	}
+	if(splitString.contains("&lt;/orderContent>"))	{
+		newRequest += iccidBlock
+		newRequest += splitString + '\n';
+	}
+	else	{
+		newRequest += splitString + '\n';
+	}
+}
+testRequest.setRequestContent(newRequest);</script></con:config></con:testStep><con:testStep type="request" name="box_extradition" id="83122393-40a4-451d-b8ed-32e3a894defc"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>CorporateOrderManagementServiceSOAPBinding</con:interface><con:operation>createOrder</con:operation><con:request name="box_extradition" id="e4f5912e-4393-4c22-b79d-898145c2c56a"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://${#Project#host-b2b}:8082/oms-web/OrderEndpoint</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ord="http://www.yota.ru/vox/b2b/services/order">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ord:CreateOrderRequest>
+         <order createChannel="PublicPortal" orderStatus="initiate" orderStep="initialization" orderType="b2bBox" updateChannel="PublicPortal">
+            <orderContent xsi:type="ns977:B2BBoxOrder" xmlns:ns977="http://www.yota.ru/vox/b2b/domains/order" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+               
+               
+               
+               <delivery>false</delivery>
+               
+               
+               
+               
+               
+               
+
+
+<iccid>${#TestCase#iccid1}</iccid>
+            </orderContent>
+         </order>
+      </ord:CreateOrderRequest>
+   </soapenv:Body>
+</soapenv:Envelope>
+]]></con:request><con:assertion type="SOAP Response" id="22d9ae43-cca1-4378-9a89-e0e644b70313"/><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="groovy" name="setBoxProp" id="933d7651-2f72-4010-a273-2378d619985f"><con:settings/><con:config><script>def orderId = context.expand('${box_extradition#Response#declare namespace ns7=\'http://www.yota.ru/vox/b2b/services/order\'; //ns7:CreateOrderResponse[1]/order[1]/orderId[1]}')
+
+testRunner.testCase.setPropertyValue( "box",orderId);
+</script></con:config></con:testStep><con:testStep type="groovy" name="Copy of Copy of List" id="080bdad0-b28e-4e15-86d1-60efeff397ae"><con:settings/><con:config><script>
+def path = context.expand( '${#TestCase#Path}' )
+def startDate = new Date() 
+def orderId = context.expand( '${box_extradition#Response#declare namespace ns7=\'http://www.yota.ru/vox/b2b/services/order\'; //ns7:CreateOrderResponse[1]/order[1]/orderId[1]}' )
+
+def out= new File(path+'B2BBOX'+orderId+'.txt')
+int counter = context.expand( '${#TestCase#SIMCount}' ).toInteger()
+
+for(int i = 1; i&lt;=counter; i++){
+	
+	def iccid = context.expand( '${#TestCase#iccid'+i+'}' )
+	 out &lt;&lt; '\n'+ "Дата выдачи: "+startDate.format("yyyy-MM-dd'T'HH:mm:ss")  +  " | ICCID: " + iccid + " | IMSI: 25011"+ iccid + " | OrderID: " + orderId 
+	}
+	
+
+
+
+
+
+    </script></con:config></con:testStep><con:properties><con:property><con:name>iccid</con:name><con:value/></con:property><con:property><con:name>imsi</con:name><con:value/></con:property><con:property><con:name>box</con:name><con:value>425036</con:value></con:property><con:property><con:name>N</con:name><con:value>1</con:value></con:property><con:property><con:name>SIMCount</con:name><con:value>1</con:value></con:property><con:property><con:name>path</con:name><con:value>C:/Projects/</con:value></con:property><con:property><con:name>iccid1</con:name><con:value>0200344003</con:value></con:property><con:property><con:name>iccid2</con:name><con:value/></con:property><con:property><con:name>iccid3</con:name><con:value/></con:property><con:property><con:name>iccid4</con:name><con:value/></con:property><con:property><con:name>iccid5</con:name><con:value/></con:property><con:property><con:name>iccid6</con:name><con:value/></con:property><con:property><con:name>iccid7</con:name><con:value/></con:property><con:property><con:name>iccid8</con:name><con:value/></con:property><con:property><con:name>iccid9</con:name><con:value/></con:property><con:property><con:name>iccid10</con:name><con:value/></con:property><con:property><con:name>iccid11</con:name><con:value/></con:property><con:property><con:name>iccid12</con:name><con:value/></con:property><con:property><con:name>iccid13</con:name><con:value/></con:property><con:property><con:name>iccid14</con:name><con:value/></con:property><con:property><con:name>iccid15</con:name><con:value/></con:property><con:property><con:name>iccid16</con:name><con:value/></con:property><con:property><con:name>iccid17</con:name><con:value/></con:property><con:property><con:name>iccid18</con:name><con:value/></con:property><con:property><con:name>iccid19</con:name><con:value/></con:property><con:property><con:name>iccid20</con:name><con:value/></con:property><con:property><con:name>iccid21</con:name><con:value/></con:property></con:properties><con:reportParameters/><con:breakPoints><con:testStepId>e07c3d59-4ad1-494e-9fb5-5989d27a038b</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>bcb0228b-1970-4979-9423-4eea885c56d9</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>512f5807-e3cb-4535-9f1e-c20e9f8faa71</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>29319c2c-c939-4b1c-8fdb-f3b0680a5ac9</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>74a97fc7-4445-429a-abbb-8585d5884e4b</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>83122393-40a4-451d-b8ed-32e3a894defc</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>d2feb4ae-55e4-4410-9186-68580bb15541</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>263084aa-7ba3-40fa-a8d0-825346f2a846</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>4a3c40c8-cb86-40a9-b8c3-401c9224d619</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>a889929d-21b9-49ca-be1d-9dec72609888</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>080bdad0-b28e-4e15-86d1-60efeff397ae</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>37b22365-b2e3-40a5-a511-35a8dff01eba</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints></con:testCase>

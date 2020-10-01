@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation id="377d9b4c-5d0f-41c2-aff4-4b8faa8dce06" isOneWay="false" action="http://www.yota.ru/vox/services/wsdl/CustomerInformation/UpdateConsents" name="UpdateConsents" bindingOperationName="UpdateConsents" type="Request-Response" outputName="UpdateConsentsOut" inputName="UpdateConsentsIn" receivesAttachments="false" sendsAttachments="false" anonymous="optional" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="377d9b4c-5d0f-41c2-aff4-4b8faa8dce06fileName">UpdateConsents</con:setting></con:settings><con:call id="734263e2-54c1-41d1-94a8-263e8bf8e053" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://oxford-esb.g4lab.com:8080/CustomerInformationService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cus="http://www.yota.ru/vox/services/customerInformation" xmlns:core="http://www.roox.ru/products/common/core" xmlns:core1="http://www.yota.ru/vox/domains/common/core">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <cus:UpdateConsentsRequest>\r
+         <!--Optional:-->\r
+         <core:extension>\r
+            <!--Zero or more repetitions:-->\r
+            <core:item>?</core:item>\r
+         </core:extension>\r
+         <customerId>\r
+            <key>?</key>\r
+            <value>?</value>\r
+         </customerId>\r
+         <!--1 or more repetitions:-->\r
+         <consents hid="?" customerId="?">\r
+            <livingPeriod>\r
+               <fromDate>?</fromDate>\r
+               <!--Optional:-->\r
+               <untilTo>?</untilTo>\r
+            </livingPeriod>\r
+            <!--Optional:-->\r
+            <rawSource>?</rawSource>\r
+            <!--Optional:-->\r
+            <primary>?</primary>\r
+            <!--Optional:-->\r
+            <additionalInfo>?</additionalInfo>\r
+            <!--Zero or more repetitions:-->\r
+            <additionalProperties name="?">\r
+               <core1:value>?</core1:value>\r
+            </additionalProperties>\r
+            <key>?</key>\r
+            <value>?</value>\r
+         </consents>\r
+      </cus:UpdateConsentsRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.yota.ru/vox/services/wsdl/CustomerInformation/UpdateConsents"/></con:call></con:operation>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation isOneWay="false" action="http://www.yota.ru/vox/services/b2b/wsdl/CustomerAccount/GetCustomerAvailableOffers" name="getCustomerAvailableOffers" bindingOperationName="getCustomerAvailableOffers" type="Request-Response" inputName="GetCustomerAvailableOffersIn" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="e7a936dc-2e11-43c1-92ff-1f2242b1e5ed" outputName="GetCustomerAvailableOffersOut" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="e7a936dc-2e11-43c1-92ff-1f2242b1e5edfileName">getCustomerAvailableOffers</con:setting></con:settings><con:call name="Request 1" id="ebb82021-fe09-4811-a41f-e48f0e6117fb"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://${#Project#host-b2b}-esb1.g4lab.com:8315/CustomerAccountManagementService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cus="http://www.yota.ru/vox/b2b/services/customerAccount" xmlns:core="http://www.roox.ru/products/common/core">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <cus:GetCustomerAvailableOffersRequest>
+         <!--Optional:-->
+         <core:extension>
+            <!--Zero or more repetitions:-->
+            <core:item>?</core:item>
+         </core:extension>
+         <customerId>?</customerId>
+         <imsi>
+            <key>?</key>
+            <type>?</type>
+         </imsi>
+         <!--Zero or more repetitions:-->
+         <linkTypes>?</linkTypes>
+         <!--Optional:-->
+         <needActualPrice>?</needActualPrice>
+         <!--Optional:-->
+         <productId>?</productId>
+         <!--Optional:-->
+         <productRegion>?</productRegion>
+         <salesChannel>?</salesChannel>
+      </cus:GetCustomerAvailableOffersRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.yota.ru/vox/services/b2b/wsdl/CustomerAccount/GetCustomerAvailableOffers"/></con:call></con:operation>

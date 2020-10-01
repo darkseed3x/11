@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testSuite id="fc3881fe-c84c-4320-9b46-8a15a55d7504" name="common" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="fc3881fe-c84c-4320-9b46-8a15a55d7504fileName">common</con:setting></con:settings><con:savedRecentRuns>1</con:savedRecentRuns><con:runType>SEQUENTIAL</con:runType><con:properties/><con:reportParameters/></con:testSuite>

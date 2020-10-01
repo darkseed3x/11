@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation id="53f1a6e8-044b-40e8-a769-c2d89f21f608" isOneWay="false" action="http://www.yota.ru/vox/services/b2b/wsdl/CorporateOrderManagement/SendSignal" name="sendSignal" bindingOperationName="sendSignal" type="Request-Response" outputName="SendSignalOut" inputName="SendSignalIn" receivesAttachments="false" sendsAttachments="false" anonymous="optional" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="53f1a6e8-044b-40e8-a769-c2d89f21f608fileName">sendSignal</con:setting></con:settings><con:call id="9840d583-c242-4f17-8b73-a227bc969959" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://ft1-b2b-ainst1.scartel.dc:8082/oms-web/OrderEndpoint</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ord="http://www.yota.ru/vox/b2b/services/order">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ord:SendSignalRequest action="?">\r
+         <orderId>?</orderId>\r
+      </ord:SendSignalRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.yota.ru/vox/services/b2b/wsdl/CorporateOrderManagement/SendSignal"/></con:call></con:operation>

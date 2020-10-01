@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation isOneWay="false" action="http://www.yota.ru/vox/services/b2b/wsdl/CustomerAccount/GetCorporateBalance" name="getCorporateBalance" bindingOperationName="getCorporateBalance" type="Request-Response" inputName="GetCorporateBalanceIn" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="ea1315f4-cb62-4575-9ace-9fd99d50da5e" outputName="GetCorporateBalanceOut" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="ea1315f4-cb62-4575-9ace-9fd99d50da5efileName">getCorporateBalance</con:setting></con:settings><con:call name="Request 1" id="7f431ace-293d-4e9a-bc83-bc819a1922cf"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://${#Project#host-b2b}-esb1.g4lab.com:8315/CustomerAccountManagementService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cus="http://www.yota.ru/vox/b2b/services/customerAccount" xmlns:core="http://www.roox.ru/products/common/core">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <cus:GetCorporateBalanceRequest>
+         <!--Optional:-->
+         <core:extension>
+            <!--Zero or more repetitions:-->
+            <core:item>?</core:item>
+         </core:extension>
+         <customerId>?</customerId>
+      </cus:GetCorporateBalanceRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.yota.ru/vox/services/b2b/wsdl/CustomerAccount/GetCorporateBalance"/></con:call></con:operation>

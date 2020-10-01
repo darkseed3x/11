@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation isOneWay="false" action="http://www.yota.ru/vox/services/b2b/wsdl/CustomerAccount/CheckSimAvailability" name="checkSimAvailability" bindingOperationName="checkSimAvailability" type="Request-Response" inputName="CheckSimAvailabilityIn" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="85c81293-3127-4e44-862a-54fb0b2ec8a5" outputName="CheckSimAvailabilityOut" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="85c81293-3127-4e44-862a-54fb0b2ec8a5fileName">checkSimAvailability</con:setting></con:settings><con:call name="Request 1" id="1c63733f-b501-476d-b208-500907c67d87"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://${#Project#host-b2b}-esb1.g4lab.com:8315/CustomerAccountManagementService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cus="http://www.yota.ru/vox/b2b/services/customerAccount" xmlns:core="http://www.roox.ru/products/common/core">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <cus:CheckSimAvailabilityRequest>
+         <!--Optional:-->
+         <core:extension>
+            <!--Zero or more repetitions:-->
+            <core:item>?</core:item>
+         </core:extension>
+         <iccid>?</iccid>
+      </cus:CheckSimAvailabilityRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.yota.ru/vox/services/b2b/wsdl/CustomerAccount/CheckSimAvailability"/></con:call></con:operation>

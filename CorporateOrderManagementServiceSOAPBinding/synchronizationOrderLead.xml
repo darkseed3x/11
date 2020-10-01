@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation isOneWay="false" action="http://www.yota.ru/vox/services/b2b/wsdl/CorporateOrderManagement/SynchronizationOrderLead" name="synchronizationOrderLead" bindingOperationName="synchronizationOrderLead" type="Request-Response" outputName="SynchronizationOrderLeadOut" inputName="SynchronizationOrderLeadIn" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="6a96e992-0621-4d9a-8cb4-2a7163968119" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="6a96e992-0621-4d9a-8cb4-2a7163968119fileName">synchronizationOrderLead</con:setting></con:settings><con:call name="Request 1" id="6e1050de-6713-4502-918c-95c0bf2e12a5"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://ft1-b2b-ainst1.scartel.dc:8082/oms-web/OrderEndpoint</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ord="http://www.yota.ru/vox/b2b/services/order">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ord:SynchronizationOrderLeadRequest>
+         <orderId>?</orderId>
+      </ord:SynchronizationOrderLeadRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.yota.ru/vox/services/b2b/wsdl/CorporateOrderManagement/SynchronizationOrderLead"/></con:call></con:operation>

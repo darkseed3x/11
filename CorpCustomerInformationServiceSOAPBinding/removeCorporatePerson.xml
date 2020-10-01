@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation isOneWay="false" action="http://www.yota.ru/vox/services/b2b/wsdl/CorpCustomerInformation/RemoveCorporatePerson" name="removeCorporatePerson" bindingOperationName="removeCorporatePerson" type="Request-Response" outputName="RemoveCorporatePersonOut" inputName="RemoveCorporatePersonIn" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="1c04b033-1e2c-41a1-b34c-f2d078b23293" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="1c04b033-1e2c-41a1-b34c-f2d078b23293fileName">removeCorporatePerson</con:setting></con:settings><con:call name="Request 1" id="54b5a1f3-cf39-4986-9932-64258b1be93d"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://b2btst-corpjs-cis.g4lab.com:8080/cis-web/CorpCustomerInformationServiceImpl</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cus="http://www.yota.ru/vox/b2b/services/customerInformation">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <cus:RemoveCorporatePersonRequest>
+         <personHidId>?</personHidId>
+      </cus:RemoveCorporatePersonRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.yota.ru/vox/services/b2b/wsdl/CorpCustomerInformation/RemoveCorporatePerson"/></con:call></con:operation>

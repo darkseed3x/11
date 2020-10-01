@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation id="37eb06da-ca71-4eaa-a7eb-24c1c6432460" isOneWay="false" action="http://www.yota.ru/vox/services/wsdl/CustomerProduct/ChangeServiceRestriction" name="ChangeServiceRestriction" bindingOperationName="ChangeServiceRestriction" type="Request-Response" outputName="ChangeServiceRestrictionOut" inputName="ChangeServiceRestrictionIn" receivesAttachments="false" sendsAttachments="false" anonymous="optional" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="37eb06da-ca71-4eaa-a7eb-24c1c6432460fileName">ChangeServiceRestriction</con:setting></con:settings><con:call id="a64ac029-ffb7-42fc-9029-6858aa228651" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.78.209.200:8382/customer-product-ejb/CustomerProduct/CustomerProductServiceBean</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cus="http://www.yota.ru/vox/services/customerProduct" xmlns:core="http://www.roox.ru/products/common/core">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <cus:ChangeServiceRestrictionRequest>\r
+         <!--Optional:-->\r
+         <core:extension>\r
+            <!--Zero or more repetitions:-->\r
+            <core:item>?</core:item>\r
+         </core:extension>\r
+         <!--Optional:-->\r
+         <isOneTime>?</isOneTime>\r
+         <removeRestriction>?</removeRestriction>\r
+         <restriction>?</restriction>\r
+         <serviceId>?</serviceId>\r
+         <usedSimCardExternalId>?</usedSimCardExternalId>\r
+         <!--Optional:-->\r
+         <fromDate>?</fromDate>\r
+      </cus:ChangeServiceRestrictionRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.yota.ru/vox/services/wsdl/CustomerProduct/ChangeServiceRestriction"/><con:wsrmConfig version="1.2"/></con:call></con:operation>

@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testSuite name="Perfomance" id="a3f5b9cd-994e-435e-9765-8af84425486a" disabled="true" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="a3f5b9cd-994e-435e-9765-8af84425486afileName">Perfomance</con:setting></con:settings><con:runType>SEQUENTIAL</con:runType><con:properties/><con:reportParameters/></con:testSuite>

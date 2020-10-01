@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation id="da39148a-630f-4017-abcb-f3302948cf54" isOneWay="false" action="http://www.yota.ru/vox/services/wsdl/CustomerInformation/CheckPersonalData" name="CheckPersonalData" bindingOperationName="CheckPersonalData" type="Request-Response" outputName="CheckPersonalDataOut" inputName="CheckPersonalDataIn" receivesAttachments="false" sendsAttachments="false" anonymous="optional" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="da39148a-630f-4017-abcb-f3302948cf54fileName">CheckPersonalData</con:setting></con:settings><con:call id="436ea1cb-da24-42eb-9e55-a09253c387b2" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://oxford-esb.g4lab.com:8080/CustomerInformationService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cus="http://www.yota.ru/vox/services/customerInformation" xmlns:core="http://www.roox.ru/products/common/core" xmlns:core1="http://www.yota.ru/vox/domains/common/core">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <cus:CheckPersonalDataRequest>\r
+         <!--Optional:-->\r
+         <core:extension>\r
+            <!--Zero or more repetitions:-->\r
+            <core:item>?</core:item>\r
+         </core:extension>\r
+         <document hid="?" customerId="?">\r
+            <livingPeriod>\r
+               <fromDate>?</fromDate>\r
+               <!--Optional:-->\r
+               <untilTo>?</untilTo>\r
+            </livingPeriod>\r
+            <!--Optional:-->\r
+            <rawSource>?</rawSource>\r
+            <!--Optional:-->\r
+            <primary>?</primary>\r
+            <!--Optional:-->\r
+            <additionalInfo>?</additionalInfo>\r
+            <!--Zero or more repetitions:-->\r
+            <additionalProperties name="?">\r
+               <core1:value>?</core1:value>\r
+            </additionalProperties>\r
+            <!--Optional:-->\r
+            <documentType>?</documentType>\r
+            <!--Optional:-->\r
+            <documentSeries>?</documentSeries>\r
+            <!--Optional:-->\r
+            <documentNumber>?</documentNumber>\r
+            <!--Optional:-->\r
+            <issueDate>?</issueDate>\r
+            <!--Optional:-->\r
+            <issueAuthority>?</issueAuthority>\r
+            <!--Optional:-->\r
+            <departmentCode>?</departmentCode>\r
+            <!--Optional:-->\r
+            <expiryDate>?</expiryDate>\r
+            <!--Optional:-->\r
+            <author>?</author>\r
+         </document>\r
+         <!--Optional:-->\r
+         <iccid>?</iccid>\r
+         <!--Optional:-->\r
+         <phone hid="?" customerId="?">\r
+            <livingPeriod>\r
+               <fromDate>?</fromDate>\r
+               <!--Optional:-->\r
+               <untilTo>?</untilTo>\r
+            </livingPeriod>\r
+            <!--Optional:-->\r
+            <rawSource>?</rawSource>\r
+            <!--Optional:-->\r
+            <primary>?</primary>\r
+            <!--Optional:-->\r
+            <additionalInfo>?</additionalInfo>\r
+            <!--Zero or more repetitions:-->\r
+            <additionalProperties name="?">\r
+               <core1:value>?</core1:value>\r
+            </additionalProperties>\r
+            <!--Optional:-->\r
+            <phoneNumber>?</phoneNumber>\r
+            <!--Optional:-->\r
+            <phoneType>?</phoneType>\r
+            <!--Optional:-->\r
+            <operator>?</operator>\r
+            <!--Optional:-->\r
+            <countryCode>?</countryCode>\r
+            <!--Optional:-->\r
+            <cityCode>?</cityCode>\r
+            <!--Optional:-->\r
+            <telephone>?</telephone>\r
+            <!--Optional:-->\r
+            <extension>?</extension>\r
+            <!--Optional:-->\r
+            <timezone>?</timezone>\r
+         </phone>\r
+         <!--Optional:-->\r
+         <customerId>\r
+            <key>?</key>\r
+            <value>?</value>\r
+         </customerId>\r
+      </cus:CheckPersonalDataRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.yota.ru/vox/services/wsdl/CustomerInformation/CheckPersonalData"/></con:call></con:operation>

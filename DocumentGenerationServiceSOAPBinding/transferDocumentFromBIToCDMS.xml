@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation isOneWay="false" action="http://www.yota.ru/vox/services/b2b/wsdl/DocumentGeneration/TransferDocumentFromBIToCDMS" name="transferDocumentFromBIToCDMS" bindingOperationName="transferDocumentFromBIToCDMS" type="Request-Response" outputName="TransferDocumentFromBIToCDMSOut" inputName="TransferDocumentFromBIToCDMSIn" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="01aee69d-14d7-4321-b495-e081b9fb72d9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="01aee69d-14d7-4321-b495-e081b9fb72d9fileName">transferDocumentFromBIToCDMS</con:setting></con:settings><con:call name="Request 1" id="a1bc699f-95ae-4260-a662-7cd23cc9e9e6"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.90.253.219:8084/dgs-web/DocumentGenerationEndpoint</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:dgs="http://www.yota.ru/vox/b2b/domains/dgs">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <dgs:TransferDocumentFromBIToCDMSRequest>
+         <beginDate>?</beginDate>
+         <!--Optional:-->
+         <billingAccount>?</billingAccount>
+         <!--Optional:-->
+         <customerId>?</customerId>
+         <endDate>?</endDate>
+         <msisdn>?</msisdn>
+         <orderId>?</orderId>
+         <scheduleId>?</scheduleId>
+         <token>?</token>
+      </dgs:TransferDocumentFromBIToCDMSRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.yota.ru/vox/services/b2b/wsdl/DocumentGeneration/TransferDocumentFromBIToCDMS"/></con:call></con:operation>

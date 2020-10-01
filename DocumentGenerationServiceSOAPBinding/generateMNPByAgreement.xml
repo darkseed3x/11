@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation isOneWay="false" action="http://www.yota.ru/vox/services/b2b/wsdl/DocumentGeneration/GenerateMNPByAgreement" name="generateMNPByAgreement" bindingOperationName="generateMNPByAgreement" type="Request-Response" outputName="GenerateMNPByAgreementOut" inputName="GenerateMNPByAgreementIn" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="a2194ef2-8121-4b88-94c0-4a47095fd212" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="a2194ef2-8121-4b88-94c0-4a47095fd212fileName">generateMNPByAgreement</con:setting></con:settings><con:call name="Request 1" id="9c248491-9585-491f-8471-25433940b368"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.90.253.219:8084/dgs-web/DocumentGenerationEndpoint</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:dgs="http://www.yota.ru/vox/b2b/domains/dgs">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <dgs:GenerateMNPByAgreementRequest>
+         <orderId>?</orderId>
+      </dgs:GenerateMNPByAgreementRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.yota.ru/vox/services/b2b/wsdl/DocumentGeneration/GenerateMNPByAgreement"/><con:wsrmConfig version="1.2"/></con:call></con:operation>

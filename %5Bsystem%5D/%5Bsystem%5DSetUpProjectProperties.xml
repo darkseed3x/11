@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="[system]SetUpProjectProperties" searchProperties="true" id="7e5cda9a-de60-4865-b480-74309741c59f" disabled="true" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="7e5cda9a-de60-4865-b480-74309741c59ffileName">%5Bsystem%5DSetUpProjectProperties</con:setting></con:settings><con:testStep type="groovy" name="SetUpCBOSSEnv" id="35e0fef1-e662-46f7-84b6-e068cd74fda2"><con:settings/><con:config><script>
+
+String cbossEnvironment = context.expand( '${#Project#CBOSS_ENV}' );
+
+HashSet &lt;String> cbossEnvironments = new HashSet&lt;String>();
+cbossEnvironments.add('scart_support_p');
+cbossEnvironments.add('scart_test_p');
+cbossEnvironments.add('scart_load_p');
+cbossEnvironments.add('scart_api_p');
+
+if(!(cbossEnvironments.contains(cbossEnvironment))){
+	testRunner.fail('Unknown CBOSS environment. The supported environments are: scart_api_p, scart_test_p, scart_load_p, scart_support_p');
+}
+
+String configPath = context.expand( '${#Project#configPath}' );
+log.info configPath
+File configFile = new File(configPath);
+Properties cbossProperties = new Properties();
+
+configFile.eachLine { line ->
+	if(line.startsWith(cbossEnvironment)){
+		String keyAndValue = line.substring(line.indexOf('.')+1, line.size()).trim();
+		String key = keyAndValue.substring(0, keyAndValue.indexOf('=')).trim();
+		String value = keyAndValue.substring(keyAndValue.indexOf('=')+1, keyAndValue.size()).trim();
+		
+//		log.info line;
+//		log.info keyAndValue;
+//		log.info key;
+//		log.info value;
+		
+		cbossProperties.setProperty(key, value);
+	}
+}
+
+cbossProperties.each {
+  testRunner.testCase.testSuite.project.setPropertyValue(it.key,it.value);
+}
+
+Properties helperProperties = new Properties();
+
+configFile.eachLine { line ->
+	if(line.startsWith('helper')){
+		String keyAndValue = line.substring(line.indexOf('.')+1, line.size()).trim();
+		String key = keyAndValue.substring(0, keyAndValue.indexOf('=')).trim();
+		String value = keyAndValue.substring(keyAndValue.indexOf('=')+1, keyAndValue.size()).trim();
+		
+//		log.info line;
+//		log.info keyAndValue;
+//		log.info key;
+//		log.info value;
+		
+		helperProperties.setProperty(key, value);
+	}
+}
+
+helperProperties.each {
+  testRunner.testCase.testSuite.project.setPropertyValue(it.key,it.value);
+}
+testRunner.testCase.testSuite.project.setPropertyValue( 'helperDBPassword', context.expand('${#Project#helperDBPassword}'));
+
+log.info "cbossEnvironment = " + context.expand('${#Project#CBOSS_ENV}');
+log.info "cbossDBHost = " + context.expand('${#Project#cbossDBHost}');
+log.info "cbossDBPort = " + context.expand('${#Project#cbossDBPort}');
+log.info "cbossDBUser = " + context.expand('${#Project#cbossDBUser}');
+log.info "cbossDBPassword = " + context.expand('${#Project#cbossDBPassword}');
+log.info "helperDBHost = " + context.expand('${#Project#helperDBHost}');
+log.info "helperDBPort = " + context.expand('${#Project#helperDBPort}');
+log.info "helperDBPassword = " + context.expand('${#Project#helperDBPassword}');</script></con:config></con:testStep><con:testStep type="jdbc" name="getRegion" id="d34b5680-4e2c-4f5e-a3c5-63433ce5c3da" disabled="true"><con:settings><con:setting id="prettyPrintResponse">true</con:setting></con:settings><con:config xsi:type="con:JdbcRequestTestStep" convertColumnNamesToUpperCase="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:dbConnectionName xsi:nil="true"/><con:driver>oracle.jdbc.driver.OracleDriver</con:driver><con:connectionString>jdbc:oracle:thin:${#Project#host-b2c}_rds/PASS_VALUE@${#Project#helperDBHost}:${#Project#helperDBPort}</con:connectionString><con:password>${#Project#helperDBPassword}</con:password><con:connectionProperties/><con:query>SELECT REGION_CODE, LAI, TAI FROM RDS_PRODUCT_REGIONS_LACTAC
+where  LAI like '${#Project#lactac}'</con:query><con:properties/></con:config></con:testStep><con:testStep type="groovy" name="SetPropertiesByLacTac" id="55409827-e0b5-46b4-a74d-b3a8cecb418e" disabled="true"><con:settings/><con:config><script>String lactac = context.expand( '${#Project#lactac}' )
+String  region = context.expand( '${getRegion#ResponseAsXml#//Results[1]/ResultSet[1]/Row[1]/REGION_CODE[1]}' )
+
+if (lactac.size()&lt;9 || lactac.size()>10)
+{
+ testRunner.fail("Wrong lactac - should be 9 or 10 digits")
+}
+
+String PLMN = lactac.substring(0,5)
+String tac =  lactac.substring(lactac.size()-4, lactac.size());
+
+testRunner.testCase.testSuite.project.setPropertyValue( "PLMN", PLMN )
+log.info("PLMN = " + PLMN)
+testRunner.testCase.testSuite.project.setPropertyValue( "tac", tac )
+log.info("tac = " + tac)
+
+testRunner.testCase.testSuite.project.setPropertyValue( "region", region)</script></con:config></con:testStep><con:properties/><con:reportParameters/><con:breakPoints><con:testStepId>a0bc7d85-776c-49cc-b84d-59c1eaaeda57</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>9a8bbc26-aded-4020-837f-31ddb742f253</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints></con:testCase>

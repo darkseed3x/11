@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation id="72942a01-4d40-4d21-a1c5-f6251c1f4e76" isOneWay="false" action="http://www.yota.ru/vox/services/b2b/wsdl/DocumentGeneration/GenerateByTemplate" name="generateByTemplate" bindingOperationName="generateByTemplate" type="Request-Response" outputName="GenerateByTemplateOut" inputName="GenerateByTemplateIn" receivesAttachments="false" sendsAttachments="false" anonymous="optional" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="72942a01-4d40-4d21-a1c5-f6251c1f4e76fileName">generateByTemplate</con:setting></con:settings><con:call id="c55b327f-8d6f-4fa8-8ff3-a9b2d5223b3c" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.90.253.219:8084/dgs-web/DocumentGenerationEndpoint</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:dgs="http://www.yota.ru/vox/b2b/domains/dgs" xmlns:core="http://www.yota.ru/vox/domains/common/core">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <dgs:GenerateByTemplateRequest>\r
+         <!--Optional:-->\r
+         <billingAccount>?</billingAccount>\r
+         <!--Optional:-->\r
+         <branch>?</branch>\r
+         <!--Optional:-->\r
+         <customerId>?</customerId>\r
+         <!--Optional:-->\r
+         <date>?</date>\r
+         <!--Optional:-->\r
+         <expireDate>?</expireDate>\r
+         <!--Optional:-->\r
+         <documentType>?</documentType>\r
+         <!--Zero or more repetitions:-->\r
+         <params name="?">\r
+            <core:value>?</core:value>\r
+         </params>\r
+         <templateCode>?</templateCode>\r
+      </dgs:GenerateByTemplateRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.yota.ru/vox/services/b2b/wsdl/DocumentGeneration/GenerateByTemplate"/></con:call></con:operation>

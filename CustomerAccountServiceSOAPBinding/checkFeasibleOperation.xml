@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation isOneWay="false" action="http://www.yota.ru/vox/services/b2b/wsdl/CustomerAccount/CheckFeasibleOperation" name="checkFeasibleOperation" bindingOperationName="checkFeasibleOperation" type="Request-Response" inputName="CheckFeasibleOperationIn" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="ef8c7902-7aab-429f-b1cc-789193052b0c" outputName="CheckFeasibleOperationOut" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="ef8c7902-7aab-429f-b1cc-789193052b0cfileName">checkFeasibleOperation</con:setting></con:settings><con:call name="Request 1" id="6fba8e38-7f39-46f5-953c-792f08aa41d7"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://${#Project#host-b2b}-esb1.g4lab.com:8315/CustomerAccountManagementService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cus="http://www.yota.ru/vox/b2b/services/customerAccount" xmlns:core="http://www.roox.ru/products/common/core" xmlns:pc="http://www.yota.ru/vox/domains/productCatalog/pc" xmlns:core1="http://www.yota.ru/vox/domains/common/core">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <cus:CheckFeasibleOperationRequest>
+         <!--Optional:-->
+         <core:extension>
+            <!--Zero or more repetitions:-->
+            <core:item>?</core:item>
+         </core:extension>
+         <!--Optional:-->
+         <accountId>?</accountId>
+         <!--Zero or more repetitions:-->
+         <currentOffers>
+            <code>?</code>
+            <!--Optional:-->
+            <description>?</description>
+            <name>?</name>
+            <pc:beginDate>?</pc:beginDate>
+            <pc:catalogVersion>?</pc:catalogVersion>
+            <pc:category>?</pc:category>
+            <!--Optional:-->
+            <pc:created>?</pc:created>
+            <!--Zero or more repetitions:-->
+            <pc:customerProfiles>
+               <code>?</code>
+               <!--Optional:-->
+               <description>?</description>
+               <name>?</name>
+            </pc:customerProfiles>
+            <!--Optional:-->
+            <pc:detailDescription>?</pc:detailDescription>
+            <pc:endDate>?</pc:endDate>
+            <!--Optional:-->
+            <pc:externalId>?</pc:externalId>
+            <!--Optional:-->
+            <pc:image>?</pc:image>
+            <pc:isTopOffer>?</pc:isTopOffer>
+            <!--Zero or more repetitions:-->
+            <pc:markCampLinks id="?">
+               <campaign id="?">
+                  <name>?</name>
+                  <!--Optional:-->
+                  <description>?</description>
+                  <code>?</code>
+                  <!--Optional:-->
+                  <created>?</created>
+                  <!--Zero or more repetitions:-->
+                  <customerProfiles>
+                     <code>?</code>
+                     <!--Optional:-->
+                     <description>?</description>
+                     <name>?</name>
+                  </customerProfiles>
+                  <!--Zero or more repetitions:-->
+                  <informers id="?">
+                     <campaignId>?</campaignId>
+                     <!--Optional:-->
+                     <code>?</code>
+                     <!--Optional:-->
+                     <statistic>
+                        <clickCount>?</clickCount>
+                     </statistic>
+                  </informers>
+                  <isForNewCustomersOnly>?</isForNewCustomersOnly>
+                  <livingTime>
+                     <!--Optional:-->
+                     <dayCount>?</dayCount>
+                     <!--Optional:-->
+                     <beginDate>?</beginDate>
+                     <!--Optional:-->
+                     <endDate>?</endDate>
+                  </livingTime>
+                  <!--Zero or more repetitions:-->
+                  <characteristics>
+                     <code>?</code>
+                     <!--Optional:-->
+                     <description>?</description>
+                     <name>?</name>
+                     <valueType>?</valueType>
+                     <charUsedFor>?</charUsedFor>
+                     <!--Optional:-->
+                     <maxCount>?</maxCount>
+                     <!--Optional:-->
+                     <minCount>?</minCount>
+                  </characteristics>
+                  <!--Optional:-->
+                  <customerInstLivingTime>
+                     <!--Optional:-->
+                     <dayCount>?</dayCount>
+                     <!--Optional:-->
+                     <beginDate>?</beginDate>
+                     <!--Optional:-->
+                     <endDate>?</endDate>
+                  </customerInstLivingTime>
+                  <!--Zero or more repetitions:-->
+                  <markCampOfferLinkIds>?</markCampOfferLinkIds>
+                  <!--Optional:-->
+                  <maxCustomerInstCount>?</maxCustomerInstCount>
+               </campaign>
+               <productOfferCode>?</productOfferCode>
+               <type>?</type>
+            </pc:markCampLinks>
+            <pc:maxCountOfInstances>?</pc:maxCountOfInstances>
+            <!--Zero or more repetitions:-->
+            <pc:offerType>?</pc:offerType>
+            <!--Optional:-->
+            <pc:price id="?">
+               <name>?</name>
+               <!--Optional:-->
+               <description>?</description>
+               <code>?</code>
+               <!--Optional:-->
+               <pc:externalId>?</pc:externalId>
+               <pc:price currencyCode="?">
+                  <core1:amount>?</core1:amount>
+               </pc:price>
+               <!--Optional:-->
+               <pc:priceCalcCode>?</pc:priceCalcCode>
+               <pc:tarifficationType>?</pc:tarifficationType>
+               <!--Optional:-->
+               <pc:unitOfMeasure>?</pc:unitOfMeasure>
+               <!--Optional:-->
+               <pc:descriptionUrl>?</pc:descriptionUrl>
+               <pc:isDefault>?</pc:isDefault>
+               <!--Zero or more repetitions:-->
+               <pc:consistOf>?</pc:consistOf>
+            </pc:price>
+            <!--Zero or more repetitions:-->
+            <pc:pricesList id="?">
+               <name>?</name>
+               <!--Optional:-->
+               <description>?</description>
+               <code>?</code>
+               <!--Optional:-->
+               <pc:externalId>?</pc:externalId>
+               <pc:price currencyCode="?">
+                  <core1:amount>?</core1:amount>
+               </pc:price>
+               <!--Optional:-->
+               <pc:priceCalcCode>?</pc:priceCalcCode>
+               <pc:tarifficationType>?</pc:tarifficationType>
+               <!--Optional:-->
+               <pc:unitOfMeasure>?</pc:unitOfMeasure>
+               <!--Optional:-->
+               <pc:descriptionUrl>?</pc:descriptionUrl>
+               <pc:isDefault>?</pc:isDefault>
+               <!--Zero or more repetitions:-->
+               <pc:consistOf>?</pc:consistOf>
+            </pc:pricesList>
+            <!--Optional:-->
+            <pc:productSpecCode>?</pc:productSpecCode>
+            <!--Zero or more repetitions:-->
+            <pc:specCharValueUseList id="?">
+               <characteristic>
+                  <code>?</code>
+                  <!--Optional:-->
+                  <description>?</description>
+                  <name>?</name>
+                  <valueType>?</valueType>
+                  <charUsedFor>?</charUsedFor>
+                  <!--Optional:-->
+                  <maxCount>?</maxCount>
+                  <!--Optional:-->
+                  <minCount>?</minCount>
+               </characteristic>
+               <isDefaultValue>?</isDefaultValue>
+               <specCode>?</specCode>
+               <value id="?">
+                  <!--Optional:-->
+                  <unitOfMeasure>?</unitOfMeasure>
+                  <value>
+                     <core1:value>?</core1:value>
+                  </value>
+                  <specCharCode>?</specCharCode>
+               </value>
+            </pc:specCharValueUseList>
+            <!--Optional:-->
+            <pc:status>?</pc:status>
+            <!--Zero or more repetitions:-->
+            <pc:terms id="?">
+               <termSpec>
+                  <code>?</code>
+                  <!--Optional:-->
+                  <description>?</description>
+                  <name>?</name>
+                  <valueType>?</valueType>
+                  <termUsedFor>?</termUsedFor>
+                  <!--Zero or more repetitions:-->
+                  <allowedValues id="?">
+                     <!--Optional:-->
+                     <unitOfMeasure>?</unitOfMeasure>
+                     <value>
+                        <core1:value>?</core1:value>
+                     </value>
+                  </allowedValues>
+               </termSpec>
+               <!--Optional:-->
+               <useValue id="?">
+                  <!--Optional:-->
+                  <unitOfMeasure>?</unitOfMeasure>
+                  <value>
+                     <core1:value>?</core1:value>
+                  </value>
+               </useValue>
+               <!--Optional:-->
+               <value>
+                  <core1:value>?</core1:value>
+               </value>
+               <pc:productOfferingCode>?</pc:productOfferingCode>
+            </pc:terms>
+         </currentOffers>
+         <!--Optional:-->
+         <customerId>
+            <key>?</key>
+            <value>?</value>
+         </customerId>
+         <operationCode>?</operationCode>
+         <simKey>
+            <key>?</key>
+            <type>?</type>
+         </simKey>
+         <!--Zero or more repetitions:-->
+         <simsWithProducts>
+            <!--1 or more repetitions:-->
+            <simCodes>
+               <key>?</key>
+               <type>?</type>
+            </simCodes>
+            <simSpec>?</simSpec>
+            <activated>?</activated>
+            <accountId>?</accountId>
+            <!--Optional:-->
+            <baseProductRegion>?</baseProductRegion>
+            <!--Optional:-->
+            <customerId>?</customerId>
+            <externalId>?</externalId>
+            <msisdn>?</msisdn>
+            <!--Zero or more repetitions:-->
+            <products id="?">
+               <accountId>?</accountId>
+               <!--Optional:-->
+               <accumLeft>?</accumLeft>
+               <!--Optional:-->
+               <allowAutoProlong>?</allowAutoProlong>
+               <!--Optional:-->
+               <allowProductChange>?</allowProductChange>
+               <beginDate>?</beginDate>
+               <!--Optional:-->
+               <bundledProductId>?</bundledProductId>
+               <correlationProductId>?</correlationProductId>
+               <!--Optional:-->
+               <customerId>?</customerId>
+               <!--Zero or more repetitions:-->
+               <dependentProducts>?</dependentProducts>
+               <endDate>?</endDate>
+               <!--Optional:-->
+               <masterProductId>?</masterProductId>
+               <!--Optional:-->
+               <offeringIdToChange>?</offeringIdToChange>
+               <productOfferingId>?</productOfferingId>
+               <!--Optional:-->
+               <regionOfBuying>?</regionOfBuying>
+               <status>?</status>
+            </products>
+            <status>
+               <changed>?</changed>
+               <!--Optional:-->
+               <reason>?</reason>
+               <status>?</status>
+            </status>
+         </simsWithProducts>
+      </cus:CheckFeasibleOperationRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.yota.ru/vox/services/b2b/wsdl/CustomerAccount/CheckFeasibleOperation"/></con:call></con:operation>

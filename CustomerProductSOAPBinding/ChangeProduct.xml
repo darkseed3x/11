@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation isOneWay="false" action="http://www.yota.ru/vox/services/wsdl/CustomerProduct/ChangeProduct" name="ChangeProduct" bindingOperationName="ChangeProduct" type="Request-Response" outputName="ChangeProductOut" inputName="ChangeProductIn" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="18351f7f-f44e-4108-8a16-c4da7b9e97d0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="18351f7f-f44e-4108-8a16-c4da7b9e97d0fileName">ChangeProduct</con:setting></con:settings><con:call name="Request 1" id="f1ff4c55-7c5a-4c62-b5ac-8bf1dd9865e2"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.78.209.200:8382/customer-product-ejb/CustomerProduct/CustomerProductServiceBean</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cus="http://www.yota.ru/vox/services/customerProduct" xmlns:core="http://www.roox.ru/products/common/core" xmlns:core1="http://www.yota.ru/vox/domains/common/core">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <cus:ChangeProductRequest>
+         <!--Optional:-->
+         <core:extension>
+            <!--Zero or more repetitions:-->
+            <core:item>?</core:item>
+         </core:extension>
+         <product id="?">
+            <accountId>?</accountId>
+            <!--Optional:-->
+            <accumLeft>?</accumLeft>
+            <!--Optional:-->
+            <allowAutoProlong>?</allowAutoProlong>
+            <!--Optional:-->
+            <allowProductChange>?</allowProductChange>
+            <beginDate>?</beginDate>
+            <!--Optional:-->
+            <bundledProductId>?</bundledProductId>
+            <correlationProductId>?</correlationProductId>
+            <!--Optional:-->
+            <cost currencyCode="?">
+               <core1:amount>?</core1:amount>
+            </cost>
+            <!--Optional:-->
+            <customerId>?</customerId>
+            <!--Zero or more repetitions:-->
+            <dependentProducts>?</dependentProducts>
+            <endDate>?</endDate>
+            <!--Optional:-->
+            <masterProductId>?</masterProductId>
+            <!--Optional:-->
+            <offeringIdToChange>?</offeringIdToChange>
+            <productOfferingId>?</productOfferingId>
+            <!--Optional:-->
+            <regionOfBuying>?</regionOfBuying>
+            <!--Zero or more repetitions:-->
+            <services>
+               <serviceId>?</serviceId>
+            </services>
+            <status>?</status>
+         </product>
+      </cus:ChangeProductRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.yota.ru/vox/services/wsdl/CustomerProduct/ChangeProduct"/></con:call></con:operation>

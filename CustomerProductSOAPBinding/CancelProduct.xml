@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation isOneWay="false" action="http://www.yota.ru/vox/services/wsdl/CustomerProduct/CancelProduct" name="CancelProduct" bindingOperationName="CancelProduct" type="Request-Response" outputName="CancelProductOut" inputName="CancelProductIn" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="0b091431-eefa-4532-ad44-17d04beeeeda" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="0b091431-eefa-4532-ad44-17d04beeeedafileName">CancelProduct</con:setting></con:settings><con:call name="Request 1" id="6af21c45-1bd6-4417-9611-916f5a1c4a3d"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.78.209.200:8382/customer-product-ejb/CustomerProduct/CustomerProductServiceBean</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cus="http://www.yota.ru/vox/services/customerProduct" xmlns:core="http://www.roox.ru/products/common/core">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <cus:CancelProductRequest>
+         <!--Optional:-->
+         <core:extension>
+            <!--Zero or more repetitions:-->
+            <core:item>?</core:item>
+         </core:extension>
+         <accountId>?</accountId>
+         <productToChangeId>?</productToChangeId>
+         <swithAutoprolongOff>?</swithAutoprolongOff>
+      </cus:CancelProductRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.yota.ru/vox/services/wsdl/CustomerProduct/CancelProduct"/></con:call></con:operation>

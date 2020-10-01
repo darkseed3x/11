@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation isOneWay="false" action="http://www.yota.ru/vox/services/b2b/wsdl/CorporateOrderManagement/UpdateOrder" name="updateOrder" bindingOperationName="updateOrder" type="Request-Response" outputName="UpdateOrderOut" inputName="UpdateOrderIn" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="83192cea-cc0b-4632-a214-3d21b1d08aa3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="83192cea-cc0b-4632-a214-3d21b1d08aa3fileName">updateOrder</con:setting></con:settings><con:call name="Request 1" id="e3c0b27d-3e96-46e8-80a1-debfd338d587"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://ft1-b2b-ainst1.scartel.dc:8082/oms-web/OrderEndpoint</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ord="http://www.yota.ru/vox/b2b/services/order">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ord:UpdateOrderRequest>
+         <!--Optional:-->
+         <action>?</action>
+         <order createChannel="?" orderStatus="?" orderStep="?" orderType="?" updateChannel="?">
+            <!--Optional:-->
+            <authorEmail>?</authorEmail>
+            <!--Optional:-->
+            <authorPhone>?</authorPhone>
+            <!--Optional:-->
+            <billingAccount>?</billingAccount>
+            <!--Optional:-->
+            <companyName>?</companyName>
+            <!--Optional:-->
+            <customerId>?</customerId>
+            <!--Optional:-->
+            <linkRef>?</linkRef>
+            <!--Optional:-->
+            <name>?</name>
+            <!--Optional:-->
+            <orderChangeDate>?</orderChangeDate>
+            <!--Optional:-->
+            <orderCompleteDate>?</orderCompleteDate>
+            <!--Optional:-->
+            <orderContent/>
+            <!--Optional:-->
+            <orderCreateDate>?</orderCreateDate>
+            <!--Optional:-->
+            <orderId>?</orderId>
+            <!--Optional:-->
+            <orderOriginator>?</orderOriginator>
+            <!--Optional:-->
+            <parentOrderId>?</parentOrderId>
+            <!--Optional:-->
+            <revision>?</revision>
+            <!--Optional:-->
+            <shortLinkRef>?</shortLinkRef>
+         </order>
+      </ord:UpdateOrderRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.yota.ru/vox/services/b2b/wsdl/CorporateOrderManagement/UpdateOrder"/></con:call></con:operation>

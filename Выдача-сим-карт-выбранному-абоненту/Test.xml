@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Test" searchProperties="true" id="0d3300a2-fd48-423a-adc2-54f848385cfb" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="0d3300a2-fd48-423a-adc2-54f848385cfbfileName">Test</con:setting></con:settings><con:savedRecentRuns>1</con:savedRecentRuns><con:testStep type="groovy" name="SetGlobal" id="0b11d520-1c36-4209-a79d-34425bfd7af7"><con:settings/><con:config><script>def N = context.expand( '${#TestCase#N}' )
+testRunner.testCase.setPropertyValue("N", "0" )
+</script></con:config></con:testStep><con:testStep type="calltestcase" name="getVacantSim" id="c4165b48-11d8-44b3-b213-f594e36ce418"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>f076452a-212f-4fee-921e-2d23f29a3408</con:targetTestCase><con:properties><con:property><con:name>iccid</con:name><con:value>0200201864</con:value></con:property><con:property><con:name>imsi</con:name><con:value>250110200201864</con:value></con:property><con:property><con:name>ip</con:name></con:property></con:properties><con:returnProperties><con:entry>iccid</con:entry><con:entry>imsi</con:entry></con:returnProperties><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="request" name="extradition" id="0eca2bc7-5797-46ad-afba-cb8a5a8c4bec"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>CorporateOrderManagementServiceSOAPBinding</con:interface><con:operation>createOrder</con:operation><con:request name="extradition" id="2eedb4ba-d0ce-486d-89b2-5b5e25b90513"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://${#Project#host-b2b}:8082/oms-web/OrderEndpoint</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ord="http://www.yota.ru/vox/b2b/services/order">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ord:CreateOrderRequest>
+         <order createChannel="RemoteDealer" orderStatus="complete" orderStep="initialization" orderType="SIMOrder" updateChannel="RemoteDealer">
+            <billingAccount>${#TestCase#BillingID}</billingAccount>
+            <orderChangeDate>2016-04-06T14:04:15.511+03:00</orderChangeDate>
+            <orderContent xsi:type="ns641:SIMOrder" xmlns:ns641="http://www.yota.ru/vox/b2b/domains/corpSIMOrder" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+               <deliveredSims><branch/><simSpec>PHONELEGAL</simSpec><iccid>${getVacantSim#iccid}</iccid>
+                  <saleChannel>RemoteDealer</saleChannel>
+               </deliveredSims>
+            </orderContent>
+         </order>
+      </ord:CreateOrderRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="6eae11b6-d9c3-4d33-af80-95e0bbe7e8d6"/><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="groovy" name="checkExtradition" id="512d843e-a733-4075-9a3e-08f4353777be"><con:settings/><con:config><script>def ok = context.expand( '${extradition#Response#declare namespace ns2=\'http://www.yota.ru/vox/b2b/services/order\'; //ns2:CreateOrderResponse[1]/@resultStatus}' )
+
+ if (ok != 'new')
+{
+  testRunner.gotoStepByName("getVacantSim")
+}</script></con:config></con:testStep><con:testStep type="groovy" name="List" id="9a19b315-0db2-4ec7-af93-50e40594d8ad"><con:settings/><con:config><script><![CDATA[def icc_id = context.expand( '${getVacantSim#iccid}' )
+def billingid = context.expand( '${#TestCase#BillingID}' )
+def path = context.expand( '${#TestCase#Path}' )
+def startDate = new Date() 
+def hostb2b = context.expand( '${#Project#host-b2b}' )
+def hostb2c = context.expand( '${#Project#host-b2c}' )
+def customerid = context.expand( '${checkExt#Response#declare namespace ns10=\'http://www.yota.ru/vox/b2b/services/customerInformation\'; //ns10:GetCustomerByICCIDResponse[1]/customer[1]/@customerId}' )
+def phone = context.expand( '${checkExt#Response#declare namespace ns10=\'http://www.yota.ru/vox/b2b/services/customerInformation\'; //ns10:GetCustomerByICCIDResponse[1]/customer[1]/CEO[1]/phones[1]/phoneNumber[1]}' )
+
+def out= new File(path+'SimIssuedToThe'+billingid+'.txt')
+if(!out.exists()) {
+    out.createNewFile()
+    out <<  '\n' +"Дата создания: "+startDate.format("yyyy-MM-dd'T'HH:mm:ss")  
+    out <<  '\n'
+    out <<  '\n' + "Окружение: "+ hostb2b + " и " + hostb2c
+    out <<  '\n'
+    out <<  '\n' + "Номер договора абонента: " + billingid
+    out <<  '\n'
+    out <<  '\n' + "Номер телефона абонента: " + phone
+    out <<  '\n'
+    out <<  '\n' + "customerid: " + customerid
+    out <<  '\n'
+    out <<  '\n' +"Дата выдачи: "+startDate.format("yyyy-MM-dd'T'HH:mm:ss")  +  " | ICCID: " + icc_id + " | IMSI: 25011"+ icc_id
+} else   out << '\n'+ "Дата выдачи: "+startDate.format("yyyy-MM-dd'T'HH:mm:ss")  +  " | ICCID: " + icc_id + " | IMSI: 25011"+ icc_id
+
+
+]]></script></con:config></con:testStep><con:testStep type="groovy" name="checkCount" id="1c582edd-cb99-438c-b056-97e50f2abd6e"><con:settings/><con:config><script>def N = context.expand( '${#TestCase#N}' )
+
+def SIMCount = context.expand( '${#TestCase#SIMCount}' )
+ if (N != SIMCount)
+{
+	N = N.toInteger() + 1
+
+	testRunner.testCase.setPropertyValue("N", N.toString() )
+
+  testRunner.gotoStepByName("getVacantSim")
+}</script></con:config></con:testStep><con:loadTest name="LoadTest 1" id="af047ae0-d3df-46c3-bf5c-184663358583"><con:settings><con:setting id="HttpSettings@close-connections">false</con:setting></con:settings><con:threadCount>2</con:threadCount><con:startDelay>0</con:startDelay><con:sampleInterval>250</con:sampleInterval><con:calculateTPSOnTimePassed>true</con:calculateTPSOnTimePassed><con:resetStatisticsOnThreadCountChange>true</con:resetStatisticsOnThreadCountChange><con:historyLimit>-1</con:historyLimit><con:testLimit>600</con:testLimit><con:limitType>TIME</con:limitType><con:loadStrategy><con:type>Simple</con:type></con:loadStrategy><con:assertion type="Step Status" name="Step Status"/><con:maxAssertionErrors>100</con:maxAssertionErrors><con:cancelExcessiveThreads>true</con:cancelExcessiveThreads><con:strategyInterval>500</con:strategyInterval><con:reportParameters/></con:loadTest><con:properties><con:property><con:name>SIMCount</con:name><con:value>1</con:value></con:property><con:property><con:name>N</con:name><con:value>1</con:value></con:property><con:property><con:name>Path</con:name><con:value>C:\Projects\!B2BTXT</con:value></con:property><con:property><con:name>BillingID</con:name><con:value>11220024772737</con:value></con:property></con:properties><con:reportParameters/><con:breakPoints><con:testStepId>18ede8e0-c948-4be5-9a01-faf62475ce23</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>17a458cb-d50c-466e-b37e-bf9afe1e3511</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>ccd84e25-12fb-4a73-a718-9911f3b695c3</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>5c4490e6-8cd7-4d22-b335-502b53285fb9</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>701b8157-653c-4182-be99-323c9801a764</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>3287b16b-18ad-4996-b38c-9dd51b0c782e</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>6cbd5d5e-e099-458b-96ca-fafa3ae8a4fe</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>0eca2bc7-5797-46ad-afba-cb8a5a8c4bec</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints></con:testCase>

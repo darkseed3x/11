@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Test" searchProperties="true" id="22aec19c-f433-42fb-8c4a-991722ba84a5" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="22aec19c-f433-42fb-8c4a-991722ba84a5fileName">Test</con:setting></con:settings><con:testStep type="calltestcase" name="setupprop" id="d26d2a8f-d796-4236-9cac-9beebba1f9e5" disabled="true"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>7e5cda9a-de60-4865-b480-74309741c59f</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="groovy" name="SetGlobal" id="b51133f5-d26e-4d0d-9405-48579b9afb60"><con:settings/><con:config><script>def N = context.expand( '${#TestCase#N}' )
+testRunner.testCase.setPropertyValue("N", "1" )
+</script></con:config></con:testStep><con:testStep type="datasource" name="DB" id="f4f14029-2f81-49bf-b965-3234886856c3"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.teststeps.WsdlDataSourceTestStep@prepared-properties">&lt;xml-fragment/></con:setting></con:settings><con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:dataSource type="JDBC"><con:configuration><driver>oracle.jdbc.driver.OracleDriver</driver><connstr>jdbc:oracle:thin:${#Project#cbossDBUser}/PASS_VALUE@${#Project#cbossDBHost}:${#Project#cbossDBPort}</connstr><pass>${#Project#cbossDBPassword}</pass><Connection/><query>SELECT sc.icc_id
+  FROM sim_card sc, unit u
+ WHERE     SYSDATE BETWEEN sc.fd AND sc.td
+       AND sc.status = 1
+       AND u.ser_num = sc.icc_id
+       AND u.td = TO_DATE('01019999', 'ddmmyyyy')
+       AND u.UP = '442'
+       AND u.code = 'PHONE-001'
+       AND ROWNUM &lt;= 10000
+       ORDER BY DBMS_RANDOM.random</query><fetchSize/><stored-procedure>false</stored-procedure></con:configuration></con:dataSource><con:property>icc_id</con:property><con:restartOnRun>true</con:restartOnRun></con:config></con:testStep><con:testStep type="request" name="ISSIM" id="36c0fa79-303a-4d61-8a55-c898582572f6"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>InventorySOAPBinding</con:interface><con:operation>GetSIMInformation</con:operation><con:request name="ISSIM" id="96c11ad6-a343-498d-8e50-bc4ad017e6a4"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://${#Project#host-b2c}-jservice.g4lab.com:8080/inventory-ejb/Inventory/InventoryServiceBean</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:inv="http://www.yota.ru/vox/services/inventory">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <inv:GetSIMInformationRequest>
+         <simCode>
+            <key>${DB#icc_id}</key>
+            <type>iccid</type>
+         </simCode>
+      </inv:GetSIMInformationRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="8a160296-fd42-4ec2-851b-79569cd44c59"/><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="groovy" name="checkIS" id="3f7b63ea-e4bc-4241-a971-1a4eeff9c07d"><con:settings/><con:config><script>def simtype = context.expand( '${ISSIM#Response#declare namespace ns5=\'http://www.yota.ru/vox/services/inventory\'; //ns5:GetSIMInformationResponse[1]/sim[1]/simSpec[1]}' )
+ 
+ if (simtype != 'PHONE-001')
+{
+  testRunner.gotoStepByName("DB")
+}</script></con:config></con:testStep><con:testStep type="groovy" name="checkIS2" id="3373db4b-56b8-45be-8cf4-7a1fa137ef54"><con:settings/><con:config><script>def vacant = context.expand( '${ISSIM#Response#declare namespace ns5=\'http://www.yota.ru/vox/services/inventory\'; declare namespace xsi=\'http://www.w3.org/2001/XMLSchema-instance\'; //ns5:GetSIMInformationResponse[1]/sim[1]/@xsi:type}' )
+
+  if (vacant != 'ns7:VacantSim')
+{
+  testRunner.gotoStepByName("DB")
+}</script></con:config></con:testStep><con:testStep type="request" name="cams" id="da973560-9af6-462c-a347-850aada549c8" disabled="true"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>CustomerAccountServiceSOAPBinding</con:interface><con:operation>checkSimAvailability</con:operation><con:request name="cams" id="4742b98a-3af7-4abd-a0ec-a77ffebfeb3b"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://${#Project#host-b2b}.g4lab.com:8315/CustomerAccountManagementService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cus="http://www.yota.ru/vox/b2b/services/customerAccount">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <cus:CheckSimAvailabilityRequest>
+         <iccid>${DB#icc_id}</iccid>
+      </cus:CheckSimAvailabilityRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="3f1bab96-724d-40a0-825f-90bf27fcb39f"/><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="groovy" name="checkCams" id="7eba8e40-be6f-4ed5-9654-d2e824fcfcc9" disabled="true"><con:settings/><con:config><script>def checksim = context.expand( '${cams#Response#declare namespace ns0=\'http://www.yota.ru/vox/b2b/services/customerAccount\'; //ns0:CheckSimAvailabilityResponse[1]/validationResult[1]}' )
+
+ if (checksim != 'true')
+{
+  testRunner.gotoStepByName("DB")
+}</script></con:config></con:testStep><con:testStep type="httprequest" name="delSub" id="1def0a3d-96aa-4055-9788-6f7ab1b6b93f"><con:settings/><con:config method="GET" xsi:type="con:HttpRequest" name="delSub" id="85524a05-ffd8-43c0-a380-3e9cb88b170e" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://${#Project#pcrf}.g4lab.com/spr/sm/deleteSubscriber</con:endpoint><con:request/><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><con:parameter><con:name>id</con:name><con:value>25011${DB#icc_id}</con:value><con:style>QUERY</con:style><con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type><con:default>250110200201504</con:default><con:path xsi:nil="true"/><con:description xsi:nil="true"/></con:parameter></con:parameters></con:config></con:testStep><con:testStep type="httprequest" name="addSub" id="2fbdf31d-851b-4dc3-ab3a-bc1bc98bcc84"><con:settings/><con:config method="GET" xsi:type="con:HttpRequest" name="addSub" id="682616d7-64ba-4f52-8489-c94858ea34cd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://${#Project#pcrf}.g4lab.com/spr/sm/addSubscriber</con:endpoint><con:request/><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><con:parameter><con:name>id</con:name><con:value>25011${DB#icc_id}</con:value><con:style>QUERY</con:style><con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type><con:default>250110200201504</con:default><con:path xsi:nil="true"/><con:description xsi:nil="true"/></con:parameter></con:parameters></con:config></con:testStep><con:testStep type="request" name="extradition" id="ad58cf63-61a0-4c70-8bd8-902cd7a081f8"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>CorporateOrderManagementServiceSOAPBinding</con:interface><con:operation>createOrder</con:operation><con:request name="extradition" id="2eedb4ba-d0ce-486d-89b2-5b5e25b90513"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://${#Project#host-b2b}:8082/oms-web/OrderEndpoint</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ord="http://www.yota.ru/vox/b2b/services/order">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ord:CreateOrderRequest>
+         <order createChannel="RemoteDealer" orderStatus="complete" orderStep="initialization" orderType="SIMOrder" updateChannel="RemoteDealer">
+            <billingAccount>${#TestCase#BillingID}</billingAccount>
+            <orderChangeDate>2016-04-06T14:04:15.511+03:00</orderChangeDate>
+            <orderContent xsi:type="ns641:SIMOrder" xmlns:ns641="http://www.yota.ru/vox/b2b/domains/corpSIMOrder" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+               <deliveredSims><branch/><simSpec>PHONELEGAL</simSpec><iccid>${DB#icc_id}</iccid>
+                  <saleChannel>RemoteDealer</saleChannel>
+               </deliveredSims>
+            </orderContent>
+         </order>
+      </ord:CreateOrderRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="6eae11b6-d9c3-4d33-af80-95e0bbe7e8d6"/><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="checkExt" id="bc12c8ff-fd92-4520-954a-cb2e0fa70f8c" disabled="true"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>CorpCustomerInformationServiceSOAPBinding</con:interface><con:operation>getCustomerByICCID</con:operation><con:request name="checkExt" id="b359ba8a-3e6b-47a4-903f-77b3bdd9ad69"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://${#Project#host-b2b}:8086/cis-web/CorpCustomerInformationServiceImpl</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cus="http://www.yota.ru/vox/b2b/services/customerInformation">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <cus:GetCustomerByICCIDRequest>
+         <iccid>${DB#icc_id}</iccid>
+         <includeAgreement>true</includeAgreement>
+         <includePotentialClient>false</includePotentialClient>
+      </cus:GetCustomerByICCIDRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="d57d7872-4826-44d3-a3a1-e5022986514c"/><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="groovy" name="checkExtradition" id="39b2683f-e274-4b45-969f-e196b4997ab5" disabled="true"><con:settings/><con:config><script>def ok = context.expand( '${extradition#Response#declare namespace ns2=\'http://www.yota.ru/vox/b2b/services/order\'; //ns2:CreateOrderResponse[1]/@resultStatus}' )
+
+ if (ok != 'new')
+{
+  testRunner.gotoStepByName("DB")
+}</script></con:config></con:testStep><con:testStep type="groovy" name="List" id="33fc656a-18e6-41f0-a454-e23a4a891e4f"><con:settings/><con:config><script><![CDATA[def icc_id = context.expand( '${DB#icc_id}' )
+def billingid = context.expand( '${#TestCase#BillingID}' )
+def path = context.expand( '${#TestCase#Path}' )
+def startDate = new Date() 
+def hostb2b = context.expand( '${#Project#host-b2b}' )
+def hostb2c = context.expand( '${#Project#host-b2c}' )
+def customerid = context.expand( '${checkExt#Response#declare namespace ns10=\'http://www.yota.ru/vox/b2b/services/customerInformation\'; //ns10:GetCustomerByICCIDResponse[1]/customer[1]/@customerId}' )
+def phone = context.expand( '${checkExt#Response#declare namespace ns10=\'http://www.yota.ru/vox/b2b/services/customerInformation\'; //ns10:GetCustomerByICCIDResponse[1]/customer[1]/CEO[1]/phones[1]/phoneNumber[1]}' )
+
+def out= new File(path+'SimIssuedToThe'+billingid+'.txt')
+if(!out.exists()) {
+    out.createNewFile()
+    out <<  '\n' +"Дата создания: "+startDate.format("yyyy-MM-dd'T'HH:mm:ss")  
+    out <<  '\n'
+    out <<  '\n' + "Окружение: "+ hostb2b + " и " + hostb2c
+    out <<  '\n'
+    out <<  '\n' + "Номер договора абонента: " + billingid
+    out <<  '\n'
+    out <<  '\n' + "Номер телефона абонента: " + phone
+    out <<  '\n'
+    out <<  '\n' + "customerid: " + customerid
+    out <<  '\n'
+    out <<  '\n' +"Дата выдачи: "+startDate.format("yyyy-MM-dd'T'HH:mm:ss")  +  " | ICCID: " + icc_id + " | IMSI: 25011"+ icc_id
+} else   out << '\n'+ "Дата выдачи: "+startDate.format("yyyy-MM-dd'T'HH:mm:ss")  +  " | ICCID: " + icc_id + " | IMSI: 25011"+ icc_id
+
+
+]]></script></con:config></con:testStep><con:testStep type="groovy" name="checkCount" id="bea0f39e-9459-4de3-96df-11a78bc44c29"><con:settings/><con:config><script>def N = context.expand( '${#TestCase#N}' )
+
+def SIMCount = context.expand( '${#TestCase#SIMCount}' )
+ if (N != SIMCount)
+{
+	N = N.toInteger() + 1
+
+	testRunner.testCase.setPropertyValue("N", N.toString() )
+
+  testRunner.gotoStepByName("DB")
+}</script></con:config></con:testStep><con:testStep type="request" name="Copy of extradition" id="62f23345-a5c9-4e4f-823f-cc987bf2b37c" disabled="true"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>CorporateOrderManagementServiceSOAPBinding</con:interface><con:operation>createOrder</con:operation><con:request name="Copy of extradition" id="2eedb4ba-d0ce-486d-89b2-5b5e25b90513"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://prod-corpjs-oms.scartel.dc:8080/oms-web/OrderEndpoint</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ord="http://www.yota.ru/vox/b2b/services/order">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ord:CreateOrderRequest>
+         <order createChannel="RemoteDealer" orderStatus="complete" orderStep="initialization" orderType="SIMOrder" updateChannel="RemoteDealer">
+            
+            <orderChangeDate>2016-04-06T14:04:15.511+03:00</orderChangeDate>
+            <billingAccount>11220015499443</billingAccount><orderContent xsi:type="ns641:SIMOrder" xmlns:ns641="http://www.yota.ru/vox/b2b/domains/corpSIMOrder" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+               <deliveredSims><branch/><simSpec>PHONELEGAL</simSpec><iccid>0204816216</iccid>
+                  <saleChannel>RemoteDealer</saleChannel>
+               </deliveredSims>
+            </orderContent>
+         </order>
+      </ord:CreateOrderRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="6eae11b6-d9c3-4d33-af80-95e0bbe7e8d6"/><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:loadTest name="LoadTest 1" id="1a8c5d35-13d7-4668-85ea-1310073958ae"><con:settings><con:setting id="HttpSettings@close-connections">false</con:setting></con:settings><con:threadCount>2</con:threadCount><con:startDelay>0</con:startDelay><con:sampleInterval>250</con:sampleInterval><con:calculateTPSOnTimePassed>true</con:calculateTPSOnTimePassed><con:resetStatisticsOnThreadCountChange>true</con:resetStatisticsOnThreadCountChange><con:historyLimit>-1</con:historyLimit><con:testLimit>600</con:testLimit><con:limitType>TIME</con:limitType><con:loadStrategy><con:type>Simple</con:type></con:loadStrategy><con:assertion type="Step Status" name="Step Status"/><con:maxAssertionErrors>100</con:maxAssertionErrors><con:cancelExcessiveThreads>true</con:cancelExcessiveThreads><con:strategyInterval>500</con:strategyInterval><con:reportParameters/></con:loadTest><con:properties><con:property><con:name>SIMCount</con:name><con:value>5</con:value></con:property><con:property><con:name>N</con:name><con:value>5</con:value></con:property><con:property><con:name>Path</con:name><con:value>C:\Projects\!B2BTXT</con:value></con:property><con:property><con:name>BillingID</con:name><con:value>11220023978047</con:value></con:property></con:properties><con:reportParameters/><con:breakPoints><con:testStepId>18ede8e0-c948-4be5-9a01-faf62475ce23</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>17a458cb-d50c-466e-b37e-bf9afe1e3511</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>ccd84e25-12fb-4a73-a718-9911f3b695c3</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>5c4490e6-8cd7-4d22-b335-502b53285fb9</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>701b8157-653c-4182-be99-323c9801a764</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>3287b16b-18ad-4996-b38c-9dd51b0c782e</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>6cbd5d5e-e099-458b-96ca-fafa3ae8a4fe</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>90778662-8176-48ff-b262-c968c1bb6d60</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>d068ea3d-610d-45b8-a6ad-9ad3ab9a456b</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints></con:testCase>

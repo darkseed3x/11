@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation isOneWay="false" action="http://www.yota.ru/vox/services/wsdl/Inventory/GetMsisdnListByPattern" name="GetMsisdnListByPattern" bindingOperationName="GetMsisdnListByPattern" type="Request-Response" outputName="GetMsisdnListByPatternOut" inputName="GetMsisdnListByPatternIn" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="96529f62-e309-4317-af2b-1ff2b34d0a05" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="96529f62-e309-4317-af2b-1ff2b34d0a05fileName">GetMsisdnListByPattern</con:setting></con:settings><con:call name="Request 1" id="e05f34c4-1c70-4b31-8d36-291bfbcd9863"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.78.209.114:8383/inventory-ejb/Inventory/InventoryServiceBean</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:inv="http://www.yota.ru/vox/services/inventory" xmlns:core="http://www.roox.ru/products/common/core">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <inv:GetMsisdnListByPatternRequest>
+         <!--Optional:-->
+         <core:extension>
+            <!--Zero or more repetitions:-->
+            <core:item>?</core:item>
+         </core:extension>
+         <iccid>
+            <key>?</key>
+            <type>?</type>
+         </iccid>
+         <poolNumberRegion>?</poolNumberRegion>
+         <phoneNumberPattern>?</phoneNumberPattern>
+         <!--1 or more repetitions:-->
+         <phoneCatInfos>
+            <phoneCategoryId>?</phoneCategoryId>
+            <pageSize>?</pageSize>
+         </phoneCatInfos>
+      </inv:GetMsisdnListByPatternRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.yota.ru/vox/services/wsdl/Inventory/GetMsisdnListByPattern"/></con:call></con:operation>

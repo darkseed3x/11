@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation isOneWay="false" action="http://www.yota.ru/vox/services/b2b/wsdl/CorporateOrderManagement/GetOrderByMSISDN" name="getOrderByMSISDN" bindingOperationName="getOrderByMSISDN" type="Request-Response" outputName="GetOrderByMSISDNOut" inputName="GetOrderByMSISDNIn" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="3e0764b9-6cd3-4861-947c-9c9d45f44d4c" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="3e0764b9-6cd3-4861-947c-9c9d45f44d4cfileName">getOrderByMSISDN</con:setting></con:settings><con:call name="Request 1" id="417438a8-f694-4c3f-8b3f-9796d79817e0"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://ft1-b2b-ainst1.scartel.dc:8082/oms-web/OrderEndpoint</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ord="http://www.yota.ru/vox/b2b/services/order">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ord:GetOrderByMSISDNRequest>
+         <msisdn>?</msisdn>
+         <type>?</type>
+      </ord:GetOrderByMSISDNRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.yota.ru/vox/services/b2b/wsdl/CorporateOrderManagement/GetOrderByMSISDN"/><con:wsrmConfig version="1.2"/></con:call></con:operation>

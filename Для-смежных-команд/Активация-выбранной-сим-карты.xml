@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="f7cd6ef1-e821-4593-9949-210a1079da64" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Активация выбранной сим карты" searchProperties="true" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="203b7e91-499f-47cc-a5f1-366efbbfff5afileName">ACTIVATION</con:setting><con:setting id="f7cd6ef1-e821-4593-9949-210a1079da64fileName">Активация-выбранной-сим-карты</con:setting></con:settings><con:savedRecentRuns>1</con:savedRecentRuns><con:testStep type="restrequest" name="getDeliveredSimByIccid" id="b38526fa-4914-4c8a-8826-fa82eab68dd8"><con:settings/><con:config service="Corporate Customer Information Service" resourcePath="/cis-web/api/rpc/getDeliveredSimByIccid" methodName="getDeliveredSimByIccid" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="getDeliveredSimByIccid" id="b07b8003-f48c-4cab-bc51-bd85a94bf0cd" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://${#Project#host-b2b}:8086</con:endpoint><con:request/><con:originalUri>http://b2btst-js1.g4lab.com/cis-web/api/rpc/getDeliveredSimByIccid</con:originalUri><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="iccid" value="${#TestCase#iccid}" xmlns="http://eviware.com/soapui/config"/></con:parameters></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="UpdateCorporatePerson" id="3a8a303b-e4dd-4f78-9561-6f9701be88bb"><con:settings/><con:config service="Corporate Customer Information Service" resourcePath="/cis-web/api/rpc/updateCorporatePerson" methodName="UpdateCorporatePerson" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="UpdateCorporatePerson" id="1bc11066-a0f1-420b-bad3-dd63ca8f1215" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://${#Project#host-b2b}:8086</con:endpoint><con:request>{"person": {
+   "hid": "${getDeliveredSimByIccid#Response#$.sim.holder.hid}",
+   "customerId": "${getDeliveredSimByIccid#Response#$.sim.holder.customerId}",
+   "status": "active",
+   "identififcation": [   {
+      "livingPeriod": {"fromDate": "2018-06-05T00:00:00.000+04:00"},
+      "attempt": "0",
+      "identificationStatus": "SUCCESS",
+      "identificationType": "MIA_CHECK"
+   }],
+   "name":    {
+      "firstName": "АЛЕКСЕЙ",
+      "lastName": "ОХРЕНЕНИКУС",
+      "middleName": "ВЛАДИМИРОВИЧ"
+   },
+   "personalDetails":    {
+      "gender": "Male",
+      "birthDate": "2018-06-02T00:00:00+03:00",
+      "birthPlace": "Петербург"
+   },
+   "address":    {
+      "livingPeriod":       {
+         "fromDate": "2018-06-02T00:00:00.000+03:00",
+         "untilTo": "2018-06-02T00:00:00.000+03:00"
+      },
+      "addressText": "Ставропольский край, г Кисловодск, ул Прудная",
+      "country": "РОССИЯ",
+      "addressType": "SubscriberLocation",
+      "city": "КИСЛОВОДСК",
+      "region": "СТАВРОПОЛЬСКИЙ",
+      "street": "ПРУДНАЯ"
+   },
+   "documentDetails":    {
+      "livingPeriod": {"fromDate": "2018-06-02T00:00:00.000+04:00"},
+      "documentType": "PASSPORT_RU",
+      "documentSeries": "4005",
+      "documentNumber": "900056",
+      "issueDate": "2018-06-03T00:00:00.000+04:00",
+      "issueAuthority": "УВД",
+      "departmentCode": "876-374",
+      "expiryDate": "2018-06-04T00:00:00.000+04:00",
+      "author": "SC_CUST:b70ef1cbf2e74c089d0286254519b1b3"
+   },
+   "position": "директор",
+   "role": "CEO"
+}}</con:request><con:originalUri>http://perf-b2b-ainst1.scartel.dc/cis-web/api/rpc/updateCorporatePerson</con:originalUri><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="Activate" id="871bffa4-c375-4408-a370-dd3947d330f3"><con:settings/><con:config service="Corporate Order Management Service (CorpOMS)" resourcePath="/coms-web/api/createOrder" methodName="createOrder" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Activate" id="978de5b9-fe46-4a0d-870c-8ad76d390f25" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://${#Project#host-b2b-rest}:8062</con:endpoint><con:request>{"order": {
+   "orderType": "SIM_ACTIVATION",
+   "createChannel": "SELF_CARE",
+   "billingAccount": "112200${#TestCase#AccountId}",
+   "orderContent": {"SimActivationOrder": {"activatedUnits": [   {
+      "regionID": "O_77",
+      "sim":       {
+         "branch": " ",
+         "simCodes": [         {
+            "key": "${#TestCase#iccid}",
+            "type": "ICCID"
+         }],
+         "simSpec": "PHONELEGAL"
+      }
+   }]}}
+}}</con:request><con:originalUri>http://perf-b2b-ainst1.scartel.dc/coms-web/api/createOrder</con:originalUri><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="Available" id="d02851ec-58af-4c3c-b7f0-1067c7461980"><con:settings/><con:config service="Product Management API" resourcePath="/pm/v2/products/available" methodName="getAvailableProductsV2" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Available" id="20f6572a-c2ed-42d8-9329-a1656febfaf3" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://${#Project#pm_api}:8080</con:endpoint><con:request/><con:originalUri>http://ft2-pm-api.g4lab.com/pm/v2/products/available</con:originalUri><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters>
+  <con:entry key="filter" value="packages"/>
+  <con:entry key="accountId" value="${#TestCase#AccountId}"/>
+  <con:entry key="X-Branch" value="YOTA-001"/>
+  <con:entry key="imsi" value="25011${#TestCase#iccid}"/>
+  <con:entry key="salesChannel" value="SC"/>
+</con:parameters></con:restRequest></con:config></con:testStep><con:testStep type="groovy" name="calculate" id="60f0ffb4-af6c-43a5-935b-165c12f7469c"><con:settings/><con:config><script>String minutes = context.expand( '${Available#Response#$.products[0].offerDetails.resources[1].prices[0].calculationRule.charValueUse[0].value}' )
+String prices = context.expand( '${Available#Response#$.products[0].offerDetails.resources[1].prices[0].calculationRule.charValueUse[1].value}' )
+def sms = context.expand( '${Available#Response#$.products[0].options[0].resource.prices[0].price.price.amount}' )
+
+minutesArr = minutes.split(",")
+pricesArr = prices.split(",")
+testRunner.testCase.setPropertyValue("tarif_gener" ,minutesArr[0] )
+testRunner.testCase.setPropertyValue("price_tarif_gener" ,pricesArr[0] )
+int fullPrice = Integer.parseInt(sms)+ Integer.parseInt(pricesArr[0])
+testRunner.testCase.setPropertyValue("full_price" ,fullPrice+'' )</script></con:config></con:testStep><con:testStep type="restrequest" name="apply" id="e80f3cb7-8a3c-4a99-a763-2c0d0b7136db"><con:settings/><con:config service="Product Management API" resourcePath="/pm/v2/products/apply" methodName="applyProductsV2" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="apply" id="c62e3c25-5f21-46ec-abfc-436b136bfa18" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://${#Project#pm_api}:8080</con:endpoint><con:request>{\r
+   "accountId" : "${#TestCase#AccountId}",\r
+   "imsi" : "25011${#TestCase#iccid}",\r
+   "salesChannel" : "SC",\r
+   "sendNotifications" : false,\r
+   "product" : {\r
+      "action" : "APPLY_PRODUCT",\r
+      "offerCode" : "${Available#Response#$.products[0].applyingProduct.offerCode}",\r
+      "isAutoprolongEnabled" : "${Available#Response#$.products[0].applyingProduct.isAutoprolongEnabled}",\r
+      "resources" : [\r
+         {\r
+            "offerCode" : "${Available#Response#$.products[0].applyingProduct.resources[0].offerCode}",\r
+            "resourceType" : "${Available#Response#$.products[0].applyingProduct.resources[0].resourceType}",\r
+            "productSpecCode" : "${Available#Response#$.products[0].applyingProduct.resources[0].productSpecCode}",\r
+            "capacity" : "unlimited",\r
+            "unitOfMeasure" : "${Available#Response#$.products[0].applyingProduct.resources[0].unitOfMeasure}",\r
+            "priceCode" : "${Available#Response#$.products[0].applyingProduct.resources[0].priceCode}",\r
+            "price" : 0\r
+         },\r
+         {\r
+            "offerCode" : "${Available#Response#$.products[0].applyingProduct.resources[1].offerCode}",\r
+            "resourceType" : "${Available#Response#$.products[0].applyingProduct.resources[1].resourceType}",\r
+            "productSpecCode" : "${Available#Response#$.products[0].applyingProduct.resources[1].productSpecCode}",\r
+            "capacity" : "${#TestCase#tarif_gener}",\r
+            "unitOfMeasure" : "${Available#Response#$.products[0].applyingProduct.resources[1].unitOfMeasure}",\r
+            "priceCode" : "${Available#Response#$.products[0].applyingProduct.resources[1].priceCode}",\r
+            "price" : "${#TestCase#price_tarif_gener}"\r
+         }\r
+      ],\r
+      "options" : [\r
+         {\r
+            "offerCode" : "${Available#Response#$.products[0].options[0].applyingOption.offerCode}",\r
+            "isAutoprolongEnabled" : "${Available#Response#$.products[0].options[0].applyingOption.isAutoprolongEnabled}",\r
+            "resource" : {\r
+               "offerCode" : "${Available#Response#$.products[0].options[0].applyingOption.resource.offerCode}",\r
+               "resourceType" : "${Available#Response#$.products[0].options[0].applyingOption.resource.resourceType}",\r
+               "productSpecCode" : "${Available#Response#$.products[0].options[0].applyingOption.resource.productSpecCode}",\r
+               "capacity" : "unlimited",\r
+               "priceCode" : "${Available#Response#$.products[0].options[0].applyingOption.resource.priceCode}",\r
+               "price" : "${Available#Response#$.products[0].options[0].resource.prices[0].price.price.amount}"\r
+            }\r
+         }\r
+      ],\r
+      "price" : "${#TestCase#price_tarif_gener}",\r
+      "totalAmount" : "${#TestCase#full_price}"\r
+   },\r
+   "totalSum" : "${#TestCase#full_price}"\r
+}</con:request><con:originalUri>http://ft2-pm-api.g4lab.com/pm/v2/products/apply</con:originalUri><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:properties><con:property><con:name>AccountId</con:name><con:value>24018538</con:value></con:property><con:property><con:name>iccid</con:name><con:value>0200438496</con:value></con:property><con:property><con:name>Ниже идут системные переменные</con:name><con:value>заполняются автоматически</con:value></con:property><con:property><con:name>tarif_gener</con:name><con:value>300</con:value></con:property><con:property><con:name>price_tarif_gener</con:name><con:value>450</con:value></con:property><con:property><con:name>full_price</con:name><con:value>500</con:value></con:property></con:properties><con:reportParameters/></con:testCase>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation isOneWay="false" action="http://www.yota.ru/vox/services/b2b/wsdl/CorpCustomerInformation/CheckCorporateAgreement" name="checkCorporateAgreement" bindingOperationName="checkCorporateAgreement" type="Request-Response" outputName="CheckCorporateAgreementOut" inputName="CheckCorporateAgreementIn" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="a6159aaf-ae2b-4bdb-b2d4-2a2f6a5e392e" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="a6159aaf-ae2b-4bdb-b2d4-2a2f6a5e392efileName">checkCorporateAgreement</con:setting></con:settings><con:call name="Request 1" id="aa88ace9-3cfb-4025-8b30-4a2a55e2c6ba"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://b2btst-corpjs-cis.g4lab.com:8080/cis-web/CorpCustomerInformationServiceImpl</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cus="http://www.yota.ru/vox/b2b/services/customerInformation">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <cus:CheckCorporateAgreementRequest agreementStatus="?">
+         <login>?</login>
+      </cus:CheckCorporateAgreementRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.yota.ru/vox/services/b2b/wsdl/CorpCustomerInformation/CheckCorporateAgreement"/></con:call></con:operation>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation isOneWay="false" action="http://www.yota.ru/vox/services/b2b/wsdl/DocumentGeneration/GenerateDetailBill" name="generateDetailBill" bindingOperationName="generateDetailBill" type="Request-Response" outputName="GenerateDetailBillOut" inputName="GenerateDetailBillIn" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="8acea9fd-2c6f-4fbe-b36b-29a4d270333a" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="8acea9fd-2c6f-4fbe-b36b-29a4d270333afileName">generateDetailBill</con:setting></con:settings><con:call name="Request 1" id="e99577fd-055a-43b1-b03a-e6f189e53731"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.90.253.219:8084/dgs-web/DocumentGenerationEndpoint</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:dgs="http://www.yota.ru/vox/b2b/domains/dgs">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <dgs:GenerateDetailBillRequest>
+         <!--Optional:-->
+         <beginDate>?</beginDate>
+         <!--Optional:-->
+         <billingAccount>?</billingAccount>
+         <customerId>?</customerId>
+         <!--Optional:-->
+         <endDate>?</endDate>
+         <msisdn>?</msisdn>
+         <!--Optional:-->
+         <orderId>?</orderId>
+      </dgs:GenerateDetailBillRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.yota.ru/vox/services/b2b/wsdl/DocumentGeneration/GenerateDetailBill"/></con:call></con:operation>

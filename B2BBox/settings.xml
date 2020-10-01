@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testSuite id="518de392-c6ba-418c-a349-a2d799130da3" name="B2BBox" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="518de392-c6ba-418c-a349-a2d799130da3fileName">B2BBox</con:setting></con:settings><con:runType>SEQUENTIAL</con:runType><con:properties><con:property><con:name>N</con:name><con:value>0</con:value></con:property></con:properties><con:reportParameters/></con:testSuite>

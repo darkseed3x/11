@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testSuite name="ПРЕПРОД Создание абонента с активированными SIM" id="2708f595-0a0c-4d2c-bb5e-fb2e93076396" disabled="true" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="2708f595-0a0c-4d2c-bb5e-fb2e93076396fileName">ПРЕПРОД-Создание-абонента-с-активированными-SIM</con:setting></con:settings><con:runType>SEQUENTIAL</con:runType><con:properties/><con:reportParameters/></con:testSuite>

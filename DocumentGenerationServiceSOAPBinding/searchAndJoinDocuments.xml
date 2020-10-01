@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation isOneWay="false" action="http://www.yota.ru/vox/services/b2b/wsdl/DocumentGeneration/SearchAndJoinDocuments" name="searchAndJoinDocuments" bindingOperationName="searchAndJoinDocuments" type="Request-Response" outputName="SearchAndJoinDocumentsOut" inputName="SearchAndJoinDocumentsIn" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="0baa9560-de5e-4ce3-b6b9-072a0ea71c9f" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="0baa9560-de5e-4ce3-b6b9-072a0ea71c9ffileName">searchAndJoinDocuments</con:setting></con:settings><con:call name="Request 1" id="7002df54-8d6f-43d9-b9e7-54852b91b794"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.90.253.219:8084/dgs-web/DocumentGenerationEndpoint</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:dgs="http://www.yota.ru/vox/b2b/domains/dgs">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <dgs:SearchAndJoinDocumentsRequest>
+         <!--Optional:-->
+         <billingAccount>?</billingAccount>
+         <!--Optional:-->
+         <customerId>?</customerId>
+         <!--Optional:-->
+         <orderId>?</orderId>
+         <type>?</type>
+      </dgs:SearchAndJoinDocumentsRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.yota.ru/vox/services/b2b/wsdl/DocumentGeneration/SearchAndJoinDocuments"/></con:call></con:operation>

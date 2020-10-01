@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="203b7e91-499f-47cc-a5f1-366efbbfff5a" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="ACTIVATION" searchProperties="true" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="203b7e91-499f-47cc-a5f1-366efbbfff5afileName">ACTIVATION</con:setting></con:settings><con:savedRecentRuns>1</con:savedRecentRuns><con:testStep type="restrequest" name="getDeliveredSimByIccid" id="7ef1cf2f-d54b-4d14-bc30-152d9089c2e2"><con:settings/><con:config service="Corporate Customer Information Service" resourcePath="/cis-web/api/rpc/getDeliveredSimByIccid" methodName="getDeliveredSimByIccid" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="getDeliveredSimByIccid" id="b07b8003-f48c-4cab-bc51-bd85a94bf0cd" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://${#Project#host-b2b}:8086</con:endpoint><con:request/><con:originalUri>http://b2btst-js1.g4lab.com/cis-web/api/rpc/getDeliveredSimByIccid</con:originalUri><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="iccid" value="${#TestCase#iccid}" xmlns="http://eviware.com/soapui/config"/></con:parameters></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="UpdateCorporatePerson" id="524b1b48-8a04-4359-bd1c-82b7067cbfc9"><con:settings/><con:config service="Corporate Customer Information Service" resourcePath="/cis-web/api/rpc/updateCorporatePerson" methodName="UpdateCorporatePerson" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="UpdateCorporatePerson" id="1bc11066-a0f1-420b-bad3-dd63ca8f1215" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://${#Project#host-b2b}:8086</con:endpoint><con:request>{"person": {
+   "hid": "${getDeliveredSimByIccid#Response#$.sim.holder.hid}",
+   "customerId": "${getDeliveredSimByIccid#Response#$.sim.holder.customerId}",
+   "status": "active",
+   "identififcation": [   {
+      "livingPeriod": {"fromDate": "2018-06-05T00:00:00.000+04:00"},
+      "attempt": "0",
+      "identificationStatus": "SUCCESS",
+      "identificationType": "MIA_CHECK"
+   }],
+   "name":    {
+      "firstName": "АЛЕКСЕЙ",
+      "lastName": "ОХРЕНЕНИКУС",
+      "middleName": "ВЛАДИМИРОВИЧ"
+   },
+   "personalDetails":    {
+      "gender": "Male",
+      "birthDate": "2018-06-02T00:00:00+03:00",
+      "birthPlace": "Петербург"
+   },
+   "address":    {
+      "livingPeriod":       {
+         "fromDate": "2018-06-02T00:00:00.000+03:00",
+         "untilTo": "2018-06-02T00:00:00.000+03:00"
+      },
+      "addressText": "Ставропольский край, г Кисловодск, ул Прудная",
+      "country": "РОССИЯ",
+      "addressType": "SubscriberLocation",
+      "city": "КИСЛОВОДСК",
+      "region": "СТАВРОПОЛЬСКИЙ",
+      "street": "ПРУДНАЯ"
+   },
+   "documentDetails":    {
+      "livingPeriod": {"fromDate": "2018-06-02T00:00:00.000+04:00"},
+      "documentType": "PASSPORT_RU",
+      "documentSeries": "4005",
+      "documentNumber": "900056",
+      "issueDate": "2018-06-03T00:00:00.000+04:00",
+      "issueAuthority": "УВД",
+      "departmentCode": "876-374",
+      "expiryDate": "2018-06-04T00:00:00.000+04:00",
+      "author": "SC_CUST:b70ef1cbf2e74c089d0286254519b1b3"
+   },
+   "position": "директор",
+   "role": "CEO"
+}}</con:request><con:originalUri>http://perf-b2b-ainst1.scartel.dc/cis-web/api/rpc/updateCorporatePerson</con:originalUri><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="Activate" id="668b8505-2823-4e0f-80e5-62c8a3fee8b3"><con:settings/><con:config service="Corporate Order Management Service (CorpOMS)" resourcePath="/coms-web/api/createOrder" methodName="createOrder" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Activate" id="978de5b9-fe46-4a0d-870c-8ad76d390f25" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://${#Project#host-b2b-rest}:8062</con:endpoint><con:request>{"order": {
+   "orderType": "SIM_ACTIVATION",
+   "createChannel": "SELF_CARE",
+   "billingAccount": "112200${#TestCase#AccountId}",
+   "orderContent": {"SimActivationOrder": {"activatedUnits": [   {
+      "packageCountMin": "300",
+      "destOptionCode": "B2B-OP-MA1-SMS",
+      "regionId": "O_78",
+      "sim":       {
+         "branch": " ",
+         "simCodes": [         {
+            "key": "${#TestCase#iccid}",
+            "type": "ICCID"
+         }],
+         "simSpec": "PHONELEGAL"
+      }
+   }]}}
+}}</con:request><con:originalUri>http://perf-b2b-ainst1.scartel.dc/coms-web/api/createOrder</con:originalUri><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:properties><con:property><con:name>AccountId</con:name><con:value>24013615</con:value></con:property><con:property><con:name>iccid</con:name><con:value>0225036104</con:value></con:property></con:properties><con:reportParameters/></con:testCase>

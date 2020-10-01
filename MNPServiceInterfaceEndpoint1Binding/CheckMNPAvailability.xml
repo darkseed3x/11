@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation isOneWay="false" action="http://www.yota.ru/vox/services/wsdl/MNPService/CheckMNPAvailability" name="CheckMNPAvailability" bindingOperationName="CheckMNPAvailability" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="d1f86860-ea29-49ba-ba53-2b694076f559" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="d1f86860-ea29-49ba-ba53-2b694076f559fileName">CheckMNPAvailability</con:setting></con:settings><con:call name="Request 1" id="b3ef8ad0-d025-4957-bf45-30c8ab8cbdea"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8319/MNPService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:mnp="http://www.yota.ru/vox/services/mnpService" xmlns:core="http://www.roox.ru/products/common/core">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <mnp:CheckMNPAvailabilityRequest>
+         <!--Optional:-->
+         <core:extension>
+            <!--Zero or more repetitions:-->
+            <core:item>?</core:item>
+         </core:extension>
+         <portableNumber>?</portableNumber>
+         <iccid>?</iccid>
+         <startServiceDate>?</startServiceDate>
+         <!--Optional:-->
+         <rsRegion>?</rsRegion>
+         <!--Optional:-->
+         <mnpType>?</mnpType>
+      </mnp:CheckMNPAvailabilityRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.yota.ru/vox/services/wsdl/MNPService/CheckMNPAvailability"/></con:call></con:operation>

@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testSuite name="Выдача сим-карт выбранному абоненту" id="bd16bb43-cefe-4a03-8ff9-1ca066028bd3" disabled="true" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="bd16bb43-cefe-4a03-8ff9-1ca066028bd3fileName">Выдача-сим-карт-выбранному-абоненту1</con:setting></con:settings><con:runType>SEQUENTIAL</con:runType><con:properties/><con:reportParameters/></con:testSuite>

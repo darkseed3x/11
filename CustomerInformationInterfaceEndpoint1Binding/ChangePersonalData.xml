@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation id="3f3f3727-008f-45f4-bedc-d548f6c31ce0" isOneWay="false" action="http://www.yota.ru/vox/services/wsdl/CustomerInformation/ChangePersonalData" name="ChangePersonalData" bindingOperationName="ChangePersonalData" type="Request-Response" outputName="ChangePersonalDataOut" inputName="ChangePersonalDataIn" receivesAttachments="false" sendsAttachments="false" anonymous="optional" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="3f3f3727-008f-45f4-bedc-d548f6c31ce0fileName">ChangePersonalData</con:setting></con:settings><con:call id="948167f1-108a-4573-838b-361a779da499" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://oxford-esb.g4lab.com:8080/CustomerInformationService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cus="http://www.yota.ru/vox/services/customerInformation" xmlns:core="http://www.roox.ru/products/common/core" xmlns:core1="http://www.yota.ru/vox/domains/common/core">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <cus:ChangePersonalDataRequest>\r
+         <!--Optional:-->\r
+         <core:extension>\r
+            <!--Zero or more repetitions:-->\r
+            <core:item>?</core:item>\r
+         </core:extension>\r
+         <subscriberData hid="?" customerId="?">\r
+            <created>?</created>\r
+            <!--Optional:-->\r
+            <livingPeriod>\r
+               <fromDate>?</fromDate>\r
+               <!--Optional:-->\r
+               <untilTo>?</untilTo>\r
+            </livingPeriod>\r
+            <!--Zero or more repetitions:-->\r
+            <subscriberProperties name="?">\r
+               <core1:value>?</core1:value>\r
+            </subscriberProperties>\r
+            <name>\r
+               <!--Optional:-->\r
+               <core1:firstName>?</core1:firstName>\r
+               <!--Optional:-->\r
+               <core1:lastName>?</core1:lastName>\r
+               <!--Optional:-->\r
+               <core1:middleName>?</core1:middleName>\r
+            </name>\r
+            <!--Optional:-->\r
+            <accountId>?</accountId>\r
+            <!--Optional:-->\r
+            <personalDetails>\r
+               <!--Optional:-->\r
+               <gender>?</gender>\r
+               <!--Optional:-->\r
+               <birthDate>?</birthDate>\r
+               <!--Optional:-->\r
+               <birthPlace>?</birthPlace>\r
+            </personalDetails>\r
+            <!--Optional:-->\r
+            <document hid="?" customerId="?">\r
+               <livingPeriod>\r
+                  <fromDate>?</fromDate>\r
+                  <!--Optional:-->\r
+                  <untilTo>?</untilTo>\r
+               </livingPeriod>\r
+               <!--Optional:-->\r
+               <rawSource>?</rawSource>\r
+               <!--Optional:-->\r
+               <primary>?</primary>\r
+               <!--Optional:-->\r
+               <additionalInfo>?</additionalInfo>\r
+               <!--Zero or more repetitions:-->\r
+               <additionalProperties name="?">\r
+                  <core1:value>?</core1:value>\r
+               </additionalProperties>\r
+               <!--Optional:-->\r
+               <documentType>?</documentType>\r
+               <!--Optional:-->\r
+               <documentSeries>?</documentSeries>\r
+               <!--Optional:-->\r
+               <documentNumber>?</documentNumber>\r
+               <!--Optional:-->\r
+               <issueDate>?</issueDate>\r
+               <!--Optional:-->\r
+               <issueAuthority>?</issueAuthority>\r
+               <!--Optional:-->\r
+               <departmentCode>?</departmentCode>\r
+               <!--Optional:-->\r
+               <expiryDate>?</expiryDate>\r
+               <!--Optional:-->\r
+               <author>?</author>\r
+            </document>\r
+            <!--Optional:-->\r
+            <address hid="?" customerId="?">\r
+               <livingPeriod>\r
+                  <fromDate>?</fromDate>\r
+                  <!--Optional:-->\r
+                  <untilTo>?</untilTo>\r
+               </livingPeriod>\r
+               <!--Optional:-->\r
+               <rawSource>?</rawSource>\r
+               <!--Optional:-->\r
+               <primary>?</primary>\r
+               <!--Optional:-->\r
+               <additionalInfo>?</additionalInfo>\r
+               <!--Zero or more repetitions:-->\r
+               <additionalProperties name="?">\r
+                  <core1:value>?</core1:value>\r
+               </additionalProperties>\r
+               <!--Optional:-->\r
+               <addressText>?</addressText>\r
+               <!--Optional:-->\r
+               <country>?</country>\r
+            </address>\r
+         </subscriberData>\r
+         <!--Optional:-->\r
+         <iccid>?</iccid>\r
+         <!--Optional:-->\r
+         <phone hid="?" customerId="?">\r
+            <livingPeriod>\r
+               <fromDate>?</fromDate>\r
+               <!--Optional:-->\r
+               <untilTo>?</untilTo>\r
+            </livingPeriod>\r
+            <!--Optional:-->\r
+            <rawSource>?</rawSource>\r
+            <!--Optional:-->\r
+            <primary>?</primary>\r
+            <!--Optional:-->\r
+            <additionalInfo>?</additionalInfo>\r
+            <!--Zero or more repetitions:-->\r
+            <additionalProperties name="?">\r
+               <core1:value>?</core1:value>\r
+            </additionalProperties>\r
+            <!--Optional:-->\r
+            <phoneNumber>?</phoneNumber>\r
+            <!--Optional:-->\r
+            <phoneType>?</phoneType>\r
+            <!--Optional:-->\r
+            <operator>?</operator>\r
+            <!--Optional:-->\r
+            <countryCode>?</countryCode>\r
+            <!--Optional:-->\r
+            <cityCode>?</cityCode>\r
+            <!--Optional:-->\r
+            <telephone>?</telephone>\r
+            <!--Optional:-->\r
+            <extension>?</extension>\r
+            <!--Optional:-->\r
+            <timezone>?</timezone>\r
+         </phone>\r
+         <!--Optional:-->\r
+         <customerId>\r
+            <key>?</key>\r
+            <value>?</value>\r
+         </customerId>\r
+      </cus:ChangePersonalDataRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.yota.ru/vox/services/wsdl/CustomerInformation/ChangePersonalData"/></con:call></con:operation>

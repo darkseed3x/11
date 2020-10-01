@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:resource name="simcards/products" path="/simcards/{iccid}/products" id="8344c9b4-864d-445f-b514-41fb01c2eb40" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="8344c9b4-864d-445f-b514-41fb01c2eb40fileName">simcards%2Fproducts</con:setting></con:settings><con:parameters><con:parameter><con:name>iccid</con:name><con:value>iccid</con:value><con:style>TEMPLATE</con:style><con:default>iccid</con:default></con:parameter></con:parameters><con:method name="simcards/product" id="2ee22856-9b60-44a9-ac65-cf14cb468a1c" method="POST"><con:settings/><con:parameters/><con:representation type="REQUEST"><con:mediaType>application/json</con:mediaType><con:params/></con:representation><con:representation type="FAULT"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>500</con:status><con:params/><con:element xmlns:prod="http://ft1-bil-api.g4lab.com/bill/v1/simcards/iccid/products">prod:Fault</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>200</con:status><con:params/><con:element>Response</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:request name="Request 1" id="2eab2bdb-3e93-457a-bbd6-f1116a539421" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers"><![CDATA[<xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  <con:entry key="X-Branch" value="${#Project#branch}"/>
+  <con:entry key="X-CorrelationId" value="${= String receipt = new java.text.SimpleDateFormat(&quot;yyyyMMddhhmmss&quot;).format(new Date()+1).toString();}"/>
+</xml-fragment>]]></con:setting></con:settings><con:endpoint>http://${#Project#prefix.bil}-bil-api.g4lab.com:8080/bill/v1</con:endpoint><con:request>{
+  "accountId": 0,
+  "productLine": "string",
+  "baseTarifOfferExternalId": 0,
+  "masterProductId": 0,
+  "offer": {
+    "offerExternalId": 0,
+    "accumIniLimitMinute": "string",
+    "accumIniLimitData": "string"
+  },
+  "options": [
+    {
+      "offerExternalId": 0,
+      "accumIniLimitMinute": "string",
+      "accumIniLimitData": "string"
+    }
+  ],
+  "regionOfBuying": "string",
+  "allowAutoProlong": true,
+  "productDuration": 0,
+  "canAddFinBlocked": true,
+  "fromDate": "2019-05-30T07:59:01.023Z",
+  "discountServiceId": 0,
+  "changingProductId": 0
+}</con:request><con:originalUri>http://ft1-bil-api.g4lab.com/bill/v1/simcards/iccid/products</con:originalUri><con:credentials><con:username xsi:nil="true"/><con:password xsi:nil="true"/><con:domain xsi:nil="true"/><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="iccid" value="{iccid}" xmlns="http://eviware.com/soapui/config"/></con:parameters></con:request><con:request name="Copy of Request 1" id="4e2c2fd9-abf9-4f77-b601-c36c7a95aa37" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers"><![CDATA[<xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  <con:entry key="X-Branch" value="${#Project#branch}"/>
+  <con:entry key="X-CorrelationId" value="${= String receipt = new java.text.SimpleDateFormat(&quot;yyyyMMddhhmmss&quot;).format(new Date()+1).toString();}"/>
+</xml-fragment>]]></con:setting></con:settings><con:endpoint>http://${#Project#prefix.bil}-bil-api.g4lab.com:8080/bill/v1</con:endpoint><con:request>{
+	"accountId": 31118663,
+	"productLine": "ANY-YOTA",
+	"baseTarifOfferExternalId": 22,
+	"offer": {
+		"offerExternalId": 1299
+	},
+	"regionOfBuying": "O_78"
+}</con:request><con:originalUri>http://ft1-bil-api.g4lab.com/bill/v1/simcards/iccid/products</con:originalUri><con:credentials><con:username xsi:nil="true"/><con:password xsi:nil="true"/><con:domain xsi:nil="true"/><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="iccid" value="0203271537" xmlns="http://eviware.com/soapui/config"/></con:parameters></con:request></con:method></con:resource>

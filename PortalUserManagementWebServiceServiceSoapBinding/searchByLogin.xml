@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation isOneWay="false" action="http://www.yota.ru/vox/services/b2b/wsdl/PortalUserManagement/SearchByLogin" name="searchByLogin" bindingOperationName="searchByLogin" type="Request-Response" outputName="searchByLoginResponse" inputName="searchByLogin" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="77ede49d-310a-4b60-a017-ef16546c6c0b" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="77ede49d-310a-4b60-a017-ef16546c6c0bfileName">searchByLogin</con:setting></con:settings><con:call name="Request 1" id="6b0a0aed-d6d8-45b9-8b1f-e288b9a13f04"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://b2bload-ps1.g4lab.com:8080/user-service/services/PortalUserManagement</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:por="http://www.yota.ru/vox/b2b/services/portal">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <por:SearchByLoginRequest>
+         <!--Optional:-->
+         
+         <!--Optional:-->
+         
+      <phone>79278401036</phone></por:SearchByLoginRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.yota.ru/vox/services/b2b/wsdl/PortalUserManagement/SearchByLogin"/><con:wsrmConfig version="1.2"/></con:call></con:operation>

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="3. PUMS" searchProperties="true" id="64cb9891-4c9c-4676-a413-33066a1104e6" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="64cb9891-4c9c-4676-a413-33066a1104e6fileName">3.-PUMS</con:setting></con:settings><con:testStep type="groovy" name="randomData" id="0cf5c1c8-32f5-43d4-b25d-148fb5e69e1e"><con:settings/><con:config><script>testRunner.testCase.setPropertyValue("number", '')
+
+def length = 13;
+String validChars ="1234567890"
+def rnd = new Random()
+
+def number = '79'
+
+	number = number.toInteger() +  ( (1..length).sum
+{ 
+validChars[ rnd.nextInt(validChars.length()) ]})
+
+testRunner.testCase.setPropertyValue("number", number.toString()  )</script></con:config></con:testStep><con:testStep type="request" name="createUser" id="ae3e95c9-d236-48e1-8728-e0a66c156a42"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>PortalUserManagementWebServiceServiceSoapBinding</con:interface><con:operation>createUser</con:operation><con:request name="createUser" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="897ed955-c48e-4f64-af83-762b0007849f"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://${#Project#selfcare}.emdev.ru:8080/user-service/services/PortalUserManagement/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:por="http://www.yota.ru/vox/b2b/services/portal">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <por:CreateUserRequest>
+         <user userPasswordStatus="main" userStatus="active">
+            <billingAccount>${#TestCase#number}</billingAccount>
+            <customerId>1</customerId>
+            <phone>79990000022</phone><userRoles>
+               <userRole>administrator</userRole>
+            </userRoles>
+         </user>
+      </por:CreateUserRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.yota.ru/vox/services/b2b/wsdl/PortalUserManagement/CreateUser"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="groovy" name="checkCreateUser" id="e55a22b2-8a79-459b-b88f-72025f14fd80"><con:settings/><con:config><script><![CDATA[def path = context.expand( '${#TestCase#Path}' )
+def hostb2b = context.expand( '${#Project#host-b2b}' )
+def startDate = new Date() 
+def resp = context.expand( '${createUser#Response}' )
+def response = context.expand( '${createUser#Response#declare namespace ns13=\'http://www.yota.ru/vox/b2b/services/portal\'; //ns13:CreateUserResponse[1]/user[1]/@userStatus}' )
+def out = new File(path+'Отчет по окружению - '+hostb2b+' - '+startDate.format("yyyy-MM-dd")+'.txt')
+
+		
+     if(response == "active" ) { 
+     	out <<  '------------------------PUMS-------------------------'
+          out <<  '\n'
+          out <<  '\n'
+     	out <<  'OK createUser'
+     } else { 
+     	out <<  '------------------------PUMS-------------------------'
+     	out <<  '\n'
+     	out <<  '\n'
+     	out <<  'FAILED createUser' 
+     def err = new File(path+'Проблемы окружения - '+hostb2b+' - '+startDate.format("yyyy-MM-dd")+'.txt')
+      err <<  '\n'
+      err <<  '----------------------------------------------------------------------'
+      err <<  '\n'
+      err <<  'FAILED createUser' 
+      err <<  '\n'
+      err <<  '\n'
+      err << resp
+      err <<  '\n'
+      err <<  '\n'
+      err <<  '----------------------------------------------------------------------'
+      
+     } ]]></script></con:config></con:testStep><con:testStep type="request" name="searchByLogin" id="e7af7dd2-f28c-49cf-96ba-4f58c7723251"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>PortalUserManagementWebServiceServiceSoapBinding</con:interface><con:operation>searchByLogin</con:operation><con:request name="searchByLogin" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="cf744bb0-9e7d-46e5-ab34-7947601727ea"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://${#Project#selfcare}.emdev.ru:8080/user-service/services/PortalUserManagement/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:por="http://www.yota.ru/vox/b2b/services/portal">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <por:SearchByLoginRequest>
+         <!--Optional:-->
+         
+         <!--Optional:-->
+         
+      <phone>79990000022</phone></por:SearchByLoginRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.yota.ru/vox/services/b2b/wsdl/PortalUserManagement/SearchByLogin"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="groovy" name="checkSearchByLogin" id="ef187494-0636-49c3-8f43-a16ab4063f2e"><con:settings/><con:config><script><![CDATA[def response = context.expand( '${searchByLogin#Response#declare namespace ns13=\'http://www.yota.ru/vox/b2b/services/portal\'; //ns13:SearchByLoginResponse[1]/user[1]/@userStatus}' )
+def path = context.expand( '${#TestCase#Path}' )
+def hostb2b = context.expand( '${#Project#host-b2b}' )
+def startDate = new Date() 
+def resp = context.expand( '${searchByLogin#Response}' )
+def out = new File(path+'Отчет по окружению - '+hostb2b+' - '+startDate.format("yyyy-MM-dd")+'.txt')
+		
+     if(response == "active" ) {
+          out <<  '\n'
+     	out <<  'OK searchByLogin'
+     	out <<  '\n'
+     	out <<  '\n'
+     	out <<  '-----------------------------------------------------'
+     	out <<  '\n'
+     } else { 
+     	out <<  '\n'
+     	out <<  'FAILED searchByLogin' 
+     	out <<  '\n'
+     	out <<  '\n'
+     	out <<  '-----------------------------------------------------'
+     	out <<  '\n'
+     def err = new File(path+'Проблемы окружения - '+hostb2b+' - '+startDate.format("yyyy-MM-dd")+'.txt')
+      err <<  '\n'
+      err <<  '----------------------------------------------------------------------'
+      err <<  '\n'
+      err <<  'FAILED searchByLogin' 
+      err <<  '\n'
+      err <<  '\n'
+      err << resp
+      err <<  '\n'
+      err <<  '\n'
+      err <<  '----------------------------------------------------------------------'
+      
+     } ]]></script></con:config></con:testStep><con:properties><con:property><con:name>number</con:name><con:value>795146500478467</con:value></con:property><con:property><con:name>Path</con:name><con:value>C:\</con:value></con:property></con:properties><con:reportParameters/><con:breakPoints><con:testStepId>ae3e95c9-d236-48e1-8728-e0a66c156a42</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>0cf5c1c8-32f5-43d4-b25d-148fb5e69e1e</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>e55a22b2-8a79-459b-b88f-72025f14fd80</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints></con:testCase>

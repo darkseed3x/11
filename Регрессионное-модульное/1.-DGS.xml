@@ -1,0 +1,450 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="1. DGS" searchProperties="true" id="8862204a-32fd-4cfc-b609-9b3fb3a4cc36" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="8862204a-32fd-4cfc-b609-9b3fb3a4cc36fileName">1.-DGS</con:setting></con:settings><con:testStep type="request" name="getData" id="f214bc22-93ca-4463-bc26-adff538f2be9"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>CorporateOrderManagementServiceSOAPBinding</con:interface><con:operation>getOrderByCriteria</con:operation><con:request name="getData" id="8d8ed27c-5137-407b-a7fe-0de380c30739"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://${#Project#host-b2b}:8082/oms-web/OrderEndpoint</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ord="http://www.yota.ru/vox/b2b/services/order">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ord:GetOrderByCriteriaRequest>
+         <channel>PublicPortal</channel>
+         <orderStatus>clientFulfill</orderStatus>
+         <orderStep>downloadingUploading</orderStep>
+         <orderType>agreement</orderType>
+      </ord:GetOrderByCriteriaRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="generateAgreement" id="43764363-26d7-4213-9ea0-4301b4ca54b0"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>DocumentGenerationServiceSOAPBinding</con:interface><con:operation>generateAgreement</con:operation><con:request name="generateAgreement" id="fea53bfa-5f40-4433-8d73-7a3d30629949"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://${#Project#host-b2b}-jservice.g4lab.com:8080/dgs-web/DocumentGenerationEndpoint</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:dgs="http://www.yota.ru/vox/b2b/domains/dgs">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <dgs:GenerateAgreementRequest>
+         <orderId>${getData#Response#declare namespace ns2='http://www.yota.ru/vox/b2b/services/order'; //ns2:GetOrderByCriteriaResponse[1]/order[80]/orderId[1]}</orderId>
+      </dgs:GenerateAgreementRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="groovy" name="checkGenerateAgreement" id="152591f4-5384-45a7-89b6-e37485ca047c"><con:settings/><con:config><script><![CDATA[def path = context.expand( '${#TestCase#Path}' )
+def hostb2b = context.expand( '${#Project#host-b2b}' )
+def startDate = new Date() 
+def resp = context.expand( '${generateAgreement#Response}' )
+
+def response = context.expand( '${generateAgreement#Response#declare namespace ns8=\'http://www.yota.ru/vox/b2b/domains/dgs\'; //ns8:GenerateAgreementResponse[1]/clientDocument[1]/@status}' )
+def out = new File(path+'Отчет по окружению - '+hostb2b+' - '+startDate.format("yyyy-MM-dd")+'.txt')
+          out <<  '\n'
+          out <<  '\n'
+     if(response == "actual" ) { 
+     	out <<  '------------------Проверка методов-------------------'
+          out <<  '\n'
+     	out <<  '-------------------------DGS-------------------------'
+          out <<  '\n'
+          out <<  '\n'
+     	out <<  'OK generateAgreement'
+     } else { 
+     	out <<  '-------------------------DGS-------------------------'
+     	out <<  '\n'
+     	out <<  '\n'
+     	out <<  'FAILED generateAgreement' 
+     def err = new File(path+'Проблемы окружения - '+hostb2b+' - '+startDate.format("yyyy-MM-dd")+'.txt')
+      err <<  '\n'
+      err <<  '----------------------------------------------------------------------'
+      err <<  '\n'
+      err <<  'FAILED generateAgreement' 
+      err <<  '\n'
+      err <<  '\n'
+      err << resp
+      err <<  '\n'
+      err <<  '\n'
+      err <<  '----------------------------------------------------------------------'
+      
+     } ]]></script></con:config></con:testStep><con:testStep type="request" name="getData2" id="886e1d2b-06ff-46d7-8cc3-418478011328"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>CorporateOrderManagementServiceSOAPBinding</con:interface><con:operation>getOrderByCriteria</con:operation><con:request name="getData2" id="dd3c2ab6-606d-4276-8774-8a7fb307ae8c"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://${#Project#host-b2b}:8082/oms-web/OrderEndpoint</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ord="http://www.yota.ru/vox/b2b/services/order">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ord:GetOrderByCriteriaRequest>
+         <orderId>1</orderId><orderStatus>complete</orderStatus>
+         <orderType>SIMActivation</orderType>
+      </ord:GetOrderByCriteriaRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="checkData" id="1068eb03-ca1c-4289-85b6-a8eaf34d5ce7"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>CorpCustomerInformationServiceSOAPBinding</con:interface><con:operation>getCustomerById</con:operation><con:request name="checkData" id="66b30aae-87a6-4800-a0cb-6320cd18c9e0"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://${#Project#host-b2b}:8086/cis-web/CorpCustomerInformationServiceImpl</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cus="http://www.yota.ru/vox/b2b/services/customerInformation">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <cus:GetCustomerByIdRequest>
+         <customerId>${getData2#Response#declare namespace ns2='http://www.yota.ru/vox/b2b/services/order'; //ns2:GetOrderByCriteriaResponse[1]/order[1]/customerId[1]}</customerId>
+         <includeAgreements>false</includeAgreements>
+      </cus:GetCustomerByIdRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="generateAmendment" id="99fe7299-4266-4a38-9f60-33cdea6e1dd0"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>DocumentGenerationServiceSOAPBinding</con:interface><con:operation>generateAmendment</con:operation><con:request name="generateAmendment" id="2130fd8b-e429-4251-b7bb-f3aff5af27f7"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://${#Project#host-b2b}-jservice.g4lab.com:8080/dgs-web/DocumentGenerationEndpoint</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:dgs="http://www.yota.ru/vox/b2b/domains/dgs">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <dgs:GenerateAmendmentRequest>
+         <amendment status="new" type="VOICE_B2B"/><billingAccount>${getData2#Response#declare namespace ns2='http://www.yota.ru/vox/b2b/services/order'; //ns2:GetOrderByCriteriaResponse[1]/order[1]/billingAccount[1]}</billingAccount><masterAgreement>${checkData#Response#declare namespace ns7='http://www.yota.ru/vox/b2b/services/customerInformation'; //ns7:GetCustomerByIdResponse[1]/customer[1]/masterAgreement[1]/@hid}</masterAgreement><orderId>1</orderId>
+  
+      </dgs:GenerateAmendmentRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="groovy" name="checkGenerateAmendment" id="58a3495c-452d-4b6e-bbdc-cb45c9083699"><con:settings/><con:config><script><![CDATA[def path = context.expand( '${#TestCase#Path}' )
+def hostb2b = context.expand( '${#Project#host-b2b}' )
+def startDate = new Date() 
+def resp = context.expand( '${generateAmendment#Response}' )
+
+def response = context.expand( '${generateAmendment#Response#declare namespace ns8=\'http://www.yota.ru/vox/b2b/domains/dgs\'; //ns8:GenerateAmendmentResponse[1]/clientDocument[1]/@status}' )
+
+def out = new File(path+'Отчет по окружению - '+hostb2b+' - '+startDate.format("yyyy-MM-dd")+'.txt')
+
+		
+     if(response == "actual" ) { 
+          out <<  '\n'
+     	out <<  'OK generateAmendment'
+     } else { 
+     	out <<  '\n'
+     	out <<  'FAILED generateAmendment' 
+     def err = new File(path+'Проблемы окружения - '+hostb2b+' - '+startDate.format("yyyy-MM-dd")+'.txt')
+      err <<  '\n'
+      err <<  '----------------------------------------------------------------------'
+      err <<  '\n'
+      err <<  'FAILED generateAmendment' 
+      err <<  '\n'
+      err <<  '\n'
+      err << resp
+      err <<  '\n'
+      err <<  '\n'
+      err <<  '----------------------------------------------------------------------'
+      
+     } ]]></script></con:config></con:testStep><con:testStep type="request" name="generateBlankProcuratorySimReceiving" id="f1d48dd8-11e9-49eb-afa6-acd220ec99f9"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>DocumentGenerationServiceSOAPBinding</con:interface><con:operation>generateBlankProcuratorySimReceiving</con:operation><con:request name="generateBlankProcuratorySimReceiving" id="58963094-85d2-4248-b885-de39fa525c60"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://${#Project#host-b2b}-jservice.g4lab.com:8080/dgs-web/DocumentGenerationEndpoint</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:dgs="http://www.yota.ru/vox/b2b/domains/dgs">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <dgs:GenerateBlankProcuratorySimReceivingRequest>
+         <orderId>${getData#Response#declare namespace ns2='http://www.yota.ru/vox/b2b/services/order'; //ns2:GetOrderByCriteriaResponse[1]/order[80]/orderId[1]}</orderId>
+      </dgs:GenerateBlankProcuratorySimReceivingRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="groovy" name="checkGenerateBlankProcuratorySimReceiving" id="f03f9dc7-a7ca-4a87-ad1f-bbaa0273e059"><con:settings/><con:config><script><![CDATA[def path = context.expand( '${#TestCase#Path}' )
+def hostb2b = context.expand( '${#Project#host-b2b}' )
+def startDate = new Date() 
+def resp = context.expand( '${generateBlankProcuratorySimReceiving#Response}' )
+def response = context.expand( '${generateBlankProcuratorySimReceiving#Response#declare namespace ns8=\'http://www.yota.ru/vox/b2b/domains/dgs\'; //ns8:GenerateBlankProcuratorySimReceivingResponse[1]/clientDocument[1]/@status}' )
+
+def out = new File(path+'Отчет по окружению - '+hostb2b+' - '+startDate.format("yyyy-MM-dd")+'.txt')
+
+		
+     if(response == "actual" ) { 
+          out <<  '\n'
+     	out <<  'OK generateBlankProcuratorySimReceiving'
+     } else { 
+     	out <<  '\n'
+     	out <<  'FAILED generateBlankProcuratorySimReceiving' 
+     def err = new File(path+'Проблемы окружения - '+hostb2b+' - '+startDate.format("yyyy-MM-dd")+'.txt')
+      err <<  '\n'
+      err <<  '----------------------------------------------------------------------'
+      err <<  '\n'
+      err <<  'FAILED generateBlankProcuratorySimReceiving' 
+      err <<  '\n'
+      err <<  '\n'
+      err << resp
+      err <<  '\n'
+      err <<  '\n'
+      err <<  '----------------------------------------------------------------------'
+      
+     } ]]></script></con:config></con:testStep><con:testStep type="request" name="generateDeliveryAcceptanceAct" id="e8b102ae-2bf3-4152-ac77-fb46264adede"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>DocumentGenerationServiceSOAPBinding</con:interface><con:operation>generateDeliveryAcceptanceAct</con:operation><con:request name="generateDeliveryAcceptanceAct" id="29f8848c-604b-40e3-ac99-427d928cb648"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://${#Project#host-b2b}-jservice.g4lab.com:8080/dgs-web/DocumentGenerationEndpoint</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:dgs="http://www.yota.ru/vox/b2b/domains/dgs" xmlns:core="http://www.yota.ru/vox/domains/common/core">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <dgs:GenerateDeliveryAcceptanceActRequest>
+         <billingAccount>11220010529692</billingAccount>
+         <billingAccountDate>2016-11-25T00:00:00.000+04:00</billingAccountDate>
+         <iccid>
+            <iccid>534534534</iccid>
+            <nameNomenclature>LTE NFC PK 350K 2FF/3FF/4FF</nameNomenclature>
+         </iccid>
+         <map key="companyName">
+            <core:value>ИП Андрющенко Сергей Михайлович</core:value>
+         </map>
+         <map key="billingAccount">
+         <core:value>11220010517912</core:value>
+         </map>
+         <map key="businessEntityType">
+         <core:value>50102.2014</core:value>
+         </map>
+         <map key="ceoName">
+         <core:value>АНДРЮЩЕНКО СЕРГЕЙ МИХАЙЛОВИЧ</core:value>
+         </map>
+         <proxyDate>2016-11-25T00:00:00.000+04:00</proxyDate>
+      </dgs:GenerateDeliveryAcceptanceActRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="groovy" name="checkGenerateDeliveryAcceptanceAct" id="dd2d6b24-8cd4-4130-b9d6-88afaf35f865"><con:settings/><con:config><script><![CDATA[def path = context.expand( '${#TestCase#Path}' )
+def hostb2b = context.expand( '${#Project#host-b2b}' )
+def startDate = new Date() 
+def resp = context.expand( '${generateDeliveryAcceptanceAct#Response}' )
+def response = context.expand( '${generateDeliveryAcceptanceAct#Response#declare namespace ns8=\'http://www.yota.ru/vox/b2b/domains/dgs\'; //ns8:GenerateDeliveryAcceptanceActResponse[1]/clientDocument[1]/@status}' )
+
+def out = new File(path+'Отчет по окружению - '+hostb2b+' - '+startDate.format("yyyy-MM-dd")+'.txt')
+
+		
+     if(response == "actual" ) { 
+          out <<  '\n'
+     	out <<  'OK generateDeliveryAcceptanceAct'
+     } else { 
+     	out <<  '\n'
+     	out <<  'FAILED generateDeliveryAcceptanceAct' 
+     def err = new File(path+'Проблемы окружения - '+hostb2b+' - '+startDate.format("yyyy-MM-dd")+'.txt')
+      err <<  '\n'
+      err <<  '----------------------------------------------------------------------'
+      err <<  '\n'
+      err <<  'FAILED generateDeliveryAcceptanceAct' 
+      err <<  '\n'
+      err <<  '\n'
+      err << resp
+      err <<  '\n'
+      err <<  '\n'
+      err <<  '----------------------------------------------------------------------'
+      
+     } ]]></script></con:config></con:testStep><con:testStep type="request" name="generateDetailBill" id="2c1a39c4-36fb-401a-a568-aa30f2c0b19d" disabled="true"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>DocumentGenerationServiceSOAPBinding</con:interface><con:operation>generateDetailBill</con:operation><con:request name="generateDetailBill" id="13970014-3ec5-4950-9387-865b83d304d4"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://${#TestCase#Node}.g4lab.com:8080/dgs-web/DocumentGenerationEndpoint</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:dgs="http://www.yota.ru/vox/b2b/domains/dgs">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <dgs:GenerateDetailBillRequest>
+         <beginDate>2016-11-01T00:00:00.000+03:00</beginDate>
+    <customerId>${getData2#Response#declare namespace ns2='http://www.yota.ru/vox/b2b/services/order'; //ns2:GetOrderByCriteriaResponse[1]/order[1]/billingAccount[1]}</customerId>
+        <endDate>2016-11-30T16:30:00.000+03:00</endDate>
+        <msisdn>79138892732</msisdn>
+       </dgs:GenerateDetailBillRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="groovy" name="checkGenerateDetailBill" disabled="true" id="b0cce23d-a999-418b-8e2f-6267954b5f4b"><con:settings/><con:config><script><![CDATA[def path = context.expand( '${#TestCase#Path}' )
+def response = context.expand( '${generateDetailBill#Response#declare namespace ns8=\'http://www.yota.ru/vox/b2b/domains/dgs\'; //ns8:GenerateDetailBillResponse[1]/clientDocument[1]/@status}' )
+def hostb2b = context.expand( '${#Project#host-b2b}' )
+def startDate = new Date() 
+def resp = context.expand( '${generateDetailBill#Response}' )
+def out = new File(path+'Отчет по окружению - '+hostb2b+' - '+startDate.format("yyyy-MM-dd")+'.txt')
+
+		
+     if(response == "actual" ) { 
+          out <<  '\n'
+     	out <<  'OK generateDetailBill'
+     } else { 
+     	out <<  '\n'
+     	out <<  'FAILED generateDetailBill' 
+     def err = new File(path+'Проблемы окружения - '+hostb2b+' - '+startDate.format("yyyy-MM-dd")+'.txt')
+      err <<  '\n'
+      err <<  '----------------------------------------------------------------------'
+      err <<  '\n'
+      err <<  'FAILED generateDetailBill' 
+      err <<  '\n'
+      err <<  '\n'
+      err << resp
+      err <<  '\n'
+      err <<  '\n'
+      err <<  '----------------------------------------------------------------------'
+      
+     } ]]></script></con:config></con:testStep><con:testStep type="request" name="getData3" id="7d16404e-ee1f-4394-9878-73c3c4d60be0"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>CorporateOrderManagementServiceSOAPBinding</con:interface><con:operation>getOrderByCriteria</con:operation><con:request name="getData3" id="c6a02966-baca-4610-b26d-38ed416c3980"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://${#Project#host-b2b}:8082/oms-web/OrderEndpoint</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ord="http://www.yota.ru/vox/b2b/services/order">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ord:GetOrderByCriteriaRequest>
+
+         
+         <orderId>10</orderId><orderType>agreement</orderType>
+      </ord:GetOrderByCriteriaRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="generateMNP" id="49455107-cfeb-47fa-9ee7-2fe303464362"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>DocumentGenerationServiceSOAPBinding</con:interface><con:operation>generateMNP</con:operation><con:request name="generateMNP" id="7ef3f51f-20fe-444c-87bc-8b24c6ec6829"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://${#Project#host-b2b}-jservice.g4lab.com:8080/dgs-web/DocumentGenerationEndpoint</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:dgs="http://www.yota.ru/vox/b2b/domains/dgs">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <dgs:GenerateMNPRequest>
+         <customerId>${getData3#Response#declare namespace ns2='http://www.yota.ru/vox/b2b/services/order'; //ns2:GetOrderByCriteriaResponse[1]/order[1]/customerId[1]}</customerId>
+         <donorOperatorName>rew</donorOperatorName>
+         <donorRsRegionName>O_77</donorRsRegionName>
+         <longProcess>false</longProcess>
+         <!--1 or more repetitions:-->
+         <msisdn>79811591122</msisdn><orderId>10</orderId>
+      </dgs:GenerateMNPRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="groovy" name="checkGenerateMNP" id="602c1750-2175-4b47-8e24-83ad4ce4b0d8"><con:settings/><con:config><script><![CDATA[def path = context.expand( '${#TestCase#Path}' )
+def hostb2b = context.expand( '${#Project#host-b2b}' )
+def startDate = new Date() 
+def resp = context.expand( '${generateMNP#Response}' )
+def response = context.expand( '${generateMNP#Response#declare namespace ns8=\'http://www.yota.ru/vox/b2b/domains/dgs\'; //ns8:GenerateMNPResponse[1]/clientDocument[1]/@status}' )
+
+def out = new File(path+'Отчет по окружению - '+hostb2b+' - '+startDate.format("yyyy-MM-dd")+'.txt')
+
+		
+     if(response == "actual" ) { 
+          out <<  '\n'
+     	out <<  'OK generateMNP'
+     } else { 
+     	out <<  '\n'
+     	out <<  'FAILED generateMNP' 
+     def err = new File(path+'Проблемы окружения - '+hostb2b+' - '+startDate.format("yyyy-MM-dd")+'.txt')
+      err <<  '\n'
+      err <<  '----------------------------------------------------------------------'
+      err <<  '\n'
+      err <<  'FAILED generateMNP' 
+      err <<  '\n'
+      err <<  '\n'
+      err << resp
+      err <<  '\n'
+      err <<  '\n'
+      err <<  '----------------------------------------------------------------------'
+      
+     } ]]></script></con:config></con:testStep><con:testStep type="request" name="generateMNPByAgreement" id="d162181d-f5c0-4f5f-ac64-be9e8686659f"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>DocumentGenerationServiceSOAPBinding</con:interface><con:operation>generateMNPByAgreement</con:operation><con:request name="generateMNPByAgreement" id="76443f15-347c-4382-b915-c8712eb8d141"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://${#Project#host-b2b}-jservice.g4lab.com:8080/dgs-web/DocumentGenerationEndpoint</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:dgs="http://www.yota.ru/vox/b2b/domains/dgs">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <dgs:GenerateMNPByAgreementRequest>
+         <orderId>2</orderId>
+      </dgs:GenerateMNPByAgreementRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="groovy" name="checkGenerateMNPByAgreement" id="33fc733e-9a17-41c0-bf57-52ae0a802d8f"><con:settings/><con:config><script><![CDATA[def path = context.expand( '${#TestCase#Path}' )
+def hostb2b = context.expand( '${#Project#host-b2b}' )
+def startDate = new Date() 
+def resp = context.expand( '${generateMNPByAgreement#Response}' )
+def response = context.expand( '${generateMNPByAgreement#Response#declare namespace ns8=\'http://www.yota.ru/vox/b2b/domains/dgs\'; //ns8:GenerateMNPByAgreementResponse[1]/documents[1]/@status}' )
+def out = new File(path+'Отчет по окружению - '+hostb2b+' - '+startDate.format("yyyy-MM-dd")+'.txt')
+
+		
+     if(response == "actual" ) { 
+          out <<  '\n'
+     	out <<  'OK generateMNPByAgreement'
+     } else { 
+     	out <<  '\n'
+     	out <<  'FAILED generateMNPByAgreement' 
+     def err = new File(path+'Проблемы окружения - '+hostb2b+' - '+startDate.format("yyyy-MM-dd")+'.txt')
+      err <<  '\n'
+      err <<  '----------------------------------------------------------------------'
+      err <<  '\n'
+      err <<  'FAILED generateMNPByAgreement' 
+      err <<  '\n'
+      err <<  '\n'
+      err << resp
+      err <<  '\n'
+      err <<  '\n'
+      err <<  '----------------------------------------------------------------------'
+      
+     } ]]></script></con:config></con:testStep><con:testStep type="request" name="generatePrepayBill" id="5d2be1a6-fd33-425b-bd6b-e8d13029ee86"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>DocumentGenerationServiceSOAPBinding</con:interface><con:operation>generatePrepayBill</con:operation><con:request name="generatePrepayBill" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="b460c377-e231-4efb-8823-4f812d2eef54"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://${#Project#host-b2b}-jservice.g4lab.com:8080/dgs-web/DocumentGenerationEndpoint</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:dgs="http://www.yota.ru/vox/b2b/domains/dgs" xmlns:core="http://www.yota.ru/vox/domains/common/core">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <dgs:GeneratePrepayBillRequest>
+         <amount currencyCode="RUR">
+            <core:amount>10000000</core:amount>
+         </amount>
+         <customerId>20f773205e5040488accac5a32f70734</customerId>
+      </dgs:GeneratePrepayBillRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.yota.ru/vox/services/b2b/wsdl/DocumentGeneration/GeneratePrepayBill"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="groovy" name="checkGeneratePrepayBill" id="d3f75b38-1c81-44f9-aee5-9c924439c9cd"><con:settings/><con:config><script><![CDATA[def path = context.expand( '${#TestCase#Path}' )
+def hostb2b = context.expand( '${#Project#host-b2b}' )
+def startDate = new Date() 
+def resp = context.expand( '${generatePrepayBill#Response}' )
+def response = context.expand( '${generatePrepayBill#Response#declare namespace ns8=\'http://www.yota.ru/vox/b2b/domains/dgs\'; //ns8:GeneratePrepayBillResponse[1]/clientDocument[1]/@status}' )
+def out = new File(path+'Отчет по окружению - '+hostb2b+' - '+startDate.format("yyyy-MM-dd")+'.txt')
+
+		
+     if(response == "actual" ) { 
+          out <<  '\n'
+     	out <<  'OK generatePrepayBill'
+     } else { 
+     	out <<  '\n'
+     	out <<  'FAILED generatePrepayBill' 
+     def err = new File(path+'Проблемы окружения - '+hostb2b+' - '+startDate.format("yyyy-MM-dd")+'.txt')
+      err <<  '\n'
+      err <<  '----------------------------------------------------------------------'
+      err <<  '\n'
+      err <<  'FAILED generatePrepayBill' 
+      err <<  '\n'
+      err <<  '\n'
+      err << resp
+      err <<  '\n'
+      err <<  '\n'
+      err <<  '----------------------------------------------------------------------'
+      
+     } ]]></script></con:config></con:testStep><con:testStep type="request" name="generateSimReceivingInstruction" id="d77e0afe-4884-4d74-a987-a78c21cab85b"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>DocumentGenerationServiceSOAPBinding</con:interface><con:operation>generateSimReceivingInstruction</con:operation><con:request name="generateSimReceivingInstruction" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="63e999d1-1d07-48c7-bb39-947d52ceb06d"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://${#Project#host-b2b}-jservice.g4lab.com:8080/dgs-web/DocumentGenerationEndpoint</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:dgs="http://www.yota.ru/vox/b2b/domains/dgs">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <dgs:GenerateSimReceivingInstructionRequest>
+         <orderId>${getData#Response#declare namespace ns2='http://www.yota.ru/vox/b2b/services/order'; //ns2:GetOrderByCriteriaResponse[1]/order[80]/orderId[1]}</orderId>
+      </dgs:GenerateSimReceivingInstructionRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.yota.ru/vox/services/b2b/wsdl/DocumentGeneration/GenerateSimReceivingInstruction"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="groovy" name="checkGenerateSimReceivingInstruction" id="b2ce14e3-f3af-4cc6-a42f-381695074fd1"><con:settings/><con:config><script><![CDATA[def path = context.expand( '${#TestCase#Path}' )
+def hostb2b = context.expand( '${#Project#host-b2b}' )
+def startDate = new Date() 
+def resp = context.expand( '${generateSimReceivingInstruction#Response}' )
+def response = context.expand( '${generateSimReceivingInstruction#Response#declare namespace ns8=\'http://www.yota.ru/vox/b2b/domains/dgs\'; //ns8:GenerateSimReceivingInstructionResponse[1]/clientDocument[1]/@status}' )
+def out = new File(path+'Отчет по окружению - '+hostb2b+' - '+startDate.format("yyyy-MM-dd")+'.txt')
+
+		
+     if(response == "actual" ) { 
+          out <<  '\n'
+     	out <<  'OK generateSimReceivingInstruction'
+     } else { 
+     	out <<  '\n'
+     	out <<  'FAILED generateSimReceivingInstruction' 
+     def err = new File(path+'Проблемы окружения - '+hostb2b+' - '+startDate.format("yyyy-MM-dd")+'.txt')
+      err <<  '\n'
+      err <<  '----------------------------------------------------------------------'
+      err <<  '\n'
+      err <<  'FAILED generateSimReceivingInstruction' 
+      err <<  '\n'
+      err <<  '\n'
+      err << resp
+      err <<  '\n'
+      err <<  '\n'
+      err <<  '----------------------------------------------------------------------'
+      
+     } ]]></script></con:config></con:testStep><con:testStep type="request" name="searchAndJoinDocuments" id="6c502b6a-1709-4c2e-beeb-29132beb7d22"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>DocumentGenerationServiceSOAPBinding</con:interface><con:operation>searchAndJoinDocuments</con:operation><con:request name="searchAndJoinDocuments" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="dbd445c3-f803-43da-88a4-3925949dffec"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://${#Project#host-b2b}-jservice.g4lab.com:8080/dgs-web/DocumentGenerationEndpoint</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:dgs="http://www.yota.ru/vox/b2b/domains/dgs">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <dgs:SearchAndJoinDocumentsRequest>
+
+               <billingAccount>${getData2#Response#declare namespace ns2='http://www.yota.ru/vox/b2b/services/order'; //ns2:GetOrderByCriteriaResponse[1]/order[1]/billingAccount[1]}</billingAccount><type>simInstruction</type></dgs:SearchAndJoinDocumentsRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.yota.ru/vox/services/b2b/wsdl/DocumentGeneration/SearchAndJoinDocuments"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="groovy" name="checkSearchAndJoinDocuments" id="e38f1eb1-105e-43b0-95b9-97454f517173"><con:settings/><con:config><script><![CDATA[def path = context.expand( '${#TestCase#Path}' )
+def hostb2b = context.expand( '${#Project#host-b2b}' )
+def startDate = new Date() 
+def resp = context.expand( '${searchAndJoinDocuments#Response}' )
+def response = context.expand( '${searchAndJoinDocuments#Response#declare namespace ns8=\'http://www.yota.ru/vox/b2b/domains/dgs\'; //ns8:SearchAndJoinDocumentsResponse[1]/document[1]/@status}' )
+def out = new File(path+'Отчет по окружению - '+hostb2b+' - '+startDate.format("yyyy-MM-dd")+'.txt')
+
+		
+     if(response == "actual" ) { 
+          out <<  '\n'
+     	out <<  'OK searchAndJoinDocuments'
+     } else { 
+     	out <<  '\n'
+     	out <<  'FAILED searchAndJoinDocuments' 
+     def err = new File(path+'Проблемы окружения - '+hostb2b+' - '+startDate.format("yyyy-MM-dd")+'.txt')
+      err <<  '\n'
+      err <<  '----------------------------------------------------------------------'
+      err <<  '\n'
+      err <<  'FAILED searchAndJoinDocuments' 
+      err <<  '\n'
+      err <<  '\n'
+      err << resp
+      err <<  '\n'
+      err <<  '\n'
+      err <<  '----------------------------------------------------------------------'
+      
+     } ]]></script></con:config></con:testStep><con:testStep type="request" name="generateAllDocument4Agreement" id="2ef99bce-9fb4-4d2f-ad28-7b76178ad4af"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>DocumentGenerationServiceSOAPBinding</con:interface><con:operation>generateAllDocument4Agreement</con:operation><con:request name="generateAllDocument4Agreement" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="2606e944-abcc-41e9-a215-0935ca7ba67c"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://${#Project#host-b2b}-jservice.g4lab.com:8080/dgs-web/DocumentGenerationEndpoint</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:dgs="http://www.yota.ru/vox/b2b/domains/dgs">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <dgs:GenerateAllDocument4AgreementRequest>
+         <orderId>${getData#Response#declare namespace ns2='http://www.yota.ru/vox/b2b/services/order'; //ns2:GetOrderByCriteriaResponse[1]/order[80]/orderId[1]}</orderId>
+      </dgs:GenerateAllDocument4AgreementRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.yota.ru/vox/services/b2b/wsdl/DocumentGeneration/GenerateAllDocument4Agreement"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="groovy" name="checkGenerateAllDocument4Agreement" id="c9a745b9-e8db-41d3-9ffb-fdd7d0032e0d"><con:settings/><con:config><script><![CDATA[def response = context.expand( '${generateAllDocument4Agreement#Response#declare namespace ns8=\'http://www.yota.ru/vox/b2b/domains/dgs\'; //ns8:GenerateAllDocument4AgreementResponse[1]/document[1]/@status}' )
+def path = context.expand( '${#TestCase#Path}' )
+def hostb2b = context.expand( '${#Project#host-b2b}' )
+def startDate = new Date() 
+def resp = context.expand( '${generateAllDocument4Agreement#Response}' )
+def out = new File(path+'Отчет по окружению - '+hostb2b+' - '+startDate.format("yyyy-MM-dd")+'.txt')
+
+		
+     if(response == "actual" ) { 
+          out <<  '\n'
+     	out <<  'OK generateAllDocument4Agreement'
+     	out <<  '\n'
+     	out <<  '\n'
+     	out <<  '-----------------------------------------------------'
+     	out <<  '\n'
+     } else { 
+     	out <<  '\n'
+     	out <<  'FAILED generateAllDocument4Agreement' 
+     	out <<  '\n'
+     	out <<  '\n'
+     	out <<  '-----------------------------------------------------'
+     	out <<  '\n'
+     def err = new File(path+'Проблемы окружения - '+hostb2b+' - '+startDate.format("yyyy-MM-dd")+'.txt')
+      err <<  '\n'
+      err <<  '----------------------------------------------------------------------'
+      err <<  '\n'
+      err <<  'FAILED generateAllDocument4Agreement' 
+      err <<  '\n'
+      err <<  '\n'
+      err << resp
+      err <<  '\n'
+      err <<  '\n'
+      err <<  '----------------------------------------------------------------------'
+      
+     } ]]></script></con:config></con:testStep><con:properties><con:property><con:name>Path</con:name><con:value>C:\</con:value></con:property></con:properties><con:reportParameters/><con:breakPoints><con:testStepId>152591f4-5384-45a7-89b6-e37485ca047c</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>99fe7299-4266-4a38-9f60-33cdea6e1dd0</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>886e1d2b-06ff-46d7-8cc3-418478011328</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>f03f9dc7-a7ca-4a87-ad1f-bbaa0273e059</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>e8b102ae-2bf3-4152-ac77-fb46264adede</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>2c1a39c4-36fb-401a-a568-aa30f2c0b19d</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>d162181d-f5c0-4f5f-ac64-be9e8686659f</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>7d16404e-ee1f-4394-9878-73c3c4d60be0</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>d3f75b38-1c81-44f9-aee5-9c924439c9cd</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>b2ce14e3-f3af-4cc6-a42f-381695074fd1</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>e38f1eb1-105e-43b0-95b9-97454f517173</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>c9a745b9-e8db-41d3-9ffb-fdd7d0032e0d</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints></con:testCase>

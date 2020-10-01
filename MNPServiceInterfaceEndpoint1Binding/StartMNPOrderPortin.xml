@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation isOneWay="false" action="http://www.yota.ru/vox/services/wsdl/MNPService/StartMNPOrderPortin" name="StartMNPOrderPortin" bindingOperationName="StartMNPOrderPortin" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="ea98ab36-d3eb-4383-819d-674a4d4086b2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="ea98ab36-d3eb-4383-819d-674a4d4086b2fileName">StartMNPOrderPortin</con:setting></con:settings><con:call name="Request 1" id="77eb36c6-c0cf-41d9-800c-76cdf39cda10"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8319/MNPService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:mnp="http://www.yota.ru/vox/services/mnpService" xmlns:core="http://www.yota.ru/vox/domains/common/core">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <mnp:StartMNPOrderPortinRequest>
+         <mnpOrder>
+            <!--Optional:-->
+            <orderId>?</orderId>
+            <!--Optional:-->
+            <customerId>
+               <key>?</key>
+               <value>?</value>
+            </customerId>
+            <!--Optional:-->
+            <iccid>?</iccid>
+            <mnpDirection>?</mnpDirection>
+            <!--Optional:-->
+            <mnpCancelationCode>?</mnpCancelationCode>
+            <!--Optional:-->
+            <portableNumber>?</portableNumber>
+            <!--Optional:-->
+            <region>?</region>
+            <!--Optional:-->
+            <serviceStartDate>?</serviceStartDate>
+            <!--Optional:-->
+            <mnpState>?</mnpState>
+            <!--Optional:-->
+            <serviceProvider>?</serviceProvider>
+            <!--Zero or more repetitions:-->
+            <agreements customerId="?" hid="?">
+               <refId>?</refId>
+               <agreementType>?</agreementType>
+               <agreementStatus>?</agreementStatus>
+               <!--Optional:-->
+               <iccid>?</iccid>
+               <!--Optional:-->
+               <msisdn>?</msisdn>
+               <!--Zero or more repetitions:-->
+               <serviceNumberDetails>
+                  <!--Optional:-->
+                  <iccid>?</iccid>
+                  <!--Optional:-->
+                  <msisdn>?</msisdn>
+               </serviceNumberDetails>
+               <!--Optional:-->
+               <region>?</region>
+               <!--Optional:-->
+               <timezone>?</timezone>
+               <created>?</created>
+               <!--Optional:-->
+               <signed>?</signed>
+               <!--Optional:-->
+               <serviceStartDate>?</serviceStartDate>
+               <!--Optional:-->
+               <livingPeriod>
+                  <fromDate>?</fromDate>
+                  <!--Optional:-->
+                  <untilTo>?</untilTo>
+               </livingPeriod>
+               <!--Zero or more repetitions:-->
+               <subscriberData customerId="?" hid="?">
+                  <created>?</created>
+                  <!--Optional:-->
+                  <livingPeriod>
+                     <fromDate>?</fromDate>
+                     <!--Optional:-->
+                     <untilTo>?</untilTo>
+                  </livingPeriod>
+                  <!--Zero or more repetitions:-->
+                  <subscriberProperties name="?">
+                     <core:value>?</core:value>
+                  </subscriberProperties>
+               </subscriberData>
+               <!--Zero or more repetitions:-->
+               <agreementProperties name="?">
+                  <core:value>?</core:value>
+               </agreementProperties>
+               <!--Zero or more repetitions:-->
+               <agreementScanRef>
+                  <scanRefValue>?</scanRefValue>
+                  <scanRefType>?</scanRefType>
+               </agreementScanRef>
+            </agreements>
+            <scanRef>?</scanRef>
+            <!--Optional:-->
+            <timezone>?</timezone>
+            <!--Optional:-->
+            <externalOrderId>?</externalOrderId>
+            <!--Optional:-->
+            <manualMode>?</manualMode>
+            <!--Optional:-->
+            <mnpPrevState>?</mnpPrevState>
+            <!--Optional:-->
+            <comment>?</comment>
+            <!--Optional:-->
+            <mnpType>?</mnpType>
+            <!--Optional:-->
+            <b2bPersonalData>
+               <administratorPhone>?</administratorPhone>
+               <corporateName>?</corporateName>
+               <inn>?</inn>
+            </b2bPersonalData>
+            <!--Optional:-->
+            <destOfferCode>?</destOfferCode>
+            <!--Zero or more repetitions:-->
+            <destOfferOptions>?</destOfferOptions>
+            <!--Optional:-->
+            <hideOrderInSC>?</hideOrderInSC>
+            <!--Optional:-->
+            <ownerName>?</ownerName>
+         </mnpOrder>
+         <signedDate>?</signedDate>
+      </mnp:StartMNPOrderPortinRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.yota.ru/vox/services/wsdl/MNPService/StartMNPOrderPortin"/></con:call></con:operation>

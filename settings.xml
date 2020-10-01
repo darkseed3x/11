@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project activeEnvironment="Default environment" name="B2B" resourceRoot="" soapui-version="5.1.2" id="c6576cbd-5e03-4c7a-b6ba-76acf2207ada" abortOnError="false" runType="SEQUENTIAL" defaultScriptLanguage="Groovy" encryptionMode="Not encrypted" compositeProjectFormat="1.3" updated="2.7.0" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.actions.iface.tools.soapui.ProTestRunnerAction@values-local"><![CDATA[<xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  <con:entry key="Environment" value="Default"/>
+  <con:entry key="Global Properties" value=""/>
+  <con:entry key="TestSuite" value="Создание абонента с активированными SIM"/>
+  <con:entry key="Password" value=""/>
+  <con:entry key="TestRunner Path" value=""/>
+  <con:entry key="Tool Args" value=""/>
+  <con:entry key="Ignore Errors" value="false"/>
+  <con:entry key="Host:Port" value=""/>
+  <con:entry key="user-settings.xml Password" value=""/>
+  <con:entry key="WSS Password Type" value=""/>
+  <con:entry key="Save Project" value="false"/>
+  <con:entry key="Enable UI" value="false"/>
+  <con:entry key="System Properties" value=""/>
+  <con:entry key="Domain" value=""/>
+  <con:entry key="Coverage Report" value="false"/>
+  <con:entry key="Export JUnit Results" value="false"/>
+  <con:entry key="Open Report" value="false"/>
+  <con:entry key="Project Properties" value=""/>
+  <con:entry key="Export All" value="false"/>
+  <con:entry key="Project Password" value=""/>
+  <con:entry key="Report Format(s)" value=""/>
+  <con:entry key="TestCase" value="Test"/>
+  <con:entry key="Print Report" value="false"/>
+  <con:entry key="Username" value=""/>
+  <con:entry key="Root Folder" value=""/>
+  <con:entry key="Save After" value="false"/>
+  <con:entry key="Add Settings" value="false"/>
+  <con:entry key="Endpoint" value=""/>
+  <con:entry key="Select Report Type" value="TestSuite Report"/>
+</xml-fragment>]]></con:setting></con:settings><con:savedRecentRuns>1</con:savedRecentRuns><con:requirements/><con:properties><con:property><con:name>host-b2b</con:name><con:value>perf-b2b-ainst1.scartel.dc</con:value></con:property><con:property><con:name>host-b2b-rest</con:name><con:value>perf-b2b-ainst1.scartel.dc</con:value></con:property><con:property><con:name>selfcare</con:name><con:value>ft1-b2b-lk3.scartel.dc</con:value></con:property><con:property><con:name>!-------------------------------------------</con:name><con:value>----------------------------------------------!</con:value></con:property><con:property><con:name>host-b2c</con:name><con:value>oxford</con:value></con:property><con:property><con:name>CBOSS_ENV</con:name><con:value>SCART_API_P</con:value></con:property><con:property><con:name>pcrf</con:name><con:value>pcrf-api</con:value></con:property><con:property><con:name>pcrfHost</con:name><con:value>pcrf-api.g4lab.com</con:value></con:property><con:property><con:name>billapi</con:name><con:value>ft2-bil-api.g4lab.com</con:value></con:property><con:property><con:name>pm_api</con:name><con:value>ft2-pm-api.g4lab.com</con:value></con:property><con:property><con:name>cbossDBHost</con:name><con:value>test-bill-db2.scartel.dc</con:value></con:property><con:property><con:name>cbossDBPort</con:name><con:value>1521/billdev.scartel.dc</con:value></con:property><con:property><con:name>cbossDBPassword</con:name><con:value>billorapwd</con:value></con:property><con:property><con:name>=====================================</con:name><con:value>=========================================</con:value></con:property><con:property><con:name>configPath</con:name><con:value>${projectDir}\..\config.properties</con:value></con:property><con:property><con:name>helperDBPort</con:name><con:value>1521/helperdb.scartel.dc</con:value></con:property><con:property><con:name>helperDBPassword</con:name><con:value>devqadbpwd</con:value></con:property><con:property><con:name>helperDBHost</con:name><con:value>test-rac-scan.scartel.dc</con:value></con:property><con:property><con:name>lactac</con:name><con:value>250025000</con:value></con:property><con:property><con:name>PLMN</con:name><con:value>25002</con:value></con:property><con:property><con:name>tac</con:name><con:value>5000</con:value></con:property><con:property><con:name>region</con:name><con:value>O_78</con:value></con:property><con:property><con:name>boaMockPort</con:name><con:value>9920</con:value></con:property><con:property><con:name>pcrfMockPort</con:name><con:value>9921</con:value></con:property><con:property><con:name>boaMockHost</con:name><con:value>helper.scartel.dc</con:value></con:property><con:property><con:name>pcrfMockHost</con:name><con:value>helper.scartel.dc</con:value></con:property><con:property><con:name>customerId</con:name><con:value>b31de69785e54650b8d2aa3090f8f348</con:value></con:property></con:properties><con:wssContainer/><con:databaseConnectionContainer><con:databaseConnection><con:name>БД СИБОСА</con:name><con:driver>11</con:driver><con:connectionString>jdbc:oracle:thin:SCART_LOAD_P/PASS_VALUE@//spb-bill-load.g4lab.com:1521/billdbload.g4lab.com</con:connectionString><con:password>billorapwd</con:password><con:connectionProperties/></con:databaseConnection></con:databaseConnectionContainer><con:jmsConnectionContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/><con:sensitiveInformation/><con:authRepository/><con:tags/></con:soapui-project>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation isOneWay="false" action="http://www.yota.ru/vox/services/b2b/wsdl/ArchivatorDocumentManagement/CreateDocumentArchive" name="createDocumentArchive" bindingOperationName="createDocumentArchive" type="Request-Response" outputName="CreateDocumentArchiveOut" inputName="CreateDocumentArchiveIn" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="2cade96d-0111-474e-b14b-615ce3d5a493" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="2cade96d-0111-474e-b14b-615ce3d5a493fileName">createDocumentArchive</con:setting></con:settings><con:call name="Request 1" id="21407609-c2ab-4012-a150-c2760a33ca2c"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://b2btst-js1.g4lab.com:8085/adms-web/ArchivatorDocumentManagementEndpoint</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:doc="http://www.yota.ru/vox/b2b/services/docArchivator">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <doc:CreateDocumentArchiveRequest>
+         <billingAccount>11220021684323</billingAccount>
+         <customerId>f154544994d04050b5c70026c6db47cf</customerId>
+         <documents status="actual">
+            <billingAccount>11220021684323</billingAccount>
+            <customerId>f154544994d04050b5c70026c6db47cf</customerId>
+            <fileName>agreement.pdf</fileName>
+            <MIMEType>application/pdf</MIMEType>
+            <id>539819</id>
+            <sourceReference>315377</sourceReference>
+            <type>acceptanceAct</type>
+            <title>Договор №11220021684323 от 25.11.19</title>
+            <URI>http://test-docstore.g4lab.com:8080/public/document_upload/201911/agreement/11220021684323e41bc963e90e471fb7418fae528ff284.pdf</URI>
+         </documents>
+         <resultFileName>agreement.pdf</resultFileName>
+      </doc:CreateDocumentArchiveRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.yota.ru/vox/services/b2b/wsdl/ArchivatorDocumentManagement/CreateDocumentArchive"/><con:wsrmConfig version="1.2"/></con:call></con:operation>

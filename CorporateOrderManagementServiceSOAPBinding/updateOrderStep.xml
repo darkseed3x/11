@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation isOneWay="false" action="http://www.yota.ru/vox/services/b2b/wsdl/CorporateOrderManagement/UpdateOrderStep" name="updateOrderStep" bindingOperationName="updateOrderStep" type="Request-Response" outputName="UpdateOrderStepOut" inputName="UpdateOrderStepIn" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="03d2e79a-3c29-422e-a12d-d24b72a0ba49" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="03d2e79a-3c29-422e-a12d-d24b72a0ba49fileName">updateOrderStep</con:setting></con:settings><con:call name="Request 1" id="b86504b6-5f00-4273-850a-1875f161402a"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://ft1-b2b-ainst1.scartel.dc:8082/oms-web/OrderEndpoint</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ord="http://www.yota.ru/vox/b2b/services/order">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ord:UpdateOrderStepRequest step="?">
+         <orderId>?</orderId>
+      </ord:UpdateOrderStepRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.yota.ru/vox/services/b2b/wsdl/CorporateOrderManagement/UpdateOrderStep"/></con:call></con:operation>

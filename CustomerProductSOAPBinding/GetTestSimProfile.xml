@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation isOneWay="false" action="http://www.yota.ru/vox/services/wsdl/CustomerProduct/GetTestSimProfile" name="GetTestSimProfile" bindingOperationName="GetTestSimProfile" type="Request-Response" outputName="GetTestSimProfileOut" inputName="GetTestSimProfileIn" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="c7d8e560-3994-4bef-a9bc-2f6376c95a35" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="c7d8e560-3994-4bef-a9bc-2f6376c95a35fileName">GetTestSimProfile</con:setting></con:settings><con:call name="Request 1" id="1f052d58-b726-4e15-8722-32bc537331f9"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.78.209.200:8382/customer-product-ejb/CustomerProduct/CustomerProductServiceBean</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cus="http://www.yota.ru/vox/services/customerProduct" xmlns:core="http://www.roox.ru/products/common/core">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <cus:GetTestSimProfileRequest>
+         <!--Optional:-->
+         <core:extension>
+            <!--Zero or more repetitions:-->
+            <core:item>?</core:item>
+         </core:extension>
+         <imsi>
+            <key>?</key>
+            <type>?</type>
+         </imsi>
+      </cus:GetTestSimProfileRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.yota.ru/vox/services/wsdl/CustomerProduct/GetTestSimProfile"/></con:call></con:operation>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation isOneWay="false" action="http://www.yota.ru/vox/services/b2b/wsdl/CustomerAccount/GetSimType" name="getSimType" bindingOperationName="getSimType" type="Request-Response" inputName="GetSimTypeIn" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="bf80ff9c-1fbd-4d45-80d3-a7ce755dc761" outputName="GetSimTypeOut" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="bf80ff9c-1fbd-4d45-80d3-a7ce755dc761fileName">getSimType</con:setting></con:settings><con:call name="Request 1" id="dd56bde4-b0dd-431f-be8e-6f12ad3552e8"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://${#Project#host-b2b}-esb1.g4lab.com:8315/CustomerAccountManagementService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cus="http://www.yota.ru/vox/b2b/services/customerAccount" xmlns:core="http://www.roox.ru/products/common/core">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <cus:GetSimTypeRequest>
+         <!--Optional:-->
+         <core:extension>
+            <!--Zero or more repetitions:-->
+            <core:item>?</core:item>
+         </core:extension>
+         <!--You have a CHOICE of the next 2 items at this level-->
+         <!--Optional:-->
+         <imsi>
+            <key>?</key>
+            <type>?</type>
+         </imsi>
+         <!--Optional:-->
+         <simSpecCode>?</simSpecCode>
+      </cus:GetSimTypeRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.yota.ru/vox/services/b2b/wsdl/CustomerAccount/GetSimType"/></con:call></con:operation>
